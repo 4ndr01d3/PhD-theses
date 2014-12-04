@@ -1,0 +1,48 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Goble and Stevens(2008)]{GOB2008}
+Carole Goble and Robert Stevens.
+\newblock State of the nation in data integration for bioinformatics.
+\newblock \emph{Journal of Biomedical Informatics}, 41\penalty0 (5):\penalty0
+  687 -- 693, 2008.
+\newblock ISSN 1532-0464.
+\newblock \doi{DOI: 10.1016/j.jbi.2008.01.008}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/B6WHD-4RS43MK-5/2/ab521e38479b012d688a645191bfa1c6}.
+\newblock Semantic Mashup of Biomedical Data.
+
+\bibitem[Jenkinson et~al.(2008)Jenkinson, Albrecht, Birney, Blankenburg, Down,
+  Finn, Hermjakob, Hubbard, Jimenez, Jones, Kahari, Kulesha, Macias, Reeves,
+  and Prlic]{JEN2008}
+Andrew Jenkinson, Mario Albrecht, Ewan Birney, Hagen Blankenburg, Thomas Down,
+  Robert Finn, Henning Hermjakob, Tim Hubbard, Rafael Jimenez, Philip Jones,
+  Andreas Kahari, Eugene Kulesha, Jose Macias, Gabrielle Reeves, and Andreas
+  Prlic.
+\newblock Integrating biological data - the distributed annotation system.
+\newblock \emph{BMC Bioinformatics}, 9\penalty0 (Suppl 8):\penalty0 S3, 2008.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-9-S8-S3}.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/9/S8/S3}.
+
+\bibitem[Villaveces et~al.(2011)Villaveces, Jimenez, Garcia, Salazar, Gel,
+  Mulder, Martin, Garcia, and Hermjakob]{VIL2011}
+Jose Villaveces, Rafael~C. Jimenez, Leyla Garcia, Gustavo~A. Salazar, Bernat
+  Gel, Nicola Mulder, Maria Martin, Alexander Garcia, and Henning Hermjakob.
+\newblock Dasty3, a web framework for das.
+\newblock In press, 2011.
+
+\bibitem[Zhang et~al.(2011)Zhang, Bajic, Yu, Cheung, and Townsend]{ZHA2011b}
+Zhang Zhang, Vladimir~B. Bajic, Jun Yu, Kei-Hoi Cheung, and Jeffrey~P.
+  Townsend.
+\newblock \emph{Trends and Methodologies}, chapter 2. Data Integration in
+  Bioinformatics: Current Efforts and Challenges, Bioinformatics.
+\newblock Intech, November 2011.
+\newblock URL
+  \url{http://www.intechopen.com/books/bioinformatics-trends-and-methodologies/data-integration-in-bioinformatics-current-efforts-and-challenges}.
+
+\end{thebibliography}

@@ -1,0 +1,39 @@
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+
+\documentclass{harvard-thesis}
+
+\begin{document}
+
+\setcounter{tocdepth}{3}
+% the front matter
+\input{frontmatter/coverpage}
+\maketitle 			%frontmatter/coverpage.tex
+\copyrightpage
+\abstractpage		%frontmatter/abstract.tex
+\tableofcontents
+%\authorlist
+\listoffigures
+\dedicationpage	%frontmatter/dedication.tex
+\acknowledgments 	%frontmatter/thanks.tex
+
+\onehalfspacing
+
+% incluude each chapter...
+\include{chapters/ch1_Introduction}
+\include{chapters/ch2_Integration}
+\include{chapters/ch3_Visualization}
+\include{chapters/ch4_conclusions}
+
+\singlespacing
+
+% the back matter
+\clearpage
+\addcontentsline{toc}{chapter}{References}
+\bibliography{references}
+\bibliographystyle{plainnat}
+%\include{endmatter/colophon}
+
+\end{document}

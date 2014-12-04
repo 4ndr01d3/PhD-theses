@@ -1,0 +1,12 @@
+
+.thesis.log
+thesis.pdf
+endmatter/colophon.aux
+*.log
+thesis.lof
+*.aux
+thesis.synctex.gz
+thesis.blg
+thesis.out
+thesis.toc
+thesis.pdfsync
