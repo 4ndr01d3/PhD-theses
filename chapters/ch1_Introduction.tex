@@ -22,18 +22,35 @@ This project explores both, Integration and visualisation of information in bioi
 \subsection{State of the art}
 The approaches to integrate data in bioinformatics are themselves heterogenous and focused on different types of integration, from simply linking resources to development of complex structures of aggregated information. In \cite{GOB2008} the authors categorise the different techniques used to integrate data in bioinformatics into 8 approaches, and then this categories were reorganised in \cite{ZHA2011b} into:
 \begin{description}
-\item[Data warehousing:] 			A centralised repository were the information from different sources is copied and processed to be kept  in a single place. providing a single access point to their data. However the preprocessing of the data is usually a complex process and the posterior additions or editions require lots of work.
-\item[Federated databasing:] 		Multiple sources agree to follow a similar structure in order to allow an standard query over several instances. By dealing with smaller datasets than the data warehousing approach the complexity of post-processing is simplified, however it requires that the providers deal with the extra work of maintaining their data as the federated database agreement stablished.
-\item[Service oriente integration:] 	Definition of a protocol for requests and responses to obtain data or execute services. The 2 standards widely used are SOAP (Simple Object Access Protocol) services and REST (REpresentational State Transfer) services, where the latter is getting momentum because of its simplicity. However this also requires big commitment from providers about creating and maintaining the services, and also increasing and maintaining the specifications fro the different domains.
-\item[Semantic integration:] 		Structure the data using semantic web standards(e.g. RDF, OWL) in order to make it ``machine-readable'' and be able to deduce meaningful associations. The conversion of the data into RDF files might not be a trivial work, and it has similar problems to the one mentioned above because it maintains copies of the information in a separate format, 
+\item[Data warehousing:] 			A centralised repository were the information from different sources is copied and processed to be kept  in a single place. providing a single access point to their data. However the preprocessing of the data is usually a complex process and the posterior additions or editions might require a lot of work.
+\item[Federated databasing:] 		Multiple sources agree to follow a similar structure in order to allow a standard query over several instances. By dealing with smaller datasets than the data warehousing approach the complexity of post-processing is simplified, however it requires that the providers deal with the extra work of maintaining their data as the federated database agreement stablishes.
+\item[Service oriente integration:] 	Definition of a protocol for requests and responses to obtain data or execute services. The 2 standards widely used are SOAP (Simple Object Access Protocol) services and REST (REpresentational State Transfer) services, where the latter is getting momentum because of its simplicity. However this also requires big commitment from providers about creating and maintaining the services, and also increasing and maintaining the specifications for the different domains.
+\item[Semantic integration:] 		Structures the data using semantic web standards(e.g. RDF, OWL) in order to make it ``machine-readable'' and be able to deduce meaningful associations. The conversion of the data into RDF files might not be a trivial work, and it has similar problems to the one mentioned above because it maintains copies of the information in a separate format. 
 \item[Wiki-based integration:] 		Cooperative effort where the community inputs information in a open and unstructured way, which can reach a highly reliable status as has been shown by the wikipedia case, but is completely dependent on the adoption of the community, and also given the unstructured nature of the data is hard to manipulate for automatic analysis.
 \end{description}
 
-we now present some of the most representative projects that have attempted to integrate data and offer a solution for this need in the bioinformatics field, by using one or more of the mentioned approaches. 
+We now present some of the most representative projects that have attempted to integrate data and offer a solution for this need in the bioinformatics field, by using one or more of the mentioned approaches. 
 
 %\section{Current Projects for Data Integration in Bioinformatics}
-\subsubsection{Atlas}
-info
+\subsubsection{BioWarehouse}
+BioWarehouse is an open source toolkit to create data warehouses using MySQL or Oracle \cite{LEE2006}. The motivation behind this project is to provide  a single access point that supports Standard Query Language (SQL) running on a high performance environment.
+This projects follows the data warehousing approach to integrate data, however the authors argue that it can be use as a part on a federated system and therefore, it doesn't aim to replace existing distributed system but o to complement them.
+
+The development efforts were focused on the creation of a relational data model that supports the information from several biologic entities. The Figure ~\ref{fig:biowarehouse} shows the main datatypes that are defined in the BioWarehouse scheme including, Taxon, BioSource, Nucleic Acid, Gene, Protein, Feature, Reaction, Chemical and Pathway. It was the objective of the creators that such model evolves including other entities, but at the same time keeping the model as simple as possible.
+\begin{figure}  
+\includegraphics[width=4in]{figures/biowarehouse.png}
+\caption[Original BioWarehouse schema.]{The main datatypes in the BioWarehouse schema, and the relationships between them.
+\label{fig:biowarehouse}}
+\end{figure}
+
+The package that composes BioWarehouse includes a set of loaders implemented in java and C++, that allows to automatise the loading of data from several popular sources. 
+
+An instance of BioWarehouse called Publichouse is available online https://publichouse.ai.sri.com/phpmyadmin/ (last checked December 2014) and provides access to compiled data from: NCBI Taxonomy, Enzyme, MetaCyc Chemical Compound Ontology, MultiFun Gene Ontology, MetaCyc Pathway Ontology, BioCyc, Swiss-Prot and TrEMBL.
+
+The most recent contribution reported in their website is from August 2010 installing the web based interface for mysql databases called myphpadmin. This puts in evidence the little development that the project have have in the last 4 years. A similar situation have been observed in projects that follow the same warehousing strategy in bioinformatics. Most of them published around the same period of time but inactive in recent years, or with broken links to the tool, for example, Atlas \cite{SHA2005} published in 2005, LCB\cite{AME2006} published in 2006 and M-Chips \cite{FEL2002} from 2002. From our research the only active project on infrastructure of data warehousing for biological data is BioDWH.
+
+\subsubsection{BioDWH}
+
 \subsubsection{BioMart}
 \subsubsection{SRS}
 \subsubsection{BioMOBY}

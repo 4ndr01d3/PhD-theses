@@ -1,9 +1,29 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ameur et~al.(2006)Ameur, Yankovski, Enroth, Spjuth, and
+  Komorowski]{AME2006}
+Adam Ameur, Vladimir Yankovski, Stefan Enroth, Ola Spjuth, and Jan Komorowski.
+\newblock The lcb data warehouse.
+\newblock \emph{Bioinformatics}, 22\penalty0 (8):\penalty0 1024--1026, 2006.
+\newblock \doi{10.1093/bioinformatics/btl036}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/content/22/8/1024.abstract}.
+
+\bibitem[Fellenberg et~al.(2002)Fellenberg, Hauser, Brors, Hoheisel, and
+  Vingron]{FEL2002}
+Kurt Fellenberg, Nicole~C. Hauser, Benedikt Brors, J{\"o}rg~D. Hoheisel, and
+  Martin Vingron.
+\newblock Microarray data warehouse allowing for inclusion of experiment
+  annotations in statistical analysis.
+\newblock \emph{Bioinformatics}, 18\penalty0 (3):\penalty0 423--433, 2002.
+\newblock \doi{10.1093/bioinformatics/18.3.423}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/content/18/3/423.abstract}.
 
 \bibitem[Goble and Stevens(2008)]{GOB2008}
 Carole Goble and Robert Stevens.
@@ -28,6 +48,25 @@ Andrew Jenkinson, Mario Albrecht, Ewan Birney, Hagen Blankenburg, Thomas Down,
 \newblock ISSN 1471-2105.
 \newblock \doi{10.1186/1471-2105-9-S8-S3}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/9/S8/S3}.
+
+\bibitem[Lee et~al.(2006)Lee, Pouliot, Wagner, Gupta, Stringer-Calvert,
+  Tenenbaum, and Karp]{LEE2006}
+Thomas Lee, Yannick Pouliot, Valerie Wagner, Priyanka Gupta, David
+  Stringer-Calvert, Jessica Tenenbaum, and Peter Karp.
+\newblock Biowarehouse: a bioinformatics database warehouse toolkit.
+\newblock \emph{BMC Bioinformatics}, 7\penalty0 (1):\penalty0 170, 2006.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-7-170}.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/7/170}.
+
+\bibitem[Shah et~al.(2005)Shah, Huang, Xu, Yuen, Ling, and Ouellette]{SHA2005}
+Sohrab Shah, Yong Huang, Tao Xu, Macaire Yuen, John Ling, and BF~Francis
+  Ouellette.
+\newblock Atlas - a data warehouse for integrative bioinformatics.
+\newblock \emph{BMC Bioinformatics}, 6\penalty0 (1):\penalty0 34, 2005.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-6-34}.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/6/34}.
 
 \bibitem[Villaveces et~al.(2011)Villaveces, Jimenez, Garcia, Salazar, Gel,
   Mulder, Martin, Garcia, and Hermjakob]{VIL2011}
