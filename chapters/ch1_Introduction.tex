@@ -20,7 +20,8 @@ This project explores both, Integration and visualisation of information in bioi
 
 \section{Integration of information}
 \subsection{State of the art}
-The approaches to integrate data in bioinformatics are themselves heterogenous and focused on different types of integration, from simply linking resources to development of complex structures of aggregated information. In \cite{GOB2008} the authors categorise the different techniques used to integrate data in bioinformatics into 8 approaches, and then this categories were reorganised in \cite{ZHA2011b} into:
+The latest version of the Nucleic Acids Research Database Issue added another 58 databases to the online collection hold by the journal, which then reached the number of 1552 databases \cite{FER2014}. This collection is far from including every single database, but it is  a good reflection of the amount of available resources.
+The approaches to integrate data from all those sources are themselves heterogenous and they focused on different types of integration, from simply linking resources; to development of complex structures of aggregated information. In \cite{GOB2008} the authors categorise the different techniques used to integrate data in bioinformatics into 8 approaches, and then this categories were reorganised in \cite{ZHA2011b} into:
 \begin{description}
 \item[Data warehousing:] 			A centralised repository were the information from different sources is copied and processed to be kept  in a single place. providing a single access point to their data. However the preprocessing of the data is usually a complex process and the posterior additions or editions might require a lot of work.
 \item[Federated databasing:] 		Multiple sources agree to follow a similar structure in order to allow a standard query over several instances. By dealing with smaller datasets than the data warehousing approach the complexity of post-processing is simplified, however it requires that the providers deal with the extra work of maintaining their data as the federated database agreement stablishes.
@@ -36,7 +37,8 @@ We now present some of the most representative projects that have attempted to i
 BioWarehouse is an open source toolkit to create data warehouses using MySQL or Oracle \cite{LEE2006}. The motivation behind this project is to provide  a single access point that supports Standard Query Language (SQL) running on a high performance environment.
 This projects follows the data warehousing approach to integrate data, however the authors argue that it can be use as a part on a federated system and therefore, it doesn't aim to replace existing distributed system but o to complement them.
 
-The development efforts were focused on the creation of a relational data model that supports the information from several biologic entities. The Figure ~\ref{fig:biowarehouse} shows the main datatypes that are defined in the BioWarehouse scheme including, Taxon, BioSource, Nucleic Acid, Gene, Protein, Feature, Reaction, Chemical and Pathway. It was the objective of the creators that such model evolves including other entities, but at the same time keeping the model as simple as possible.
+The development efforts were focused on the creation of a relational data model that supports the information from several biologic entities. Figure ~\ref{fig:biowarehouse} shows the main datatypes that are defined in the BioWarehouse scheme including, Taxon, BioSource, Nucleic Acid, Gene, Protein, Feature, Reaction, Chemical and Pathway. It was the objective of the creators that such model evolves including other entities, but at the same time keeping the model as simple as possible.
+
 \begin{figure}  
 \includegraphics[width=4in]{figures/biowarehouse.png}
 \caption[Original BioWarehouse schema.]{The main datatypes in the BioWarehouse schema, and the relationships between them.
@@ -47,11 +49,39 @@ The package that composes BioWarehouse includes a set of loaders implemented in 
 
 An instance of BioWarehouse called Publichouse is available online https://publichouse.ai.sri.com/phpmyadmin/ (last checked December 2014) and provides access to compiled data from: NCBI Taxonomy, Enzyme, MetaCyc Chemical Compound Ontology, MultiFun Gene Ontology, MetaCyc Pathway Ontology, BioCyc, Swiss-Prot and TrEMBL.
 
-The most recent contribution reported in their website is from August 2010 installing the web based interface for mysql databases called myphpadmin. This puts in evidence the little development that the project have have in the last 4 years. A similar situation have been observed in projects that follow the same warehousing strategy in bioinformatics. Most of them published around the same period of time but inactive in recent years, or with broken links to the tool, for example, Atlas \cite{SHA2005} published in 2005, LCB\cite{AME2006} published in 2006 and M-Chips \cite{FEL2002} from 2002. From our research the only active project on infrastructure of data warehousing for biological data is BioDWH.
+The most recent contribution reported in their website is from August 2010 installing the web based interface for mysql databases called myphpadmin. This puts in evidence the little development that the project have have in the last 4 years. A similar situation have been observed in projects that follow the same warehousing strategy in bioinformatics. Most of them published around the same period of time but inactive in recent years, or with broken links to the tool, for example, Atlas \cite{SHA2005} published in 2005, LCB\cite{AME2006} published in 2006 and M-Chips \cite{FEL2002} from 2002. From our research the only active project on infrastructure of data warehousing for biological data is BioDWH, which is described below.
 
 \subsubsection{BioDWH}
+The data warehouse for life science data Integration known as BioDWH is a project developed at  the Bielefeld university. BioDWH is a Java based project that developed an object-relational mapping using the library Hibernate to connect to the most common relational database management systems RDBMS (e.g. MySQL, Oracle, PostgreSQL) in order to create a centralised repository that integrates information from various biological databases \cite{TOP2008}.
+
+BioDWH main objective is to increase customisation of the data warehouse concept improving performance, scalability and having quality data up to date. As part of the project they have included some parsers to extract information from well-known available resources (e.g. UniProt, KEGG, OMIM, etc.). Figure ~\ref{fig:biodwh} presents the extensions to a general data warehouse design done in this project in order to define an architecture oriented to life sciences data.
+
+\begin{figure}  
+\includegraphics[width=4in]{figures/dwh_architecture.png}
+\caption[BioDWH System Architecture.]{BioDWH System Architecture.
+\label{fig:biodwh}}
+\end{figure}
+
+It is important to highlight the inclusion of a monitor system that keeps track on the need of updates from the different sources. Instead of direct access to the RDBMS, BioDWH provides an API that can be queried remotely, and a Graphical User Interface, that enables the configuration of the different components including monitors and parser besides the queuing and displaying of content.
+
+Two projects have been reported in he literature to be using BioDWH: DAWIS-M.D. and VANESA. DAWIS-M.D. is oriented to metabolic data and integrates 11 different databases: BRENDA, EMBL, HPRD, KEGG, OMIM, SCOP, Transfac, Transpath, ENZYME, GO and UniProt. \cite{HIP2010}. VANESA uses DAWIS-M.D. in order to access important information for the modelling of biological processes and systems as biological networks\cite{BRI2014}.
 
 \subsubsection{BioMart}
+BioMart started by using the same principle of data warehousing that BioWarehouse, BioDWH and other projects of data warehouse in life science have follow: ``\emph{to create one universal software system for biological data management and empower biologists with the ability to create complex, customised datasets}'' \cite{KAS2011}.
+
+With this object in mind BioMart have grown from an extension to the Ensembl website for data mining, to become an international effort for the integration of biological data. This has been achieve by first defining a general software infrastructure for further customisation, and then extending this architecture in order to support multi-database repositories as a data federation system, where all the entities use a predefined relational schema, that is generic enough to support any kind of data.
+
+\begin{figure}  
+\includegraphics[width=\textwidth]{figures/biomart.png}
+\caption[Biomart Portal Architecture.]{Biomart Portal Architecture. The portal can be set either with a master/slave or with a peer-to-peer configuration.
+\label{fig:biomart}}
+\end{figure}
+
+Given the inclusion of a multi-database paradigm, the BioMart team developed a server that provide access to a collection of sources called a BioMart Portal. Figure \ref{fig:biomart} shows the 2 possible configurations of the BioMart Portal. In the configuration (a) each data source serves their own data and an independent server works as a central portal generating a unified view of the whole system. Alternatively, in the configuration (b) all the data source are treated as peers and they communicate with each other in order to be able to provide not only their own data, but also its peers' data.
+
+BioMart includes a tool to automatically transform any 3rd form normalised database schema into the reverse-star scheme type used by this system. Once the dataset have been transform BioMart provides different view port to it: Web-based Graphic Interface, Restful services and API connectors using Java.
+
+
 \subsubsection{SRS}
 \subsubsection{BioMOBY}
 \subsubsection{Taverna and Galaxy}

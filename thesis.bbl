@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -14,6 +14,14 @@ Adam Ameur, Vladimir Yankovski, Stefan Enroth, Ola Spjuth, and Jan Komorowski.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/22/8/1024.abstract}.
 
+\bibitem[Brinkrolf et~al.(2014)Brinkrolf, Janowski, Kormeier, Lewinski, Hippe,
+  Borck, and Hofest{\"a}dt]{BRI2014}
+Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
+  Lewinski, Klaus Hippe, Daniela Borck, and Ralf Hofest{\"a}dt.
+\newblock Vanesa - a software application for the visualization and analysis of
+  networks in systems biology applications.
+\newblock Journal of Integrative Bioinformatics - JIB (ISSN 1613-4516), 2014.
+
 \bibitem[Fellenberg et~al.(2002)Fellenberg, Hauser, Brors, Hoheisel, and
   Vingron]{FEL2002}
 Kurt Fellenberg, Nicole~C. Hauser, Benedikt Brors, J{\"o}rg~D. Hoheisel, and
@@ -25,6 +33,17 @@ Kurt Fellenberg, Nicole~C. Hauser, Benedikt Brors, J{\"o}rg~D. Hoheisel, and
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/18/3/423.abstract}.
 
+\bibitem[Fern{\'a}ndez-Su{\'a}rez et~al.(2014)Fern{\'a}ndez-Su{\'a}rez, Rigden,
+  and Galperin]{FER2014}
+Xos{\'e}~M. Fern{\'a}ndez-Su{\'a}rez, Daniel~J. Rigden, and Michael~Y.
+  Galperin.
+\newblock The 2014 nucleic acids research database issue and an updated nar
+  online molecular biology database collection.
+\newblock \emph{Nucleic Acids Research}, 42\penalty0 (D1):\penalty0 D1--D6,
+  2014.
+\newblock \doi{10.1093/nar/gkt1282}.
+\newblock URL \url{http://nar.oxfordjournals.org/content/42/D1/D1.abstract}.
+
 \bibitem[Goble and Stevens(2008)]{GOB2008}
 Carole Goble and Robert Stevens.
 \newblock State of the nation in data integration for bioinformatics.
@@ -35,6 +54,15 @@ Carole Goble and Robert Stevens.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/B6WHD-4RS43MK-5/2/ab521e38479b012d688a645191bfa1c6}.
 \newblock Semantic Mashup of Biomedical Data.
+
+\bibitem[Hippe et~al.(2010)Hippe, Kormeier, T{\"o}pel, Janowski, and
+  Hofest{\"a}dt]{HIP2010}
+Klaus Hippe, Benjamin Kormeier, Thoralf T{\"o}pel, Sebastian Janowski, and Ralf
+  Hofest{\"a}dt.
+\newblock Dawis-m.d. - a data warehouse system for metabolic data.
+\newblock In \emph{Conference: Informatik 2010: Service Science - Neue
+  Perspektiven f{\"u}r die Informatik}. Jahrestagung der Gesellschaft f{\"u}r
+  Informatik, 2010.
 
 \bibitem[Jenkinson et~al.(2008)Jenkinson, Albrecht, Birney, Blankenburg, Down,
   Finn, Hermjakob, Hubbard, Jimenez, Jones, Kahari, Kulesha, Macias, Reeves,
@@ -48,6 +76,14 @@ Andrew Jenkinson, Mario Albrecht, Ewan Birney, Hagen Blankenburg, Thomas Down,
 \newblock ISSN 1471-2105.
 \newblock \doi{10.1186/1471-2105-9-S8-S3}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/9/S8/S3}.
+
+\bibitem[Kasprzyk(2011)]{KAS2011}
+Arek Kasprzyk.
+\newblock Biomart: driving a paradigm change in biological data management.
+\newblock \emph{Database}, 2011, 2011.
+\newblock \doi{10.1093/database/bar049}.
+\newblock URL
+  \url{http://database.oxfordjournals.org/content/2011/bar049.short}.
 
 \bibitem[Lee et~al.(2006)Lee, Pouliot, Wagner, Gupta, Stringer-Calvert,
   Tenenbaum, and Karp]{LEE2006}
@@ -67,6 +103,13 @@ Sohrab Shah, Yong Huang, Tao Xu, Macaire Yuen, John Ling, and BF~Francis
 \newblock ISSN 1471-2105.
 \newblock \doi{10.1186/1471-2105-6-34}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/6/34}.
+
+\bibitem[Topel et~al.(2008)Topel, Kormeier, Klassen, and Hofestadt]{TOP2008}
+Thoralf Topel, Benjamin Kormeier, Andreas Klassen, and Ralf Hofestadt.
+\newblock Biodwh: a data warehouse kit for life science data integration.
+\newblock \emph{J Integr Bioinform}, 5\penalty0 (2), 2008.
+\newblock ISSN 1613-4516 (Electronic); 1613-4516 (Linking).
+\newblock \doi{10.2390/biecoll-jib-2008-93}.
 
 \bibitem[Villaveces et~al.(2011)Villaveces, Jimenez, Garcia, Salazar, Gel,
   Mulder, Martin, Garcia, and Hermjakob]{VIL2011}
