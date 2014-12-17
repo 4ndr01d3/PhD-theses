@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -21,6 +21,11 @@ Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
 \newblock Vanesa - a software application for the visualization and analysis of
   networks in systems biology applications.
 \newblock Journal of Integrative Bioinformatics - JIB (ISSN 1613-4516), 2014.
+
+\bibitem[Etzold et~al.(1996)Etzold, Ulyanov, and Argos]{ETZ1996}
+Thure Etzold, Anatoly Ulyanov, and Patrick Argos.
+\newblock Srs: information retrieval system for molecular biology data banks.
+\newblock \emph{Methods in enzymology}, 266:\penalty0 114, 1996.
 
 \bibitem[Fellenberg et~al.(2002)Fellenberg, Hauser, Brors, Hoheisel, and
   Vingron]{FEL2002}
@@ -117,6 +122,14 @@ Jose Villaveces, Rafael~C. Jimenez, Leyla Garcia, Gustavo~A. Salazar, Bernat
   Gel, Nicola Mulder, Maria Martin, Alexander Garcia, and Henning Hermjakob.
 \newblock Dasty3, a web framework for das.
 \newblock In press, 2011.
+
+\bibitem[Zdobnov et~al.(2002)Zdobnov, Lopez, Apweiler, and Etzold]{ZDO2002}
+Evgeni~M. Zdobnov, Rodrigo Lopez, Rolf Apweiler, and Thure Etzold.
+\newblock The ebi srs server---recent developments.
+\newblock \emph{Bioinformatics}, 18\penalty0 (2):\penalty0 368--373, 2002.
+\newblock \doi{10.1093/bioinformatics/18.2.368}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/content/18/2/368.abstract}.
 
 \bibitem[Zhang et~al.(2011)Zhang, Bajic, Yu, Cheung, and Townsend]{ZHA2011b}
 Zhang Zhang, Vladimir~B. Bajic, Jun Yu, Kei-Hoi Cheung, and Jeffrey~P.

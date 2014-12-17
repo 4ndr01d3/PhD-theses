@@ -32,6 +32,16 @@ The approaches to integrate data from all those sources are themselves heterogen
 
 We now present some of the most representative projects that have attempted to integrate data and offer a solution for this need in the bioinformatics field, by using one or more of the mentioned approaches. 
 
+\subsubsection{Sequence Retrieval System}
+The Sequence Retrieval System, better known in bioinformatics as SRS, was probably the most successful project before the introduction of Next Generation Sequencing (NGS) technologies, originally aimed at facilitating access to biological sequences databases \cite{ETZ1996}, it grew to became an integration system of both data retrieval and applications fro data analysis.
+
+SRS was developed following an object-oriented design with the strategy of taking advantage of raw text files, that were the \emph{de-facto} standard on molecular biology analysis. By dealing only with text files, SRS was getting faster retrieving speed and saving storage space, mainly because data was neither store nor parsed, only indexed \cite{ZDO2002}.
+
+The obtained indexes were there linked via meta-data, offering the user access to the original source plus links to any conceptually related database; all of it presented on a web-based interface, the automatically created interface for different sources and applications can be complicated for beginners, however SRS provide ways to create customised interfaces.
+
+Probably the most important instance of SRS was the one installed at the European Bioinformatics Institute (EBI), which used to give access to the major databases produced and maintained at the EBI. However by December 2013 the service was decommissioned as the service was considered redundant with the efforts to maintain multiple web services. Currently SRS technology is now property of Instem\textsuperscript{TM} and a list of available servers can be seen at http://bioblog.instem.com/download/srs-parser-and-software-downloads/public-srs-installations/
+
+
 %\section{Current Projects for Data Integration in Bioinformatics}
 \subsubsection{BioWarehouse}
 BioWarehouse is an open source toolkit to create data warehouses using MySQL or Oracle \cite{LEE2006}. The motivation behind this project is to provide  a single access point that supports Standard Query Language (SQL) running on a high performance environment.
@@ -79,10 +89,10 @@ With this object in mind BioMart have grown from an extension to the Ensembl web
 
 Given the inclusion of a multi-database paradigm, the BioMart team developed a server that provide access to a collection of sources called a BioMart Portal. Figure \ref{fig:biomart} shows the 2 possible configurations of the BioMart Portal. In the configuration (a) each data source serves their own data and an independent server works as a central portal generating a unified view of the whole system. Alternatively, in the configuration (b) all the data source are treated as peers and they communicate with each other in order to be able to provide not only their own data, but also its peers' data.
 
-BioMart includes a tool to automatically transform any 3rd form normalised database schema into the reverse-star scheme type used by this system. Once the dataset have been transform BioMart provides different view port to it: Web-based Graphic Interface, Restful services and API connectors using Java.
+BioMart includes a tool to automatically transform any 3rd form normalised database schema into the reverse-star scheme type used by this system. Once the dataset have been transformed, BioMart provides different view ports to it: Web-based Graphic Interface, Restful services and API connectors using Java.
 
 
-\subsubsection{SRS}
+
 \subsubsection{BioMOBY}
 \subsubsection{Taverna and Galaxy}
 \subsubsection{Bio2RDF}
