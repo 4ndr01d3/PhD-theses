@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -122,6 +122,12 @@ Jose Villaveces, Rafael~C. Jimenez, Leyla Garcia, Gustavo~A. Salazar, Bernat
   Gel, Nicola Mulder, Maria Martin, Alexander Garcia, and Henning Hermjakob.
 \newblock Dasty3, a web framework for das.
 \newblock In press, 2011.
+
+\bibitem[Wilkinson and Links(2002)]{WIL2002}
+Mark~D Wilkinson and Matthew Links.
+\newblock Biomoby: an open source biological web services proposal.
+\newblock \emph{Briefings in bioinformatics}, 3\penalty0 (4):\penalty0
+  331--341, 2002.
 
 \bibitem[Zdobnov et~al.(2002)Zdobnov, Lopez, Apweiler, and Etzold]{ZDO2002}
 Evgeni~M. Zdobnov, Rodrigo Lopez, Rolf Apweiler, and Thure Etzold.

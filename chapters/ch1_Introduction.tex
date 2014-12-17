@@ -91,9 +91,24 @@ Given the inclusion of a multi-database paradigm, the BioMart team developed a s
 
 BioMart includes a tool to automatically transform any 3rd form normalised database schema into the reverse-star scheme type used by this system. Once the dataset have been transformed, BioMart provides different view ports to it: Web-based Graphic Interface, Restful services and API connectors using Java.
 
-
-
 \subsubsection{BioMOBY}
+BioMoby is one the attempts to bring the promises of the semantic web into bioinformatics, proposing an architecture for the discovery and distribution of data though web services using multiple proposed standards of the World Wide Web Consortium (W3C) such as the Simple Object Access Protocol (SOAP). Its main goal is to provide access to biological data and services with a common format among the different sources \cite{WIL2002}.
+
+The strategy of BioMoby is to have define a minimalistic entity to describe the data in such a way that different types of data can use the same schema.
+This structure has been called the MOBY object, and is compose by 3 values: The MOBY object type (e,g. Sequence), a namespace identifier (e.g. Genbank/AC) and an accession number (e.g. AY070397.1). MOBy object types are defined using XML Schemas (XSD) reflecting a hierarchical relationship among them.
+
+An important component go the BioMoby ecosystem is the MOBY Central: a server that contains information not only about available services, but also their association with MOBY objects for input and output. With this information a MOBI client can suggest paths to follow depending of the current type of your data. Moreover the intrinsic semantics of this approach is the ideal environment to create cohesive workflows.
+
+\begin{figure}  
+\includegraphics[width=\textwidth]{figures/MOBY_Overview.png}
+\caption[BioMoby Overview.]{BioMoby Overview.
+\label{fig:biomoby}}
+\end{figure}
+
+Figure \ref{fig:biomoby} shows the adaptation done by BioMOBY to the classic web services architecture: Once all services have to register to the MOBY central, a client can query it to know which services can be used with the current MOBY Object. Besides the discovery feature, the central repository has the capability of generating a Web Service Description Language (WSDL) document that can be use in the corresponding service, where both in put and output are MOBY Objects.
+
+A more recent iteration on the development of MOBY was described in \cite{VAN2009}, the objectives of the project have been extended and its focus on semantic web technologies is stronger, where the MOBY Central will take the form of an Resource Description Framework (RDF) triple store and will support the functionalities of a SPARQL endpoint. This with the object of allowing semantic queries over multiple sources. The status of the project is as a prototype, but promises to contribute towards a distributed, machine-readable semantic web of life science data.
+
 \subsubsection{Taverna and Galaxy}
 \subsubsection{Bio2RDF}
 \subsubsection{WikiGenes and WikiProteins}
