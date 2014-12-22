@@ -50,6 +50,7 @@ This projects follows the data warehousing approach to integrate data, however t
 The development efforts were focused on the creation of a relational data model that supports the information from several biologic entities. Figure ~\ref{fig:biowarehouse} shows the main datatypes that are defined in the BioWarehouse scheme including, Taxon, BioSource, Nucleic Acid, Gene, Protein, Feature, Reaction, Chemical and Pathway. It was the objective of the creators that such model evolves including other entities, but at the same time keeping the model as simple as possible.
 
 \begin{figure}  
+\centering
 \includegraphics[width=4in]{figures/biowarehouse.png}
 \caption[Original BioWarehouse schema.]{The main datatypes in the BioWarehouse schema, and the relationships between them.
 \label{fig:biowarehouse}}
@@ -67,6 +68,7 @@ The data warehouse for life science data Integration known as BioDWH is a projec
 BioDWH main objective is to increase customisation of the data warehouse concept improving performance, scalability and having quality data up to date. As part of the project they have included some parsers to extract information from well-known available resources (e.g. UniProt, KEGG, OMIM, etc.). Figure ~\ref{fig:biodwh} presents the extensions to a general data warehouse design done in this project in order to define an architecture oriented to life sciences data.
 
 \begin{figure}  
+\centering
 \includegraphics[width=4in]{figures/dwh_architecture.png}
 \caption[BioDWH System Architecture.]{BioDWH System Architecture.
 \label{fig:biodwh}}
@@ -82,6 +84,7 @@ BioMart started by using the same principle of data warehousing that BioWarehous
 With this object in mind BioMart have grown from an extension to the Ensembl website for data mining, to become an international effort for the integration of biological data. This has been achieve by first defining a general software infrastructure for further customisation, and then extending this architecture in order to support multi-database repositories as a data federation system, where all the entities use a predefined relational schema, that is generic enough to support any kind of data.
 
 \begin{figure}  
+\centering
 \includegraphics[width=\textwidth]{figures/biomart.png}
 \caption[Biomart Portal Architecture.]{Biomart Portal Architecture. The portal can be set either with a master/slave or with a peer-to-peer configuration.
 \label{fig:biomart}}
@@ -100,22 +103,91 @@ This structure has been called the MOBY object, and is compose by 3 values: The 
 An important component go the BioMoby ecosystem is the MOBY Central: a server that contains information not only about available services, but also their association with MOBY objects for input and output. With this information a MOBI client can suggest paths to follow depending of the current type of your data. Moreover the intrinsic semantics of this approach is the ideal environment to create cohesive workflows.
 
 \begin{figure}  
-\includegraphics[width=\textwidth]{figures/MOBY_Overview.png}
+\centering
+\includegraphics[width=4in]{figures/MOBY_Overview.png}
 \caption[BioMoby Overview.]{BioMoby Overview.
 \label{fig:biomoby}}
 \end{figure}
 
 Figure \ref{fig:biomoby} shows the adaptation done by BioMOBY to the classic web services architecture: Once all services have to register to the MOBY central, a client can query it to know which services can be used with the current MOBY Object. Besides the discovery feature, the central repository has the capability of generating a Web Service Description Language (WSDL) document that can be use in the corresponding service, where both in put and output are MOBY Objects.
 
-A more recent iteration on the development of MOBY was described in \cite{VAN2009}, the objectives of the project have been extended and its focus on semantic web technologies is stronger, where the MOBY Central will take the form of an Resource Description Framework (RDF) triple store and will support the functionalities of a SPARQL endpoint. This with the object of allowing semantic queries over multiple sources. The status of the project is as a prototype, but promises to contribute towards a distributed, machine-readable semantic web of life science data.
+A more recent iteration on the development of MOBY was described in \cite{VAN2009}: Moby-2. The objectives of the project have been extended and its focus on semantic web technologies is stronger, where the MOBY Central will take the form of a Resource Description Framework (RDF) triple store and will support the functionalities of a SPARQL endpoint. All this with the object of allowing semantic queries over multiple sources. The reported status of the project was a prototype, but promised to contribute towards a distributed, machine-readable semantic web of life science data.
+
+\subsubsection{Bio2RDF}
+A simplified view of the Semantic Web can be defined as a network where the nodes represent any entity that can receive a name and the edges correspond to the characteristics used to describe the relationships between the nodes. The RDF format is an XML-based language that describes this relationships as a set called ``triple'' that contains subject, predicate and object.
+
+Bio2RDF uses RDF documents to be able to create a knowledge base that take advantage of existing developments on the semantic web to build a mashup of data in the bioinformatics domain.  \cite{BEL2008}.
+
+One of the main objectives of Bio2RDF is to extract information from the most important bioinformatic databases, transform its content into RDF, and load it into a triplestore. It is within a triplestore than discovery of new knowledge happens through recombination analysis of the loaded data. In this sense Bio2RDF follows the approach of a data warehouse of semantic data.
+
+As part of the project a set of software tools that convert different datasets into RDF called ``Rdfizers'' were created. There is one rdfizer for each source, however they can be grouped in 3 types depending on the origin of the data: XML to RDF, SQL to RDF, and text file to RDF. For big resources such as UniProt or PubMed were programmatic access to the data are provided, the rdfizer works on-demand, which means that only stores some of the data for cache purposes and the RDF files are created on the fly. Any other source gets copied into the centralised repository in order to offer quick responses.
+
+The Bio2RDF approach can be summarised in three steps: (1) build a list of namespaces for data providers, (2) analyse a data source to represent it in an RDF model and (3) develop rdfizer to convert the information. The resulting dataset is sorted in the triplestore in order to connecting all together.
+
+Bio2RDF used an extended version of Sesame as the triplestore and on its 2nd release was changed to Virtuoso in order to offer a better support to SPARQL, which is the most widely used query language for semantic web data. Other tools such as Protégé: an ontology editor, the Piggy Bank: a semantic browser for Firefox and Welkin: a RDF graph visualiser are use within Bio2RDF, all of them well known projects for the semantic web community.
+ 
+ 
+
+\subsubsection{SADI}
+The Semantic Automated Discovery and Integration (SADI) project has its roots in the learnings from BioMoby, particularly  Moby-2. however, unlike BioMoby, SADI is not a data typing system; the goals of SADI are centred in the proposal of patterns and best practices to use web services connected through semantic web technologies to enable the creation of interoperable and integrative bioinformatics software. \cite{WIL2011}.
+
+The biggest change introduced by SADI in respect to SOAP web services is to replace the defined languages for communication between the web services parts (e.g. WSDL, XML Schema,UDDI) for structured versions of semantic web languages: RDF and the Ontology Web language (OWL). The authors go as far as to say that XML Schema is the problem causing the failure of most precedent interoperability architectures.
+
+Here is is the description of an interaction with a SADI service: A client request the service description via HTTP GET, and the server responds with a document containing references to OWL classes describing input and output datatypes for the service; The client uses data formatted in RDF that follows the received description to submit an HTTP POST request, which is captured by the server, that in turn uses it to execute the service and generate a response in RDF format.
+
+The adoption of HTTP methods for communication follows the positive reception of ``RESTful'' Architectures. SADI does't claim to follow a RESTful architecture, but it sees the potential of it and uses some of its principles, this is partially a response of the general sense of dislike of the SOAP architecture around the bioinformatics community.
+
+The use of a good ontology to connect services is seen in SADI as the key component to meaningful interoperability, where the interaction between servers is guided by biological knowledge and not only by technicalities such as format and availability.
+
+As part of the project, software components have been developed in order to facilitate the adoption of the recommendations including plugins for Taverna and Protege, and a  prototype of all the components (i.e. Servers and clients) is available at http://biordf.net/cardioSHARE/
+%it uses the My Grid/Moby service ontology when defining the services, but the authors claim that this can be change in case a more suitable ontology is developed in the future.
+
+\subsubsection{BioPAX}
+The Biological PAthway eXchange (BioPAX ) is a community driven effort to develop a standard language to facilitate knowledge representation of biological pathways at molecular and celular level in order to enable the systematic collection, distribution and integration of pathway data from heterogeneous sources \cite{DEM2010}.
+
+BioPAX also takes input from the semantic web community. In this case OWL is used to define an ontology to describe pathways information, that can be use to interconnect the multiple resources on this domain. BioPax has among others, been used to describe (1) metabolic pathways following the abstraction: ``enzyme, substrate, product''; (2) signalling pathways for biochemical reactions, binding, and catalysis events; (3) gene regulatory networks involving transcription aand translation events and its control; (4) protein protein interaction and protein-DNA interactions; and (5) genetic interactions i.e. when the phenotype of perturbing 2 genes is different than the expected known of the perturbation of each isolated gene.
+
+The BioPAX ontology is the result of ongoing periodical workshops that involves the different stakeholders on the biological pathways field. Incremental versions of the agreement, also called levels have been developed with the concept that newer levels can replace older ones, currently the higher one is level 3.
+
+A tool set called Paxtools has been developed as part of the project. The main features of this software include an implementation of the specification as a software model, the support of OWL properties, asyndetic validator, transformation scripts between levels, import and export to other formats. Reasons why Paxtools can and have been used as the framework to develop other tools.
+
+
+\subsubsection{The HUPO Proteomics Standards Initiative}
+The Proteomics Standards Initiative (PSI) collaborative initiative run by volunteers and coordinated as a work group of the HUman Proteome Organisation (HUPO) which object is to define standards  to enable capture, comparison, exchange and verification of proteomics data. \cite{HER2006}. PSI is the result of a common effort from the interested parts on the proteomics domain.
+
+This effort can be categorised in three major infrastructure elements: (1) An specification of the Minimum Information About a Proteomics Experiment (MIAPE), (2) data exchange formats that are complaint with MIAPE, and (3) the use of controlled vocabularies (CV) in order to ensure the consistency on the data content. In this way the proposed standard can be stable while its content can evolve by updating the CV.
+
+These recommendations are not intending to specify the methods and procedures for proteomics experiments, and should be seen as reporting guidelines.
+
+This initiative has been growing for the last 10 years, and now its standards are widely adopted in the proteomics community. The proposed specifications cover different branches of the field, for instance the PSI-MI formats were defined to deal with Molecular interactions data, PSI-MS works on standards for mass spectrometry data and PSI-MOD focuses on protein modifications.
+
+However even if all the parts follow the recommendations, an strategy to integrate this data is required, it is for the reason that he PSI common query interface (PSICQUIC) was created: a community standard that enables programatic access to molecular-interaction data resources \cite{ARA2011}. This proposal includes a query language (MIQL) and an architecture to execute a query on distributed sources.
+
+Figure \ref{fig:psicquic} shows the architecture of PSICQUIC. The idea is that several samples from an organism can be processed by different experiments and its findings can be published in independent articles, which consequently can be stored in more than one interaction database. PSICQUIC proposes that the providers support an extra layer to access this information, which can be queried using MIQL and with responses follow the PSI-MI formats; in this way a client can use a single query over multiple resources and bring a unified image.
+
+
+\begin{figure}  
+\centering
+\includegraphics[width=4.3in]{figures/psicquic.png}
+\caption[PSICQUIC Architecture.]{PSICQUIC Architecture.
+\label{fig:psicquic}}
+\end{figure}
+
+The PSI group recognises the importance in providing software tools to impulse the adoption of the proposed standards. The most recent implementation of the PSICQUIC web service was released when the version 1.3 of the PSICQUIC specification was made public in 2013 \cite{DEL2013}. The providers of molecular interaction data are now asked to implement a number of methods in order to support both SOAP and REST web services. 
+
+The Web service methods will generally accept a MIQL query as input and generate an output in either PSI-XML or PSI-MITAB in one of its most recent versions. This implementation is based on the Apache Solr indexing software (http://lucene.apache.org/solr/), this is reflected on the constitution of MIQL, which is an extension of the Lucene Query language used in Solr. This implementation is freely available for any provider that desire to share its data to the PSI community.
+
+Besides the server, PSICQUIC also provides client libraries to facilitate the access to the information from different programming languages: Java, Perl, Python. There are ready to use clients, for example the PSICQUIC View accessible from http://www.ebi.ac.uk/Tools/webservices/psicquic/view/main.xhtml or plugins for Cityscape and the R Bioconductor package.
+
+The last component of the PSICQUIC architecture is the registry, in which information about the available providers is stored as tags. This metadata can be used to query the registry as a RESTful service in order to facilitate the discovery of molecular-interaction data providers.
 
 \subsubsection{Taverna and Galaxy}
-\subsubsection{Bio2RDF}
 \subsubsection{WikiGenes and WikiProteins}
 
 \subsection{The Distributed Annotation System}
 The Distributed Annotation System (DAS) is... \cite{JEN2008} and I can use Fig.~\ref{fig:das}. to explain:
 \begin{figure}  
+\centering
 \includegraphics[width=\textwidth]{figures/DAS.png}
 \caption[DAS Flow of Information.]{Flow of information in a standard query in the Distributed Annotating System.
 \label{fig:das}}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -14,6 +14,22 @@ Adam Ameur, Vladimir Yankovski, Stefan Enroth, Ola Spjuth, and Jan Komorowski.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/22/8/1024.abstract}.
 
+\bibitem[Aranda et~al.(2011)Aranda, Blankenburg, Kerrien, Brinkman, Ceol,
+  Chautard, Dana, De~Las~Rivas, Dumousseau, Galeota, et~al.]{ARA2011}
+Bruno Aranda, Hagen Blankenburg, Samuel Kerrien, Fiona~SL Brinkman, Arnaud
+  Ceol, Emilie Chautard, Jose~M Dana, Javier De~Las~Rivas, Marine Dumousseau,
+  Eugenia Galeota, et~al.
+\newblock Psicquic and psiscore: accessing and scoring molecular interactions.
+\newblock \emph{Nature methods}, 8\penalty0 (7):\penalty0 528--529, 2011.
+
+\bibitem[Belleau et~al.(2008)Belleau, Nolin, Tourigny, Rigault, and
+  Morissette]{BEL2008}
+Fran{\c{c}}ois Belleau, Marc-Alexandre Nolin, Nicole Tourigny, Philippe
+  Rigault, and Jean Morissette.
+\newblock Bio2rdf: towards a mashup to build bioinformatics knowledge systems.
+\newblock \emph{Journal of biomedical informatics}, 41\penalty0 (5):\penalty0
+  706--716, 2008.
+
 \bibitem[Brinkrolf et~al.(2014)Brinkrolf, Janowski, Kormeier, Lewinski, Hippe,
   Borck, and Hofest{\"a}dt]{BRI2014}
 Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
@@ -21,6 +37,24 @@ Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
 \newblock Vanesa - a software application for the visualization and analysis of
   networks in systems biology applications.
 \newblock Journal of Integrative Bioinformatics - JIB (ISSN 1613-4516), 2014.
+
+\bibitem[del Toro et~al.(2013)del Toro, Dumousseau, Orchard, Jimenez, Galeota,
+  Launay, Goll, Breuer, Ono, Salwinski, et~al.]{DEL2013}
+Noemi del Toro, Marine Dumousseau, Sandra Orchard, Rafael~C Jimenez, Eugenia
+  Galeota, Guillaume Launay, Johannes Goll, Karin Breuer, Keiichiro Ono, Lukasz
+  Salwinski, et~al.
+\newblock A new reference implementation of the psicquic web service.
+\newblock \emph{Nucleic acids research}, 41\penalty0 (W1):\penalty0 W601--W606,
+  2013.
+
+\bibitem[Demir et~al.(2010)Demir, Cary, Paley, Fukuda, Lemer, Vastrik, Wu,
+  D'Eustachio, Schaefer, Luciano, et~al.]{DEM2010}
+Emek Demir, Michael~P Cary, Suzanne Paley, Ken Fukuda, Christian Lemer, Imre
+  Vastrik, Guanming Wu, Peter D'Eustachio, Carl Schaefer, Joanne Luciano,
+  et~al.
+\newblock The biopax community standard for pathway data sharing.
+\newblock \emph{Nature biotechnology}, 28\penalty0 (9):\penalty0 935--942,
+  2010.
 
 \bibitem[Etzold et~al.(1996)Etzold, Ulyanov, and Argos]{ETZ1996}
 Thure Etzold, Anatoly Ulyanov, and Patrick Argos.
@@ -59,6 +93,12 @@ Carole Goble and Robert Stevens.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/B6WHD-4RS43MK-5/2/ab521e38479b012d688a645191bfa1c6}.
 \newblock Semantic Mashup of Biomedical Data.
+
+\bibitem[Hermjakob(2006)]{HER2006}
+Henning Hermjakob.
+\newblock The hupo proteomics standards initiative--overcoming the
+  fragmentation of proteomics data.
+\newblock \emph{Proteomics}, 6\penalty0 (S2):\penalty0 34--38, 2006.
 
 \bibitem[Hippe et~al.(2010)Hippe, Kormeier, T{\"o}pel, Janowski, and
   Hofest{\"a}dt]{HIP2010}
@@ -116,12 +156,28 @@ Thoralf Topel, Benjamin Kormeier, Andreas Klassen, and Ralf Hofestadt.
 \newblock ISSN 1613-4516 (Electronic); 1613-4516 (Linking).
 \newblock \doi{10.2390/biecoll-jib-2008-93}.
 
+\bibitem[Vandervalk et~al.(2009)Vandervalk, McCarthy, and Wilkinson]{VAN2009}
+Ben~P Vandervalk, E~Luke McCarthy, and Mark~D Wilkinson.
+\newblock Moby and moby 2: creatures of the deep (web).
+\newblock \emph{Briefings in bioinformatics}, 10\penalty0 (2):\penalty0
+  114--128, 2009.
+
 \bibitem[Villaveces et~al.(2011)Villaveces, Jimenez, Garcia, Salazar, Gel,
   Mulder, Martin, Garcia, and Hermjakob]{VIL2011}
 Jose Villaveces, Rafael~C. Jimenez, Leyla Garcia, Gustavo~A. Salazar, Bernat
   Gel, Nicola Mulder, Maria Martin, Alexander Garcia, and Henning Hermjakob.
 \newblock Dasty3, a web framework for das.
 \newblock In press, 2011.
+
+\bibitem[Wilkinson et~al.(2011)Wilkinson, Vandervalk, and McCarthy]{WIL2011}
+Mark Wilkinson, Benjamin Vandervalk, and Luke McCarthy.
+\newblock The semantic automated discovery and integration (sadi) web service
+  design-pattern, api and reference implementation.
+\newblock \emph{Journal of Biomedical Semantics}, 2\penalty0 (1):\penalty0 8,
+  2011.
+\newblock ISSN 2041-1480.
+\newblock \doi{10.1186/2041-1480-2-8}.
+\newblock URL \url{http://www.jbiomedsem.com/content/2/1/8}.
 
 \bibitem[Wilkinson and Links(2002)]{WIL2002}
 Mark~D Wilkinson and Matthew Links.
