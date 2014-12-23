@@ -181,7 +181,21 @@ Besides the server, PSICQUIC also provides client libraries to facilitate the ac
 
 The last component of the PSICQUIC architecture is the registry, in which information about the available providers is stored as tags. This metadata can be used to query the registry as a RESTful service in order to facilitate the discovery of molecular-interaction data providers.
 
-\subsubsection{Taverna and Galaxy}
+\subsubsection{Taverna}
+Taverna was originally conceived as a tool for not experts programmers to design, execute and share workflows of web services \cite{HUL2006}. Bioinformatics web services can be a way of providing the available data in a data source (e.g. the PSI services), but most traditionally web services are seen as a remote software component that receives some input data, processes it and generates output data; leaving most of the processing load to the service provider, allowing small groups to run high throughput analysis.
+
+Taverna is a tool that allows to create ``recipes'' of combined web services or already composed workflows to execute a higher level computational experiment. The Taverna workbench is a graphical interface that allows the design of workflow, that can be execute it either on the same workbench or in independent runner tools such as the Taverna command-line application, the Taverna server or the Taverna lite installation.
+
+By 2013 the Taverna project reported to have access to over 8000 service operations \cite{WOL2013}, with such a big number of resources, there is a necessity on make them searchable; this is the goal of the BioCatalogue: a registry for web services were both REST and SOAP services can be discover using their metadata. Taverna supports the search on the BioCatalogue and inclusion of a chosen web service through its workbench tool.
+
+It is often necessary to do intermediate processing to be able to connect two services, where for example one produces the data that is required for the second but in a different format. Taverna provide a set of what they call ``shim'' services to supply this need. Other type of services that are supported by Taverna are local, grid and cloud services, access to BioMart, R-Scripts and distributed command-line scripts.
+
+The number of ready-to-use workflows have grown in recent years, that is great for researchers that need an start point for their experiment, how ever this number is so big that finding the right pipeline for an  analysis was not an easy task, for this reason MyExperiment was developed, it not only support Taverna workflows but also other systems such as Galaxy (discussed below). To run a workflow found in the MyExperiment repository in Taverna, is as easy as to copy the URL into the workbench importer, adjust the parameters and pressing ``run''.
+
+
+\subsubsection{Galaxy}
+
+
 \subsubsection{WikiGenes and WikiProteins}
 
 \subsection{The Distributed Annotation System}
@@ -193,6 +207,10 @@ The Distributed Annotation System (DAS) is... \cite{JEN2008} and I can use Fig.~
 \label{fig:das}}
 \end{figure}
 we should describe Dasty3 \cite{VIL2011}
+
+
+\subsection{Discussion}
+Besides the primary data coming from \emph{in-vitro} experiments, there are hundreds of sources consolidating data that results from \emph{in-silico} analysis.
 
 \begin{savequote}[75mm] 
 Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light.

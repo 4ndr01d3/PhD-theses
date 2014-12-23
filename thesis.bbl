@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -109,6 +109,14 @@ Klaus Hippe, Benjamin Kormeier, Thoralf T{\"o}pel, Sebastian Janowski, and Ralf
   Perspektiven f{\"u}r die Informatik}. Jahrestagung der Gesellschaft f{\"u}r
   Informatik, 2010.
 
+\bibitem[Hull et~al.(2006)Hull, Wolstencroft, Stevens, Goble, Pocock, Li, and
+  Oinn]{HUL2006}
+Duncan Hull, Katy Wolstencroft, Robert Stevens, Carole Goble, Mathew~R Pocock,
+  Peter Li, and Tom Oinn.
+\newblock Taverna: a tool for building and running workflows of services.
+\newblock \emph{Nucleic acids research}, 34\penalty0 (suppl 2):\penalty0
+  W729--W732, 2006.
+
 \bibitem[Jenkinson et~al.(2008)Jenkinson, Albrecht, Birney, Blankenburg, Down,
   Finn, Hermjakob, Hubbard, Jimenez, Jones, Kahari, Kulesha, Macias, Reeves,
   and Prlic]{JEN2008}
@@ -184,6 +192,15 @@ Mark~D Wilkinson and Matthew Links.
 \newblock Biomoby: an open source biological web services proposal.
 \newblock \emph{Briefings in bioinformatics}, 3\penalty0 (4):\penalty0
   331--341, 2002.
+
+\bibitem[Wolstencroft et~al.(2013)Wolstencroft, Haines, Fellows, Williams,
+  Withers, Owen, Soiland-Reyes, Dunlop, Nenadic, Fisher, et~al.]{WOL2013}
+Katherine Wolstencroft, Robert Haines, Donal Fellows, Alan Williams, David
+  Withers, Stuart Owen, Stian Soiland-Reyes, Ian Dunlop, Aleksandra Nenadic,
+  Paul Fisher, et~al.
+\newblock The taverna workflow suite: designing and executing workflows of web
+  services on the desktop, web or in the cloud.
+\newblock \emph{Nucleic acids research}, page gkt328, 2013.
 
 \bibitem[Zdobnov et~al.(2002)Zdobnov, Lopez, Apweiler, and Etzold]{ZDO2002}
 Evgeni~M. Zdobnov, Rodrigo Lopez, Rolf Apweiler, and Thure Etzold.
