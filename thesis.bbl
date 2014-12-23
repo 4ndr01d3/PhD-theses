@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -83,6 +83,14 @@ Xos{\'e}~M. Fern{\'a}ndez-Su{\'a}rez, Daniel~J. Rigden, and Michael~Y.
 \newblock \doi{10.1093/nar/gkt1282}.
 \newblock URL \url{http://nar.oxfordjournals.org/content/42/D1/D1.abstract}.
 
+\bibitem[Giardine et~al.(2005)Giardine, Riemer, Hardison, Burhans, Elnitski,
+  Shah, Zhang, Blankenberg, Albert, Taylor, et~al.]{GIA2005}
+Belinda Giardine, Cathy Riemer, Ross~C Hardison, Richard Burhans, Laura
+  Elnitski, Prachi Shah, Yi~Zhang, Daniel Blankenberg, Istvan Albert, James
+  Taylor, et~al.
+\newblock Galaxy: a platform for interactive large-scale genome analysis.
+\newblock \emph{Genome research}, 15\penalty0 (10):\penalty0 1451--1455, 2005.
+
 \bibitem[Goble and Stevens(2008)]{GOB2008}
 Carole Goble and Robert Stevens.
 \newblock State of the nation in data integration for bioinformatics.
@@ -93,6 +101,12 @@ Carole Goble and Robert Stevens.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/B6WHD-4RS43MK-5/2/ab521e38479b012d688a645191bfa1c6}.
 \newblock Semantic Mashup of Biomedical Data.
+
+\bibitem[Goecks et~al.(2010)Goecks, Nekrutenko, Taylor, et~al.]{GOE2010}
+Jeremy Goecks, Anton Nekrutenko, James Taylor, et~al.
+\newblock Galaxy: a comprehensive approach for supporting accessible,
+  reproducible, and transparent computational research in the life sciences.
+\newblock \emph{Genome Biol}, 11\penalty0 (8):\penalty0 R86, 2010.
 
 \bibitem[Hermjakob(2006)]{HER2006}
 Henning Hermjakob.

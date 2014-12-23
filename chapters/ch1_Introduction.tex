@@ -194,6 +194,15 @@ The number of ready-to-use workflows have grown in recent years, that is great f
 
 
 \subsubsection{Galaxy}
+Starting as a project to integrate genomic sequences, their alignments and functional annotations, Galaxy has evolve rapidly in less than 10 years to the point of offering a complete web-based framework that aims to enable reproducibility, accessibility and transparency for computational biology experiments \cite{GIA2005, GOE2010}.
+
+First versions of galaxy were  it was written in a combination of C for the core components and Perl for the user interface, promising the possibility of adding new tools thanks to its architecture. Nowadays the project has been rewritten in Python and follows an open source strategy with over a hundred commits per month on its public repository (https://bitbucket.org/galaxy/galaxy-central/overview) and the extensibility promise has been fulfilled to the point of asserting that Galaxy supports any tool that can be ran in the command line.
+
+This feature itself marks the bigger difference with Taverna that has web services as tools. Galaxy's main goal is to provide a tool where experiments can be reproduced easily and reliable; and the Galaxy's authors consider than because is in the nature of web services to be hosted in remote and probably unknown service providers, the reliability is compromised, and therefore web services.
+
+The concept of workflow is now stronger related with Galaxy without loosing the viewpoint of having the history of the procedure in the hearth of the project. The addition of metadata to both workflows and tools and its publication by the means of Galaxy Pages, gives the project a facet of transparency, where a well annotated workflow can be shared and the understanding of the flow goes beyond the sequence of tools that have been connected to the biological meaning of such executions.
+
+There is a instance of galaxy public hosted at https://usegalaxy.org/ where a subset of features can be explored by anonymous users and the rest of the functionalities open after free registration. This public tool includes hundreds of tools for getting data, processing it and visualising it. If however, a project has particular requirements such as including non-public tools, galaxy can be installed as a local server and the tools can be added to that instance.
 
 
 \subsubsection{WikiGenes and WikiProteins}
