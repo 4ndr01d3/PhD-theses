@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -56,6 +56,22 @@ Emek Demir, Michael~P Cary, Suzanne Paley, Ken Fukuda, Christian Lemer, Imre
 \newblock \emph{Nature biotechnology}, 28\penalty0 (9):\penalty0 935--942,
   2010.
 
+\bibitem[Dowell et~al.(2001)Dowell, Jokerst, Day, Eddy, and Stein]{DOW2001}
+Robin Dowell, Rodney Jokerst, Allen Day, Sean Eddy, and Lincoln Stein.
+\newblock The distributed annotation system.
+\newblock \emph{BMC Bioinformatics}, 2\penalty0 (1):\penalty0 7, 2001.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-2-7}.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/2/7}.
+
+\bibitem[Down et~al.(2011)Down, Piipari, and Hubbard]{DOW2011}
+Thomas~A Down, Matias Piipari, and Tim J.~P. Hubbard.
+\newblock Dalliance: interactive genome viewing on the web.
+\newblock \emph{Bioinformatics}, 2011.
+\newblock \doi{10.1093/bioinformatics/btr020}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/content/early/2011/01/19/bioinformatics.btr020.abstract}.
+
 \bibitem[Etzold et~al.(1996)Etzold, Ulyanov, and Argos]{ETZ1996}
 Thure Etzold, Anatoly Ulyanov, and Patrick Argos.
 \newblock Srs: information retrieval system for molecular biology data banks.
@@ -82,6 +98,42 @@ Xos{\'e}~M. Fern{\'a}ndez-Su{\'a}rez, Daniel~J. Rigden, and Michael~Y.
   2014.
 \newblock \doi{10.1093/nar/gkt1282}.
 \newblock URL \url{http://nar.oxfordjournals.org/content/42/D1/D1.abstract}.
+
+\bibitem[Finn et~al.(2007)Finn, Stalker, Jackson, Kulesha, Clements, and
+  Pettett]{FIN2007}
+Robert~D. Finn, James~W. Stalker, David~K. Jackson, Eugene Kulesha, Jody
+  Clements, and Roger Pettett.
+\newblock {ProServer: a simple, extensible Perl DAS server}.
+\newblock \emph{Bioinformatics}, 23\penalty0 (12):\penalty0 1568--1570, 2007.
+\newblock \doi{10.1093/bioinformatics/btl650}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/23/12/1568}.
+
+\bibitem[Flicek et~al.(2011)Flicek, Amode, Barrell, Beal, Brent, Chen, Clapham,
+  Coates, Fairley, Fitzgerald, Gordon, Hendrix, Hourlier, Johnson, Kahari,
+  Keefe, Keenan, Kinsella, Kokocinski, Kulesha, Larsson, Longden, McLaren,
+  Overduin, Pritchard, Riat, Rios, Ritchie, Ruffier, Schuster, Sobral, Spudich,
+  Tang, Trevanion, Vandrovcova, Vilella, White, Wilder, Zadissa, Zamora, Aken,
+  Birney, Cunningham, Dunham, Durbin, Fernandez-Suarez, Herrero, Hubbard,
+  Parker, Proctor, Vogel, and Searle]{FLI2011}
+Paul Flicek, M.~Ridwan Amode, Daniel Barrell, Kathryn Beal, Simon Brent, Yuan
+  Chen, Peter Clapham, Guy Coates, Susan Fairley, Stephen Fitzgerald, Leo
+  Gordon, Maurice Hendrix, Thibaut Hourlier, Nathan Johnson, Andreas Kahari,
+  Damian Keefe, Stephen Keenan, Rhoda Kinsella, Felix Kokocinski, Eugene
+  Kulesha, Pontus Larsson, Ian Longden, William McLaren, Bert Overduin, Bethan
+  Pritchard, Harpreet~Singh Riat, Daniel Rios, Graham R.~S. Ritchie, Magali
+  Ruffier, Michael Schuster, Daniel Sobral, Giulietta Spudich, Y.~Amy Tang,
+  Stephen Trevanion, Jana Vandrovcova, Albert~J. Vilella, Simon White,
+  Steven~P. Wilder, Amonida Zadissa, Jorge Zamora, Bronwen~L. Aken, Ewan
+  Birney, Fiona Cunningham, Ian Dunham, Richard Durbin, Xose~M.
+  Fernandez-Suarez, Javier Herrero, Tim J.~P. Hubbard, Anne Parker, Glenn
+  Proctor, Jan Vogel, and Stephen M.~J. Searle.
+\newblock Ensembl 2011.
+\newblock \emph{Nucleic Acids Research}, 39\penalty0 (suppl 1):\penalty0
+  D800--D806, 2011.
+\newblock \doi{10.1093/nar/gkq1064}.
+\newblock URL
+  \url{http://nar.oxfordjournals.org/content/39/suppl_1/D800.abstract}.
 
 \bibitem[Giardine et~al.(2005)Giardine, Riemer, Hardison, Burhans, Elnitski,
   Shah, Zhang, Blankenberg, Albert, Taylor, et~al.]{GIA2005}
@@ -123,6 +175,11 @@ Klaus Hippe, Benjamin Kormeier, Thoralf T{\"o}pel, Sebastian Janowski, and Ralf
   Perspektiven f{\"u}r die Informatik}. Jahrestagung der Gesellschaft f{\"u}r
   Informatik, 2010.
 
+\bibitem[Hoffmann(2008)]{HOF2008}
+Robert Hoffmann.
+\newblock A wiki for the life sciences where authorship matters.
+\newblock \emph{Nature genetics}, 40\penalty0 (9):\penalty0 1047--1051, 2008.
+
 \bibitem[Hull et~al.(2006)Hull, Wolstencroft, Stevens, Goble, Pocock, Li, and
   Oinn]{HUL2006}
 Duncan Hull, Katy Wolstencroft, Robert Stevens, Carole Goble, Mathew~R Pocock,
@@ -144,6 +201,16 @@ Andrew Jenkinson, Mario Albrecht, Ewan Birney, Hagen Blankenburg, Thomas Down,
 \newblock \doi{10.1186/1471-2105-9-S8-S3}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/9/S8/S3}.
 
+\bibitem[Jimenez et~al.(2008)Jimenez, Quinn, Garcia, Labarga, O'Neill,
+  Martinez, Salazar, and Hermjakob]{JIM2008}
+Rafael~C. Jimenez, Antony~F. Quinn, Alexander Garcia, Alberto Labarga, Kieran
+  O'Neill, Fernando Martinez, Gustavo~A. Salazar, and Henning Hermjakob.
+\newblock {Dasty2, an Ajax protein DAS client}.
+\newblock \emph{Bioinformatics}, 24\penalty0 (18):\penalty0 2119--2121, 2008.
+\newblock \doi{10.1093/bioinformatics/btn387}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/24/18/2119}.
+
 \bibitem[Kasprzyk(2011)]{KAS2011}
 Arek Kasprzyk.
 \newblock Biomart: driving a paradigm change in biological data management.
@@ -151,6 +218,14 @@ Arek Kasprzyk.
 \newblock \doi{10.1093/database/bar049}.
 \newblock URL
   \url{http://database.oxfordjournals.org/content/2011/bar049.short}.
+
+\bibitem[Kelder et~al.(2012)Kelder, van Iersel, Hanspers, Kutmon, Conklin,
+  Evelo, and Pico]{KEL2012}
+Thomas Kelder, Martijn~P van Iersel, Kristina Hanspers, Martina Kutmon, Bruce~R
+  Conklin, Chris~T Evelo, and Alexander~R Pico.
+\newblock Wikipathways: building research communities on biological pathways.
+\newblock \emph{Nucleic acids research}, 40\penalty0 (D1):\penalty0
+  D1301--D1307, 2012.
 
 \bibitem[Lee et~al.(2006)Lee, Pouliot, Wagner, Gupta, Stringer-Calvert,
   Tenenbaum, and Karp]{LEE2006}
@@ -161,6 +236,60 @@ Thomas Lee, Yannick Pouliot, Valerie Wagner, Priyanka Gupta, David
 \newblock ISSN 1471-2105.
 \newblock \doi{10.1186/1471-2105-7-170}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/7/170}.
+
+\bibitem[Messina and Sonnhammer(2009)]{MES2009}
+David~N. Messina and Erik L.~L. Sonnhammer.
+\newblock {DASher: a stand-alone protein sequence client for DAS, the
+  Distributed Annotation System}.
+\newblock \emph{Bioinformatics}, 25\penalty0 (10):\penalty0 1333--1334, 2009.
+\newblock \doi{10.1093/bioinformatics/btp153}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/10/1333}.
+
+\bibitem[Pico et~al.(2008)Pico, Kelder, Van~Iersel, Hanspers, Conklin, and
+  Evelo]{PIC2008}
+Alexander~R Pico, Thomas Kelder, Martijn~P Van~Iersel, Kristina Hanspers,
+  Bruce~R Conklin, and Chris Evelo.
+\newblock Wikipathways: pathway editing for the people.
+\newblock \emph{PLoS biology}, 6\penalty0 (7):\penalty0 e184, 2008.
+
+\bibitem[Prlic et~al.(2005)Prlic, Down, and Hubbard]{PRL2005}
+Andreas Prlic, Thomas~A. Down, and Tim J.~P. Hubbard.
+\newblock {Adding Some SPICE to DAS}.
+\newblock \emph{Bioinformatics}, 21\penalty0 (suppl\_2):\penalty0 ii40--41,
+  2005.
+\newblock \doi{10.1093/bioinformatics/bti1106}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/21/suppl_2/ii40}.
+
+\bibitem[Prlic et~al.(2007)Prlic, Down, Kulesha, Finn, Kahari, and
+  Hubbard]{PRL2007}
+Andreas Prlic, Thomas Down, Eugene Kulesha, Robert Finn, Andreas Kahari, and
+  Tim Hubbard.
+\newblock Integrating sequence and structural biology with {DAS}.
+\newblock \emph{BMC Bioinformatics}, 8\penalty0 (1):\penalty0 333, 2007.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-8-333}.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/8/333}.
+
+\bibitem[Registry(2009)]{DASCS2009}
+DAS Registry.
+\newblock Help on coordinate systems, 2009.
+\newblock URL \url{http://www.dasregistry.org/help_coordsys.jsp}.
+
+\bibitem[Salazar et~al.(2010)Salazar, Mulder, and Blake]{SAL2010}
+Gustavo Salazar, Nicola Mulder, and Edwin Blake.
+\newblock {DAS Writeback: A Collaborative Annotation System}.
+\newblock Master's thesis, University of Cape Town, 2010.
+\newblock URL \url{http://pubs.cs.uct.ac.za/archive/00000609/}.
+
+\bibitem[Salazar et~al.(2012)Salazar, Garc{\'\i}a, Jones, Jimenez, Quinn,
+  Jenkinson, Mulder, Martin, Hunter, and Hermjakob]{SAL2012}
+Gustavo~A. Salazar, Leyla~J. Garc{\'\i}a, Philip Jones, Rafael~C. Jimenez,
+  Antony~F. Quinn, Andrew~M. Jenkinson, Nicola Mulder, Maria Martin, Sarah
+  Hunter, and Henning Hermjakob.
+\newblock Mydas, an extensible java das server.
+\newblock \emph{PLoS ONE}, 2012.
 
 \bibitem[Shah et~al.(2005)Shah, Huang, Xu, Yuen, Ling, and Ouellette]{SHA2005}
 Sohrab Shah, Yong Huang, Tao Xu, Macaire Yuen, John Ling, and BF~Francis
