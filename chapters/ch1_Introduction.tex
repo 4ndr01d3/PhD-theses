@@ -248,20 +248,6 @@ A regular flow of information in DAS is shown in Figure \ref{fig:das}. The DAS c
 
 All these interactions follow an adaptation of the REST protocol for web services\cite{PRL2007} .
 
-%	\begin{figure}[ht] %  figure placement: here, top, bottom, or page
-%	   \centering
-%	   \includegraphics[width=4in]{figures/DASArchitecture.png} 
-%	   \caption[DAS architecture]{ DAS architecture.}  \label{fig: DASarchitecture}
-%	\end{figure}
-
-%Figure \ref{fig: DASarchitecture} represents a high level view of the architecture of DAS. 
-%The red arrows represent the requests and the green arrows the responses. 
-%The width of the arrows indicates how much information is being transferred. 
-%The transaction starts when a user makes a query using an accession number\footnote{\emph{Unique identifier to access its information in a biological Database. For example a UniProt ID for proteins}}. 
-%The client queries the DAS registry to find out which servers are available for proteins. With this information, it is possible to get the reference sequence\footnote{\emph{Reference Sequence}: The concensus sequence to refer for all the annotation sources in DAS} and basic information about the protein target from the reference server. 
-%Finally, a request is sent to all the annotation servers for features of the reference. 
-%The big challenge for the client is to merge all this information in a comprehendible and meaningful way.
-
 \subsubsection{DAS Protocol}
 \label{ssec:DASprotocol}
 The DAS specification consists of a set of rules which define a standard communication method between the different components of the system. DAS is Web-based and makes extensive use of three widely-adopted standards: the Unified Resource Locator URL, the HyperText Transfer Protocol HTTP and the eXtended Markup Language XML. All communication occurs through HTTP; the requests are URLs that specify the resource that the client is interested in, and the responses are both HTTP codes and XML documents. The details of what constitutes a valid URL, and the XML structure, are contained in the DAS specification.
@@ -276,8 +262,6 @@ In November 2007, a project that aimed to define a completely new specification 
 \caption[DAS Evolution.]{DAS Evolution.
 \label{fig:dasevolution}}
 \end{figure}
-
-%As explained in \cite{PRL2007}, DAS follows the paradigm of the REpresentational State Transfer (REST). However, DAS has not adopted all the RESTful features. In version 1.53 and even in the draft of the 1.6 version, DAS only made use of the GET method in order to recover the information from the different servers; the other 3 methods are simply ignored in those specifications. The explanation lies in the fact that DAS sources are the owners of the information and it is not usually convenient that external users are able to modify or delete anything in its databases. As explained before, one of the strategies to solve this issue is to have the writeback server as an independent server that manages the changes, additions and deletions as meta-annotations. It is, therefore, useful if the interface for a server with these features keeps the same principles of DAS (or REST to a bigger extent).
 
 Version 1.53 of DAS defines the element \emph{FEATURE} as the annotation itself, and it is contained in the element \emph{SEGMENT} indicating that a feature annotates a specific segment, where a segment is a biological residue (or part of it), such as, proteins, genes, chromosomes, etc.
 
@@ -303,24 +287,23 @@ Other elements and attributes are more oriented to other kinds of biological dat
 
 DAS can be seen as having a \emph{``Dumb server -- Smart Client''} architecture where most of the hard work is executed in the client. Nonetheless, several independent projects have contributed to both clients and servers. 
 
-Under the DAS terminology servers and sources represent two different concepts. A \emph{DAS source} provides data for one \emph{Coordinate system}, i.e. a unique 4-tuple \emph{(Authority, Version, Type, Organism)}, e.g. (Ensmbl, 51, Chromosome, Homo Sapiens). On the other hand a \emph{DAS server} is the software that facilitates the publishing DAS sources \cite{DASCS2009}.
+Under the DAS terminology servers and sources represent two different concepts. A \emph{DAS source} provides data for one \emph{Coordinate system}, i.e. a unique 4-tuple \emph{(Authority, Version, Type, Organism)}, e.g. (Ensmbl, 51, Chromosome, Homo Sapiens). On the other hand a \emph{DAS server} is the software that facilitates the publishing of DAS sources \cite{DASCS2009}.
 
 Each DAS source can support several capabilities, which means it is able to respond to an HTTP request that gets interpreted as a DAS command(e.g. sequence, features) with a document that follows the specification. DAS servers are pieces of software that implement the common tasks of this process, for example handling the HTTP requests, providing a logical model for DAS or encoding the model into a document.
 
 The 2 most representative implementations of a DAS server are Pro-server \cite{FIN2007} and MyDas \cite{SAL2012}. Both have been updated to support the latest version of the specification (i.e. 1.6E) and its feature set is pretty similar; probably the biggest factor to choose between these two implementations is the preference for a particular programming language: Perl for Pro-server and Java for MyDas. An extended description of MyDas can be found in the section \ref{section:mydas}, including the contributions to MyDas as part of this PhD project.
 
-On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts in a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensemble viewer \cite{FLI2011}) and genomic (e.g. Dalliance \cite{DOW2011}), where others such SPICE intent to provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a a gene region, select the expressed protein of such gene and visualise its 3D structure all of it under the same Java Web-start window \cite{PRL2005}.
+On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts in a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensemble viewer \cite{FLI2011}) and genomes (e.g. Dalliance \cite{DOW2011}), where others such SPICE intent to provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a a gene region, select the expressed protein of such gene and visualise its 3D structure all of it under the same Java Web-start window \cite{PRL2005}.
 
 Dasty2 is a Web client that also supports the interaction between protein data and its 3D structure, but in its current version doesn't support direct manipulation of genomic data \cite{JIM2008}. A refactoring of Dasty was executed during 2010 and is explained in detail in section \ref{section:dasty}, including my contribution to the effort of developing Dasty3 \cite{VIL2011}. 
-%\textbf{TODO: write about clients and servers}
 
 \subsection{Discussion}
-Besides the primary data coming from \emph{in-vitro} experiments, there are hundreds of sources consolidating data that results from \emph{in-silico} analysis.
+Besides the primary data coming from \emph{in-vitro} experiments, there are hundreds of secondary sources consolidating data that results from \emph{in-silico} analysis. All the mentioned projects contribute in different ways to the creation of a pool of knowledge where both primary and secondary sources are available to the researchers.
 
-\begin{savequote}[75mm] 
-Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light.
-\qauthor{Carl Sagan, Pale Blue Dot, 1994} 
-\end{savequote}
+Some of these projects have started by detecting a problem when trying to put together the generated data of a particular community (e.g. BioPAX); while others have study an existing technology such as data warehouses, web services or semantic web and propose adaptations to it for the bioinformatics needs (e.g. Biowarehouse, BioMoby); some approaches are on the protocol and specification level (e.g. SADI) while others take existing specifications and generate the tools to facilitate their implementations (e.g. BioRDF). There are projects that take existing software and adapted to bioinformatics (e.g. WikiPathways) and others develop completely new software(e.g BioMart, Taverna); some focus on the integration of the data (e.g. BioMart) and others in the interconnections of components(e.g. Galaxy); some focuses in the tools(e.g. SRS) and others in the results and its publications (e.g. WikiGenes). 
+
+Despite their origin, methods, technologies or approaches; all of these projects have in common the need of an strong community that supports its development, maintenance and use. We choose DAS as the base technology on which our contributions will be focused because when we started the project it had a growing community as seen in figure \ref{fig:dasevolution}, it was based on existing and consolidated technologies such as the HTTP protocol and REST services, and it had the support of big entities and projects, such as the EBI and Ensembl. A description of the specifications and software components developed as part of this PhD project can be found in the chapter \ref{section:integration} of this document.
+
 \section{Visualization}
 The field of visualization aims to represent data in a way that non evident features became visible. The developed techniques in this search varies from simple ones (e.g. histograms) to very elaborated (e.g. environments just visible using 3D virtual reality rooms).
 
