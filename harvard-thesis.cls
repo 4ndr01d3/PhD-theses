@@ -17,6 +17,9 @@
 % Required packages
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
+\RequirePackage{relsize}
+\renewcommand*{\UrlFont}{\ttfamily\smaller\relax}
+
 \hypersetup{
 	linktocpage,
     colorlinks,
