@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -319,6 +319,14 @@ Jose Villaveces, Rafael~C. Jimenez, Leyla Garcia, Gustavo~A. Salazar, Bernat
   Gel, Nicola Mulder, Maria Martin, Alexander Garcia, and Henning Hermjakob.
 \newblock Dasty3, a web framework for das.
 \newblock In press, 2011.
+
+\bibitem[Wang et~al.(2014)Wang, Perez-Riverol, Hermjakob, and
+  Vizca{\'\i}no]{WAN2014}
+Rui Wang, Yasset Perez-Riverol, Henning Hermjakob, and Juan~Antonio
+  Vizca{\'\i}no.
+\newblock Open source libraries and frameworks for biological data
+  visualisation: A guide for developers.
+\newblock \emph{Proteomics}, 2014.
 
 \bibitem[Wilkinson et~al.(2011)Wilkinson, Vandervalk, and McCarthy]{WIL2011}
 Mark Wilkinson, Benjamin Vandervalk, and Luke McCarthy.

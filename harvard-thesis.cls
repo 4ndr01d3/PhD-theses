@@ -84,6 +84,7 @@
 \parindent 12pt
 \RequirePackage{mathspec}
 
+
 % use Arno Pro instead of standard LaTeX fonts
 \setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Arno Pro}
 \setmathrm{Arno Pro}
@@ -194,3 +195,4 @@
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
    \noindent\textsc{#1}}
+

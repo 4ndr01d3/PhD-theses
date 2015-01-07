@@ -304,17 +304,34 @@ The field of visualization aims to represent data in a way that non evident feat
 
 The uses of visualization techniques are as diverse as fields are in the world, from weather forecast in the news to the analysis of the captured data in the Large Hadron Collider. In the field of our interest: bioinformatics, the use of visualization methods is also abundant and sub-fields such as genomics, proteomics, population variance, etc. have plenty of examples were different techniques have been implemented with the purpose of making sense of biological data via visual representations.
 
-The section below is a review of the most relevant existing tools in different bioinformatics fields.
+%The section below is a review of the most relevant existing tools and techniques in different bioinformatics fields.
+
 \subsection{Visualization tools in Bioinformatics}
-Small intro for the subsection
+The most representatives visualization techniques used in bioinformatics can be categorised in 3 groups: charts, networks and hierarchies. Charts are graphical representations were n-dimensional data is mapped or aggregated into a space, for example scatter plots, bar graphs, pie charts, etc. Networks are structures were some components are connected to an arbitrary number of other components, usually using a node-link metaphor were the components are represented by nodes and the connections are lines between them. lastly, the hierarchies are another type of connection that shows when an item is part of another, or using graph theory terminology, a node can be the parent of another; the diverse representations of trees can be used for this type of data (e.g. node-link trees and space filling diagrams) \cite{WAN2014}. 
+
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/vis_libs.png}
+\caption[Comparison of feature of selected visualisation libraries.]{Comparison of feature of selected visualisation libraries.
+\label{fig:vis_libs}}
+\end{figure}
+
+Figure \ref{fig:vis_libs} shows a a comparison of several libraries that have been used in bioinformatics research; The libraries in (a) include capabilities to represent charts, while (b) and (c) are show a similar graphic but for libraries that support network and hierarchical representations. It is noticeable than several libraries are in the 3 graphics making evident its multi-purpose nature, where many visualisation techniques are embedded in the same package.
+
+A recurrent challenge when visualising data is to match the most appropriate combination of techniques to the nature of the data, optimising the features of the visualization (e.g. location, colour, size or shape) in order to highlight a biological characteristic (e.g. genomic position, functional class, expression level or organism).
+
+A variety of projects in different subdomains of bioinformatics have been presenting alternatives according to the needs of each case. Below is a description of some of the most illustrative projects, grouped by some well known bioinformatics domains.
+
 \subsubsection{Genomics}
 Ensembl, mykarioView, Dalliance, IGV, Tablet, BAMView
 \subsubsection{Proteomics}
 Dasty, Interpro
-\subsubsection{Protein Interaction}
+\subsubsection{Protein Interactions}
 \subsubsection{Population Variation}
-\subsubsection{General Research}
-To talk about statistical graphs and things like heat maps, phylogenetic trees, etc.
+%\subsubsection{General Research}
+%To talk about statistical graphs and things like heat maps, phylogenetic trees, etc.
+
+\subsection{Discussion}
 
 
 %\section{Thesis outline}
