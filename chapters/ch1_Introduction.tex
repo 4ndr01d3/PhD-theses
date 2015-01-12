@@ -326,7 +326,7 @@ Genomics is arguably the subfield that produces the most abundant, basic and yet
 
 This is quite an unfair comparison because the number of reads produced in NGS still requires lots of processing in order to assembly a genome (but not in the order of years). Moreover, none of the NGS technologies would it be possible without the learnings and findings of the human genome project, nonetheless the comparison is still valid in order to reflect the rapid growth on the methods to sequence DNA.
 
-Visualizations have played an important role in the different stages of genomic analysis. In \cite{NIE2010} the authors have identified three tasks in genomic research were visualizations have been widely used: (i) supporting the sequencing process, (ii) browsing annotations in the context of a reference genome, and (ii) comparing sequences from different organisms and/or individuals.
+Visualizations have played an important role in the different stages of genomic analysis. In \cite{NIE2010} the authors have identified three tasks in genomic research were visualizations have been widely used: (i) supporting the sequencing process, (ii) browsing annotations in the context of a reference genome, and (iii) comparing sequences from different organisms and/or individuals.
 
 Despite all the progress on sequencing techniques the process is not perfect and requires visual inspection in order to interpret and validate automated outputs to compose sequences, chromosomes and ultimately genomes. It is a common strategy to associate quality scores QS to each of the nucleic bases that result from a sequencing experiment. The QS is proportional to the number of agreeing reads that cover a base, for example the QS on a given position X would be really low if half the reads covering X indicate a G and the rest point to a T, it would be similarly low if only few reads cover that area or if the bases are not clearly distinguish in the reads. In contrast, if many reads are covering an area and all of them coincide that position X is an A, the score in that position should be really high.
 
@@ -357,15 +357,43 @@ Similar formats to SAM have been developed around the NGS technologies in order 
 
 The Integrative Genomics Viewer IGV is one of the tools that take advantage of these new formats to enable real time exploration of large-scale genomic data-sets in different resolution scales \cite{ROB2011}. Data sets of both basic aligned read sets as well as deviated results can be loaded into IGV from local and remote sources. IGV can then be used to detect and correct assembly errors such as misalignments in repeat regions. IGV also supports the display of annotations files in context of the genome, making it suitable for the category (ii) defined at the beginning of this section.
 
-A description of other tools that support the process of sequencing a genome (category (i)) can be found in \cite{NIE2010}. Once the genome is ready and has been through a finishing process it is usually shared and other scientist can use it in context of their own data. Is in this stage where the tools of category (ii) are of great help.
+A description of other tools that support the process of sequencing a genome (category (i)) can be found in \cite{NIE2010}. Once the genome is ready and has been through a finishing process it is usually shared and other scientist can use it in context of their own data. Is in this stage where the tools of category (ii) i.e. browsing a completed genome with its annotations; are of great help.
 
-genome browsers layout 
-Ensembl
+A famous principle in visualisation is known as the Shneiderman mantra: \emph{overview, zoom, filter, details-on-demand} \cite{SHN1996}. Most genome browsers use a similar layout that follows the mantra quite closely, adapting it to the molecular biology behind the data:
+
+The \emph{overview} is usually a graphical representation of the karyotype, which is the set of chromosomes displaying its bands. The bands have been experimentally defined using some cytogenetics techniques to have visual mark on the chromosome, and serve the purpose of the visualisation to identify the different chromosomic regions.
+
+The user can \emph{zoom} into a chromosome band, or can select a region of interest by interactively mark an area, or by explicitly introduce the coordinates. Once a region of interest (ROI) is selected, a multi-row visualization is displayed, where the first row represents the ROI, some browsers use colour coding for this row to show the limits of the bands or other high level features of that region.
+
+Each subsequent row is called track and displays a different set of features drawn proportional to the selected region. For instance, it is common to include a track displaying the annotated genes in the ROI, representing boxes to delimit exons, and lines for intrones. Other symbols can be use to represent different features, e.g. arrows to define if the gene gets translated in the direction 5'UTR or the other way around, colours can be used to represent the functional class of the gene, etc.
+
+Most genome browser have a wide list of sources that provide different type of information such as transcription factors, single nucleotide polymorphism SNP, details about the sequencing source (e.g. contains, reads), proteins, supporting evidence, etc. The tracks to include in the browser are then selected and \emph{filtered} by the user. 
+
+Finally a feature of interest can be selected to obtain \emph{details-on-demand}, for instance, to get link to a website that contains the information of the protein that gets produced by the selected gene, or specific data on the allele frequency of a SNP and its associated phenotype.
+
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/ensembl_snapshot.png}
+\caption[Snapshot of the Emsembl genome browser.]{Snapshot of the Emsembl genome browser highlighting the components that support the implementation of Shneiderman mantra: overview(a), zoom(b), filter(c), details-on-demand(d).
+\label{fig:ensembl_sn}}
+\end{figure}
+
+Figure \ref{fig:ensembl_sn} shows some of the widgets used by the Ensembl genome browser, that follow the Shneiderman mantra. Region (a) displays a selected chromosome showing the overview of the data, in (b) it is possible to select the zoom level and the coordinates to mark the ROI; (c) show the name of the sources that have been selected for the current graphic, and (d) is a pop-up window shown when a click was done over one of the features of the graphic.
+
+The Ensemble website (\url{http://www.ensembl.org/}) is only the window to see all the information that has been integrated through the Ensemble project. The dataset has grown from having partial information for human in 1999 to include full support to 69 species by the time of the release of version 77 in October 2014. 
+
+From the beginning the objective of the Ensembl genome viewer was to support multiple species with a single software installation. The challenge goes further than the amount of data generated by species, because there are many differences in the data from one species to another \cite{STA2004}. The project has been clearly successful, not only judging by the number of species included, but more importantly for its big community, reflected by more than 1500 user queries assisted by their helpdesk team \cite{CUN2014}.
+
+Besides the sources provided by Ensembl, it is possible to include external ones by using several protocols. For example, it is possible to include an URL to several NGS files (e.g. BAM, BigBed, etc.), or to point to an existing data source that uses the DAS protocol (discussed in section \ref{ssec:DASprotocol}); with this information Ensembl will query that source to get info in the ROI and display it in locations views, such as Region in detail, chromosome or karyotype. Moreover, Ensemble is in itself a DAS source, which makes easy the inclusion of its data in other resources \cite{SPU2010}.
+
+
 UCSC
 MapVIewer
 JBrowse
 personal genomics - MyKarioView
 Comparing genomes
+
+
 %Ensembl, mykarioView, Dalliance, IGV, Tablet, BAMView
 
 \subsection{Proteomics}
@@ -377,6 +405,6 @@ Comparing genomes
 %To talk about statistical graphs and things like heat maps, phylogenetic trees, etc.
 
 \subsection{Discussion}
-
+Genome Browsers have evolve from simple displays of genes and transcripts to visual integration tools of biological data.
 
 %\section{Thesis outline}

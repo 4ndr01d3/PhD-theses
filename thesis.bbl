@@ -1,4 +1,4 @@
-\begin{thebibliography}{48}
+\begin{thebibliography}{52}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -37,6 +37,14 @@ Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
 \newblock Vanesa - a software application for the visualization and analysis of
   networks in systems biology applications.
 \newblock Journal of Integrative Bioinformatics - JIB (ISSN 1613-4516), 2014.
+
+\bibitem[Cunningham et~al.(2014)Cunningham, Amode, Barrell, Beal, Billis,
+  Brent, Carvalho-Silva, Clapham, Coates, Fitzgerald, et~al.]{CUN2014}
+Fiona Cunningham, M~Ridwan Amode, Daniel Barrell, Kathryn Beal, Konstantinos
+  Billis, Simon Brent, Denise Carvalho-Silva, Peter Clapham, Guy Coates,
+  Stephen Fitzgerald, et~al.
+\newblock Ensembl 2015.
+\newblock \emph{Nucleic acids research}, page gku1010, 2014.
 
 \bibitem[del Toro et~al.(2013)del Toro, Dumousseau, Orchard, Jimenez, Galeota,
   Launay, Goll, Breuer, Ono, Salwinski, et~al.]{DEL2013}
@@ -347,6 +355,25 @@ Sohrab Shah, Yong Huang, Tao Xu, Macaire Yuen, John Ling, and BF~Francis
 \newblock ISSN 1471-2105.
 \newblock \doi{10.1186/1471-2105-6-34}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/6/34}.
+
+\bibitem[Shneiderman(1996)]{SHN1996}
+Ben Shneiderman.
+\newblock The eyes have it: A task by data type taxonomy for information
+  visualizations.
+\newblock In \emph{Visual Languages, 1996. Proceedings., IEEE Symposium on},
+  pages 336--343. IEEE, 1996.
+
+\bibitem[Spudich and Fern{\'a}ndez-Su{\'a}rez(2010)]{SPU2010}
+Giulietta~M Spudich and Xos{\'e}~M Fern{\'a}ndez-Su{\'a}rez.
+\newblock Touring ensembl: a practical guide to genome browsing.
+\newblock \emph{BMC genomics}, 11\penalty0 (1):\penalty0 295, 2010.
+
+\bibitem[Stalker et~al.(2004)Stalker, Gibbins, Meidl, Smith, Spooner, Hotz, and
+  Cox]{STA2004}
+James Stalker, Brian Gibbins, Patrick Meidl, James Smith, William Spooner,
+  Hans-Rudolf Hotz, and Antony~V Cox.
+\newblock The ensembl web site: mechanics of a genome browser.
+\newblock \emph{Genome research}, 14\penalty0 (5):\penalty0 951--955, 2004.
 
 \bibitem[Topel et~al.(2008)Topel, Kormeier, Klassen, and Hofestadt]{TOP2008}
 Thoralf Topel, Benjamin Kormeier, Andreas Klassen, and Ralf Hofestadt.
