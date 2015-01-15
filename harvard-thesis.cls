@@ -151,7 +151,7 @@
 	\lhead{Thesis Supervisor: \@advisor} \rhead{\@author}
 	\renewcommand{\headrulewidth}{0.0pt} 
 	\begin{center}
-	\vspace*{1pt}
+	\vspace*{30pt}
 	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
 	\vspace*{15pt}
 	\sc Abstract \\ \rm
@@ -195,4 +195,6 @@
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
    \noindent\textsc{#1}}
+
+\usepackage{fullpage}
 

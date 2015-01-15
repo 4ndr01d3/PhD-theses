@@ -48,7 +48,7 @@ The development efforts were focused on the creation of a relational data model 
 
 \begin{figure}  
 \centering
-\includegraphics[width=4in]{figures/biowarehouse.png}
+\includegraphics[width=5in]{figures/biowarehouse.png}
 \caption[Original BioWarehouse schema.]{The main datatypes in the BioWarehouse schema, and the relationships between them.
 \label{fig:biowarehouse}}
 \end{figure}
@@ -66,7 +66,7 @@ BioDWH's main objective is to increase customisation of the data warehouse conce
 
 \begin{figure}  
 \centering
-\includegraphics[width=4in]{figures/dwh_architecture.png}
+\includegraphics[width=4.5in]{figures/dwh_architecture.png}
 \caption[BioDWH System Architecture.]{BioDWH System Architecture.
 \label{fig:biodwh}}
 \end{figure}
@@ -82,7 +82,7 @@ With this object in mind, BioMart has grown from an extension to the Ensembl web
 
 \begin{figure}  
 \centering
-\includegraphics[width=\textwidth]{figures/biomart.png}
+\includegraphics[width=5in]{figures/biomart.png}
 \caption[Biomart Portal Architecture.]{Biomart Portal Architecture. The portal can be set either with a master/slave or with a peer-to-peer configuration.
 \label{fig:biomart}}
 \end{figure}
@@ -161,7 +161,7 @@ Figure \ref{fig:psicquic} shows the architecture of PSICQUIC. The idea is that s
 
 \begin{figure}  
 \centering
-\includegraphics[width=4.3in]{figures/psicquic.png}
+\includegraphics[width=4.5in]{figures/psicquic.png}
 \caption[PSICQUIC Architecture.]{PSICQUIC Architecture.
 \label{fig:psicquic}}
 \end{figure}
@@ -233,7 +233,7 @@ The Distributed Annotation System (DAS) \cite{DOW2001} makes use of a widely-ado
 
 \begin{figure}  
 \centering
-\includegraphics[width=4.3in]{figures/DAS.png}
+\includegraphics[width=5in]{figures/DAS.png}
 \caption[DAS Flow of Information.]{Flow of information in a standard query in the Distributed Annotating System.
 \label{fig:das}}
 \end{figure}
@@ -281,7 +281,7 @@ Other elements and attributes are more oriented to other kinds of biological dat
 
 DAS can be seen as having a \emph{``Dumb server -- Smart Client''} architecture where most of the hard work is executed in the client. Nonetheless, several independent projects have contributed to both clients and servers. 
 
-Under the DAS terminology, servers and sources represent two different concepts. A \emph{DAS source} provides data for one \emph{Coordinate system}, i.e. a unique 4-tuple \emph{(Authority, Version, Type, Organism)}, e.g. (Ensmbl, 51, Chromosome, Homo Sapiens). On the other hand a \emph{DAS server} is the software that facilitates the publishing of DAS sources \cite{DASCS2009}.
+Under the DAS terminology, servers and sources represent two different concepts. A \emph{DAS source} provides data for one \emph{Coordinate system} (\url{http://www.dasregistry.org/help_coordsys.jsp}), i.e. a unique 4-tuple \emph{(Authority, Version, Type, Organism)}, e.g. (Ensmbl, 51, Chromosome, Homo Sapiens). On the other hand a \emph{DAS server} is the software that facilitates the publishing of DAS sources.
 
 Each DAS source can support several capabilities, which means it is able to respond to an HTTP request that gets interpreted as a DAS command (e.g. sequence, features) with a document that follows the specification. DAS servers are pieces of software that implement the common tasks of this process, for example handling the HTTP requests, providing a logical model for DAS or encoding the model into a document.
 
@@ -310,7 +310,7 @@ The uses of visualization techniques are as diverse as fields are in the world, 
 The most representatives visualization techniques used in bioinformatics can be categorised in three groups: charts, networks and hierarchies. Charts are graphical representations were n-dimensional data is mapped or aggregated into a space, for example scatter plots, bar graphs, pie charts, etc. Networks are structures were some components are connected to an arbitrary number of other components, normally using a node-link metaphor were the components are represented by nodes and the connections are lines in between them. Lastly, the hierarchies are another type of connection showing when an item is part of another, or using graph theory terminology, a node can be the parent of another; the diverse representations of trees can be used for this type of data, for example, node-link trees and space filling diagrams \cite{WAN2014}. 
 
 \begin{figure}  
-\includegraphics[height=\textwidth,angle=90]{figures/vis_libs.png}
+\includegraphics[height=6in,angle=90]{figures/vis_libs.png}
 \caption[Comparison of feature of selected visualisation libraries.]{Comparison of feature of selected visualisation libraries.
 \label{fig:vis_libs}}
 \end{figure}
@@ -328,6 +328,7 @@ This is quite an unfair comparison because the number of reads produced in NGS s
 
 Visualizations have played an important role in the different stages of genomic analysis. In \cite{NIE2010} the authors have identified three tasks in genomic research were visualizations have been widely used: (i) supporting the sequencing process, (ii) browsing annotations in the context of a reference genome, and (iii) comparing sequences from different organisms and/or individuals.
 
+\subsubsection{Sequencing Process}
 Despite all the progress on sequencing techniques the process is not perfect and requires visual inspection in order to interpret and validate automated outputs to compose sequences, chromosomes and ultimately genomes. It is a common strategy to associate quality scores QS to each of the nucleic bases that result from a sequencing experiment. The QS is proportional to the number of agreeing reads that cover a base, for example the QS on a given position X would be really low if half the reads covering X indicate a G and the rest point to a T, it would be similarly low if only few reads cover that area or if the bases are not clearly distinguish in the reads. In contrast, if many reads are covering an area and all of them coincide that position X is an A, the score in that position should be really high.
 
 Several tools have been developed in order to take advantage of this information, aligning the reads and representing the scores in multiple ways, for example histograms or heat maps, making easier the task of identifying regions of low coverture and discover errors in the automatic consensus sequence. This type of tools is highly dependent on the used technology, for instance, there are no raw read traces(only images) in some of the NGS techniques, and therefore a detailed alignment is prohibited because of the elevated computational cost.
@@ -344,7 +345,7 @@ This stand-alone tool offers a Top-Down strategy to analyse an automatic assembl
 \end{description}
 
 \begin{figure}  
-\includegraphics[height=\textwidth,angle=90]{figures/hawkeye.png}
+\includegraphics[height=5.7in,angle=90]{figures/hawkeye.png}
 \caption[Hawkeye Interface Views.]{Snapshots of the available views in the Hawkeye tool: (a) Launch Pad, (b) Scaffold View and (c) Contig View.
 \label{fig:hawkeye}}
 \end{figure}
@@ -359,6 +360,7 @@ The Integrative Genomics Viewer IGV is one of the tools that take advantage of t
 
 A description of other tools that support the process of sequencing a genome (category (i)) can be found in \cite{NIE2010}. Once the genome is ready and has been through a finishing process it is usually shared and other scientist can use it in context of their own data. Is in this stage where the tools of category (ii) i.e. browsing a completed genome with its annotations; are of great help.
 
+\subsubsection{Genome Browsing}
 A famous principle in visualisation is known as the Shneiderman mantra: \emph{overview, zoom, filter, details-on-demand} \cite{SHN1996}. Most genome browsers use a similar layout that follows the mantra quite closely, adapting it to the molecular biology behind the data:
 
 The \emph{overview} is usually a graphical representation of the karyotype, which is the set of chromosomes displaying its bands. The bands have been experimentally defined using some cytogenetics techniques to have visual mark on the chromosome, and serve the purpose of the visualisation to identify the different chromosomic regions.
@@ -386,21 +388,90 @@ From the beginning the objective of the Ensembl genome viewer was to support mul
 
 Besides the sources provided by Ensembl, it is possible to include external ones by using several protocols. For example, it is possible to include an URL to several NGS files (e.g. BAM, BigBed, etc.), or to point to an existing data source that uses the DAS protocol (discussed in section \ref{ssec:DASprotocol}); with this information Ensembl will query that source to get info in the ROI and display it in locations views, such as Region in detail, chromosome or karyotype. Moreover, Ensemble is in itself a DAS source, which makes easy the inclusion of its data in other resources \cite{SPU2010}.
 
+Similar efforts to Ensembl have been addressed by two other big organizations: the NCBI Map Viewer \cite{ACL2014} and the UCSC Genome Browser \cite{ROS2014}. Both projects provide easy access to the centralised repositories of each institution, and allow to include third party access to be displayed in context of their data. Moreover, they collaborate with each other, and information from one source is available to be displayed in the other. A comparison between these three genome browsers can be found in \cite{FUR2006}.
 
-UCSC
-MapVIewer
-JBrowse
-personal genomics - MyKarioView
-Comparing genomes
+These traditional genome browsers share the same architecture, where both data and service are located on the server side: When a new request gets to any of them, the data is collected form local or third-party data sources, and then, an image is generated in the server, and ultimately transmitted to the client; HTML link-maps are also generated to be able to use parts of the generated image as interactive links. In this way the client only requires to be able to display images and the use of the \emph{map} HTML element, which is part go the HTML specification since early versions, and therefore is widely supported.
 
+Unfortunately by using this approach it is necessary to re-generate a completely new image with most user interactions, for example, by moving the ROI by a few bases, or by hiding a data source. Some strategies, have been creates to improve the usability of these applications, for instance using cache memory in the server to accelerate the access to remote sources, or pre generate the most likely required images (e.g. left and right of the current region). Nonetheless, factors such as the number of sources or network delays can affect dramatically the smoothness of the navigation in a system of this type.
 
-%Ensembl, mykarioView, Dalliance, IGV, Tablet, BAMView
+Recent web technologies permit the decentralisation of the data, increasing the workload on the client and therefore liberating the server from most of the display related tasks. Under this model, the web genome browser is an application that mainly runs in the client, requesting data on-demand and generating/manipulating the graphic accordingly. If, for example, the user drags the display area to the right, making visible a few more bases, the client only requests the information of the new area and complement the graphic dynamically, reducing the computational cost of creating a full image, but most importantly isolating all the ``look and feel'' tasks from the server, allowing the server to focus on serving data, making it able to attend more and bigger requests.
+
+JBrowse is an open source application that follows this approach implementing a robust client in JavaScript with the support of a server side developed in Perl for the preprocessing of the data. JBrowse uses a combination of standard HTML 'div' and 'canvas' elements to represent the genomic features. For instance in high level views of data, 'divs' are used to create histograms to show the amount of features in an area. As in the case of other genome browsers, JBrowse support the inclusion of third-party data using NGS files, for example BigWig data is represented either as heat maps or histograms using 'canvas' elements \cite{LEE2013}.
+
+There is different strategy for genome browsing, which takes advantage of the features of what is also known as Rich Internet Applications RIA; the alternative is to preprocess the information to create small images called tiles that can be used to compose a view, similar to the experience introduced by Google maps; in this way there is no need to refresh a whole page if there are minor changes in the selected area. 
+
+However, in \cite{SKI2009} the authors of JBrowse present a benchmarking experiment, where the two approaches are tested, showing better response times in the case of using HTML elements. Besides the performance, the 'tiles' approach requires a lot more storage space in order to have all the tiles pre-calculated, moreover, the approach complicates the desirable feature of including third-party sources because it might need to pre-process the entire source to create the tiles.
+
+A similar project to JBrowse is Dalliance, a Web-based Genome Viewer developed using the HTML5 capabilities to manipulate SVG elements. It also requires a modern web browser (Firefox 3.6+, Chrome 5+, Safari+). Dalliance takes advantage of the DAS architecture in order to allow the users to put custom data in context of reference genomes. As other genome browsers mentioned above, it supports the interaction with BAM files and other NGS related formats \cite{DOW2011}. 
+
+Similar use of DAS, has been implemented in MyKarioView (discussed further in section \ref{section:mykarioview}), which has an special emphasis on the display of personal genome data in context of well known data sources.
+
+It is important to highlight that the purpose of genome browsers is to simplify the task of generating hypothesis based in the aggregation of genomic data. Each data source can contain errors, and the researcher should be sceptical of any conclusion based on a single observation. Genome browsers allow to graphically display several sources, and in this way make easier the detection of anomalies, errors or special genomic conditions. Despite how evident a hypothesis is represented in a visualisation, the scientist must have access to the original data in order to evaluate any theory \cite{CLI2009}.
+
+\subsubsection{Comparative Genomics}
+The last of the categories (iii) mentioned in the beginning of this section refers to the group of tools used to compare genomes in between individuals and/or species.
+
+With the constantly growing number of complete genomes, it is only a logical step in research, to start looking for high level similarities between them and to use the discovered knowledge for one species in the research of others. This field, known as comparative genomics, tries to identify functional elements common in multiple species and their evolutionary modifications, but is also common to use these techniques in order to help in the assembly and finishing of new genomes.
+
+The estimation of the conservation of the chromosomal location of multiple genes among several species is known as synteny. The relevance of it, is in the assumption that a sequence of genes on the same location in two species is a an indication of a common ancestor. A "dot plot" graphic (see Figure \ref{fig:dotplot}) is commonly used to represent the synteny among  2 genomes. Each of the 2 dimensional axis of the plot represent one of the genomes, and dots in the graph are the positions where a common gene is located; connected dots that show a 45 degree line, are the indication of a high syntenic region. Tools such Vista \cite{FRA2004} and GenomeMatcher \cite{OHT2008} include implementations of dot plots among other ways to compare genomes.
+
+\begin{figure}  
+\centering
+\includegraphics[width=4in]{figures/dotplot.jpg}
+\caption[Dot plot comparison created with GenomeMatcher.]{Dot plot comparison created with GenomeMatcher
+\label{fig:dotplot}}
+\end{figure}
+
+An alternative to dot plots, some tools offer a technique to display multiple genome alignments and marking corresponding areas in between by colour-shadowing, for example Figure \ref{fig:gbrowsesyn} shows an example generated using GBrowse\_syn \cite{MCK2010} where multiple genomes from the WormBase database have been aligned and a section of it is displayed to show the conservation certain genes.
+
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/gbrowse_syn.jpg}
+\caption[multiple alignment snapshot generated with GBrowse\_syn.]{A five species whole genome DNA sequence alignment comparison from WormBase using GBrowse\_syn.
+\label{fig:gbrowsesyn}}
+\end{figure}
+
+Besides the comparison of genomes in between species, the progress in the sequencing techniques permits the analysis of multiple individuals genomes in order to study their variation, and try to discover in this way the genotype that causes phenotypes of interest such as diseases. The biggest yet international effort in this area is known as the 1000 Genomes project,  which in their latest publication \cite{GEN2012} includes the genomes of 1092 individuals from 14 populations, and discovered and genotyped 38 million SNPs, 1.4 million indels and 14000 large deletions; vital information for genomic studies of human health.
+
+An adaptation of the Ensembl browser has been develop in order to provide a way to visually browse over the result information of the 1000 Genomes project. Multiple tracks including aggregates and results from the study can be included in the browser and new tools to export and visualise variation data have been included.
 
 \subsection{Proteomics}
+In the central dogma of biology, DNA (deoxyribonucleic acid) encodes genes, which get translated in RNA (ribonucleic acid), which in turn, gets translated into proteins. Each of these is represented by a sequence of either nucleotides (DNA, RNA) or amino acids (Proteins). On the previous Section we discussed the visualisation tools that assist the process of sequencing DNA in order to get a full genome of an species, where positional annotations can be included, shared and explored, in the context of one or multiple organisms. 
+
+It is because of the central dogma that annotations about genes are among the most used and useful features to know on a DNA sequence. The direct connection between a gene and a protein is the key to big part of the molecular biology research. For example, many diseases are caused because there are not enough (or too many) proteins to execute a biological function, or because there are proteins but they are malformed; in any of those cases the source of the problem can sometimes be trace back to the gene that generated that protein, and find that a mutation have appeared and a section of nucleotides have been inserted/deleted (indels). 
+
+It is one of the goals of proteomics, at least in the clinical context, to deliver markers for disease prognosis, state and treatment outcome and targets for disease treatment \cite{MIS2007}. The Online Mendelian Inheritance in Man OMIM resource, is a catalog of human genes and genetic disorders \cite{AMB2014}. In OMIM is possible to find what mutation in a gene (genotype) is associated with a disease (phenotype). This information has been compiled from peer reviewed publications that represent the current knowledge in the area from several communities (clinicians, molecular biologists and genome scientists), this, of course is a work in continuos progress and despite the enormous contribution of resources such OMIM, it is not by any means, a finished task.
+
+Once a good approximation of the genome of an organism has been identified, deciphering its proteome (i.e. the total protein complement of a cell, organ or even an organism) it is the logical step to follow, specially if considering that the number of identified genes during the human genome project (~30000) is way too small to explain the complexity of human biology \cite{PAN2008}.
+
+%There are different experiments that look for clues in the role played by proteins in the different parts of this puzzle. 
+This is due (among other reasons) to gene and protein splicing and post-translational modifications PMS. Which then makes it impossible to completely deduce the proteome from the genome, and therefore approaches that start by the protein identification are necessary.
+
+Multiple experiments have been develop in order to approach this challenge, for example, mass spectrometry MS, helps to identify which peptides and ultimately which proteins are present in a given sample; 2D gel electrophoresis and microarrays analysis can give insights in the proportions of proteins that have been expressed in certain conditions (e.g. an specific tissue, a sick patient, a health person(control), etc.), similar data can now be obtained with alternative uses of NGS technologies such RNASeq; crystallography and modelling software has been used to find the final shape of the protein.
+
+Visualisation has shown his potential by helping in the understanding and analysis of the outcomes of such experiments. Below we will show some cases grouped by the proteomics technique (as described in \cite{PAN2008}), where visualization methods have been used to support the analysis.
+
+\subsubsection{Instrumentation and separation strategies}
+Proteomics based on mass spectrometrtry it is about identifying and quantifying as many proteins as possible in a single experiment \cite{PAN2008}.
+
+2Dpage
+
+liquidchormmatography
+
+\subsubsection{Computational approaches for protein identification and validation}
+Peptide Mass Fingerprinting PMF
+
+MS/MS
+
+\subsubsection{Quantification approaches and tools}
+Differential Imaging gel Electrophoresis DIGE
+
+Microarrays
+
 %Dasty, Interpro
 \subsection{Protein Interactions}
 \subsection{Biological Pathways}
-\subsection{Population Variation}
+%\subsection{Population Variation}
 %\subsubsection{General Research}
 %To talk about statistical graphs and things like heat maps, phylogenetic trees, etc.
 

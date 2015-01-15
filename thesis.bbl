@@ -1,9 +1,27 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{64}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Acland et~al.(2014)Acland, Agarwala, Barrett, Beck, Benson, Bollin,
+  Bolton, Bryant, Canese, Church, et~al.]{ACL2014}
+Abigail Acland, Richa Agarwala, Tanya Barrett, Jeff Beck, Dennis~A Benson,
+  Colleen Bollin, Evan Bolton, Stephen~H Bryant, Kathi Canese, Deanna~M Church,
+  et~al.
+\newblock Database resources of the national center for biotechnology
+  information.
+\newblock \emph{Nucleic acids research}, 42\penalty0 (D1):\penalty0 D7, 2014.
+
+\bibitem[Amberger et~al.(2014)Amberger, Bocchini, Schiettecatte, Scott, and
+  Hamosh]{AMB2014}
+Joanna~S Amberger, Carol~A Bocchini, Fran{\c{c}}ois Schiettecatte, Alan~F
+  Scott, and Ada Hamosh.
+\newblock Omim. org: Online mendelian inheritance in man
+  (omim{\textregistered}), an online catalog of human genes and genetic
+  disorders.
+\newblock \emph{Nucleic acids research}, page gku1205, 2014.
 
 \bibitem[Ameur et~al.(2006)Ameur, Yankovski, Enroth, Spjuth, and
   Komorowski]{AME2006}
@@ -37,6 +55,16 @@ Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
 \newblock Vanesa - a software application for the visualization and analysis of
   networks in systems biology applications.
 \newblock Journal of Integrative Bioinformatics - JIB (ISSN 1613-4516), 2014.
+
+\bibitem[Cline et~al.(2009)Cline, Kent, et~al.]{CLI2009}
+Melissa~S Cline, W~James Kent, et~al.
+\newblock Understanding genome browsing.
+\newblock \emph{Nature biotechnology}, 27\penalty0 (2):\penalty0 153, 2009.
+
+\bibitem[Consortium et~al.(2012)]{GEN2012}
+1000 Genomes~Project Consortium et~al.
+\newblock An integrated map of genetic variation from 1,092 human genomes.
+\newblock \emph{Nature}, 491\penalty0 (7422):\penalty0 56--65, 2012.
 
 \bibitem[Cunningham et~al.(2014)Cunningham, Amode, Barrell, Beal, Billis,
   Brent, Carvalho-Silva, Clapham, Coates, Fitzgerald, et~al.]{CUN2014}
@@ -142,6 +170,19 @@ Paul Flicek, M.~Ridwan Amode, Daniel Barrell, Kathryn Beal, Simon Brent, Yuan
 \newblock \doi{10.1093/nar/gkq1064}.
 \newblock URL
   \url{http://nar.oxfordjournals.org/content/39/suppl_1/D800.abstract}.
+
+\bibitem[Frazer et~al.(2004)Frazer, Pachter, Poliakov, Rubin, and
+  Dubchak]{FRA2004}
+Kelly~A Frazer, Lior Pachter, Alexander Poliakov, Edward~M Rubin, and Inna
+  Dubchak.
+\newblock Vista: computational tools for comparative genomics.
+\newblock \emph{Nucleic acids research}, 32\penalty0 (suppl 2):\penalty0
+  W273--W279, 2004.
+
+\bibitem[Furey(2006)]{FUR2006}
+Terrence~S Furey.
+\newblock Comparison of human (and other) genome browsers.
+\newblock \emph{Human genomics}, 2\penalty0 (4):\penalty0 266, 2006.
 
 \bibitem[Gehlenborg et~al.(2010)Gehlenborg, O'Donoghue, Baliga, Goesmann,
   Hibbs, Kitano, Kohlbacher, Neuweger, Schneider, Tenenbaum, and
@@ -253,6 +294,14 @@ W.~J. Kent, A.~S. Zweig, G.~Barber, A.~S. Hinrichs, and D.~Karolchik.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/26/17/2204.abstract}.
 
+\bibitem[Lee et~al.(2013)Lee, Helt, Reese, Munoz-Torres, Childers, Buels,
+  Stein, Holmes, Elsik, and Lewis]{LEE2013}
+Eduardo Lee, Gregg~A Helt, Justin~T Reese, Monica~C Munoz-Torres, Chris~P
+  Childers, Robert~M Buels, Lincoln Stein, Ian~H Holmes, Christine~G Elsik, and
+  Suzanna~E Lewis.
+\newblock Web apollo: a web-based genomic annotation editing platform.
+\newblock \emph{Genome Biol}, 14:\penalty0 R93, 2013.
+
 \bibitem[Lee et~al.(2006)Lee, Pouliot, Wagner, Gupta, Stringer-Calvert,
   Tenenbaum, and Karp]{LEE2006}
 Thomas Lee, Yannick Pouliot, Valerie Wagner, Priyanka Gupta, David
@@ -274,6 +323,11 @@ Heng Li, Bob Handsaker, Alec Wysoker, Tim Fennell, Jue Ruan, Nils Homer, Gabor
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/25/16/2078.abstract}.
 
+\bibitem[McKay et~al.(2010)McKay, Vergara, and Stajich]{MCK2010}
+Sheldon~J McKay, Ismael~A Vergara, and Jason~E Stajich.
+\newblock Using the generic synteny browser (gbrowse\_syn).
+\newblock \emph{Current protocols in bioinformatics}, pages 9--12, 2010.
+
 \bibitem[Messina and Sonnhammer(2009)]{MES2009}
 David~N. Messina and Erik L.~L. Sonnhammer.
 \newblock {DASher: a stand-alone protein sequence client for DAS, the
@@ -283,11 +337,35 @@ David~N. Messina and Erik L.~L. Sonnhammer.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/10/1333}.
 
+\bibitem[Mischak et~al.(2007)Mischak, Apweiler, Banks, Conaway, Coon,
+  Dominiczak, Ehrich, Fliser, Girolami, Hermjakob, et~al.]{MIS2007}
+Harald Mischak, Rolf Apweiler, Rosamonde~E Banks, Mark Conaway, Joshua Coon,
+  Anna Dominiczak, Jochen~HH Ehrich, Danilo Fliser, Mark Girolami, Henning
+  Hermjakob, et~al.
+\newblock Clinical proteomics: a need to define the field and to begin to set
+  adequate standards.
+\newblock \emph{PROTEOMICS-Clinical Applications}, 1\penalty0 (2):\penalty0
+  148--156, 2007.
+
 \bibitem[Nielsen et~al.(2010)Nielsen, Cantor, Dubchak, Gordon, and
   Wang]{NIE2010}
 Cydney~B Nielsen, Michael Cantor, Inna Dubchak, David Gordon, and Ting Wang.
 \newblock Visualizing genomes: techniques and challenges.
 \newblock \emph{Nature methods}, 7:\penalty0 S5--S15, 2010.
+
+\bibitem[Ohtsubo et~al.(2008)Ohtsubo, Ikeda-Ohtsubo, Nagata, and
+  Tsuda]{OHT2008}
+Yoshiyuki Ohtsubo, Wakako Ikeda-Ohtsubo, Yuji Nagata, and Masataka Tsuda.
+\newblock Genomematcher: a graphical user interface for dna sequence
+  comparison.
+\newblock \emph{BMC bioinformatics}, 9\penalty0 (1):\penalty0 376, 2008.
+
+\bibitem[Panchaud et~al.(2008)Panchaud, Affolter, Moreillon, and
+  Kussmann]{PAN2008}
+Alexandre Panchaud, Michael Affolter, Philippe Moreillon, and Martin Kussmann.
+\newblock Experimental and computational approaches to quantitative
+  proteomics:< i> status quo</i> and outlook.
+\newblock \emph{Journal of proteomics}, 71\penalty0 (1):\penalty0 19--33, 2008.
 
 \bibitem[Pico et~al.(2008)Pico, Kelder, Van~Iersel, Hanspers, Conklin, and
   Evelo]{PIC2008}
@@ -315,17 +393,20 @@ Andreas Prlic, Thomas Down, Eugene Kulesha, Robert Finn, Andreas Kahari, and
 \newblock \doi{10.1186/1471-2105-8-333}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/8/333}.
 
-\bibitem[Registry(2009)]{DASCS2009}
-DAS Registry.
-\newblock Help on coordinate systems, 2009.
-\newblock URL \url{http://www.dasregistry.org/help_coordsys.jsp}.
-
 \bibitem[Robinson et~al.(2011)Robinson, Thorvaldsd{\'o}ttir, Winckler, Guttman,
   Lander, Getz, and Mesirov]{ROB2011}
 James~T Robinson, Helga Thorvaldsd{\'o}ttir, Wendy Winckler, Mitchell Guttman,
   Eric~S Lander, Gad Getz, and Jill~P Mesirov.
 \newblock Integrative genomics viewer.
 \newblock \emph{Nature biotechnology}, 29\penalty0 (1):\penalty0 24--26, 2011.
+
+\bibitem[Rosenbloom et~al.(2014)Rosenbloom, Armstrong, Barber, Casper, Clawson,
+  Diekhans, Dreszer, Fujita, Guruvadoo, Haeussler, et~al.]{ROS2014}
+Kate~R Rosenbloom, Joel Armstrong, Galt~P Barber, Jonathan Casper, Hiram
+  Clawson, Mark Diekhans, Timothy~R Dreszer, Pauline~A Fujita, Luvina
+  Guruvadoo, Maximilian Haeussler, et~al.
+\newblock The ucsc genome browser database: 2015 update.
+\newblock \emph{Nucleic acids research}, page gku1177, 2014.
 
 \bibitem[Salazar et~al.(2010)Salazar, Mulder, and Blake]{SAL2010}
 Gustavo Salazar, Nicola Mulder, and Edwin Blake.
@@ -362,6 +443,13 @@ Ben Shneiderman.
   visualizations.
 \newblock In \emph{Visual Languages, 1996. Proceedings., IEEE Symposium on},
   pages 336--343. IEEE, 1996.
+
+\bibitem[Skinner et~al.(2009)Skinner, Uzilov, Stein, Mungall, and
+  Holmes]{SKI2009}
+Mitchell~E Skinner, Andrew~V Uzilov, Lincoln~D Stein, Christopher~J Mungall,
+  and Ian~H Holmes.
+\newblock Jbrowse: a next-generation genome browser.
+\newblock \emph{Genome research}, 19\penalty0 (9):\penalty0 1630--1638, 2009.
 
 \bibitem[Spudich and Fern{\'a}ndez-Su{\'a}rez(2010)]{SPU2010}
 Giulietta~M Spudich and Xos{\'e}~M Fern{\'a}ndez-Su{\'a}rez.
