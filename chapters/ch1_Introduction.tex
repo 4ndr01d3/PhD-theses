@@ -9,9 +9,9 @@ If I have seen further it is by standing on the shoulders of giants
 
 Techniques and methods of uncovering the logic behind cellular processes are in constant development. The success of these methods is usually related to the ability to isolate a particular state/measurement of the organic material (e.g. level of expression of a single protein, number of mutations of a gene in a population, etc.). However,  cellular functions of a higher level and organism's processes can only be studied with a more holistic approach.
 
-Integrating information from different experiments in context with the current knowledge-base is one of the most recurrent duties that researchers have to accomplish. This task however takes on another dimension when the goal is to connect related data sets in a general way. For example, a researcher usually needs to connect the target gene of one experiment with the information about the protein in which it is known to be expressed.  However this becomes far more difficult if the aim is to automatically connect a whole dataset of genes and their product proteins.
+Integrating information from different experiments in the context of the current knowledge-base is one of the most recurrent duties that researchers have to accomplish. This task however takes on another dimension when the goal is to connect related data sets in a general way. For example, a researcher usually needs to connect the target gene of one experiment with the information about the protein in which it is known to be expressed.  However this becomes far more difficult if the aim is to automatically connect a whole dataset of genes and their protein products.
 
-The challenges of integrating heterogeneous datasets range from technical (e.g. incompatibilities of the storage systems) to structural (e.g. two datasets can refer to the same entity using different identifiers), but overall the major challenge is to not lose the meaning of the connection (e.g. linking proteins and genes, and knowing what their relationship is).
+The challenges of integrating heterogeneous datasets range from technical (e.g. incompatibilities of the storage systems) to structural (e.g. two datasets can refer to the same entity using different identifiers), but overall the major challenge is to not lose the meaning of the connection e.g. linking proteins and genes, and knowing what their relationship is.
 
 Integration of data usually refers to connecting data at a low level, by means of storing aggregated information from several sources or by saving links to where the source is. However it is also possible to integrate it at a higher level, where information is not saved and the aggregates are built and visualised on demand.
 
@@ -20,31 +20,22 @@ This project explores both the integration and visualisation of information in b
 \section{Integration of information}
 \subsection{State of the art}
 The latest version of the Nucleic Acids Research Database Issue added a further 58 databases to the online collection held by the journal, which then reached the number of 1552 databases \cite{FER2014}. This collection is far from including every single database, but it is  a good reflection of the number of available resources.
-The approaches to integrate data from all these sources are themselves heterogenous, and are focused on different types of integration, from simply linking resources to development of complex structures of aggregated information. In \cite{GOB2008} the authors categorise the different techniques used to integrate data in bioinformatics into eight approaches, and then these categories were reorganised in \cite{ZHA2011b} into:
-\begin{description}
-\item[Data warehousing:] A centralised repository where the information from different sources is copied and processed to be kept  in a single place providing a single access point to their data. However the preprocessing of the data is usually a complex process and the posterior additions or editions might require a lot of work.
-\item[Federated databasing:] Multiple sources agree to follow a similar structure in order to allow a standard query over several instances. By dealing with smaller datasets than the data warehousing approach, the complexity of post-processing is simplified, however it requires that the providers deal with the extra work of maintaining their data as the federated database agreement establishes.
-\item[Service oriented integration:] Definition of a protocol for requests and responses to obtain data or execute services. The two standards widely used are SOAP (Simple Object Access Protocol) services and REST (REpresentational State Transfer) services, where the latter is gaining momentum because of its simplicity. However this approach also requires a large commitment from providers about creating and maintaining the services, and also increasing and maintaining the specifications for the different domains.
-\item[Semantic integration:] Structures the data using semantic web standards(e.g. RDF, OWL) in order to make it ``machine-readable'' and be able to deduce meaningful associations. The conversion of the data into RDF files might not be a trivial endeavour, and it has similar problems to the ones mentioned above because it usually implies maintaining copies of the information in a separate format. 
-\item[Wiki-based integration:] Cooperative effort where the community inputs information in a open and unstructured way, which can reach a highly reliable status as has been shown in the case of wikipedia. It is however completely dependent on the adoption of the community, and also given the unstructured nature of the data, is hard to manipulate for automatic analysis.
-\end{description}
+The approaches to integrate data from all these sources are themselves heterogenous, and are focused on different types of integration, from simply linking resources to development of complex structures of aggregated information. In \cite{GOB2008} the authors categorise the different techniques used to integrate data in bioinformatics into eight approaches, and then these categories were reorganised in \cite{ZHA2011b} into: data warehousing, federated databasing, service oriented integration, semantic integration and Wiki-based integration.
 
 We now present some of the most representative projects that have attempted to integrate data and offer a solution for this requirement in the bioinformatics field, by using one or more of the aforementioned approaches. \footnote{We have decided to include the description of the Distributed Annotation System in a separate section of this document, because it is the base-technology of the developments shown in Chapter 2, and therefore it requires an extended description.}
 
-\subsubsection{Sequence Retrieval System}
-The Sequence Retrieval System, better known in bioinformatics as SRS, was probably the most successful project before the introduction of Next Generation Sequencing (NGS) technologies, originally aimed at facilitating access to biological sequences databases \cite{ETZ1996}. It grew to become an integration system of both data retrieval and applications for data analysis.
+\subsubsection{Data warehousing} 
+It is centralised repository where the information from different sources is copied and processed to be kept  in a single place providing a single access point to their data. However the preprocessing of the data is usually a complex process and the posterior additions or editions might require a lot of work.
 
-SRS was developed following an object-oriented design with the strategy of taking advantage of raw text files, that were the \emph{de-facto} standard on molecular biology analysis. By dealing only with text files, SRS was getting faster retrieval speeds and saving storage space, mainly because data was neither stored nor parsed, only indexed \cite{ZDO2002}.
-
-The  indexes obtained were linked via meta-data, offering the user access to the original source plus links to any conceptually related database. This was then presented in a web-based interface. The automatically created interface for different sources and applications can be complicated for beginners, however SRS provides ways to create customised interfaces.
-
-Probably the most important instance of SRS was the one installed at the European Bioinformatics Institute (EBI), which was used to provide access to the major databases produced and maintained at the EBI. However by December 2013 the service was decommissioned as the service was considered redundant with the efforts to maintain multiple web services. Currently SRS technology is the property of Instem\textsuperscript{TM} and a list of available servers can be found at \url{http://bioblog.instem.com/download/srs-parser-and-software-downloads/public-srs-installations/}
-
-\subsubsection{BioWarehouse}
+\paragraph{BioWarehouse}
 BioWarehouse is an open source toolkit to create data warehouses using MySQL or Oracle \cite{LEE2006}. The motivation behind this project is to provide  a single access point that supports Standard Query Language (SQL) running in a high performance environment.
 This projects follows the data warehousing approach to integrate data, however the authors argue that it can be used as a part of a federated system and therefore, it doesn't aim to replace existing distributed systems but rather to complement them.
 
-The development efforts were focused on the creation of a relational data model that supports the information from several biologic entities. Figure \ref{fig:biowarehouse} shows the main datatypes that are defined in the BioWarehouse scheme including: Taxon, BioSource, Nucleic Acid, Gene, Protein, Feature, Reaction, Chemical and Pathway. It was the objective of the creators that the model evolves to include other entities, but at the same time keeps the model as simple as possible.
+The development efforts were focused on the creation of a relational data model that supports the information from several biological entities. Figure \ref{fig:biowarehouse} shows the main datatypes that are defined in the BioWarehouse scheme including: Taxon, BioSource, Nucleic Acid, Gene, Protein, Feature, Reaction, Chemical and Pathway. It was the objective of the creators that the model evolves to include other entities, but at the same time keeps the model as simple as possible.
+
+The package that comprises BioWarehouse includes a set of loaders implemented in java and C++, that allows the automation of the process of loading data from several popular sources. 
+
+An instance of BioWarehouse called Publichouse is available online \url{https://publichouse.ai.sri.com/phpmyadmin/} (last checked December 2014) and provides access to compiled data from: NCBI Taxonomy, Enzyme, MetaCyc Chemical Compound Ontology, MultiFun Gene Ontology, MetaCyc Pathway Ontology, BioCyc, Swiss-Prot and TrEMBL.
 
 \begin{figure}  
 \centering
@@ -53,13 +44,9 @@ The development efforts were focused on the creation of a relational data model 
 \label{fig:biowarehouse}}
 \end{figure}
 
-The package that comprises BioWarehouse includes a set of loaders implemented in java and C++, that allows the automation of the process of loading data from several popular sources. 
-
-An instance of BioWarehouse called Publichouse is available online \url{https://publichouse.ai.sri.com/phpmyadmin/} (last checked December 2014) and provides access to compiled data from: NCBI Taxonomy, Enzyme, MetaCyc Chemical Compound Ontology, MultiFun Gene Ontology, MetaCyc Pathway Ontology, BioCyc, Swiss-Prot and TrEMBL.
-
 The most recent contribution reported on their website is from August 2010 and includes the installation of the web based interface for mysql databases called myphpadmin. This highlights the lack of development that the project has had in the last 4 years. A similar situation has been observed in projects that follow the same warehousing strategy in bioinformatics. Most of them were published around the same period of time but have been inactive in recent years, or have broken links to the tool, for example, Atlas \cite{SHA2005} published in 2005, LCB\cite{AME2006} published in 2006 and M-Chips \cite{FEL2002} from 2002. From our research, the only active project on infrastructure of data warehousing for biological data is BioDWH, which is described below.
 
-\subsubsection{BioDWH}
+\paragraph{BioDWH}
 The data warehouse for life science data integration known as BioDWH is a project developed at the Bielefeld University. BioDWH is a Java based project that developed an object-relational mapping using the library Hibernate to connect to the most common relational database management systems RDBMS (e.g. MySQL, Oracle, PostgreSQL) in order to create a centralised repository that integrates information from various biological databases \cite{TOP2008}.
 
 BioDWH's main objective is to increase customisation of the data warehouse concept improving performance, scalability and having quality data up to date. As part of the project they have included some parsers to extract information from well-known available resources (e.g. UniProt, KEGG, OMIM, etc.). Figure ~\ref{fig:biodwh} presents the extensions to a general data warehouse design done in this project in order to define an architecture oriented to life sciences data.
@@ -71,11 +58,11 @@ BioDWH's main objective is to increase customisation of the data warehouse conce
 \label{fig:biodwh}}
 \end{figure}
 
-It is important to highlight the inclusion of a monitoring system that keeps track of the need of updates from the different sources. Instead of direct access to the RDBMS, BioDWH provides an API that can be queried remotely, and a Graphical User Interface that enables the configuration of the different components including monitors and parser along with the queuing and displaying of content.
+It is important to highlight the inclusion of a monitoring system that keeps track of the need for updates from the different sources. Instead of direct access to the RDBMS, BioDWH provides an API that can be queried remotely, and a Graphical User Interface that enables the configuration of the different components including monitors and parser along with the queuing and displaying of content.
 
-Two projects have been reported in the literature that are using BioDWH: DAWIS-M.D. and VANESA. DAWIS-M.D. is oriented to metabolic data and integrates eleven different databases: BRENDA, EMBL, HPRD, KEGG, OMIM, SCOP, Transfac, Transpath, ENZYME, GO and UniProt. \cite{HIP2010}. VANESA uses DAWIS-M.D. in order to access important information for the modelling of biological processes and systems as biological networks\cite{BRI2014}.
+Two projects have been reported in the literature that are using BioDWH: DAWIS-M.D. and VANESA. DAWIS-M.D. is oriented to metabolic data and integrates eleven different databases: BRENDA, EMBL, HPRD, KEGG, OMIM, SCOP, Transfac, Transpath, ENZYME, GO and UniProt \cite{HIP2010}. VANESA uses DAWIS-M.D. in order to access important information for the modelling of biological processes and systems as biological networks \cite{BRI2014}.
 
-\subsubsection{BioMart}
+\paragraph{BioMart}
 BioMart started by using the same principle as BioWarehouse, BioDWH and other projects of data warehousing in life science: ``\emph{to create one universal software system for biological data management and empower biologists with the ability to create complex, customised datasets}'' \cite{KAS2011}.
 
 With this object in mind, BioMart has grown from an extension to the Ensembl website for data mining, to become an international effort for the integration of biological data. This has been achieved by first defining a general software infrastructure for further customisation, and then extending this architecture in order to support multi-database repositories as a data federation system, where all the entities use a predefined relational schema that is generic enough to support any kind of data.
@@ -87,11 +74,91 @@ With this object in mind, BioMart has grown from an extension to the Ensembl web
 \label{fig:biomart}}
 \end{figure}
 
-Given the inclusion of a multi-database paradigm, the BioMart team developed a server that provides access to a collection of sources called a BioMart Portal. Figure \ref{fig:biomart} shows the two possible configurations of the BioMart Portal. In configuration (a) each data source serves their own data and an independent server works as a central portal generating a unified view of the whole system. Alternatively, in configuration (b) all the data sources are treated as peers and they communicate with each other in order to be able to provide not only their own data, but also their peers data.
+Given the inclusion of a multi-database paradigm, the BioMart team developed a server that provides access to a collection of sources called a BioMart Portal. Figure \ref{fig:biomart} shows the two possible configurations of the BioMart Portal. In configuration (a) each data source serves their own data and an independent server works as a central portal generating a unified view of the whole system. Alternatively, in configuration (b) all the data sources are treated as peers and they communicate with each other in order to be able to provide not only their own data, but also their peer's data.
 
-BioMart includes a tool to automatically transform any 3rd form normalised database schema into the reverse-star scheme type used by this system. Once the dataset has been transformed, BioMart provides different view ports to it: Web-based Graphic Interface, Restful services and API connectors using Java.
+BioMart includes a tool to automatically transform any 3rd form normalised database schema into the reverse-star scheme type used by this system. Once the dataset has been transformed, BioMart provides different view ports to it: Web-based Graphic Interface, Restful services and API connectors using Java \cite{KAS2011}.
 
-\subsubsection{BioMOBY}
+
+\subsubsection{Federated databasing} 
+This approach requires the agreement of multiple sources to follow a similar structure in order to allow a standard query over several instances. By dealing with smaller datasets than the data warehousing approach, the complexity of post-processing is simplified, however it requires that the providers deal with the extra work of maintaining their data as the federated database agreement establishes.
+
+\paragraph{The HUPO Proteomics Standards Initiative}
+The Proteomics Standards Initiative (PSI) is a collaborative initiative run by volunteers and coordinated as a work group of the HUman Proteome Organisation (HUPO), whose object is to define standards  to enable capture, comparison, exchange and verification of proteomics data. \cite{HER2006}. PSI is the result of a common effort from the interested parties in the proteomics domain.
+
+This effort can be categorised into three major infrastructure elements: (1) A specification of the Minimum Information About a Proteomics Experiment (MIAPE), (2) data exchange formats that are compliant with MIAPE, and (3) the use of controlled vocabularies (CV) in order to ensure consistency on the data content. In this way the proposed standard can be stable while its content can evolve by updating the CV.
+
+These recommendations are not intended to specify the methods and procedures for proteomics experiments, and should be seen as reporting guidelines.
+
+This initiative has been growing for the last 10 years, and now its standards are widely adopted in the proteomics community. The proposed specifications cover different branches of the field, for instance the PSI-MI formats were defined to deal with Molecular interaction data, PSI-MS works on standards for mass spectrometry data and PSI-MOD focuses on protein modifications.
+
+However even if all the parts follow the recommendations, a strategy to integrate this data is required. It is for this reason that the PSI common query interface (PSICQUIC) was created: a community standard that enables programmatic access to molecular-interaction data resources \cite{ARA2011}. This proposal includes a query language (MIQL) and an architecture to execute a query on distributed sources.
+
+Figure \ref{fig:psicquic} shows the architecture of PSICQUIC. The idea is that several samples from an organism can be processed by different experiments, and their findings can be published in independent articles, which consequently can be stored in more than one interaction database. PSICQUIC proposes that the providers include an extra layer to access this information, which can be queried using MIQL and with responses following the PSI-MI formats. In this way a client can use a single query over multiple resources and create a unified image.
+
+\begin{figure}  
+\centering
+\includegraphics[width=4.5in]{figures/psicquic.png}
+\caption[PSICQUIC Architecture.]{PSICQUIC Architecture.
+\label{fig:psicquic}}
+\end{figure}
+
+The PSI group recognises the importance of providing software tools to promote the adoption of the proposed standards. The most recent implementation of the PSICQUIC web service was released when version 1.3 of the PSICQUIC specification was made public in 2013 \cite{DEL2013}. The providers of molecular interaction data are now asked to implement a number of methods in order to support both SOAP and REST web services. 
+
+The web service methods will generally accept a MIQL query as input and generate an output in either PSI-XML or PSI-MITAB in its most recent versions. This implementation is based on the Apache Solr indexing software (\url{http://lucene.apache.org/solr/}), and is reflected in the constitution of MIQL, which is an extension of the Lucene query language used in Solr. This implementation is freely available for any provider who wishes to share their data to the PSI community.
+
+Besides the server, PSICQUIC also provides client libraries to facilitate access to the information from three different programming languages: Java, Perl and Python. There are ready to use clients, for example the PSICQUIC View accessible from \url{http://www.ebi.ac.uk/Tools/webservices/psicquic/view/main.xhtml} or plugins for Cytoscape and the R Bioconductor package.
+
+The last component of the PSICQUIC architecture is the registry, in which information about the available providers is stored as tags. This metadata can be used to query the registry as a RESTful service in order to facilitate the discovery of molecular-interaction data providers \cite{DEL2013}.
+
+
+\subsubsection{Service oriented integration} 
+The principle of service oriented integration is to have atomic components that offer a basic service. These services can then be connected in order to orchestrate the execution of a bigger task. Services can be data providers but can also be programs that execute specific functions.
+
+The definition of a protocol for requests and responses to obtain data or execute services is the key to facilitate the connectivity between the software components. The two standards most widely used are SOAP (Simple Object Access Protocol) services and REST (REpresentational State Transfer) services, where the latter is gaining momentum because of its simplicity. However service oriented integration also requires a large commitment from providers in creating and maintaining the services, and also increasing and maintaining the specifications for the different domains.
+
+Alternatively, the services can run on a local installation, which does not follow the principle of a unique remote resource executing a service to multiple consumers. Nonetheless, this option has been widely used in bioinformatics environments in order to have more control over the data and services offered.
+
+\paragraph{Sequence Retrieval System}
+
+The Sequence Retrieval System, better known in bioinformatics as SRS, was probably the most successful project before the introduction of Next Generation Sequencing (NGS) technologies, originally aimed at facilitating access to biological sequences databases \cite{ETZ1996}. It grew to become an integration system of both data retrieval and applications for data analysis.
+
+SRS was developed following an object-oriented design with the strategy of taking advantage of raw text files, that were the \emph{de-facto} standard on molecular biology analysis. By dealing only with text files, SRS was getting faster retrieval speeds and saving storage space, mainly because data was neither stored nor parsed, only indexed \cite{ZDO2002}.
+
+The  indexes obtained were linked via meta-data, offering the user access to the original source plus links to any conceptually related database. This was then presented in a web-based interface. The automatically created interface for different sources and applications can be complicated for beginners, however SRS provides ways to create customised interfaces.
+
+Probably the most important instance of SRS was the one installed at the European Bioinformatics Institute (EBI), which was used to provide access to the major databases produced and maintained at the EBI. However by December 2013 the service was decommissioned as the service was considered redundant with the efforts to maintain multiple web services. Currently SRS technology is the property of Instem\textsuperscript{TM} and a list of available servers can be found at \url{http://bioblog.instem.com/download/srs-parser-and-software-downloads/public-srs-installations/}.
+
+\paragraph{Taverna}
+Taverna was originally conceived of as a tool for non expert programmers to design, execute and share workflows of web services \cite{HUL2006}. Bioinformatics web services can be a way of providing the available data in a data source (e.g. the PSI services), but traditionally, web services are seen as a remote software component that receives some input data, processes it and generates output data. The main advantage of using web services  is that most of the processing load is delegated to the service provider, allowing small groups to run high throughput analysis in remote but powerful machines.
+
+Taverna is a tool that allows the user to create ``recipes'' of combined web services or pre-composed workflows to execute a higher level computational experiment. The Taverna workbench is a graphical interface that allows the design of workflow, that can be executed either on the same workbench or in independent runner tools such as the Taverna command-line application, the Taverna server or the Taverna lite installation.
+
+By 2013 the Taverna project was reported to have access to over 8000 service operations \cite{WOL2013}. With such a large number of resources, there is a necessity to make them searchable. This is the goal of the BioCatalogue: a registry for web services where both REST and SOAP services can be discovered using their metadata. Taverna supports searching on the BioCatalogue and inclusion of a chosen web service through its workbench tool.
+
+It is often necessary to do intermediate processing to be able to connect two services, where for example one produces the data that is required for the second but in a different format. Taverna provides a set of what they call ``shim'' services to cater for this need. Other types of services that are supported by Taverna are local, grid and cloud services, access to BioMart, R-Scripts and distributed command-line scripts.
+
+The number of ready-to-use workflows have grown in recent years, which is ideal for researchers that need a starting point for their experiments. However this number is so large that finding the right pipeline for an analysis is not an easy task. For this reason MyExperiment was developed, it not only supports Taverna workflows but also other systems such as Galaxy (discussed below). To run a workflow found in the MyExperiment repository in Taverna is as easy as copying the URL into the workbench importer, adjusting the parameters and pressing ``run'' \cite{WOL2013}.
+
+\paragraph{Galaxy}
+Starting as a project to integrate genomic sequences, their alignments and functional annotations, Galaxy has evolved rapidly in less than 10 years to the point of offering a complete web-based framework that aims to enable reproducibility, accessibility and transparency for computational biology experiments \cite{GIA2005, GOE2010}.
+
+First versions of Galaxy were written in a combination of C for the core components and Perl for the user interface, promising the possibility of adding new tools thanks to its architecture. Nowadays the project has been rewritten in Python and follows an open source strategy with over a hundred commits per month on its public repository (\url{https://bitbucket.org/galaxy/galaxy-central/overview}), and the extensibility promise has been fulfilled to the point of asserting that Galaxy supports any tool that can be run in the command line.
+
+This feature marks the greatest difference between Galaxy and Taverna, because the latter has web services as its basic workflow unit while Galaxy is used to compose workflows using command-line tools.
+
+Galaxy's main goal is to provide a tool where experiments can be reproduced easily and reliably; and Galaxy's authors consider that because it is in the nature of web services to be hosted by remote and probably unknown service providers, the reliability is compromised, and therefore web services are not natively included in Galaxy.
+
+Despite the fact that the origin of Galaxy did not explicitly include the execution of workflows as its core functionality, Galaxy's detailed history of task executions has evolved and currently it offers all the advantages of a modern workflow execution suite.
+
+The addition of metadata to both workflows and tools, and its publication by the means of Galaxy Pages makes the project easier to share. A well annotated workflow can be understood better when its documentation goes beyond the sequence of tools that have been connected, and includes the biological meaning of such executions.
+
+There is an instance of Galaxy publicly hosted at \url{https://usegalaxy.org/} where a subset of features can be explored by anonymous users and the rest of the functionalities become available after free registration. This public tool includes hundreds of tools for getting data, processing it and visualising it. If however, a project has particular requirements such as including non-public tools, Galaxy can be installed as a local server and the tools can be added to that instance \cite{GIA2005, GOE2010}.
+
+
+\subsubsection{Semantic integration} 
+The main methodology under semantic integration is to structure the data using semantic web standards (e.g. RDF, OWL) in order to make it ``machine-readable'' and be able to deduce meaningful associations. The conversion of the data into RDF files might not be a trivial endeavour, and it has similar problems to the ones mentioned above because it usually implies maintaining copies of the information in a separate format. 
+
+\paragraph{BioMOBY}
 BioMoby is one of the attempts to bring the promises of the semantic web into bioinformatics, proposing an architecture for the discovery and distribution of data though web services using multiple proposed standards of the World Wide Web Consortium (W3C) such as the Simple Object Access Protocol (SOAP). Its main goal is to provide access to biological data and services with a common format among the different sources \cite{WIL2002}.
 
 The strategy of BioMoby is to define a minimalistic entity to describe the data in such a way that different types of data can use the same schema.
@@ -110,7 +177,7 @@ Figure \ref{fig:biomoby} shows the adaptation done by BioMOBY to the classic web
 
 A more recent iteration of the development of MOBY was described in \cite{VAN2009}: Moby-2. The objectives of the project have been extended and its focus on semantic web technologies is stronger: MOBY Central will take the form of a Resource Description Framework (RDF) triple store and will support the functionalities of a SPARQL endpoint. These changes were done with the objective of allowing semantic queries over multiple sources. The project was reported in \cite{VAN2009} as a prototype, but promised to contribute towards a distributed, machine-readable semantic web of life science data.
 
-\subsubsection{Bio2RDF}
+\paragraph{Bio2RDF}
 A simplified view of the Semantic Web can be defined as a network where the nodes represent any entity that can receive a name and the edges correspond to the characteristics used to describe the relationships between the nodes. The RDF format is an XML-based language that describes this relationships as a set called a ``triple'' that contains subject, predicate and object.
 
 Bio2RDF uses RDF documents to be able to create a knowledge base that takes advantage of existing developments on the semantic web to build a mashup of data in the bioinformatics domain.  \cite{BEL2008}.
@@ -119,91 +186,40 @@ One of the main objectives of Bio2RDF is to extract information from the most im
 
 As part of the project, a set of software tools that convert different datasets into RDF called ``Rdfizers'' were created. There is one rdfizer for each source, however they can be grouped in three types depending on the origin of the data: XML to RDF, SQL to RDF, and text file to RDF. For large scale resources such as UniProt or PubMed where programmatic access to the data is provided, the rdfizer works on-demand, which means that it only stores some of the data for cache purposes and the RDF files are created on the fly. Any other source gets copied into the centralised repository in order to offer quick responses.
 
-The Bio2RDF approach can be summarised in three steps: (1) build a list of namespaces for data providers, (2) analyse a data source to represent it in an RDF model and (3) develop rdfizer to convert the information. The resulting dataset is sorted in the triple-store in order to connecting all together.
+The Bio2RDF approach can be summarised in three steps: (1) build a list of namespaces for data providers, (2) analyse a data source to represent it in an RDF model and (3) develop rdfizer to convert the information. The resulting dataset is sorted in the triple-store in order to connect it all together.
 
-Bio2RDF used an extended version of Sesame as the triple-store and on its 2nd release was changed to Virtuoso in order to offer better support to SPARQL, which is the most widely used query language for semantic web data. Bio2RDF makes use of other tools such as Protégé: an ontology editor, the Piggy Bank: a semantic browser for Firefox and Welkin: a RDF graph visualiser; all of which are well known projects in the semantic web community.
+Bio2RDF used an extended version of Sesame as the triple-store and on its 2nd release was changed to Virtuoso in order to offer better support to SPARQL, which is the most widely used query language for semantic web data. Bio2RDF makes use of other tools such as Protégé: an ontology editor, the Piggy Bank: a semantic browser for Firefox and Welkin: a RDF graph visualiser; all of which are well known projects in the semantic web community \cite{BEL2008}.
 
-\subsubsection{SADI}
+\paragraph{SADI}
 The Semantic Automated Discovery and Integration (SADI) project has its roots in the lessons learned from BioMoby, particularly  Moby-2. However, unlike BioMoby, SADI is not a data typing system. The goals of SADI are centred on the proposal of patterns and best practices of how to use web services connected through semantic web technologies to enable the creation of interoperable and integrative bioinformatics software. \cite{WIL2011}.
 
 The biggest change introduced by SADI in respect to SOAP web services is to replace the defined languages for communication between the web services parts (e.g. WSDL, XML Schema,UDDI) with structured versions of semantic web languages: RDF and OWL. The authors go as far as to say that XML Schema is the problem causing the failure of most previous interoperability architectures.
 
-A description of an interaction with a SADI service is as follows: A client request the service description via HTTP GET, and the server responds with a document containing references to OWL classes describing input and output datatypes for the service. The client uses data formatted in RDF that follows the received description to submit an HTTP POST request, which is captured by the server, which in turn uses it to execute the service and generate a response in RDF format.
+A description of an interaction with a SADI service is as follows: A client requests the service description via HTTP GET, and the server responds with a document containing references to OWL classes describing input and output datatypes for the service. The client uses data formatted in RDF that follows the received description to submit an HTTP POST request, which is captured by the server, which in turn uses it to execute the service and generate a response in RDF format.
 
 The adoption of HTTP methods for communication follows the positive reception of ``RESTful'' Architectures. SADI does not claim to follow a RESTful architecture, but it sees the potential of it and uses some of its principles. This is partially a response to the general dislike of the SOAP architecture within the bioinformatics community.
 
-The use of a good ontology to connect services is seen in SADI as the key component to meaningful interoperability, where the interaction between servers is guided by biological knowledge and not only by technicalities such as format and availability.
+The use of a good ontology to connect services is seen in SADI as the key component to meaningful interoperability, where the interaction between servers is guided by biological knowledge and not only by technicalities such as format and availability \cite{WIL2011}.
 
-As part of the project, software components have been developed in order to facilitate the adoption of the recommendations including plugins for Taverna and Protegé, and a  prototype of all the components (i.e. Servers and clients) is available at \url{http://biordf.net/cardioSHARE/}
+As part of the project, software components have been developed in order to facilitate the adoption of the recommendations including plugins for Taverna and Protegé, and a  prototype of all the components (i.e. Servers and clients) is available at \url{http://biordf.net/cardioSHARE/}.
 
-\subsubsection{BioPAX}
+
+\paragraph{BioPAX}
 The Biological PAthway eXchange (BioPAX ) is a community driven effort to develop a standard language to facilitate knowledge representation of biological pathways at molecular and cellular level in order to enable the systematic collection, distribution and integration of pathway data from heterogeneous sources \cite{DEM2010}.
 
-BioPAX also takes input from the semantic web community. In this case OWL is used to define an ontology to describe pathways information, which can be used to interconnect the multiple resources in this domain. BioPax has, among others, been used to describe (1) metabolic pathways following the abstraction: ``enzyme, substrate, product''; (2) signalling pathways for biochemical reactions, binding, and catalysis events; (3) gene regulatory networks involving transcription and translation events and its control; (4) protein-protein interactions and protein-DNA interactions; and (5) genetic interactions i.e. when the phenotype of perturbing two genes is different from the expected known phenotype of the perturbation of each isolated gene.
+BioPAX also takes input from the semantic web community. In this case OWL is used to define an ontology to describe pathway information, which can be used to interconnect the multiple resources in this domain. BioPax has, among others, been used to describe (1) metabolic pathways, following the abstraction: ``enzyme, substrate, product''; (2) signalling pathways for biochemical reactions, binding, and catalysis events; (3) gene regulatory networks involving transcription and translation events and its control; (4) protein-protein interactions and protein-DNA interactions; and (5) genetic interactions i.e. when the phenotype of perturbing two genes is different from the expected known phenotype of the perturbation of each isolated gene.
 
-The BioPAX ontology is the result of ongoing periodical workshops that involves the different stakeholders in the biological pathways field. Incremental versions of the agreement, also called levels, have been developed with the concept that newer levels can replace older ones. Currently the highest  is level 3.
+The BioPAX ontology is the result of ongoing periodical workshops that involve the different stakeholders in the biological pathways field. Incremental versions of the agreement, also called levels, have been developed with the concept that newer levels can replace older ones. Currently the highest  is level 3.
 
-A tool set called Paxtools has been developed as part of the project. The main features of this software include an implementation of the specification as a software model, the support of OWL properties, a syntactic validator, transformation scripts between levels, import and export to other formats. Thanks to these features, Paxtools can and has been used as the framework to develop other tools.
+A tool set called Paxtools has been developed as part of the project. The main features of this software include an implementation of the specification as a software model, the support of OWL properties, a syntactic validator, transformation scripts between levels, import and export to other formats. Thanks to these features, Paxtools can and has been used as the framework to develop other tools \cite{DEM2010}.
 
-\subsubsection{The HUPO Proteomics Standards Initiative}
-The Proteomics Standards Initiative (PSI) is a collaborative initiative run by volunteers and coordinated as a work group of the HUman Proteome Organisation (HUPO) whose object is to define standards  to enable capture, comparison, exchange and verification of proteomics data. \cite{HER2006}. PSI is the result of a common effort from the interested parties in the proteomics domain.
+\subsubsection{Wiki-based integration} 
+It is a cooperative effort where the community inputs information in an open and unstructured way, which can reach a highly reliable status as has been shown in the case of wikipedia. It is however completely dependent on the adoption of the community, and also given the unstructured nature of the data, is hard to manipulate for automatic analysis.
 
-This effort can be categorised into three major infrastructure elements: (1) A specification of the Minimum Information About a Proteomics Experiment (MIAPE), (2) data exchange formats that are compliant with MIAPE, and (3) the use of controlled vocabularies (CV) in order to ensure the consistency on the data content. In this way the proposed standard can be stable while its content can evolve by updating the CV.
+\paragraph{WikiPathways}
+Following the success of wikipedia, where any user can contribute to an article and the tasks of editing and curation are community based; WikiPathways has been developed with the objective of providing an open platform to deposit, share and curate biological knowledge in the form of pathway diagrams \cite{KEL2012}.
 
-These recommendations are not intended to specify the methods and procedures for proteomics experiments, and should be seen as reporting guidelines.
-
-This initiative has been growing for the last 10 years, and now its standards are widely adopted in the proteomics community. The proposed specifications cover different branches of the field, for instance the PSI-MI formats were defined to deal with Molecular interactions data, PSI-MS works on standards for mass spectrometry data and PSI-MOD focuses on protein modifications.
-
-However even if all the parts follow the recommendations, a strategy to integrate this data is required. It is for this reason that the PSI common query interface (PSICQUIC) was created: a community standard that enables programmatic access to molecular-interaction data resources \cite{ARA2011}. This proposal includes a query language (MIQL) and an architecture to execute a query on distributed sources.
-
-Figure \ref{fig:psicquic} shows the architecture of PSICQUIC. The idea is that several samples from an organism can be processed by different experiments, and their findings can be published in independent articles, which consequently can be stored in more than one interaction database. PSICQUIC proposes that the providers include an extra layer to access this information, which can be queried using MIQL and with responses follow the PSI-MI formats. In this way a client can use a single query over multiple resources and create a unified image.
-
-
-\begin{figure}  
-\centering
-\includegraphics[width=4.5in]{figures/psicquic.png}
-\caption[PSICQUIC Architecture.]{PSICQUIC Architecture.
-\label{fig:psicquic}}
-\end{figure}
-
-The PSI group recognises the importance of providing software tools to promote the adoption of the proposed standards. The most recent implementation of the PSICQUIC web service was released when version 1.3 of the PSICQUIC specification was made public in 2013 \cite{DEL2013}. The providers of molecular interaction data are now asked to implement a number of methods in order to support both SOAP and REST web services. 
-
-The web service methods will generally accept a MIQL query as input and generate an output in either PSI-XML or PSI-MITAB in its most recent versions. This implementation is based on the Apache Solr indexing software (\url{http://lucene.apache.org/solr/}), and is reflected in the constitution of MIQL, which is an extension of the Lucene query language used in Solr. This implementation is freely available for any provider who wishes to share their data to the PSI community.
-
-Besides the server, PSICQUIC also provides client libraries to facilitate the access to the information from different programming languages: Java, Perl, Python. There are ready to use clients, for example the PSICQUIC View accessible from \url{http://www.ebi.ac.uk/Tools/webservices/psicquic/view/main.xhtml} or plugins for Cytoscape and the R Bioconductor package.
-
-The last component of the PSICQUIC architecture is the registry, in which information about the available providers is stored as tags. This metadata can be used to query the registry as a RESTful service in order to facilitate the discovery of molecular-interaction data providers.
-
-\subsubsection{Taverna}
-Taverna was originally conceived of as a tool for non expert programmers to design, execute and share workflows of web services \cite{HUL2006}. Bioinformatics web services can be a way of providing the available data in a data source (e.g. the PSI services), but traditionally, web services are seen as a remote software component that receives some input data, processes it and generates output data. The main advantage of using web services  is that most of the processing load is delegated to the service provider, allowing small groups to run high throughput analysis in remote but powerful machines.
-
-Taverna is a tool that allows the user to create ``recipes'' of combined web services or pre-composed workflows to execute a higher level computational experiment. The Taverna workbench is a graphical interface that allows the design of workflow, that can be executed either on the same workbench or in independent runner tools such as the Taverna command-line application, the Taverna server or the Taverna lite installation.
-
-By 2013 the Taverna project was reported to have access to over 8000 service operations \cite{WOL2013}. With such a large number of resources, there is a necessity to make them searchable. This is the goal of the BioCatalogue: a registry for web services where both REST and SOAP services can be discovered using their metadata. Taverna supports searching on the BioCatalogue and inclusion of a chosen web service through its workbench tool.
-
-It is often necessary to do intermediate processing to be able to connect two services, where for example one produces the data that is required for the second but in a different format. Taverna provide a set of what they call ``shim'' services to cater for this need. Other types of services that are supported by Taverna are local, grid and cloud services, access to BioMart, R-Scripts and distributed command-line scripts.
-
-The number of ready-to-use workflows have grown in recent years, which is ideal for researchers that need a starting point for their experiments. However this number is so large that finding the right pipeline for an analysis is not an easy task. For this reason MyExperiment was developed, it not only supports Taverna workflows but also other systems such as Galaxy (discussed below). To run a workflow found in the MyExperiment repository in Taverna is as easy as copying the URL into the workbench importer, adjusting the parameters and pressing ``run''.
-
-\subsubsection{Galaxy}
-Starting as a project to integrate genomic sequences, their alignments and functional annotations, Galaxy has evolved rapidly in less than 10 years to the point of offering a complete web-based framework that aims to enable reproducibility, accessibility and transparency for computational biology experiments \cite{GIA2005, GOE2010}.
-
-First versions of galaxy were written in a combination of C for the core components and Perl for the user interface, promising the possibility of adding new tools thanks to its architecture. Nowadays the project has been rewritten in Python and follows an open source strategy with over a hundred commits per month on its public repository (\url{https://bitbucket.org/galaxy/galaxy-central/overview}) and the extensibility promise has been fulfilled to the point of asserting that Galaxy supports any tool that can be run in the command line.
-
-This feature marks the greatest difference between Galaxy and Taverna, because the latter has web services as its basic workflow unit while Galaxy is used to compose workflows using command-line tools.
-
-Galaxy's main goal is to provide a tool where experiments can be reproduced easily and reliably; and Galaxy's authors consider that because is in the nature of web services to be hosted in remote and probably unknown service providers, the reliability is compromised, and therefore web services are not natively included in Galaxy.
-
-Despite the fact that the origin of Galaxy did not explicitly include the execution of workflows as its core functionality, Galaxy's detailed history of task executions has evolved and currently it offers all the advantages of a modern workflow execution suite.
-
-The addition of metadata to both workflows and tools, and its publication by the means of Galaxy Pages makes the project easier to share. A well annotated workflow can be understood better when its documentation goes beyond the sequence of tools that have been connected, and includes the biological meaning of such executions.
-
-There is an instance of Galaxy publicly hosted at \url{https://usegalaxy.org/} where a subset of features can be explored by anonymous users and the rest of the functionalities become available after free registration. This public tool includes hundreds of tools for getting data, processing it and visualising it. If however, a project has particular requirements such as including non-public tools, galaxy can be installed as a local server and the tools can be added to that instance.
-
-\subsubsection{WikiPathways}
-Following the success of wikipedia, where any user can contribute to an article and the tasks of editing and curation are community based; WikiPathways has been developed with the objective of provide an open platform to deposit, share and curate biological knowledge in the form of pathway diagrams \cite{KEL2012}.
-
-Biological pathways are representations of the compiled knowledge of biological units and their relationships. Pathways and are vital to understanding genes and proteins in terms of larger systems and processes of any organism. The challenges of gathering knowledge about biological pathways are particularly hard: (1) pathway information is not measurable and can't be obtained from a single experiment, (2) many different representations and methods have already been used, and (3)  representations are usually saved as static images, which are far from ideal for computation and integration \cite{PIC2008}.
+Biological pathways are representations of the compiled knowledge of biological units and their relationships. Pathways are vital to understanding genes and proteins in terms of larger systems and processes of any organism. The challenges of gathering knowledge about biological pathways are particularly hard: (1) pathway information is not measurable and can't be obtained from a single experiment, (2) many different representations and methods have already been used, and (3)  representations are usually saved as static images, which are far from ideal for computation and integration \cite{PIC2008}.
 
 Looking to tackle these challenges and inspired by how science has been gaining a more open approach by means of open journals, public databases, data exchanges formats, ontologies and free software; WikiPathways provides a web based framework where the community can not only take information but also give back.
 
@@ -213,22 +229,22 @@ A subset of the functions of the web-site can be programatically accessed via we
 
 The metadata associated with the pathway serves the purpose of making it searchable, but most importantly makes it easy to integrate with other resources because it follows an ontology that as a side effect can be used to organise the created pathways in a hierarchical fashion.
 
-Nonetheless it is clear to the authors that the tools and developments only assist in the community building process and its in the growth of the community itself that the future of WikiProteins is held.
+Nonetheless it is clear to the authors that the tools and developments only assist in the community building process and its in the growth of the community itself that the future of WikiProteins is held \cite{KEL2012}.
 
-\subsubsection{WikiGenes}
+\paragraph{WikiGenes}
 In contrast to what its name suggests, WIkiGenes is not exclusively about genes; its scope goes beyond genes and aims to construct a knowledge base of biological information including chemical compounds, proteins, organisms, pathologies and of course genes. 
 
-Similarly to WikiPathways, WikiGenes applies a strategy based on the wiki model, however in \cite{HOF2008} the author argues that given that the wiki model was not created taking into account the demands of the science ecosystem, it requires significant technical innovation. In particular, current wiki alternatives do not consider the current scientific publications paradigm, and the relevance of authorships. 
+Similarly to WikiPathways, WikiGenes applies a strategy based on the wiki model, however in \cite{HOF2008} the author argues that given that the wiki model was not created taking into account the demands of the science ecosystem, it requires significant technical innovation. In particular, current wiki alternatives do not consider the current scientific publications paradigm, and the relevance of authorship. 
 
-The advantages of having a continuously updated article on each topic are obvious, however the effort from contributing scientists to reach this goal is quite considerable and the personal benefits of such effort are not very clear. Traditional scientific publications recognise the efforts of a contributor by clearly stating its authorship, which in today's academic world might get reflected in employment, grants and ultimately in the privilege of being a scientist.
+The advantages of having a continuously updated article on each topic are obvious, however the effort from contributing scientists to reach this goal is quite considerable and the personal benefits of such efforts are not very clear. Traditional scientific publications recognise the efforts of a contributor by clearly stating its authorship, which in today's academic world might get reflected in employment, grants and ultimately in the privilege of being a scientist.
 
 WikiGenes proposes a system where every word of a document can be linked to its author in order to provide him/her with his/her due recognition. Such a document is reviewed by its readers as in the wiki model, however WikiGenes includes a reputation system that can be used to solve disagreements between authors and avoid vandalism.
 
-More than a hundred thousand generated articles on several biomedical concepts have been included in WikiGenes. It is clear that the quality of these articles is not the best, but it serves as a starting point for interested authors.
+More than a hundred thousand generated articles on several biomedical concepts have been included in WikiGenes. It is clear that the quality of these articles is not the best, but it serves as a starting point for interested authors \cite{HOF2008}.
 
 
 \subsection{The Distributed Annotation System}
-\footnote{Most of the text in this section was originally included in the lead author's MSc dissertation\cite{SAL2010} and edited here to update it where necessary.}
+%\footnote{Most of the text in this section was originally included in the lead author's MSc dissertation\cite{SAL2010} and edited here to update it where necessary.}
 The Distributed Annotation System (DAS) \cite{DOW2001} makes use of a widely-adopted standard communication protocol. It is motivated by the idea of maintaining a federated system; a logical association of independent sources distributed over multiple sites, which provide a single, integrated, coherent view of all resources in the federation. This architecture makes several distinct physical data sources appear as one logical data source to end-users. 
 
 \begin{figure}  
@@ -238,17 +254,17 @@ The Distributed Annotation System (DAS) \cite{DOW2001} makes use of a widely-ado
 \label{fig:das}}
 \end{figure}
 
-A regular flow of information in DAS is shown in Figure \ref{fig:das}. The DAS client requests information about a protein that can be specified by its accession or identifier. The client then communicates with the DAS registry in order to retrieve a list of available sources providing information about that biological product. Once the client has retrieved this list, it proceeds to query the DAS reference source, i.e. a DAS source providing the sequence or structure of each molecule that it describes -- UniProt in the case of proteins. The DAS reference source supplies not only the sequence but also meta-data such as the version. Thus clients can ascertain which retrieved annotations correspond to the original request. At this point, the client retrieves features, i.e. annotations, from the available DAS sources. These annotations may be applicable to specific subsections of the sequence (e.g. the location of active sites or observed peptides) or may be applicable to the entire sequence (e.g. related publications or taxonomy). Finally, the client organises and displays the annotations. 
+A regular flow of information in DAS is shown in Figure \ref{fig:das}. The DAS client requests information about a protein that can be specified by its accession or identifier. The client then communicates with the DAS registry in order to retrieve a list of available sources providing information about that biological product. Once the client has retrieved this list, it proceeds to query the DAS reference source, i.e. a DAS source providing the sequence or structure of each molecule that it describes -- UniProt in the case of proteins. The DAS reference source supplies not only the sequence but also meta-data such as the version. Thus clients can ascertain which retrieved annotations correspond to the original request. At this point, the client retrieves features, i.e. annotations, from the available DAS sources. These annotations may be applicable to specific subsections of the sequence (e.g. the location of active sites or observed peptides) or may be applicable to the entire sequence (e.g. related publications or taxonomy). Finally, the client organises and displays the annotations \cite{SAL2010}. 
 
-All these interactions follow an adaptation of the REST protocol for web services\cite{PRL2007} .
+All these interactions follow an adaptation of the REST protocol for web services \cite{PRL2007} .
 
 \subsubsection{DAS Protocol}
 \label{ssec:DASprotocol}
 The DAS specification consists of a set of rules which define a standard communication method between the different components of the system. DAS is Web-based and makes extensive use of three widely-adopted standards: the Unified Resource Locator URL, the HyperText Transfer Protocol HTTP and the eXtended Markup Language XML. All communication occurs through HTTP; the requests are URLs that specify the resource that the client is interested in, and the responses are both HTTP codes and XML documents. The details of what constitutes a valid URL, and the XML structure, are contained in the DAS specification.
 
-By the time the first paper about DAS was published \cite{DOW2001}, the DAS protocol was version 1.01, and the main characteristics, such as the \emph{features} and \emph{dna} commands of DAS, were present in that version. From that point, several versions were released with minimal changes. These subsequent versions mostly just polished details to make the protocol stable and useful. The last official release of DAS was Version 1.53 on March 21 of 2002. This was the official version for several years, but in 2006 a new version appeared (version 1.53E) incorporating several new developments. These included an extension to serve new data types and an ontology for protein features \cite{JEN2008}. The E in the version number is for Extended, which essentially describes the purpose of this version, because it keeps most of the features presented in 1.53 but extends these to some new capabilities.
+By the time the first paper about DAS was published \cite{DOW2001}, the DAS protocol was version 1.01, and the main characteristics, such as the \emph{features} and \emph{dna} commands of DAS, were present in that version. From that point, several versions were released with minimal changes. These subsequent versions mostly just polished details to make the protocol stable and useful. The last official release of DAS was Version 1.53 on March 21 of 2002. This was the official version for several years, but in 2006 a new version appeared (version 1.53E) incorporating several new developments. These included an extension to serve new data types and an ontology for protein features \cite{JEN2008}. The E in the version number is for Extended, which essentially describes the purpose of this version, because it keeps most of the features present in 1.53 but extends these to provide some new capabilities.
 
-In November 2007, a project that aimed to define a completely new specification for the DAS protocol was concluded. The new specification was called DAS 2.0 (\url{http://biodas.org/documents/das2/das2\_protocol.html}) and it contained a redefinition of the protocol for the capabilities that DAS had in its previous versions (1.0, 1.53). It also defined new features which allowed for the use of the protocol in a more extensive way. A controversial topic in the DAS community was whether or not the DAS2.0 protocol should be adopted. This specification contains several improvements to the DAS protocol, but given the drastic changes in the format, amongst other reasons, most of the sources decided to continue using DAS1.53 or 1.53E. After the 2009 DAS workshop, it was generally agreed that most of the useful additional features that 2.0 provides would shortly be implemented in DAS 1.6E and its subsequent incarnations. As a result, DAS2.0 is now considered by many to be redundant. Figure \ref{fig:dasevolution} represents the evolution between the various version of DAS, and serves a comparison between DAS 2.0 and 1.53E/1.6E in terms of number of sources, which is a good indicator of its adoption.
+In November 2007, a project that aimed to define a completely new specification for the DAS protocol was concluded. The new specification was called DAS 2.0 (\url{http://biodas.org/documents/das2/das2\_protocol.html}) and it contained a redefinition of the protocol for the capabilities that DAS had in its previous versions (1.0, 1.53). It also defined new features which allowed for the use of the protocol in a more extensive way. A controversial topic in the DAS community was whether or not the DAS2.0 protocol should be adopted. This specification contains several improvements to the DAS protocol, but given the drastic changes in the format, amongst other reasons, most of the sources decided to continue using DAS1.53 or 1.53E. After the 2009 DAS workshop, it was generally agreed that most of the useful additional features that 2.0 provides would shortly be implemented in DAS 1.6E and its subsequent incarnations. As a result, DAS2.0 is now considered by many to be redundant. Figure \ref{fig:dasevolution} represents the evolution between the various version of DAS, and serves as a comparison between DAS 2.0 and 1.53E/1.6E in terms of number of sources, which is a good indicator of its adoption.
 
 \begin{figure}  
 \centering
@@ -259,11 +275,9 @@ In November 2007, a project that aimed to define a completely new specification 
 
 Version 1.53 of DAS defines the element \emph{FEATURE} as the annotation itself, and it is contained in the element \emph{SEGMENT} indicating that a feature annotates a specific segment, where a segment is a biological residue (or part of it), such as, proteins, genes, chromosomes, etc.
 
-In the scope of proteins, annotations can indicate information about the structure (known formations of amino acids as helices or sheets), interaction zones (with other proteins or regions of the same protein), phenotype (for example a known relation of part of the protein with a disease), etc. 
+In the scope of proteins, annotations can indicate information about the structure (known formations of amino acids such as helices or sheets), interaction zones (with other proteins or regions of the same protein), phenotype (for example a known relation of part of the protein with a disease), etc. 
 
-An effort to group and organize all the types of annotations has been made: the Biosapiens Ontology contains, in a hierarchical way, the types of annotations that can be used. As with any ontology, the information is not complete and periodic releases are made trying to establish a set of types as efficiently as possible. 
-
-\emph{TYPE} is probably the most important element included in a \emph{FEATURE}. The use of the Ontology is highly recommended but is not mandatory, in order to comply with older releases. 
+An effort to group and organize all the types of annotations has been made: the Biosapiens Ontology contains, in a hierarchical structure, the types of annotations that can be used. As with any ontology, the information is not complete and periodic releases are made trying to establish a set of types as efficiently as possible.  \emph{TYPE} is probably the most important element included in a \emph{FEATURE}. The use of the Ontology is highly recommended but is not mandatory, in order to comply with older releases. 
 
 The use of a second ontology (Evidence Code) is also recommended in the attribute \emph{category} to express the method through which such an annotation was acquired, for instance by experiment, by \emph{in-silico} analysis, etc.
 
@@ -287,16 +301,16 @@ Each DAS source can support several capabilities, which means it is able to resp
 
 The two most representative implementations of a DAS server are Pro-server \cite{FIN2007} and MyDas \cite{SAL2012}. Both have been updated to support the latest version of the specification (i.e. 1.6E) and their feature sets are similar. Probably the biggest factor in choosing between these two implementations is the preference for a particular programming language: Perl for Pro-server and Java for MyDas. An extended description of MyDas can be found in the section \ref{section:mydas}, including the contributions to MyDas as part of this PhD project.
 
-On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts in a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensemble viewer \cite{FLI2011}) and genomes (e.g. Dalliance \cite{DOW2011}), where others such SPICE provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a a gene region, select the expressed protein of such gene and visualise its 3D structure, all in the same Java Web-start window \cite{PRL2005}.
+On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts on a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensembl viewer \cite{FLI2011}) and genomes (e.g. Dalliance \cite{DOW2011}), where others such SPICE provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a gene region, select the expressed protein of the gene and visualise its 3D structure, all in the same Java Web-start window \cite{PRL2005}.
 
 Dasty2 is a Web client that also supports the interaction between protein data and its 3D structure, but its current version doesn't support direct manipulation of genomic data \cite{JIM2008}. A refactoring of Dasty was executed during 2010 and is explained in detail in section \ref{section:dasty}, including our contribution to the effort of developing Dasty3 \cite{VIL2011}. 
 
 \subsection{Discussion}
-Besides the primary data from \emph{in-vitro} experiments, there are hundreds of secondary sources consolidating data that results from \emph{in-silico} analysis. All the mentioned projects contribute in different ways to the creation of a pool of knowledge where both primary and secondary sources are available to the researchers.
+Besides the primary data from \emph{in-vitro} experiments, there are hundreds of secondary sources consolidating data that results from \emph{in-silico} analysis. All the projects mentioned contribute in different ways to the creation of a pool of knowledge where both primary and secondary sources are available to the researchers.
 
 Some of these projects started when a problem was detected while trying to compile the generated data of a particular community (e.g. BioPAX); while others have studied an existing technology such as data warehouses, web services or semantic web and proposed adaptations to it for bioinformatics needs (e.g. Biowarehouse, BioMoby). Some approaches are on the protocol and specification level (e.g. SADI) while others take existing specifications and generate the tools to facilitate their implementations (e.g. BioRDF). There are projects that take existing software and adapt it to bioinformatics (e.g. WikiPathways) and others develop completely new software (e.g BioMart, Taverna). Some focus on the integration of the data (e.g. BioMart) and others on the interconnections between components (e.g. Galaxy). Some focuses on the tools (e.g. SRS) and others on the results and their publications (e.g. WikiGenes). 
 
-Despite their origin, methods, technologies or approaches; all of these projects have in common the need of an strong community that supports its development, maintenance and use. We chose DAS as the base technology on which our contributions will be focused because when we started the project, it had a growing community as seen in figure \ref{fig:dasevolution}. It was based on existing and consolidated technologies such as the HTTP protocol and REST services, and it had the support of big entities and projects, such as the EBI and Ensembl. A description of the specifications and software components developed as part of this PhD project can be found in the chapter \ref{section:integration} of this document.
+Despite their origin, methods, technologies or approaches; all of these projects have in common the need for a strong community that supports its development, maintenance and use. We chose DAS as the base technology on which our contributions will be focused because when we started the project, it had a growing community as seen in figure \ref{fig:dasevolution}. It was based on existing and consolidated technologies such as the HTTP protocol and REST services, and it had the support of big entities and projects, such as the EBI and Ensembl. A description of the specifications and software components developed as part of this PhD project can be found in chapter \ref{section:integration} of this document.
 
 \newpage
 \section{Visualization}
