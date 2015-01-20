@@ -450,7 +450,7 @@ Besides the comparison of genomes in between species, the progress in the sequen
 An adaptation of the Ensembl browser has been develop in order to provide a way to visually browse over the result information of the 1000 Genomes project. Multiple tracks including aggregates and results from the study can be included in the browser and new tools to export and visualise variation data have been included.
 
 \subsection{Proteomics}
-In the central dogma of biology, DNA (deoxyribonucleic acid) encodes genes, which get translated in RNA (ribonucleic acid), which in turn, gets translated into proteins. Each of these is represented by a sequence of either nucleotides (DNA, RNA) or amino acids (Proteins). On the previous Section we discussed the visualisation tools that assist the process of sequencing DNA in order to get a full genome of an species, where positional annotations can be included, shared and explored, in the context of one or multiple organisms. 
+In the central dogma of biology, DNA (deoxyribonucleic acid) encodes genes, which get transcribed in RNA (ribonucleic acid), which in turn, gets translated into proteins. Each of these is represented by a sequence of either nucleotides (DNA, RNA) or amino acids (Proteins). On the previous Section we discussed the visualisation tools that assist the process of sequencing DNA in order to get a full genome of an species, where positional annotations can be included, shared and explored, in the context of one or multiple organisms. 
 
 It is because of the central dogma that annotations about genes are among the most used and useful features to know on a DNA sequence. The direct connection between a gene and a protein is the key to big part of the molecular biology research. For example, many diseases are caused because there are not enough (or too many) proteins to execute a biological function, or because there are proteins but they are malformed; in any of those cases the source of the problem can sometimes be trace back to the gene that generated that protein, and find that a mutation have appeared and a section of nucleotides have been inserted/deleted (indels). 
 
@@ -459,26 +459,97 @@ It is one of the goals of proteomics, at least in the clinical context, to deliv
 Once a good approximation of the genome of an organism has been identified, deciphering its proteome (i.e. the total protein complement of a cell, organ or even an organism) it is the logical step to follow, specially if considering that the number of identified genes during the human genome project (~30000) is way too small to explain the complexity of human biology \cite{PAN2008}.
 
 %There are different experiments that look for clues in the role played by proteins in the different parts of this puzzle. 
-This is due (among other reasons) to gene and protein splicing and post-translational modifications PMS. Which then makes it impossible to completely deduce the proteome from the genome, and therefore approaches that start by the protein identification are necessary.
+This is due (among other reasons) to gene and protein splicing and post-translational modifications PMS, which then makes it impossible to completely deduce the proteome from the genome, therefore, approaches that start by the protein identification are necessary. Besides, the discovery of genes by computational means is limited and proteomics techniques offer an alternative.
 
 Multiple experiments have been develop in order to approach this challenge, for example, mass spectrometry MS, helps to identify which peptides and ultimately which proteins are present in a given sample; 2D gel electrophoresis and microarrays analysis can give insights in the proportions of proteins that have been expressed in certain conditions (e.g. an specific tissue, a sick patient, a health person(control), etc.), similar data can now be obtained with alternative uses of NGS technologies such RNASeq; crystallography and modelling software has been used to find the final shape of the protein.
 
-Visualisation has shown his potential by helping in the understanding and analysis of the outcomes of such experiments. Below we will show some cases grouped by the proteomics technique (as described in \cite{PAN2008}), where visualization methods have been used to support the analysis.
+Visualisation has shown his potential by helping in the understanding and analysis of the outcomes of such experiments. Below we will show some cases grouped by some of the most used proteomics technique, where visualization methods have been used to support the analysis.
 
-\subsubsection{Instrumentation and separation strategies}
-Proteomics based on mass spectrometrtry it is about identifying and quantifying as many proteins as possible in a single experiment \cite{PAN2008}.
+\subsubsection{Gel Based Proteomics}
+Two-dimensional gel electrophoresis 2DE is still the most used approach in top-down proteomic studies mostly due to its efficiency at separating proteins in complex mixtures. Figure \ref{fig:gelflow} present the usual steps involved in an 2DE experiment that separates the proteins of interest for a particular hypothesis, which can be then identified with for example MS techniques \cite{SIL2014}.
 
-2Dpage
+The 4 first stages on this flow describe the preparation and execution of the experiment itself, which results on a set of gels (one per sample), where proteins are separated according to molecular size and isoelectric point. Conglomeration of proteins are then exposed as darker spots. In order to analyse the relevance of the different proteins on the hypothesis of the particular study, the gels need to be digitalised and processed, quantifying the protein concentration on each of the detected spots (alternatively some techniques quantify per pixel). Multiple techniques of image processing are applied in order to clean and extract the data; then normalisation and stabilisation is executed. The output of this process is a matrix in which every row represents a sample, and every column represents a spot across all gels; values in the matrix are then the level of concentration on an spot of a given sample. 
 
-liquidchormmatography
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/gel-based.png}
+\caption[High level overview of a typical gel based proteomics workflow.]{High level overview of a typical gel based proteomics workflow.
+\label{fig:gelflow}}
+\end{figure}
 
-\subsubsection{Computational approaches for protein identification and validation}
-Peptide Mass Fingerprinting PMF
+There are different protocols for gel-based experiments trying to overcome the different limitations of this technique (i.e. low resolution, low dynamic range, bias agains categories and low reproducibility), and the Differential Imaging Gel Electrophoresis DIGE, has become one of the best alternatives. The main difference of DIGE with other protocols is that control and case samples are tagged with different fluorescent dyes, which facilitates the spot detection and its posterior quantification \cite{PAN2008}.
 
-MS/MS
+In most of the protocols, each of the gels can have other variables associated, for instance, the tissue that it belongs to, information about the donor (e.g. sex, age, weight) and data about the hypothesis (e.g. healthy/infected). The relevance of a spot in the context of the study hypothesis and considering all the mentioned variables, it is used to filter the required protein identification experiments, and ultimately reduce time and costs to proof/disproof the hypothesis. It is in this step where statistical and visualisation techniques are of great help for the researcher.
 
-\subsubsection{Quantification approaches and tools}
-Differential Imaging gel Electrophoresis DIGE
+The problem is that common visualisation techniques (e.g. box plots, scatter plots) are usually not enough, because the number of variables(spots) to include is too high(in the order of hundreds), and therefore multivariable techniques that combine statistical methods and visualisation tools are required at this stage.
+
+Principal Components Analysis PCA has become the preferred technique in 2DE, because it offers a good and unbiased view of a dataset along the subspace where most variation occurs. PCA looks for a 2D or 3D representation of the data where the axis are the principal components PC (hence its name) that most highly contribute to determine the variance of the data. A PC is not a single variable but rather a projection of the combination of several ones, and the result of a PCA gives the contribution of each of the variables for each PC.
+
+Figure \ref{fig:PCA} serves as an example of the visualisation of the results of a PCA on a data set in which 2 treatments (``A'' and ``B'') were been compared with biological samples being taken at three time-points: 0h, 6h and 48h; colour-coded as light grey, dark grey and black respectively. There is a clear division of 2 groups. In a 2DE experiment is common to select the spots to analyse further by studying the variable contribution on each PC.
+
+\begin{figure}  
+\centering
+\includegraphics[width=4in]{figures/PCA.png}
+\caption[Example of a PCA result plot.]{A biplot displaying PCA results 
+\label{fig:PCA}}
+\end{figure}
+
+PCA uses the euclidean distance when calculating the projections of the variable contributions on each PC, this strategy has shown a good balance of outcome/performance for multidimensional data, however when the number of dimensions is really high it can be misleading, and then other techniques are  necessary, foe example, Independent Component Analysis ICA, Partial Least Squares PLS, Metrical multi-Dimensional Scaling MDS, Non-Metrical multi-Dimensional Scaling NMDS, clustering methods and Self-Organised Maps SOM. A discussion about this methods in 2DE can be found in \cite{SIL2014}.
+
+
+
+\subsubsection{Mass Spectrometry Techniques}
+Proteomics based on mass spectrometry it is about identifying, quantifying and characterising  as many proteins as possible in a single experiment . Probably the inflection point for the usage of MS techniques was the definition of the tandem mass spectrometry (also known as MS/MS) because it allows the identification of a large number of proteins on a high throughput manner .
+
+A MS experiment it is commonly the the next step after getting the results of a separation process. In the case of 2DE, the spots are cut out of the gel, and the proteins are digested into shorter peptides by an enzyme and then separated in order to reduce the sample complexity and to get better performance out of the mass spectrometer.
+
+The workflow to analyse the MS/MS results is described in figure \ref{fig:ms_workflow}. The input is the row data generated by the mass spectrometer, which format is usually native to the machine, and therefore the first step is to convert the files into more standard formats; the mass spectra datum of each peptide is used to try to identify it, which usually involves searching for similar mass spectra of known (or hypothetical) peptides; followed by a validation step; and then the inference of the target proteins is calculated; the following stages are included or not depending on the nature of the experiment (e.g. requires quantification because it is a comparison of control v.s. sample) or the setup of the laboratory (e.g. it uses a Laboratory Information Management System LIMS, or not). \cite{DEU2008} includes a more complete description of this workflow and the most well-known software tools associated with each step.
+
+\begin{figure}  
+\centering
+\includegraphics[width=6in]{figures/ms_workflow.png}
+\caption[Tandem mass spectrometry workflow.]{Tandem mass spectrometry workflow
+\label{fig:ms_workflow}}
+\end{figure}
+
+
+A classification of the most frequent tasks based on the described workflow have been included in \cite{PER2014} in order to describe the contributions of different open source libraries in MS experiments. Below we describe the two software tools mentioned there that include several visualisation techniques to aid in the different stages of the MS workflow. An extended list of visualization tools in MS/MS based proteomics can be found in the section 5 of \cite{JAC2010}.
+
+\paragraph{PRIDE Inspector}
+The PRoteomics IDEntifications database PRIDE, is a centralised repository where proteomics data is stored and shared. In order to submit data into PRIDE a series of standards have to be followed. This with the purpose of ensuring a good quality level of  the data. This type of resources have been used more often in part because some journals recommend the use of data standards and to be shared in public repositories; in some cases those are necessary conditions to the publication of the article.
+
+PRIDE Converter  (\url{https://code.google.com/p/pride-converter/}) is a tool that gives support on the process to submit new data to PRIDE. The same team developed PRIDE Inspector, following the success of the converter, and motivated by the fact that inspection and validation of reported results are of great importance during the review process \cite{WAN2012}.
+
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/prideinspector.png}
+\caption[Views on the PRIDE inspector toolset.]{(a) Section of the spectrum view tab. (b) Protein view tab, including the spectrum viewer showing MS/MS fragment ion annotations (only b ion annotations are shown). (c) Quantification view. (d) 'Search PRIDE' panel. (e) Number of peptides identified per protein chart. (f) 'Delta m/z' chart.
+\label{fig:pride}}
+\end{figure}
+
+Figure \ref{fig:pride} is a group of some of the views of the PRIDE Inspector application. To start with PRIDE Inspector the user can load their own data or explore the public data from PRIDE using the search view(d); the proteins of the data set are listed (b) including its peptides, PTMs and corresponding spectra; the spectrum viewer (a) includes automatic annotations based on submitted fragmentations; some aggregate charts (e) and (f) are also  available to explore the information of each protein; and if the experiment includes quantification data, the view in (e) is enabled and the data can then be used to create comparative charts.
+
+PRIDE Inspector was developed with modularity in mind, and as a consequence, libraries packaging some of the functionalities can be obtained independently. The visualisation routines are accessible from a library called mzGraph that can be reuse in other projects.
+
+\paragraph{Rover}
+The open source Java application called Rover, focuses in quantitative proteomics data, it generates visualisations of this data that help the user in the process of selecting and validating  algorithm suggested regulated proteins in the context of a whole experiments \cite{PER2014}.
+
+Quantitive proteomics datasets are composed of two parts on Rover: peptide identifications and quantitative data. Rover includes a wizard-like menu that facilitates the input of these files; it also includes several parsers for some of the most used formats of that type of data.
+
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/rover.png}
+\caption[The main Rover interface.]{The main Rover interface.
+\label{fig:rover}}
+\end{figure}
+
+Once the data has been successfully loaded into Rover a high level view of it is presented to the user, so the user can select and validate the regulated proteins. 
+
+Figure \ref{fig:rover} is an snapshot of the main interface of Rover, here it displays protein and peptide informations as follows: In the left side there is a panel displaying all the proteins part of the experiments, in which is indicated via glyphs if the protein is selected(thumbs up) or not(thumbs up), and colour coded if is validated(green) or not validated(red). The top of the screen is the protein bar, where the peptides are drawn proportionally over a rectangle that represents the whole protein; and the centre of the window is then diveded again, were the left side offers general information of the selected proteins and the right side displays the ratio distribution graph, where selected protein and partied ratios are shown in comparison with the reference set, using either the intrinsic distribution of the data or transforming the data to use the Huber distribution, which can give a new perspective to the analysed data \cite{COL2010}.
+
+All generated data in Rover can be exported for posterior analysis.
+
+\subsubsection{Micro Arrays}
 
 Microarrays
 

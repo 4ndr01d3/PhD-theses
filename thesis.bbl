@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{69}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -91,6 +91,13 @@ Emek Demir, Michael~P Cary, Suzanne Paley, Ken Fukuda, Christian Lemer, Imre
 \newblock The biopax community standard for pathway data sharing.
 \newblock \emph{Nature biotechnology}, 28\penalty0 (9):\penalty0 935--942,
   2010.
+
+\bibitem[Deutsch et~al.(2008)Deutsch, Lam, and Aebersold]{DEU2008}
+Eric~W Deutsch, Henry Lam, and Ruedi Aebersold.
+\newblock Data analysis and bioinformatics tools for tandem mass spectrometry
+  in proteomics.
+\newblock \emph{Physiological genomics}, 33\penalty0 (1):\penalty0 18--25,
+  2008.
 
 \bibitem[Dowell et~al.(2001)Dowell, Jokerst, Day, Eddy, and Stein]{DOW2001}
 Robin Dowell, Rodney Jokerst, Allen Day, Sean Eddy, and Lincoln Stein.
@@ -246,6 +253,11 @@ Duncan Hull, Katy Wolstencroft, Robert Stevens, Carole Goble, Mathew~R Pocock,
 \newblock \emph{Nucleic acids research}, 34\penalty0 (suppl 2):\penalty0
   W729--W732, 2006.
 
+\bibitem[Jacob(2010)]{JAC2010}
+Richard~J Jacob.
+\newblock Bioinformatics for lc-ms/ms-based proteomics.
+\newblock In \emph{LC-MS/MS in Proteomics}, pages 61--91. Springer, 2010.
+
 \bibitem[Jenkinson et~al.(2008)Jenkinson, Albrecht, Birney, Blankenburg, Down,
   Finn, Hermjakob, Hubbard, Jimenez, Jones, Kahari, Kulesha, Macias, Reeves,
   and Prlic]{JEN2008}
@@ -367,6 +379,15 @@ Alexandre Panchaud, Michael Affolter, Philippe Moreillon, and Martin Kussmann.
   proteomics:< i> status quo</i> and outlook.
 \newblock \emph{Journal of proteomics}, 71\penalty0 (1):\penalty0 19--33, 2008.
 
+\bibitem[Perez-Riverol et~al.(2014)Perez-Riverol, Wang, Hermjakob, M{\"u}ller,
+  Vesada, and Vizca{\'\i}no]{PER2014}
+Yasset Perez-Riverol, Rui Wang, Henning Hermjakob, Markus M{\"u}ller, Vladimir
+  Vesada, and Juan~Antonio Vizca{\'\i}no.
+\newblock Open source libraries and frameworks for mass spectrometry based
+  proteomics: A developer's perspective.
+\newblock \emph{Biochimica et Biophysica Acta (BBA)-Proteins and Proteomics},
+  1844\penalty0 (1):\penalty0 63--76, 2014.
+
 \bibitem[Pico et~al.(2008)Pico, Kelder, Van~Iersel, Hanspers, Conklin, and
   Evelo]{PIC2008}
 Alexander~R Pico, Thomas Kelder, Martijn~P Van~Iersel, Kristina Hanspers,
@@ -407,6 +428,14 @@ Kate~R Rosenbloom, Joel Armstrong, Galt~P Barber, Jonathan Casper, Hiram
   Guruvadoo, Maximilian Haeussler, et~al.
 \newblock The ucsc genome browser database: 2015 update.
 \newblock \emph{Nucleic acids research}, page gku1177, 2014.
+
+\bibitem[S~Silva et~al.(2014)S~Silva, Richard, P~Dias, and
+  M~Rodrigues]{SIL2014}
+Tome S~Silva, Nadege Richard, Jorge P~Dias, and Pedro M~Rodrigues.
+\newblock Data visualization and feature selection methods in gel-based
+  proteomics.
+\newblock \emph{Current Protein and Peptide Science}, 15\penalty0 (1):\penalty0
+  4--22, 2014.
 
 \bibitem[Salazar et~al.(2010)Salazar, Mulder, and Blake]{SAL2010}
 Gustavo Salazar, Nicola Mulder, and Edwin Blake.
@@ -482,6 +511,15 @@ Jose Villaveces, Rafael~C. Jimenez, Leyla Garcia, Gustavo~A. Salazar, Bernat
   Gel, Nicola Mulder, Maria Martin, Alexander Garcia, and Henning Hermjakob.
 \newblock Dasty3, a web framework for das.
 \newblock In press, 2011.
+
+\bibitem[Wang et~al.(2012)Wang, Fabregat, R{\'\i}os, Ovelleiro, Foster,
+  C{\^o}t{\'e}, Griss, Csordas, Perez-Riverol, Reisinger, et~al.]{WAN2012}
+Rui Wang, Antonio Fabregat, Daniel R{\'\i}os, David Ovelleiro, Joseph~M Foster,
+  Richard~G C{\^o}t{\'e}, Johannes Griss, Attila Csordas, Yasset Perez-Riverol,
+  Florian Reisinger, et~al.
+\newblock Pride inspector: a tool to visualize and validate ms proteomics data.
+\newblock \emph{Nature biotechnology}, 30\penalty0 (2):\penalty0 135--137,
+  2012.
 
 \bibitem[Wang et~al.(2014)Wang, Perez-Riverol, Hermjakob, and
   Vizca{\'\i}no]{WAN2014}
