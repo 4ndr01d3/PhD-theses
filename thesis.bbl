@@ -1,4 +1,4 @@
-\begin{thebibliography}{69}
+\begin{thebibliography}{74}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -60,6 +60,14 @@ Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
 Melissa~S Cline, W~James Kent, et~al.
 \newblock Understanding genome browsing.
 \newblock \emph{Nature biotechnology}, 27\penalty0 (2):\penalty0 153, 2009.
+
+\bibitem[Colaert et~al.(2010)Colaert, Helsens, Impens, Vandekerckhove, and
+  Gevaert]{COL2010}
+Niklaas Colaert, Kenny Helsens, Francis Impens, Jo{\"e}l Vandekerckhove, and
+  Kris Gevaert.
+\newblock Rover: a tool to visualize and validate quantitative proteomics data
+  from different sources.
+\newblock \emph{Proteomics}, 10\penalty0 (6):\penalty0 1226--1229, 2010.
 
 \bibitem[Consortium et~al.(2012)]{GEN2012}
 1000 Genomes~Project Consortium et~al.
@@ -200,6 +208,15 @@ Nils Gehlenborg, Sean~I O'Donoghue, Nitin~S Baliga, Alexander Goesmann,
 \newblock Visualization of omics data for systems biology.
 \newblock \emph{Nature Methods}, pages S56--68, March 2010.
 
+\bibitem[Gentleman et~al.(2004)Gentleman, Carey, Bates, Bolstad, Dettling,
+  Dudoit, Ellis, Gautier, Ge, Gentry, et~al.]{GEN2004}
+Robert~C Gentleman, Vincent~J Carey, Douglas~M Bates, Ben Bolstad, Marcel
+  Dettling, Sandrine Dudoit, Byron Ellis, Laurent Gautier, Yongchao Ge, Jeff
+  Gentry, et~al.
+\newblock Bioconductor: open software development for computational biology and
+  bioinformatics.
+\newblock \emph{Genome biology}, 5\penalty0 (10):\penalty0 R80, 2004.
+
 \bibitem[Giardine et~al.(2005)Giardine, Riemer, Hardison, Burhans, Elnitski,
   Shah, Zhang, Blankenberg, Albert, Taylor, et~al.]{GIA2005}
 Belinda Giardine, Cathy Riemer, Ross~C Hardison, Richard Burhans, Laura
@@ -281,6 +298,15 @@ Rafael~C. Jimenez, Antony~F. Quinn, Alexander Garcia, Alberto Labarga, Kieran
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/24/18/2119}.
 
+\bibitem[Kallio et~al.(2011)Kallio, Tuimala, Hupponen, Klemel{\"a}, Gentile,
+  Scheinin, Koski, K{\"a}ki, and Korpelainen]{KAL2011}
+M~Aleksi Kallio, Jarno~T Tuimala, Taavi Hupponen, Petri Klemel{\"a},
+  Massimiliano Gentile, Ilari Scheinin, Mikko Koski, Janne K{\"a}ki, and Eija~I
+  Korpelainen.
+\newblock Chipster: user-friendly analysis software for microarray and other
+  high-throughput data.
+\newblock \emph{BMC genomics}, 12\penalty0 (1):\penalty0 507, 2011.
+
 \bibitem[Kasprzyk(2011)]{KAS2011}
 Arek Kasprzyk.
 \newblock Biomart: driving a paradigm change in biological data management.
@@ -359,6 +385,11 @@ Harald Mischak, Rolf Apweiler, Rosamonde~E Banks, Mark Conaway, Joshua Coon,
 \newblock \emph{PROTEOMICS-Clinical Applications}, 1\penalty0 (2):\penalty0
   148--156, 2007.
 
+\bibitem[Morgan and Hutchinson(2014)]{BIO2014}
+Martin Morgan and Fred Hutchinson.
+\newblock Bioconductor annual report.
+\newblock Annual report, Bioconductor, July 2014.
+
 \bibitem[Nielsen et~al.(2010)Nielsen, Cantor, Dubchak, Gordon, and
   Wang]{NIE2010}
 Cydney~B Nielsen, Michael Cantor, Inna Dubchak, David Gordon, and Ting Wang.
@@ -394,6 +425,12 @@ Alexander~R Pico, Thomas Kelder, Martijn~P Van~Iersel, Kristina Hanspers,
   Bruce~R Conklin, and Chris Evelo.
 \newblock Wikipathways: pathway editing for the people.
 \newblock \emph{PLoS biology}, 6\penalty0 (7):\penalty0 e184, 2008.
+
+\bibitem[Pratsch et~al.(2014)Pratsch, Wellhausen, and Seitz]{PRA2014}
+Katja Pratsch, Robert Wellhausen, and Harald Seitz.
+\newblock Advances in the quantification of protein microarrays.
+\newblock \emph{Current opinion in chemical biology}, 18:\penalty0 16--20,
+  2014.
 
 \bibitem[Prlic et~al.(2005)Prlic, Down, and Hubbard]{PRL2005}
 Andreas Prlic, Thomas~A. Down, and Tim J.~P. Hubbard.

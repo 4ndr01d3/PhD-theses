@@ -19,7 +19,7 @@ This project explores both the integration and visualisation of information in b
 
 \section{Integration of information}
 \subsection{State of the art}
-The latest version of the Nucleic Acids Research Database Issue added a further 58 databases to the online collection held by the journal, which then reached the number of 1552 databases \cite{FER2014}. This collection is far from including every single database, but it is  a good reflection of the number of available resources.
+The latest version of the Nucleic Acids Research NAR Database Issue added a further 58 databases to the online collection held by the journal, which then reached the number of 1552 databases \cite{FER2014}. This collection is far from including every single database, but it is  a good reflection of the number of available resources.
 The approaches to integrate data from all these sources are themselves heterogenous, and are focused on different types of integration, from simply linking resources to development of complex structures of aggregated information. In \cite{GOB2008} the authors categorise the different techniques used to integrate data in bioinformatics into eight approaches, and then these categories were reorganised in \cite{ZHA2011b} into: data warehousing, federated databasing, service oriented integration, semantic integration and Wiki-based integration.
 
 We now present some of the most representative projects that have attempted to integrate data and offer a solution for this requirement in the bioinformatics field, by using one or more of the aforementioned approaches. \footnote{We have decided to include the description of the Distributed Annotation System in a separate section of this document, because it is the base-technology of the developments shown in Chapter 2, and therefore it requires an extended description.}
@@ -28,7 +28,7 @@ We now present some of the most representative projects that have attempted to i
 It is centralised repository where the information from different sources is copied and processed to be kept  in a single place providing a single access point to their data. However the preprocessing of the data is usually a complex process and the posterior additions or editions might require a lot of work.
 
 \paragraph{BioWarehouse}
-BioWarehouse is an open source toolkit to create data warehouses using MySQL or Oracle \cite{LEE2006}. The motivation behind this project is to provide  a single access point that supports Standard Query Language (SQL) running in a high performance environment.
+BioWarehouse is an open source toolkit to create data warehouses using MySQL or Oracle \cite{LEE2006}. The motivation behind this project is to provide  a single access point that supports Standard Query Language SQL running in a high performance environment.
 This projects follows the data warehousing approach to integrate data, however the authors argue that it can be used as a part of a federated system and therefore, it doesn't aim to replace existing distributed systems but rather to complement them.
 
 The development efforts were focused on the creation of a relational data model that supports the information from several biological entities. Figure \ref{fig:biowarehouse} shows the main datatypes that are defined in the BioWarehouse scheme including: Taxon, BioSource, Nucleic Acid, Gene, Protein, Feature, Reaction, Chemical and Pathway. It was the objective of the creators that the model evolves to include other entities, but at the same time keeps the model as simple as possible.
@@ -284,6 +284,7 @@ The use of a second ontology (Evidence Code) is also recommended in the attribut
 Relevant information for proteins included in the element \emph{FEATURE} is registered in:
 
 \begin{itemize}
+\setlength\itemsep{-0.3em}
  \item \emph{id:} A source can not have two features with the same id.
  \item \emph{label:} A human readable label for the feature
  \item \emph{START} and \emph{STOP}: Indicating the specific position to be annotated. If both are equal to zero, it means that the annotation applies to the whole segment (i.e. \emph{Non-positional feature})
@@ -545,22 +546,55 @@ Quantitive proteomics datasets are composed of two parts on Rover: peptide ident
 
 Once the data has been successfully loaded into Rover a high level view of it is presented to the user, so the user can select and validate the regulated proteins. 
 
-Figure \ref{fig:rover} is an snapshot of the main interface of Rover, here it displays protein and peptide informations as follows: In the left side there is a panel displaying all the proteins part of the experiments, in which is indicated via glyphs if the protein is selected(thumbs up) or not(thumbs up), and colour coded if is validated(green) or not validated(red). The top of the screen is the protein bar, where the peptides are drawn proportionally over a rectangle that represents the whole protein; and the centre of the window is then diveded again, were the left side offers general information of the selected proteins and the right side displays the ratio distribution graph, where selected protein and partied ratios are shown in comparison with the reference set, using either the intrinsic distribution of the data or transforming the data to use the Huber distribution, which can give a new perspective to the analysed data \cite{COL2010}.
+Figure \ref{fig:rover} is an snapshot of the main interface of Rover, here it displays protein and peptide informations as follows: In the left side there is a panel displaying all the proteins part of the experiments, in which is indicated via glyphs if the protein is selected(thumbs up) or not(thumbs up), and colour coded if is validated(green) or not validated(red). The top of the screen is the protein bar, where the peptides are drawn proportionally over a rectangle that represents the whole protein; and the centre of the window is then divided again, were the left side offers general information of the selected proteins and the right side displays the ratio distribution graph, where selected protein and partied ratios are shown in comparison with the reference set, using either the intrinsic distribution of the data or transforming the data to use the Huber distribution, which can give a new perspective to the analysed data \cite{COL2010}.
 
 All generated data in Rover can be exported for posterior analysis.
 
 \subsubsection{Micro Arrays}
+Although Microarrays techniques are considered by some, out of the proteomics field because it deals with transcription data, more often than with proteins themselves; this technology offers a high throughput solution to study the expression levels of genes on a particular sample, which is expected to be proportional to the number of proteins that ultimately get produced. There have been advances in microarray techniques that use proteins in order to complement MS studies \cite{PRA2014}. Because of its high usage we will focus on visualisation tools used in the analysis of DNA/RNA microarrays, particularly we will describe 2 suites that serve to exemplify the most common scenarios where visualisation techniques applied to microarray data, this however is just an small sample of all the tools that are used to analyse this type of data.
 
-Microarrays
+\paragraph{Bioconductor}
+Bioconductor is a library for the programming language R, that aims to bring support for general research in computational biology, but have orientated their efforts towards the statistical analysis of microarray experiment's data, covering many of the usual task required: preprocessing, quality control, normalisation and downstream inference of biological and clinical questions \cite{GEN2004}.
+
+The development of Bioconductor has been inspired by the achievements of other software that follow the principles of the Free Software Foundation. The authors consider that the adaptation of these principles into the computational biology and bioinformatics fields, is key in order to improve research in terms of transparency (i.e. exposure of the entire process), reproducibility and efficiency of development.
+
+R is a programming language recognised by its great numerical and statistical capabilities, which can be easily connected to many types of visualisation graphs. R can be used for rapid prototyping and quick exploration of data, it supports multiple network and parallel computing protocols, as well as access to different database systems. These reasons attracted the Bioconductor community when they were choosing which language to use in order to implement their goals.
+
+The Bioconductor project has invested a lot of its time into the creation of the infrastructure of the project, for example, by defining protocols to the addition of new packages and its documentation, interfaces to the existing packages, documentation for both user and developer, exposure to the documentation from within the system, guidelines on how to use their source code repository, definition of good practices when developing a Bioconductor package, etc.
+
+Thanks to all these efforts Bioconductor no has a strong community of users with more than 3000 subscribers to their forum and over one million visitors in their website, in which is possible to find over 800 software packages (release 2.14). Their publication \cite{GEN2004}. has more than 6000 citations and many of the packages developd for Bioconductor have been published in peer-reviewed journals as well \cite{BIO2014}.
+
+
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/bioconductor.png}
+\caption[Visualisations created with Bioconductor's packages.]{Visualisations created with Bioconductor's packages: (a) aroma. (b) arrayQuality. (c) flowCyBar. (d) survcomp.
+\label{fig:bioconductor}}
+\end{figure}
+
+In terms of visualisation the Bioconductor repository listed 218 packages with the tag visualisation by January 2015 (\url{http://www.bioconductor.org/packages/release/BiocViews.html#___Visualization}). Figure {fig:bioconductor} is a random selection of snapshots from several packages found in that list, in order to exemplify the wide scope of analysis and visualisations include in Bioconductor: (a) Aroma (\url{http://www.aroma-project.org/screenshots/}) provides a view similar to the on for genome browsers in order to display copy-number amplification in a chromosome; (b) is a diagnostic plot generated by arrayQuality \url{http://arrays.ucsf.edu/}; (c) is a clustered heat map and box plot, which result of an analysis of cell abundance changes in subcommunities deployed by using flowCyBar\url{http://www.ufz.de/index.php?de=32737}; and (d) is part of the case study used to exemplify survcomp \url{http://www.pmgenomics.ca/bhklab/software/survcomp} a package created to compare the performance of survival/risk prediction models. 
+
+
+\paragraph{Chipster}
+Chipster is a software suite that includes many of the most used software tools for the analysis and visualisation of microarray data and other high throughput experiments. It has a client-server architecture where the client is a graphical oriented interface that allows not only the display, but the interaction with visualisations; the server on the other hand is oriented to the execution and administration of the tools that a particular Chipster installation offers.
+
+Cipster extensevely support the bioconductor package, allowing the edition of scripts to include the functionalities from the R package. Other tools can also be imported to Chipster, however only the ones written in bioconductor can be edited through Chipster.
+
+Chipster is an exploratory tool were different tools and visualisation can be used at any time guided by the user's will. Moreover the execution history is saved as a workflow, and therefore it is easy to execute again with different data or tuning of the different tool's parameters. The workflow files can also be saved and shared.
+
+There are more than 25 visualizations included in Chipster, the ones generated for the client software can be manipulated by the user, and also they serve as a way to interact, select and filter the data. The visualisation generated by Bioconductor and other imported tools are treated as static images and basic zooming and panning is supported. The interactive visualisation include scatter plots, volcano plots, venn diagrams, heat maps, self organised maps, among others; and can be used in different stages of a microarray experiment, e.g. normalisation, quality control, filtering, statistical testing, clustering, annotation, etc. \cite{KAL2011}.	
+
 
 %Dasty, Interpro
 \subsection{Protein Interactions}
-\subsection{Biological Pathways}
+%\subsection{Biological Pathways}
 %\subsection{Population Variation}
 %\subsubsection{General Research}
 %To talk about statistical graphs and things like heat maps, phylogenetic trees, etc.
 
 \subsection{Discussion}
 Genome Browsers have evolve from simple displays of genes and transcripts to visual integration tools of biological data.
+
+The spectrum of visualisation techniques in bioinformatics goes from simple 2 dimensional plots used to display elaborated statistics such PCA, to elaborated visualisation tools to display data which only preprocessing is scaling. 
 
 %\section{Thesis outline}
