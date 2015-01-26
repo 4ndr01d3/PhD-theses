@@ -13,9 +13,9 @@ Integrating information from different experiments in the context of the current
 
 The challenges of integrating heterogeneous datasets range from technical (e.g. incompatibilities of the storage systems) to structural (e.g. two datasets can refer to the same entity using different identifiers), but overall the major challenge is to not lose the meaning of the connection e.g. linking proteins and genes, and knowing what their relationship is.
 
-Integration of data usually refers to connecting data at a low level, by means of storing aggregated information from several sources or by saving links to where the source is. However it is also possible to integrate it at a higher level, where information is not saved and the aggregates are built and visualised on demand.
+Integration of data usually refers to connecting data at a low level, by means of storing aggregated information from several sources or by saving links to where the source is. However it is also possible to integrate it at a higher level, where information is not saved and the aggregates are built and visualized on demand.
 
-This project explores both the integration and visualisation of information in bioinformatics; the rest of this introduction presents both the state of the art and fundamental technologies in both fields. Chapter \ref{section:integration} presents the efforts made during this doctorate that contribute to the methods on how data is integrated in bioinformatics projects. Chapter \ref{section:visualization} describes our inputs to the visualisation of data in bioinformatics, focusing in particular on a web tool for the visualisation of protein-protein interactions. The final chapter contains the conclusions of the project.
+This project explores both the integration and visualization of information in bioinformatics; the rest of this introduction presents both the state of the art and fundamental technologies in both fields. Chapter \ref{section:integration} presents the efforts made during this doctorate that contribute to the methods on how data is integrated in bioinformatics projects. Chapter \ref{section:visualization} describes our inputs to the visualization of data in bioinformatics, focusing in particular on a web tool for the visualization of protein-protein interactions. The final chapter contains the conclusions of the project.
 
 \section{Integration of information}
 \subsection{State of the art}
@@ -152,7 +152,7 @@ Despite the fact that the origin of Galaxy did not explicitly include the execut
 
 The addition of metadata to both workflows and tools, and its publication by the means of Galaxy Pages makes the project easier to share. A well annotated workflow can be understood better when its documentation goes beyond the sequence of tools that have been connected, and includes the biological meaning of such executions.
 
-There is an instance of Galaxy publicly hosted at \url{https://usegalaxy.org/} where a subset of features can be explored by anonymous users and the rest of the functionalities become available after free registration. This public tool includes hundreds of tools for getting data, processing it and visualising it. If however, a project has particular requirements such as including non-public tools, Galaxy can be installed as a local server and the tools can be added to that instance \cite{GIA2005, GOE2010}.
+There is an instance of Galaxy publicly hosted at \url{https://usegalaxy.org/} where a subset of features can be explored by anonymous users and the rest of the functionalities become available after free registration. This public tool includes hundreds of tools for getting data, processing it and visualizing it. If however, a project has particular requirements such as including non-public tools, Galaxy can be installed as a local server and the tools can be added to that instance \cite{GIA2005, GOE2010}.
 
 
 \subsubsection{Semantic integration} 
@@ -188,7 +188,7 @@ As part of the project, a set of software tools that convert different datasets 
 
 The Bio2RDF approach can be summarised in three steps: (1) build a list of namespaces for data providers, (2) analyse a data source to represent it in an RDF model and (3) develop rdfizer to convert the information. The resulting dataset is sorted in the triple-store in order to connect it all together.
 
-Bio2RDF used an extended version of Sesame as the triple-store and on its 2nd release was changed to Virtuoso in order to offer better support to SPARQL, which is the most widely used query language for semantic web data. Bio2RDF makes use of other tools such as Protégé: an ontology editor, the Piggy Bank: a semantic browser for Firefox and Welkin: a RDF graph visualiser; all of which are well known projects in the semantic web community \cite{BEL2008}.
+Bio2RDF used an extended version of Sesame as the triple-store and on its 2nd release was changed to Virtuoso in order to offer better support to SPARQL, which is the most widely used query language for semantic web data. Bio2RDF makes use of other tools such as Protégé: an ontology editor, the Piggy Bank: a semantic browser for Firefox and Welkin: a RDF graph visualizer; all of which are well known projects in the semantic web community \cite{BEL2008}.
 
 \paragraph{SADI}
 The Semantic Automated Discovery and Integration (SADI) project has its roots in the lessons learned from BioMoby, particularly  Moby-2. However, unlike BioMoby, SADI is not a data typing system. The goals of SADI are centred on the proposal of patterns and best practices of how to use web services connected through semantic web technologies to enable the creation of interoperable and integrative bioinformatics software. \cite{WIL2011}.
@@ -302,7 +302,7 @@ Each DAS source can support several capabilities, which means it is able to resp
 
 The two most representative implementations of a DAS server are Pro-server \cite{FIN2007} and MyDas \cite{SAL2012}. Both have been updated to support the latest version of the specification (i.e. 1.6E) and their feature sets are similar. Probably the biggest factor in choosing between these two implementations is the preference for a particular programming language: Perl for Pro-server and Java for MyDas. An extended description of MyDas can be found in the section \ref{section:mydas}, including the contributions to MyDas as part of this PhD project.
 
-On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts on a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensembl viewer \cite{FLI2011}) and genomes (e.g. Dalliance \cite{DOW2011}), where others such SPICE provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a gene region, select the expressed protein of the gene and visualise its 3D structure, all in the same Java Web-start window \cite{PRL2005}.
+On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts on a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensembl viewer \cite{FLI2011}) and genomes (e.g. Dalliance \cite{DOW2011}), where others such SPICE provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a gene region, select the expressed protein of the gene and visualize its 3D structure, all in the same Java Web-start window \cite{PRL2005}.
 
 Dasty2 is a Web client that also supports the interaction between protein data and its 3D structure, but its current version doesn't support direct manipulation of genomic data \cite{JIM2008}. A refactoring of Dasty was executed during 2010 and is explained in detail in section \ref{section:dasty}, including our contribution to the effort of developing Dasty3 \cite{VIL2011}. 
 
@@ -319,20 +319,17 @@ The field of visualization aims to represent data in a way that non evident feat
 
 The uses of visualization techniques are as diverse as fields are in the world, from weather forecast in the news to the analysis of the captured data in the Large Hadron Collider. In the field of our interest: bioinformatics, the use of visualization methods is also abundant and sub-fields such as genomics, proteomics, population variance, etc. have plenty of examples were different techniques have been implemented with the purpose of making sense of biological data via visual representations.
 
-%The section below is a review of the most relevant existing tools and techniques in different bioinformatics fields.
-
-%\subsection{Visualization tools in Bioinformatics}
 The most representatives visualization techniques used in bioinformatics can be categorised in three groups: charts, networks and hierarchies. Charts are graphical representations were n-dimensional data is mapped or aggregated into a space, for example scatter plots, bar graphs, pie charts, etc. Networks are structures were some components are connected to an arbitrary number of other components, normally using a node-link metaphor were the components are represented by nodes and the connections are lines in between them. Lastly, the hierarchies are another type of connection showing when an item is part of another, or using graph theory terminology, a node can be the parent of another; the diverse representations of trees can be used for this type of data, for example, node-link trees and space filling diagrams \cite{WAN2014}. 
 
 \begin{figure}  
 \includegraphics[height=6in,angle=90]{figures/vis_libs.png}
-\caption[Comparison of feature of selected visualisation libraries.]{Comparison of feature of selected visualisation libraries.
+\caption[Comparison of feature of selected visualization libraries.]{Comparison of feature of selected visualization libraries.
 \label{fig:vis_libs}}
 \end{figure}
 
-Figure \ref{fig:vis_libs} shows a a comparison of several libraries that have been used in bioinformatics research; The libraries in (a) include capabilities to represent charts, while (b) and (c) are show similar graphics for libraries that support network and hierarchical representations respectively. It is noticeable than several libraries are in the 3 graphics making evident its multi-purpose nature, where many visualisation techniques are embedded in the same package.
+Figure \ref{fig:vis_libs} shows a a comparison of several libraries that have been used in bioinformatics research; The libraries in (a) include capabilities to represent charts, while (b) and (c) are show similar graphics for libraries that support network and hierarchical representations respectively. It is noticeable than several libraries are in the 3 graphics making evident its multi-purpose nature, where many visualization techniques are embedded in the same package.
 
-A recurrent challenge when visualising data is to match the most appropriate combination of techniques to the nature of the data, optimising the features of the visualization (e.g. location, colour, size or shape) in order to highlight a biological characteristic (e.g. genomic position, functional class, expression level or organism). Or as stated in \cite{GEH2010} ``\emph{The challenge is to create clear, meaningful and integrated visualizations that give biological insight, without being overwhelmed by the intrinsic complexity of the data}''.
+A recurrent challenge when visualizing data is to match the most appropriate combination of techniques to the nature of the data, optimising the features of the visualization (e.g. location, colour, size or shape) in order to highlight a biological characteristic (e.g. genomic position, functional class, expression level or organism). Or as stated in \cite{GEH2010} ``\emph{The challenge is to create clear, meaningful and integrated visualizations that give biological insight, without being overwhelmed by the intrinsic complexity of the data}''.
 
 A variety of projects in different subdomains of bioinformatics have been presenting alternatives according to the needs of each case. The sections below describe some of the most illustrative projects, grouped by some well known bioinformatics domains.
 
@@ -355,7 +352,7 @@ HawkEye was one of the pioneer tools that offered some of the feature discussed 
 This stand-alone tool offers a Top-Down strategy to analyse an automatic assembled genome. Figure \ref{fig:hawkeye} presents the three main views included in Hawkeye: 
 \begin{description}
 \item[(a) The launch pad] is the first screen presented to the user when a draft genome has been loaded, it acts as a global overview by displaying summary assembly statistics in the form of two N-Plots (i.e. A bar graph where each bar is a contain, its height represents the length of the contain in pb, and the width its length in percentage of the genome size.
-\item[(b) The Scaffold View] represents the current scaffold as a linear ordering of connected contigs, with the assembly features displayed below. the first two tracks are heat map plots to easily visualise the insert and read depth of coverage. the view allows zooming and panning in order to navigate through the assembly.
+\item[(b) The Scaffold View] represents the current scaffold as a linear ordering of connected contigs, with the assembly features displayed below. the first two tracks are heat map plots to easily visualize the insert and read depth of coverage. the view allows zooming and panning in order to navigate through the assembly.
 \item[(c) The Contig View] follows the same design of the scaffold view by representing the consensus on top and the composing items aligned below, however in this case the level of detail goes to the point of showing the nucleotide bases and with its quality scores and the chromatogram traces when available.
 \end{description}
 
@@ -376,9 +373,9 @@ The Integrative Genomics Viewer IGV is one of the tools that take advantage of t
 A description of other tools that support the process of sequencing a genome (category (i)) can be found in \cite{NIE2010}. Once the genome is ready and has been through a finishing process it is usually shared and other scientist can use it in context of their own data. Is in this stage where the tools of category (ii) i.e. browsing a completed genome with its annotations; are of great help.
 
 \subsubsection{Genome Browsing}
-A famous principle in visualisation is known as the Shneiderman mantra: \emph{overview, zoom, filter, details-on-demand} \cite{SHN1996}. Most genome browsers use a similar layout that follows the mantra quite closely, adapting it to the molecular biology behind the data:
+A famous principle in visualization is known as the Shneiderman mantra: \emph{overview, zoom, filter, details-on-demand} \cite{SHN1996}. Most genome browsers use a similar layout that follows the mantra quite closely, adapting it to the molecular biology behind the data:
 
-The \emph{overview} is usually a graphical representation of the karyotype, which is the set of chromosomes displaying its bands. The bands have been experimentally defined using some cytogenetics techniques to have visual mark on the chromosome, and serve the purpose of the visualisation to identify the different chromosomic regions.
+The \emph{overview} is usually a graphical representation of the karyotype, which is the set of chromosomes displaying its bands. The bands have been experimentally defined using some cytogenetics techniques to have visual mark on the chromosome, and serve the purpose of the visualization to identify the different chromosomic regions.
 
 The user can \emph{zoom} into a chromosome band, or can select a region of interest by interactively mark an area, or by explicitly introduce the coordinates. Once a region of interest (ROI) is selected, a multi-row visualization is displayed, where the first row represents the ROI, some browsers use colour coding for this row to show the limits of the bands or other high level features of that region.
 
@@ -421,7 +418,7 @@ A similar project to JBrowse is Dalliance, a Web-based Genome Viewer developed u
 
 Similar use of DAS, has been implemented in MyKarioView (discussed further in section \ref{section:mykarioview}), which has an special emphasis on the display of personal genome data in context of well known data sources.
 
-It is important to highlight that the purpose of genome browsers is to simplify the task of generating hypothesis based in the aggregation of genomic data. Each data source can contain errors, and the researcher should be sceptical of any conclusion based on a single observation. Genome browsers allow to graphically display several sources, and in this way make easier the detection of anomalies, errors or special genomic conditions. Despite how evident a hypothesis is represented in a visualisation, the scientist must have access to the original data in order to evaluate any theory \cite{CLI2009}.
+It is important to highlight that the purpose of genome browsers is to simplify the task of generating hypothesis based in the aggregation of genomic data. Each data source can contain errors, and the researcher should be sceptical of any conclusion based on a single observation. Genome browsers allow to graphically display several sources, and in this way make easier the detection of anomalies, errors or special genomic conditions. Despite how evident a hypothesis is represented in a visualization, the scientist must have access to the original data in order to evaluate any theory \cite{CLI2009}.
 
 \subsubsection{Comparative Genomics}
 The last of the categories (iii) mentioned in the beginning of this section refers to the group of tools used to compare genomes in between individuals and/or species.
@@ -448,10 +445,10 @@ An alternative to dot plots, some tools offer a technique to display multiple ge
 
 Besides the comparison of genomes in between species, the progress in the sequencing techniques permits the analysis of multiple individuals genomes in order to study their variation, and try to discover in this way the genotype that causes phenotypes of interest such as diseases. The biggest yet international effort in this area is known as the 1000 Genomes project,  which in their latest publication \cite{GEN2012} includes the genomes of 1092 individuals from 14 populations, and discovered and genotyped 38 million SNPs, 1.4 million indels and 14000 large deletions; vital information for genomic studies of human health.
 
-An adaptation of the Ensembl browser has been develop in order to provide a way to visually browse over the result information of the 1000 Genomes project. Multiple tracks including aggregates and results from the study can be included in the browser and new tools to export and visualise variation data have been included.
+An adaptation of the Ensembl browser has been develop in order to provide a way to visually browse over the result information of the 1000 Genomes project. Multiple tracks including aggregates and results from the study can be included in the browser and new tools to export and visualize variation data have been included.
 
 \subsection{Proteomics}
-In the central dogma of biology, DNA (deoxyribonucleic acid) encodes genes, which get transcribed in RNA (ribonucleic acid), which in turn, gets translated into proteins. Each of these is represented by a sequence of either nucleotides (DNA, RNA) or amino acids (Proteins). On the previous Section we discussed the visualisation tools that assist the process of sequencing DNA in order to get a full genome of an species, where positional annotations can be included, shared and explored, in the context of one or multiple organisms. 
+In the central dogma of biology, DNA (deoxyribonucleic acid) encodes genes, which get transcribed in RNA (ribonucleic acid), which in turn, gets translated into proteins. Each of these is represented by a sequence of either nucleotides (DNA, RNA) or amino acids (Proteins). On the previous Section we discussed the visualization tools that assist the process of sequencing DNA in order to get a full genome of an species, where positional annotations can be included, shared and explored, in the context of one or multiple organisms. 
 
 It is because of the central dogma that annotations about genes are among the most used and useful features to know on a DNA sequence. The direct connection between a gene and a protein is the key to big part of the molecular biology research. For example, many diseases are caused because there are not enough (or too many) proteins to execute a biological function, or because there are proteins but they are malformed; in any of those cases the source of the problem can sometimes be trace back to the gene that generated that protein, and find that a mutation have appeared and a section of nucleotides have been inserted/deleted (indels). 
 
@@ -464,7 +461,7 @@ This is due (among other reasons) to gene and protein splicing and post-translat
 
 Multiple experiments have been develop in order to approach this challenge, for example, mass spectrometry MS, helps to identify which peptides and ultimately which proteins are present in a given sample; 2D gel electrophoresis and microarrays analysis can give insights in the proportions of proteins that have been expressed in certain conditions (e.g. an specific tissue, a sick patient, a health person(control), etc.), similar data can now be obtained with alternative uses of NGS technologies such RNASeq; crystallography and modelling software has been used to find the final shape of the protein.
 
-Visualisation has shown his potential by helping in the understanding and analysis of the outcomes of such experiments. Below we will show some cases grouped by some of the most used proteomics technique, where visualization methods have been used to support the analysis.
+visualization has shown his potential by helping in the understanding and analysis of the outcomes of such experiments. Below we will show some cases grouped by some of the most used proteomics technique, where visualization methods have been used to support the analysis.
 
 \subsubsection{Gel Based Proteomics}
 Two-dimensional gel electrophoresis 2DE is still the most used approach in top-down proteomic studies mostly due to its efficiency at separating proteins in complex mixtures. Figure \ref{fig:gelflow} present the usual steps involved in an 2DE experiment that separates the proteins of interest for a particular hypothesis, which can be then identified with for example MS techniques \cite{SIL2014}.
@@ -480,13 +477,13 @@ The 4 first stages on this flow describe the preparation and execution of the ex
 
 There are different protocols for gel-based experiments trying to overcome the different limitations of this technique (i.e. low resolution, low dynamic range, bias agains categories and low reproducibility), and the Differential Imaging Gel Electrophoresis DIGE, has become one of the best alternatives. The main difference of DIGE with other protocols is that control and case samples are tagged with different fluorescent dyes, which facilitates the spot detection and its posterior quantification \cite{PAN2008}.
 
-In most of the protocols, each of the gels can have other variables associated, for instance, the tissue that it belongs to, information about the donor (e.g. sex, age, weight) and data about the hypothesis (e.g. healthy/infected). The relevance of a spot in the context of the study hypothesis and considering all the mentioned variables, it is used to filter the required protein identification experiments, and ultimately reduce time and costs to proof/disproof the hypothesis. It is in this step where statistical and visualisation techniques are of great help for the researcher.
+In most of the protocols, each of the gels can have other variables associated, for instance, the tissue that it belongs to, information about the donor (e.g. sex, age, weight) and data about the hypothesis (e.g. healthy/infected). The relevance of a spot in the context of the study hypothesis and considering all the mentioned variables, it is used to filter the required protein identification experiments, and ultimately reduce time and costs to proof/disproof the hypothesis. It is in this step where statistical and visualization techniques are of great help for the researcher.
 
-The problem is that common visualisation techniques (e.g. box plots, scatter plots) are usually not enough, because the number of variables(spots) to include is too high(in the order of hundreds), and therefore multivariable techniques that combine statistical methods and visualisation tools are required at this stage.
+The problem is that common visualization techniques (e.g. box plots, scatter plots) are usually not enough, because the number of variables(spots) to include is too high(in the order of hundreds), and therefore multivariable techniques that combine statistical methods and visualization tools are required at this stage.
 
 Principal Components Analysis PCA has become the preferred technique in 2DE, because it offers a good and unbiased view of a dataset along the subspace where most variation occurs. PCA looks for a 2D or 3D representation of the data where the axis are the principal components PC (hence its name) that most highly contribute to determine the variance of the data. A PC is not a single variable but rather a projection of the combination of several ones, and the result of a PCA gives the contribution of each of the variables for each PC.
 
-Figure \ref{fig:PCA} serves as an example of the visualisation of the results of a PCA on a data set in which 2 treatments (``A'' and ``B'') were been compared with biological samples being taken at three time-points: 0h, 6h and 48h; colour-coded as light grey, dark grey and black respectively. There is a clear division of 2 groups. In a 2DE experiment is common to select the spots to analyse further by studying the variable contribution on each PC.
+Figure \ref{fig:PCA} serves as an example of the visualization of the results of a PCA on a data set in which 2 treatments (``A'' and ``B'') were been compared with biological samples being taken at three time-points: 0h, 6h and 48h; colour-coded as light grey, dark grey and black respectively. There is a clear division of 2 groups. In a 2DE experiment is common to select the spots to analyse further by studying the variable contribution on each PC.
 
 \begin{figure}  
 \centering
@@ -514,7 +511,7 @@ The workflow to analyse the MS/MS results is described in figure \ref{fig:ms_wor
 \end{figure}
 
 
-A classification of the most frequent tasks based on the described workflow have been included in \cite{PER2014} in order to describe the contributions of different open source libraries in MS experiments. Below we describe the two software tools mentioned there that include several visualisation techniques to aid in the different stages of the MS workflow. An extended list of visualization tools in MS/MS based proteomics can be found in the section 5 of \cite{JAC2010}.
+A classification of the most frequent tasks based on the described workflow have been included in \cite{PER2014} in order to describe the contributions of different open source libraries in MS experiments. Below we describe the two software tools mentioned there that include several visualization techniques to aid in the different stages of the MS workflow. An extended list of visualization tools in MS/MS based proteomics can be found in the section 5 of \cite{JAC2010}.
 
 \paragraph{PRIDE Inspector}
 The PRoteomics IDEntifications database PRIDE, is a centralised repository where proteomics data is stored and shared. In order to submit data into PRIDE a series of standards have to be followed. This with the purpose of ensuring a good quality level of  the data. This type of resources have been used more often in part because some journals recommend the use of data standards and to be shared in public repositories; in some cases those are necessary conditions to the publication of the article.
@@ -528,12 +525,12 @@ PRIDE Converter  (\url{https://code.google.com/p/pride-converter/}) is a tool th
 \label{fig:pride}}
 \end{figure}
 
-Figure \ref{fig:pride} is a group of some of the views of the PRIDE Inspector application. To start with PRIDE Inspector the user can load their own data or explore the public data from PRIDE using the search view(d); the proteins of the data set are listed (b) including its peptides, PTMs and corresponding spectra; the spectrum viewer (a) includes automatic annotations based on submitted fragmentations; some aggregate charts (e) and (f) are also  available to explore the information of each protein; and if the experiment includes quantification data, the view in (e) is enabled and the data can then be used to create comparative charts.
+Figure \ref{fig:pride} is a group of some of the views of the PRIDE Inspector application. To start with PRIDE Inspector the user can load their own data or explore the public data from PRIDE using the search view(d); the proteins of the data set are listed (b) including its peptides, Post Transactional Modifications PTMs and corresponding spectra; the spectrum viewer (a) includes automatic annotations based on submitted fragmentations; some aggregate charts (e) and (f) are also  available to explore the information of each protein; and if the experiment includes quantification data, the view in (e) is enabled and the data can then be used to create comparative charts.
 
-PRIDE Inspector was developed with modularity in mind, and as a consequence, libraries packaging some of the functionalities can be obtained independently. The visualisation routines are accessible from a library called mzGraph that can be reuse in other projects.
+PRIDE Inspector was developed with modularity in mind, and as a consequence, libraries packaging some of the functionalities can be obtained independently. The visualization routines are accessible from a library called mzGraph that can be reuse in other projects.
 
 \paragraph{Rover}
-The open source Java application called Rover, focuses in quantitative proteomics data, it generates visualisations of this data that help the user in the process of selecting and validating  algorithm suggested regulated proteins in the context of a whole experiments \cite{PER2014}.
+The open source Java application called Rover, focuses in quantitative proteomics data, it generates visualizations of this data that help the user in the process of selecting and validating  algorithm suggested regulated proteins in the context of a whole experiments \cite{PER2014}.
 
 Quantitive proteomics datasets are composed of two parts on Rover: peptide identifications and quantitative data. Rover includes a wizard-like menu that facilitates the input of these files; it also includes several parsers for some of the most used formats of that type of data.
 
@@ -551,14 +548,14 @@ Figure \ref{fig:rover} is an snapshot of the main interface of Rover, here it di
 All generated data in Rover can be exported for posterior analysis.
 
 \subsubsection{Micro Arrays}
-Although Microarrays techniques are considered by some, out of the proteomics field because it deals with transcription data, more often than with proteins themselves; this technology offers a high throughput solution to study the expression levels of genes on a particular sample, which is expected to be proportional to the number of proteins that ultimately get produced. There have been advances in microarray techniques that use proteins in order to complement MS studies \cite{PRA2014}. Because of its high usage we will focus on visualisation tools used in the analysis of DNA/RNA microarrays, particularly we will describe 2 suites that serve to exemplify the most common scenarios where visualisation techniques applied to microarray data, this however is just an small sample of all the tools that are used to analyse this type of data.
+Although Microarrays techniques are considered by some, out of the proteomics field because it deals with transcription data, more often than with proteins themselves; this technology offers a high throughput solution to study the expression levels of genes on a particular sample, which is expected to be proportional to the number of proteins that ultimately get produced. There have been advances in microarray techniques that use proteins in order to complement MS studies \cite{PRA2014}. Because of its high usage we will focus on visualization tools used in the analysis of DNA/RNA microarrays, particularly we will describe 2 suites that serve to exemplify the most common scenarios where visualization techniques applied to microarray data, this however is just an small sample of all the tools that are used to analyse this type of data.
 
 \paragraph{Bioconductor}
 Bioconductor is a library for the programming language R, that aims to bring support for general research in computational biology, but have orientated their efforts towards the statistical analysis of microarray experiment's data, covering many of the usual task required: preprocessing, quality control, normalisation and downstream inference of biological and clinical questions \cite{GEN2004}.
 
 The development of Bioconductor has been inspired by the achievements of other software that follow the principles of the Free Software Foundation. The authors consider that the adaptation of these principles into the computational biology and bioinformatics fields, is key in order to improve research in terms of transparency (i.e. exposure of the entire process), reproducibility and efficiency of development.
 
-R is a programming language recognised by its great numerical and statistical capabilities, which can be easily connected to many types of visualisation graphs. R can be used for rapid prototyping and quick exploration of data, it supports multiple network and parallel computing protocols, as well as access to different database systems. These reasons attracted the Bioconductor community when they were choosing which language to use in order to implement their goals.
+R is a programming language recognised by its great numerical and statistical capabilities, which can be easily connected to many types of visualization graphs. R can be used for rapid prototyping and quick exploration of data, it supports multiple network and parallel computing protocols, as well as access to different database systems. These reasons attracted the Bioconductor community when they were choosing which language to use in order to implement their goals.
 
 The Bioconductor project has invested a lot of its time into the creation of the infrastructure of the project, for example, by defining protocols to the addition of new packages and its documentation, interfaces to the existing packages, documentation for both user and developer, exposure to the documentation from within the system, guidelines on how to use their source code repository, definition of good practices when developing a Bioconductor package, etc.
 
@@ -568,25 +565,78 @@ Thanks to all these efforts Bioconductor no has a strong community of users with
 \begin{figure}  
 \centering
 \includegraphics[width=\textwidth]{figures/bioconductor.png}
-\caption[Visualisations created with Bioconductor's packages.]{Visualisations created with Bioconductor's packages: (a) aroma. (b) arrayQuality. (c) flowCyBar. (d) survcomp.
+\caption[visualizations created with Bioconductor's packages.]{visualizations created with Bioconductor's packages: (a) aroma. (b) arrayQuality. (c) flowCyBar. (d) survcomp.
 \label{fig:bioconductor}}
 \end{figure}
 
-In terms of visualisation the Bioconductor repository listed 218 packages with the tag visualisation by January 2015 (\url{http://www.bioconductor.org/packages/release/BiocViews.html#___Visualization}). Figure {fig:bioconductor} is a random selection of snapshots from several packages found in that list, in order to exemplify the wide scope of analysis and visualisations include in Bioconductor: (a) Aroma (\url{http://www.aroma-project.org/screenshots/}) provides a view similar to the on for genome browsers in order to display copy-number amplification in a chromosome; (b) is a diagnostic plot generated by arrayQuality \url{http://arrays.ucsf.edu/}; (c) is a clustered heat map and box plot, which result of an analysis of cell abundance changes in subcommunities deployed by using flowCyBar\url{http://www.ufz.de/index.php?de=32737}; and (d) is part of the case study used to exemplify survcomp \url{http://www.pmgenomics.ca/bhklab/software/survcomp} a package created to compare the performance of survival/risk prediction models. 
+In terms of visualization the Bioconductor repository listed 218 packages with the tag visualization by January 2015 (\url{http://www.bioconductor.org/packages/release/BiocViews.html#___Visualization}). Figure {fig:bioconductor} is a random selection of snapshots from several packages found in that list, in order to exemplify the wide scope of analysis and visualizations include in Bioconductor: (a) Aroma (\url{http://www.aroma-project.org/screenshots/}) provides a view similar to the on for genome browsers in order to display copy-number amplification in a chromosome; (b) is a diagnostic plot generated by arrayQuality \url{http://arrays.ucsf.edu/}; (c) is a clustered heat map and box plot, which result of an analysis of cell abundance changes in subcommunities deployed by using flowCyBar\url{http://www.ufz.de/index.php?de=32737}; and (d) is part of the case study used to exemplify survcomp \url{http://www.pmgenomics.ca/bhklab/software/survcomp} a package created to compare the performance of survival/risk prediction models. 
 
 
 \paragraph{Chipster}
-Chipster is a software suite that includes many of the most used software tools for the analysis and visualisation of microarray data and other high throughput experiments. It has a client-server architecture where the client is a graphical oriented interface that allows not only the display, but the interaction with visualisations; the server on the other hand is oriented to the execution and administration of the tools that a particular Chipster installation offers.
+Chipster is a software suite that includes many of the most used software tools for the analysis and visualization of microarray data and other high throughput experiments. It has a client-server architecture where the client is a graphical oriented interface that allows not only the display, but the interaction with visualizations; the server on the other hand is oriented to the execution and administration of the tools that a particular Chipster installation offers.
 
 Cipster extensevely support the bioconductor package, allowing the edition of scripts to include the functionalities from the R package. Other tools can also be imported to Chipster, however only the ones written in bioconductor can be edited through Chipster.
 
-Chipster is an exploratory tool were different tools and visualisation can be used at any time guided by the user's will. Moreover the execution history is saved as a workflow, and therefore it is easy to execute again with different data or tuning of the different tool's parameters. The workflow files can also be saved and shared.
+Chipster is an exploratory tool were different tools and visualization can be used at any time guided by the user's will. Moreover the execution history is saved as a workflow, and therefore it is easy to execute again with different data or tuning of the different tool's parameters. The workflow files can also be saved and shared.
 
-There are more than 25 visualizations included in Chipster, the ones generated for the client software can be manipulated by the user, and also they serve as a way to interact, select and filter the data. The visualisation generated by Bioconductor and other imported tools are treated as static images and basic zooming and panning is supported. The interactive visualisation include scatter plots, volcano plots, venn diagrams, heat maps, self organised maps, among others; and can be used in different stages of a microarray experiment, e.g. normalisation, quality control, filtering, statistical testing, clustering, annotation, etc. \cite{KAL2011}.	
+There are more than 25 visualizations included in Chipster, the ones generated for the client software can be manipulated by the user, and also they serve as a way to interact, select and filter the data. The visualization generated by Bioconductor and other imported tools are treated as static images and basic zooming and panning is supported. The interactive visualization include scatter plots, volcano plots, venn diagrams, heat maps, self organised maps, among others; and can be used in different stages of a microarray experiment, e.g. normalisation, quality control, filtering, statistical testing, clustering, annotation, etc. \cite{KAL2011}.	
 
 
-%Dasty, Interpro
+\subsubsection{Protein Annotations}
+There are several projects that provide a visualisation similar to the one offered by genome browsers, but in which reference and features are protein data. The challenges for this type of applications can be somehow different than their genome browser similes; for example one the biggest challenges of the latter is how to deal with the length of a genome, and therefore those applications have develop strategies for smart panning navigation, only loading by-request and offering several graphic interface gestures to navigate through a chromosome as seamlessly as possible. For protein browsers the length is not a major concern, proteins are usually less than a thousand amino-acids long, and nowadays most of the screens are using resolutions higher than 1024x768, so, the inclusion of a representation of the whole protein in the screen should be relatively simple.
+
+On the other hand, the number of sources of protein data can be quite large, and therefore some strategies are required to deal with the vertical growth of the visualisation. For example, grouping annotations on a same track, or some kind of vertical panning/scrolling. Below we briefly describe some of the most recognised protein annotation browser, and in section \ref{section:dasty} we will discussed about Dasty3, a protein feature viewer in which we have contributed during this PhD.
+
+\paragraph{PFAM} 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6in]{figures/pfam.png} 
+\caption[PFAM Snapshot] {\emph{PFAM}: Web widget, which places special emphasis on the visualization of the annotations of protein domains}  \label{fig: pfam}
+\end{figure}
+
+The Protein Family Database (PFAM) project has as a main goal to provide information for protein families and domains. The database is divided in two subsets: PFAM-A contains curated information and PFAM-B is an automatically generated database. 
+
+The PFAM website provides several ways to access this data, one of them been the feature viewer, where besides PFAM own annotations, allows users to get information from other sources and to put it in the same context. Figure \ref{fig: pfam} shows the result of a query in the PFAM feature client. The first track contains all the annotations about families and domains that the PFAM database has; the next set of tracks are the rest of the annotation sources that PFAM provides; and finally all the features of external data sources that the user has selected for that query \cite{FIN2008}.
+
+\paragraph{InterPro} 
+The InterPro database is a public resource use to classify sequences into protein families, which can be annotated, and subsequently used to infer features of non-annotated proteins. InterPro combines the data from different datasets, and have grown from four sources in 1999 to eleven in 2014. The combined resource provides information about protein families, domains and functional sites.
+
+The central concept in InterPro is a protein signature, which are representations of groups of protein sequences based on similarity. These are annotated with a name, a descriptive abstract and GO terms. Functional features of a signature can be used to describe a protein by identifying the existing signature in the target protein; this approach is providing terms for almost 50 million individual proteins \cite{MIT2014}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6in]{figures/interpro.jpg} 
+\caption[Interprot Snapshot] {Detailed InterPro member database match data for UniProtKB entry q3JCG5}  \label{fig: interior}
+\end{figure}
+
+Figure \ref{fig: interior}  is a snapshot from the InterPro website, displaying 16 individual signatures from seven sources, that have been grouped in 11 entries.
+It uses a similar visual approach to other protein annotation viewers, in which features are located proportionally to the reference, but in this case the reference is not another track on top, but instead is a box were the annotations are included. In this way the reference is always visible, no matter how many entries are on display or how down have the user scrolled. However, this view takes more space and in consequence, less tracks can be displayed simultaneously. 
+
 \subsection{Protein Interactions}
+Interaction between proteins is one of the most important mechanisms in the execution of cellular functions. The study of these interactions has provided insight into the functioning of an organism's processes.
+
+The number of reported Protein-Protein Interaction (PPI) networks has grown considerably, partly due to advances in high-throughput experimentation and partly due to the new predictions that result from these empirical data. For example, as of January 2015, \emph{Homo sapiens} had over 300000 Protein-Protein interactions (PPI) registered in the Interologous Interaction Database, which is only one of the many public resources where protein interactions can be accessed for different species. 
+
+The volume of data that PPI repositories have reached has made the analysis and understanding thereof a challenge that can be enriched by the use of visualization techniques. PPI networks have been found to follow a behaviour that in graph theory is referred to as \emph{scale-free}, which uses a few highly connected nodes and many nodes with few interactors. This feature allows a user to predefine visualization strategies to highlight certain characteristics.
+
+The list below was identified in \cite{AGA2013} as the main requirements for the visualisation of protein interaction networks:
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+	\item Clear rendering of network structure and sub-structures, such as dense regions or linear chains;
+	\item Fast rendering of huge networks;
+	\item Easy network querying through focus and zoom;
+	\item Compatibility with the heterogeneous data formats used for PIN representation;
+	\item Interoperability with PPI databases, allowing the automatic querying of single or multiple databases using existing middlewares;
+	\item Integration of heterogeneous data sources, e.g. functional information about proteins extracted from biological ontologies.
+\end{itemize}
+
+There are several tools that allow the exploration of PPI data, providing different methods to visualize protein network interactions, \cite{AGA2013} evaluates some of them by considering the requirements above. Other surveys can be found in the literature were comparisons and descriptions of several PPI tool are included \cite{SUD2007, PAV2008, GEH2010}. Below, we describe some of them and in section \ref{section:pinv} we explore in detail PINV, a web based PPI visualization tool created under the scope of this PhD.
+
+\subsubsection{STRING}
+\subsubsection{Cytoscape}
+\subsubsection{Web based PPI tools}
+
 %\subsection{Biological Pathways}
 %\subsection{Population Variation}
 %\subsubsection{General Research}
@@ -595,6 +645,6 @@ There are more than 25 visualizations included in Chipster, the ones generated f
 \subsection{Discussion}
 Genome Browsers have evolve from simple displays of genes and transcripts to visual integration tools of biological data.
 
-The spectrum of visualisation techniques in bioinformatics goes from simple 2 dimensional plots used to display elaborated statistics such PCA, to elaborated visualisation tools to display data which only preprocessing is scaling. 
+The spectrum of visualization techniques in bioinformatics goes from simple 2 dimensional plots used to display elaborated statistics such PCA, to elaborated visualization tools to display data which only preprocessing is scaling. 
 
 %\section{Thesis outline}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{74}
+\begin{thebibliography}{79}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -13,6 +13,14 @@ Abigail Acland, Richa Agarwala, Tanya Barrett, Jeff Beck, Dennis~A Benson,
 \newblock Database resources of the national center for biotechnology
   information.
 \newblock \emph{Nucleic acids research}, 42\penalty0 (D1):\penalty0 D7, 2014.
+
+\bibitem[Agapito et~al.(2013)Agapito, Guzzi, and Cannataro]{AGA2013}
+Giuseppe Agapito, Pietro Guzzi, and Mario Cannataro.
+\newblock Visualization of protein interaction networks: problems and
+  solutions.
+\newblock \emph{BMC Bioinformatics}, 14\penalty0 (Suppl 1):\penalty0 S1, 2013.
+\newblock ISSN 1471-2105.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/14/S1/S1}.
 
 \bibitem[Amberger et~al.(2014)Amberger, Bocchini, Schiettecatte, Scott, and
   Hamosh]{AMB2014}
@@ -159,6 +167,18 @@ Robert~D. Finn, James~W. Stalker, David~K. Jackson, Eugene Kulesha, Jody
 \newblock \doi{10.1093/bioinformatics/btl650}.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/23/12/1568}.
+
+\bibitem[Finn et~al.(2008)Finn, Tate, Mistry, Coggill, Sammut, Hotz, Ceric,
+  Forslund, Eddy, Sonnhammer, and Bateman]{FIN2008}
+Robert~D. Finn, John Tate, Jaina Mistry, Penny~C. Coggill, Stephen~John Sammut,
+  Hans-Rudolf Hotz, Goran Ceric, Kristoffer Forslund, Sean~R. Eddy, Erik L.~L.
+  Sonnhammer, and Alex Bateman.
+\newblock {The Pfam protein families database}.
+\newblock \emph{Nucl. Acids Res.}, 36\penalty0 (suppl\_1):\penalty0 D281--288,
+  2008.
+\newblock \doi{10.1093/nar/gkm960}.
+\newblock URL
+  \url{http://nar.oxfordjournals.org/cgi/content/abstract/36/suppl_1/D281}.
 
 \bibitem[Flicek et~al.(2011)Flicek, Amode, Barrell, Beal, Brent, Chen, Clapham,
   Coates, Fairley, Fitzgerald, Gordon, Hendrix, Hourlier, Johnson, Kahari,
@@ -385,6 +405,15 @@ Harald Mischak, Rolf Apweiler, Rosamonde~E Banks, Mark Conaway, Joshua Coon,
 \newblock \emph{PROTEOMICS-Clinical Applications}, 1\penalty0 (2):\penalty0
   148--156, 2007.
 
+\bibitem[Mitchell et~al.(2014)Mitchell, Chang, Daugherty, Fraser, Hunter,
+  Lopez, McAnulla, McMenamin, Nuka, Pesseat, et~al.]{MIT2014}
+Alex Mitchell, Hsin-Yu Chang, Louise Daugherty, Matthew Fraser, Sarah Hunter,
+  Rodrigo Lopez, Craig McAnulla, Conor McMenamin, Gift Nuka, Sebastien Pesseat,
+  et~al.
+\newblock The interpro protein families database: the classification resource
+  after 15 years.
+\newblock \emph{Nucleic acids research}, page gku1243, 2014.
+
 \bibitem[Morgan and Hutchinson(2014)]{BIO2014}
 Martin Morgan and Fred Hutchinson.
 \newblock Bioconductor annual report.
@@ -409,6 +438,13 @@ Alexandre Panchaud, Michael Affolter, Philippe Moreillon, and Martin Kussmann.
 \newblock Experimental and computational approaches to quantitative
   proteomics:< i> status quo</i> and outlook.
 \newblock \emph{Journal of proteomics}, 71\penalty0 (1):\penalty0 19--33, 2008.
+
+\bibitem[Pavlopoulos et~al.(2008)Pavlopoulos, Wegener, and Schneider]{PAV2008}
+Georgios Pavlopoulos, Anna-Lynn Wegener, and Reinhard Schneider.
+\newblock A survey of visualization tools for biological network analysis.
+\newblock \emph{BioData Mining}, 1\penalty0 (1):\penalty0 12, 2008.
+\newblock ISSN 1756-0381.
+\newblock URL \url{http://www.biodatamining.org/content/1/1/12}.
 
 \bibitem[Perez-Riverol et~al.(2014)Perez-Riverol, Wang, Hermjakob, M{\"u}ller,
   Vesada, and Vizca{\'\i}no]{PER2014}
@@ -528,6 +564,11 @@ James Stalker, Brian Gibbins, Patrick Meidl, James Smith, William Spooner,
   Hans-Rudolf Hotz, and Antony~V Cox.
 \newblock The ensembl web site: mechanics of a genome browser.
 \newblock \emph{Genome research}, 14\penalty0 (5):\penalty0 951--955, 2004.
+
+\bibitem[Suderman and Hallett(2007)]{SUD2007}
+Matthew Suderman and Michael Hallett.
+\newblock Tools for visually exploring biological networks.
+\newblock \emph{Bioinformatics}, 23\penalty0 (20):\penalty0 2651--2659, 2007.
 
 \bibitem[Topel et~al.(2008)Topel, Kormeier, Klassen, and Hofestadt]{TOP2008}
 Thoralf Topel, Benjamin Kormeier, Andreas Klassen, and Ralf Hofestadt.
