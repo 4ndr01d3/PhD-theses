@@ -618,6 +618,8 @@ Interaction between proteins is one of the most important mechanisms in the exec
 
 The number of reported Protein-Protein Interaction (PPI) networks has grown considerably, partly due to advances in high-throughput experimentation and partly due to the new predictions that result from these empirical data. For example, as of January 2015, \emph{Homo sapiens} had over 300000 Protein-Protein interactions (PPI) registered in the Interologous Interaction Database, which is only one of the many public resources where protein interactions can be accessed for different species. 
 
+Data repositories for PPI data can be classified in three groups: (i) Primary interaction databases, where curated experimental results are deposited, for example: IntAct \cite{KER2012}, MINT \cite{LIC2012}, BioGRID \cite{STA2006}, DIP \cite{SAL2004}  and HIPPIE \cite{SCH2012}; (ii) computational predicted databases, for example, DIMA \cite{LUO2011}, PIPs \cite{MCD2009}, PrePPI \cite{ZHA2012} and PRISM \cite{OGM2005}; and  (iii) databases integrating both types of data, for instance, and GeneMANIA \cite{WAR2010}, FunCoup \cite{SCH2014}, I2D \cite{NIU2010} and STRING \cite{SZK2014}.
+
 The volume of data that PPI repositories have reached has made the analysis and understanding thereof a challenge that can be enriched by the use of visualization techniques. PPI networks have been found to follow a behaviour that in graph theory is referred to as \emph{scale-free}, which uses a few highly connected nodes and many nodes with few interactors. This feature allows a user to predefine visualization strategies to highlight certain characteristics.
 
 The list below was identified in \cite{AGA2013} as the main requirements for the visualisation of protein interaction networks:
@@ -634,6 +636,21 @@ The list below was identified in \cite{AGA2013} as the main requirements for the
 There are several tools that allow the exploration of PPI data, providing different methods to visualize protein network interactions, \cite{AGA2013} evaluates some of them by considering the requirements above. Other surveys can be found in the literature were comparisons and descriptions of several PPI tool are included \cite{SUD2007, PAV2008, GEH2010}. Below, we describe some of them and in section \ref{section:pinv} we explore in detail PINV, a web based PPI visualization tool created under the scope of this PhD.
 
 \subsubsection{STRING}
+STRING is a repository for PPI data that includes both, primary and computational predicted interactions, it differentiates of other resources such as the mentioned above in three ways: coverage (more than 2000 organisms), the inclusion of text mining data and the metadata linked to the interactions (e.g. protein domains and structures) \cite{FRA2013}.
+
+STRING includes a viewer developed in Adobe Flash that allows the direct manipulation of the graph based on mouse interaction. The network to display in the viewer is the result of a user query by either one or multiple proteins. However it can also be invoked by a called of one of the resources that cross-linked STRING.
+
+\begin{figure}  
+\centering
+\includegraphics[width=\textwidth]{figures/string.png}
+\caption[STRING Snapshot.]{Combined screenshots from the STRING website
+\label{fig:string}}
+\end{figure}
+
+Each protein node includes a preview of the 3D structure (if available), when the user clicks on the node a popup window open with extra information about that protein, including links to external resources such as PDB or UniProt. The interactions between the proteins are represented by multiple lines representing the different sources of evidence; a click on it opens another popup window with more details on the evidence data for such interaction. See figure \ref{fig:string} for an example of the viewer including a pop-up window for protein details.
+
+One of the most recent developments in STRING is the creation of a bioconductor package that can access STRING information directly from the R programming language in order to allow automatisation in the data collection from this resource. This features is an addition to previously released REST services and the availability to download compressed files containing all the interactions in a specific version of STRING \cite{SZK2014}.
+
 \subsubsection{Cytoscape}
 \subsubsection{Web based PPI tools}
 

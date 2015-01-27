@@ -1,4 +1,4 @@
-\begin{thebibliography}{79}
+\begin{thebibliography}{93}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -206,6 +206,17 @@ Paul Flicek, M.~Ridwan Amode, Daniel Barrell, Kathryn Beal, Simon Brent, Yuan
 \newblock URL
   \url{http://nar.oxfordjournals.org/content/39/suppl_1/D800.abstract}.
 
+\bibitem[Franceschini et~al.(2013)Franceschini, Szklarczyk, Frankild, Kuhn,
+  Simonovic, Roth, Lin, Minguez, Bork, von Mering, and Jensen]{FRA2013}
+Andrea Franceschini, Damian Szklarczyk, Sune Frankild, Michael Kuhn, Milan
+  Simonovic, Alexander Roth, Jianyi Lin, Pablo Minguez, Peer Bork, Christian
+  von Mering, and Lars~J. Jensen.
+\newblock String v9.1: protein-protein interaction networks, with increased
+  coverage and integration.
+\newblock \emph{Nucleic Acids Research}, 41\penalty0 (D1):\penalty0 D808--D815,
+  2013.
+\newblock URL \url{http://nar.oxfordjournals.org/content/41/D1/D808.abstract}.
+
 \bibitem[Frazer et~al.(2004)Frazer, Pachter, Poliakov, Rubin, and
   Dubchak]{FRA2004}
 Kelly~A Frazer, Lior Pachter, Alexander Poliakov, Edward~M Rubin, and Inna
@@ -352,6 +363,20 @@ W.~J. Kent, A.~S. Zweig, G.~Barber, A.~S. Hinrichs, and D.~Karolchik.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/26/17/2204.abstract}.
 
+\bibitem[Kerrien et~al.(2012)Kerrien, Aranda, Breuza, Bridge, Broackes-Carter,
+  Chen, Duesbury, Dumousseau, Feuermann, Hinz, Jandrasits, Jimenez, Khadake,
+  Mahadevan, Masson, Pedruzzi, Pfeiffenberger, Porras, Raghunath, Roechert,
+  Orchard, and Hermjakob]{KER2012}
+Samuel Kerrien, Bruno Aranda, Lionel Breuza, Alan Bridge, Fiona
+  Broackes-Carter, Carol Chen, Margaret Duesbury, Marine Dumousseau, Marc
+  Feuermann, Ursula Hinz, Christine Jandrasits, Rafael~C. Jimenez, Jyoti
+  Khadake, Usha Mahadevan, Patrick Masson, Ivo Pedruzzi, Eric Pfeiffenberger,
+  Pablo Porras, Arathi Raghunath, Bernd Roechert, Sandra Orchard, and Henning
+  Hermjakob.
+\newblock The intact molecular interaction database in 2012.
+\newblock \emph{Nucleic Acids Research}, 40\penalty0 (D1):\penalty0 D841--D846,
+  2012.
+
 \bibitem[Lee et~al.(2013)Lee, Helt, Reese, Munoz-Torres, Childers, Buels,
   Stein, Holmes, Elsik, and Lewis]{LEE2013}
 Eduardo Lee, Gregg~A Helt, Justin~T Reese, Monica~C Munoz-Torres, Chris~P
@@ -380,6 +405,30 @@ Heng Li, Bob Handsaker, Alec Wysoker, Tim Fennell, Jue Ruan, Nils Homer, Gabor
 \newblock \doi{10.1093/bioinformatics/btp352}.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/25/16/2078.abstract}.
+
+\bibitem[Licata et~al.(2012)Licata, Briganti, Peluso, Perfetto, Iannuccelli,
+  Galeota, Sacco, Palma, Nardozza, Santonico, Castagnoli, and
+  Cesareni]{LIC2012}
+Luana Licata, Leonardo Briganti, Daniele Peluso, Livia Perfetto, Marta
+  Iannuccelli, Eugenia Galeota, Francesca Sacco, Anita Palma, Aurelio~Pio
+  Nardozza, Elena Santonico, Luisa Castagnoli, and Gianni Cesareni.
+\newblock Mint, the molecular interaction database: 2012 update.
+\newblock \emph{Nucleic Acids Research}, 40\penalty0 (D1):\penalty0 D857--D861,
+  2012.
+\newblock \doi{10.1093/nar/gkr930}.
+\newblock URL \url{http://nar.oxfordjournals.org/content/40/D1/D857.abstract}.
+
+\bibitem[Luo et~al.(2011)Luo, Pagel, Vilne, and Frishman]{LUO2011}
+Qibin Luo, Philipp Pagel, Baiba Vilne, and Dmitrij Frishman.
+\newblock Dima 3.0: domain interaction map.
+\newblock \emph{Nucleic acids research}, 39\penalty0 (suppl 1):\penalty0
+  D724--D729, 2011.
+
+\bibitem[McDowall et~al.(2009)McDowall, Scott, and Barton]{MCD2009}
+Mark~D McDowall, Michelle~S Scott, and Geoffrey~J Barton.
+\newblock Pips: human protein--protein interaction prediction database.
+\newblock \emph{Nucleic acids research}, 37\penalty0 (suppl 1):\penalty0
+  D651--D656, 2009.
 
 \bibitem[McKay et~al.(2010)McKay, Vergara, and Stajich]{MCK2010}
 Sheldon~J McKay, Ismael~A Vergara, and Jason~E Stajich.
@@ -424,6 +473,20 @@ Martin Morgan and Fred Hutchinson.
 Cydney~B Nielsen, Michael Cantor, Inna Dubchak, David Gordon, and Ting Wang.
 \newblock Visualizing genomes: techniques and challenges.
 \newblock \emph{Nature methods}, 7:\penalty0 S5--S15, 2010.
+
+\bibitem[Niu et~al.(2010)Niu, Otasek, and Jurisica]{NIU2010}
+Yun Niu, David Otasek, and Igor Jurisica.
+\newblock Evaluation of linguistic features useful in extraction of
+  interactions from pubmed; application to annotating known, high-throughput
+  and predicted interactions in i2d.
+\newblock \emph{Bioinformatics}, 26\penalty0 (1):\penalty0 111--119, 2010.
+
+\bibitem[Ogmen et~al.(2005)Ogmen, Keskin, Aytuna, Nussinov, and
+  Gursoy]{OGM2005}
+Utkan Ogmen, Ozlem Keskin, A~Selim Aytuna, Ruth Nussinov, and Attila Gursoy.
+\newblock Prism: protein interactions by structural matching.
+\newblock \emph{Nucleic acids research}, 33\penalty0 (suppl 2):\penalty0
+  W331--W336, 2005.
 
 \bibitem[Ohtsubo et~al.(2008)Ohtsubo, Ikeda-Ohtsubo, Nagata, and
   Tsuda]{OHT2008}
@@ -524,11 +587,33 @@ Gustavo~A. Salazar, Leyla~J. Garc{\'\i}a, Philip Jones, Rafael~C. Jimenez,
 \newblock Mydas, an extensible java das server.
 \newblock \emph{PLoS ONE}, 2012.
 
+\bibitem[Salwinski et~al.(2004)Salwinski, Miller, Smith, Pettit, Bowie, and
+  Eisenberg]{SAL2004}
+Lukasz Salwinski, Christopher~S Miller, Adam~J Smith, Frank~K Pettit, James~U
+  Bowie, and David Eisenberg.
+\newblock The database of interacting proteins: 2004 update.
+\newblock \emph{Nucleic acids research}, 32\penalty0 (suppl 1):\penalty0
+  D449--D451, 2004.
+
+\bibitem[Schaefer et~al.(2012)Schaefer, Fontaine, Vinayagam, Porras, Wanker,
+  and Andrade-Navarro]{SCH2012}
+Martin~H Schaefer, Jean-Fred Fontaine, Arunachalam Vinayagam, Pablo Porras,
+  Erich~E Wanker, and Miguel~A Andrade-Navarro.
+\newblock Hippie: Integrating protein interaction networks with experiment
+  based quality scores.
+\newblock \emph{PloS one}, 7\penalty0 (2):\penalty0 e31826, 2012.
+
 \bibitem[Schatz et~al.(2007)Schatz, Phillippy, Shneiderman, and
   Salzberg]{SCH2007}
 Michael~C Schatz, Adam~M Phillippy, Ben Shneiderman, and Steven~L Salzberg.
 \newblock Hawkeye: an interactive visual analytics tool for genome assemblies.
 \newblock \emph{Genome biology}, 8\penalty0 (3):\penalty0 R34, 2007.
+
+\bibitem[Schmitt et~al.(2014)Schmitt, Ogris, and Sonnhammer]{SCH2014}
+Thomas Schmitt, Christoph Ogris, and Erik~LL Sonnhammer.
+\newblock Funcoup 3.0: database of genome-wide functional coupling networks.
+\newblock \emph{Nucleic acids research}, 42\penalty0 (D1):\penalty0 D380--D388,
+  2014.
 
 \bibitem[Shah et~al.(2005)Shah, Huang, Xu, Yuen, Ling, and Ouellette]{SHA2005}
 Sohrab Shah, Yong Huang, Tao Xu, Macaire Yuen, John Ling, and BF~Francis
@@ -565,10 +650,27 @@ James Stalker, Brian Gibbins, Patrick Meidl, James Smith, William Spooner,
 \newblock The ensembl web site: mechanics of a genome browser.
 \newblock \emph{Genome research}, 14\penalty0 (5):\penalty0 951--955, 2004.
 
+\bibitem[Stark et~al.(2006)Stark, Breitkreutz, Reguly, Boucher, Breitkreutz,
+  and Tyers]{STA2006}
+Chris Stark, Bobby-Joe Breitkreutz, Teresa Reguly, Lorrie Boucher, Ashton
+  Breitkreutz, and Mike Tyers.
+\newblock Biogrid: a general repository for interaction datasets.
+\newblock \emph{Nucleic acids research}, 34\penalty0 (suppl 1):\penalty0
+  D535--D539, 2006.
+
 \bibitem[Suderman and Hallett(2007)]{SUD2007}
 Matthew Suderman and Michael Hallett.
 \newblock Tools for visually exploring biological networks.
 \newblock \emph{Bioinformatics}, 23\penalty0 (20):\penalty0 2651--2659, 2007.
+
+\bibitem[Szklarczyk et~al.(2014)Szklarczyk, Franceschini, Wyder, Forslund,
+  Heller, Huerta-Cepas, Simonovic, Roth, Santos, Tsafou, et~al.]{SZK2014}
+Damian Szklarczyk, Andrea Franceschini, Stefan Wyder, Kristoffer Forslund,
+  Davide Heller, Jaime Huerta-Cepas, Milan Simonovic, Alexander Roth, Alberto
+  Santos, Kalliopi~P Tsafou, et~al.
+\newblock String v10: protein--protein interaction networks, integrated over
+  the tree of life.
+\newblock \emph{Nucleic acids research}, page gku1003, 2014.
 
 \bibitem[Topel et~al.(2008)Topel, Kormeier, Klassen, and Hofestadt]{TOP2008}
 Thoralf Topel, Benjamin Kormeier, Andreas Klassen, and Ralf Hofestadt.
@@ -607,6 +709,16 @@ Rui Wang, Yasset Perez-Riverol, Henning Hermjakob, and Juan~Antonio
   visualisation: A guide for developers.
 \newblock \emph{Proteomics}, 2014.
 
+\bibitem[Warde-Farley et~al.(2010)Warde-Farley, Donaldson, Comes, Zuberi,
+  Badrawi, Chao, Franz, Grouios, Kazi, Lopes, et~al.]{WAR2010}
+David Warde-Farley, Sylva~L Donaldson, Ovi Comes, Khalid Zuberi, Rashad
+  Badrawi, Pauline Chao, Max Franz, Chris Grouios, Farzana Kazi,
+  Christian~Tannus Lopes, et~al.
+\newblock The genemania prediction server: biological network integration for
+  gene prioritization and predicting gene function.
+\newblock \emph{Nucleic acids research}, 38\penalty0 (suppl 2):\penalty0
+  W214--W220, 2010.
+
 \bibitem[Wilkinson et~al.(2011)Wilkinson, Vandervalk, and McCarthy]{WIL2011}
 Mark Wilkinson, Benjamin Vandervalk, and Luke McCarthy.
 \newblock The semantic automated discovery and integration (sadi) web service
@@ -639,6 +751,13 @@ Evgeni~M. Zdobnov, Rodrigo Lopez, Rolf Apweiler, and Thure Etzold.
 \newblock \doi{10.1093/bioinformatics/18.2.368}.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/18/2/368.abstract}.
+
+\bibitem[Zhang et~al.(2012)Zhang, Petrey, Garz{\'o}n, Deng, and Honig]{ZHA2012}
+Qiangfeng~Cliff Zhang, Donald Petrey, Jos{\'e}~Ignacio Garz{\'o}n, Lei Deng,
+  and Barry Honig.
+\newblock Preppi: a structure-informed database of protein--protein
+  interactions.
+\newblock \emph{Nucleic acids research}, page gks1231, 2012.
 
 \bibitem[Zhang et~al.(2011)Zhang, Bajic, Yu, Cheung, and Townsend]{ZHA2011b}
 Zhang Zhang, Vladimir~B. Bajic, Jun Yu, Kei-Hoi Cheung, and Jeffrey~P.
