@@ -1,4 +1,4 @@
-\begin{thebibliography}{93}
+\begin{thebibliography}{109}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -64,6 +64,15 @@ Christoph Brinkrolf, Sebastian~Jan Janowski, Benjamin Kormeier, Martin
   networks in systems biology applications.
 \newblock Journal of Integrative Bioinformatics - JIB (ISSN 1613-4516), 2014.
 
+\bibitem[Cline et~al.(2007)Cline, Smoot, Cerami, Kuchinsky, Landys, Workman,
+  Christmas, Avila-Campilo, Creech, Gross, et~al.]{CLI2007}
+Melissa~S Cline, Michael Smoot, Ethan Cerami, Allan Kuchinsky, Nerius Landys,
+  Chris Workman, Rowan Christmas, Iliana Avila-Campilo, Michael Creech,
+  Benjamin Gross, et~al.
+\newblock Integration of biological networks and gene expression data using
+  cytoscape.
+\newblock \emph{Nature protocols}, 2\penalty0 (10):\penalty0 2366--2382, 2007.
+
 \bibitem[Cline et~al.(2009)Cline, Kent, et~al.]{CLI2009}
 Melissa~S Cline, W~James Kent, et~al.
 \newblock Understanding genome browsing.
@@ -81,6 +90,15 @@ Niklaas Colaert, Kenny Helsens, Francis Impens, Jo{\"e}l Vandekerckhove, and
 1000 Genomes~Project Consortium et~al.
 \newblock An integrated map of genetic variation from 1,092 human genomes.
 \newblock \emph{Nature}, 491\penalty0 (7422):\penalty0 56--65, 2012.
+
+\bibitem[Corpas et~al.(2014)Corpas, Jimenez, Carbon, Garc{\'\i}a, Garcia,
+  Goldberg, Gomez, Kalderimis, Lewis, Mulvany, et~al.]{COR2014}
+Manuel Corpas, Rafael Jimenez, Seth~J Carbon, Alex Garc{\'\i}a, Leyla Garcia,
+  Tatyana Goldberg, John Gomez, Alexis Kalderimis, Suzanna~E Lewis, Ian
+  Mulvany, et~al.
+\newblock Biojs: an open source standard for biological visualisation--its
+  status in 2014.
+\newblock \emph{F1000Research}, 3, 2014.
 
 \bibitem[Cunningham et~al.(2014)Cunningham, Amode, Barrell, Beal, Billis,
   Brent, Carvalho-Silva, Clapham, Coates, Fitzgerald, et~al.]{CUN2014}
@@ -273,6 +291,21 @@ Jeremy Goecks, Anton Nekrutenko, James Taylor, et~al.
   reproducible, and transparent computational research in the life sciences.
 \newblock \emph{Genome Biol}, 11\penalty0 (8):\penalty0 R86, 2010.
 
+\bibitem[G{\'o}mez et~al.(2013)G{\'o}mez, Garc{\'\i}a, Salazar, Villaveces,
+  Gore, Garc{\'\i}a, Mart{\'\i}n, Launay, Alc{\'a}ntara, Ayll{\'o}n,
+  Dumousseau, Orchard, Velankar, Hermjakob, Zong, Ping, Corpas, and
+  Jim{\'e}nez]{GOM2013}
+John G{\'o}mez, Leyla~J Garc{\'\i}a, Gustavo~A Salazar, Jose Villaveces,
+  Swanand Gore, Alexander Garc{\'\i}a, Maria~J Mart{\'\i}n, Guillaume Launay,
+  Rafael Alc{\'a}ntara, Noemi Del~Toro Ayll{\'o}n, Marine Dumousseau, Sandra
+  Orchard, Sameer Velankar, Henning Hermjakob, Chenggong Zong, Peipei Ping,
+  Manuel Corpas, and Rafael~C Jim{\'e}nez.
+\newblock Biojs: An open source javascript framework for biological data
+  visualization.
+\newblock \emph{Bioinformatics}, 2013.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/content/early/2013/02/23/bioinformatics.btt100.abstract}.
+
 \bibitem[Hermjakob(2006)]{HER2006}
 Henning Hermjakob.
 \newblock The hupo proteomics standards initiative--overcoming the
@@ -293,6 +326,16 @@ Robert Hoffmann.
 \newblock A wiki for the life sciences where authorship matters.
 \newblock \emph{Nature genetics}, 40\penalty0 (9):\penalty0 1047--1051, 2008.
 
+\bibitem[Hu et~al.(2013)Hu, Chang, Wang, Huang, Liu, Tian, Granger, and
+  DeLisi]{HU2013}
+Zhenjun Hu, Yi-Chien Chang, Yan Wang, Chia-Ling Huang, Yang Liu, Feng Tian,
+  Brian Granger, and Charles DeLisi.
+\newblock Visant 4.0: Integrative network platform to connect genes, drugs,
+  diseases and therapies.
+\newblock \emph{Nucleic Acids Research}, 41\penalty0 (W1):\penalty0 W225--W231,
+  2013.
+\newblock URL \url{http://nar.oxfordjournals.org/content/41/W1/W225.abstract}.
+
 \bibitem[Hull et~al.(2006)Hull, Wolstencroft, Stevens, Goble, Pocock, Li, and
   Oinn]{HUL2006}
 Duncan Hull, Katy Wolstencroft, Robert Stevens, Carole Goble, Mathew~R Pocock,
@@ -300,6 +343,12 @@ Duncan Hull, Katy Wolstencroft, Robert Stevens, Carole Goble, Mathew~R Pocock,
 \newblock Taverna: a tool for building and running workflows of services.
 \newblock \emph{Nucleic acids research}, 34\penalty0 (suppl 2):\penalty0
   W729--W732, 2006.
+
+\bibitem[Huttenhower et~al.(2009)Huttenhower, Mehmood, and
+  Troyanskaya]{HUT2009}
+Curtis Huttenhower, Sajid Mehmood, and Olga Troyanskaya.
+\newblock Graphle: Interactive exploration of large, dense graphs.
+\newblock \emph{BMC Bioinformatics}, 10\penalty0 (1):\penalty0 417, 2009.
 
 \bibitem[Jacob(2010)]{JAC2010}
 Richard~J Jacob.
@@ -328,6 +377,13 @@ Rafael~C. Jimenez, Antony~F. Quinn, Alexander Garcia, Alberto Labarga, Kieran
 \newblock \doi{10.1093/bioinformatics/btn387}.
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/cgi/content/abstract/24/18/2119}.
+
+\bibitem[Jimenez et~al.(2011)Jimenez, Salazar, Gel, Dopazo, Mulder, and
+  Corpas]{JIM2011}
+Rafael~C Jimenez, Gustavo~A Salazar, Bernat Gel, Joaquin Dopazo, Nicola Mulder,
+  and Manuel Corpas.
+\newblock mykaryoview: a light-weight client for visualization of genomic data.
+\newblock \emph{PloS one}, 6\penalty0 (10):\penalty0 e26345, 2011.
 
 \bibitem[Kallio et~al.(2011)Kallio, Tuimala, Hupponen, Klemel{\"a}, Gentile,
   Scheinin, Koski, K{\"a}ki, and Korpelainen]{KAL2011}
@@ -377,6 +433,16 @@ Samuel Kerrien, Bruno Aranda, Lionel Breuza, Alan Bridge, Fiona
 \newblock \emph{Nucleic Acids Research}, 40\penalty0 (D1):\penalty0 D841--D846,
   2012.
 
+\bibitem[Kuhn et~al.(2008)Kuhn, von Mering, Campillos, Jensen, and
+  Bork]{KUH2008}
+Michael Kuhn, Christian von Mering, Monica Campillos, Lars~Juhl Jensen, and
+  Peer Bork.
+\newblock Stitch: interaction networks of chemicals and proteins.
+\newblock \emph{Nucleic Acids Research}, 36\penalty0 (suppl 1):\penalty0
+  D684--D688, 2008.
+\newblock URL
+  \url{http://nar.oxfordjournals.org/content/36/suppl_1/D684.abstract}.
+
 \bibitem[Lee et~al.(2013)Lee, Helt, Reese, Munoz-Torres, Childers, Buels,
   Stein, Holmes, Elsik, and Lewis]{LEE2013}
 Eduardo Lee, Gregg~A Helt, Justin~T Reese, Monica~C Munoz-Torres, Chris~P
@@ -406,6 +472,14 @@ Heng Li, Bob Handsaker, Alec Wysoker, Tim Fennell, Jue Ruan, Nils Homer, Gabor
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/25/16/2078.abstract}.
 
+\bibitem[Li et~al.(2013)Li, Kinch, and Grishin]{Li2013}
+Wenlin Li, Lisa~N. Kinch, and Nick~V. Grishin.
+\newblock Pclust: protein network visualization highlighting experimental data.
+\newblock \emph{Bioinformatics}, 29\penalty0 (20):\penalty0 2647--2648, 2013.
+\newblock \doi{10.1093/bioinformatics/btt451}.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/content/29/20/2647.abstract}.
+
 \bibitem[Licata et~al.(2012)Licata, Briganti, Peluso, Perfetto, Iannuccelli,
   Galeota, Sacco, Palma, Nardozza, Santonico, Castagnoli, and
   Cesareni]{LIC2012}
@@ -417,6 +491,20 @@ Luana Licata, Leonardo Briganti, Daniele Peluso, Livia Perfetto, Marta
   2012.
 \newblock \doi{10.1093/nar/gkr930}.
 \newblock URL \url{http://nar.oxfordjournals.org/content/40/D1/D857.abstract}.
+
+\bibitem[Lopes et~al.(2010)Lopes, Franz, Kazi, Donaldson, Morris, and
+  Bader]{LOP2010}
+Christian~T. Lopes, Max Franz, Farzana Kazi, Sylva~L. Donaldson, Quaid Morris,
+  and Gary~D. Bader.
+\newblock Cytoscape web: an interactive web-based network browser.
+\newblock \emph{Bioinformatics}, 26\penalty0 (18):\penalty0 2347--2348, 2010.
+\newblock URL
+  \url{http://bioinformatics.oxfordjournals.org/content/26/18/2347.abstract}.
+
+\bibitem[Lotia et~al.(2013)Lotia, Montojo, Dong, Bader, and Pico]{LOT2013}
+Samad Lotia, Jason Montojo, Yue Dong, Gary~D Bader, and Alexander~R Pico.
+\newblock Cytoscape app store.
+\newblock \emph{Bioinformatics}, page btt138, 2013.
 
 \bibitem[Luo et~al.(2011)Luo, Pagel, Vilne, and Frishman]{LUO2011}
 Qibin Luo, Philipp Pagel, Baiba Vilne, and Dmitrij Frishman.
@@ -573,11 +661,28 @@ Tome S~Silva, Nadege Richard, Jorge P~Dias, and Pedro M~Rodrigues.
 \newblock \emph{Current Protein and Peptide Science}, 15\penalty0 (1):\penalty0
   4--22, 2014.
 
+\bibitem[Saito et~al.(2012)Saito, Smoot, Ono, Ruscheinski, Wang, Lotia, Pico,
+  Bader, and Ideker]{SAI2012}
+Rintaro Saito, Michael~E Smoot, Keiichiro Ono, Johannes Ruscheinski, Peng-Liang
+  Wang, Samad Lotia, Alexander~R Pico, Gary~D Bader, and Trey Ideker.
+\newblock A travel guide to cytoscape plugins.
+\newblock \emph{Nature methods}, 9\penalty0 (11):\penalty0 1069--1076, 2012.
+
 \bibitem[Salazar et~al.(2010)Salazar, Mulder, and Blake]{SAL2010}
 Gustavo Salazar, Nicola Mulder, and Edwin Blake.
 \newblock {DAS Writeback: A Collaborative Annotation System}.
 \newblock Master's thesis, University of Cape Town, 2010.
 \newblock URL \url{http://pubs.cs.uct.ac.za/archive/00000609/}.
+
+\bibitem[Salazar et~al.(2011)Salazar, Jimenez, Garcia, Hermjakob, Mulder, and
+  Blake]{SAL2011}
+Gustavo Salazar, Rafael Jimenez, Alexander Garcia, Henning Hermjakob, Nicola
+  Mulder, and Edwin Blake.
+\newblock Das writeback: A collaborative annotation system.
+\newblock \emph{BMC Bioinformatics}, 12\penalty0 (1):\penalty0 143, 2011.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-12-143}.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/12/143}.
 
 \bibitem[Salazar et~al.(2012)Salazar, Garc{\'\i}a, Jones, Jimenez, Quinn,
   Jenkinson, Mulder, Martin, Hunter, and Hermjakob]{SAL2012}
@@ -586,6 +691,21 @@ Gustavo~A. Salazar, Leyla~J. Garc{\'\i}a, Philip Jones, Rafael~C. Jimenez,
   Hunter, and Henning Hermjakob.
 \newblock Mydas, an extensible java das server.
 \newblock \emph{PLoS ONE}, 2012.
+
+\bibitem[Salazar et~al.(2014{\natexlab{a}})Salazar, Meintjes, Mazandu,
+  Rapano{\"e}l, Akinola, and Mulder]{SAL2014pinv}
+Gustavo~A Salazar, Ayton Meintjes, Gaston Mazandu, Holifidy~A Rapano{\"e}l,
+  Richard~O Akinola, and Nicola~J Mulder.
+\newblock A web-based protein interaction network visualizer.
+\newblock \emph{BMC bioinformatics}, 15\penalty0 (1):\penalty0 129,
+  2014{\natexlab{a}}.
+
+\bibitem[Salazar et~al.(2014{\natexlab{b}})Salazar, Meintjes, and
+  Mulder]{SAL2014}
+Gustavo~A. Salazar, Ayton Meintjes, and Nicola Mulder.
+\newblock Ppi layouts: Biojs components for the display of protein-protein
+  interactions [v1; ref status: awaiting peer review, http://f1000r.es/2u5].
+\newblock \emph{F1000Research}, 3-50, 2014{\natexlab{b}}.
 
 \bibitem[Salwinski et~al.(2004)Salwinski, Miller, Smith, Pettit, Bowie, and
   Eisenberg]{SAL2004}
@@ -624,6 +744,14 @@ Sohrab Shah, Yong Huang, Tao Xu, Macaire Yuen, John Ling, and BF~Francis
 \newblock \doi{10.1186/1471-2105-6-34}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/6/34}.
 
+\bibitem[Shannon et~al.(2003)Shannon, Markiel, Ozier, Baliga, Wang, Ramage,
+  Amin, Schwikowski, and Ideker]{SHA2003}
+Paul Shannon, Andrew Markiel, Owen Ozier, Nitin~S. Baliga, Jonathan~T. Wang,
+  Daniel Ramage, Nada Amin, Benno Schwikowski, and Trey Ideker.
+\newblock Cytoscape: A software environment for integrated models of
+  biomolecular interaction networks.
+\newblock \emph{Genome Research}, 13\penalty0 (11):\penalty0 2498--2504, 2003.
+
 \bibitem[Shneiderman(1996)]{SHN1996}
 Ben Shneiderman.
 \newblock The eyes have it: A task by data type taxonomy for information
@@ -637,6 +765,13 @@ Mitchell~E Skinner, Andrew~V Uzilov, Lincoln~D Stein, Christopher~J Mungall,
   and Ian~H Holmes.
 \newblock Jbrowse: a next-generation genome browser.
 \newblock \emph{Genome research}, 19\penalty0 (9):\penalty0 1630--1638, 2009.
+
+\bibitem[Smoot et~al.(2011)Smoot, Ono, Ruscheinski, Wang, and Ideker]{SMO2011}
+Michael~E Smoot, Keiichiro Ono, Johannes Ruscheinski, Peng-Liang Wang, and Trey
+  Ideker.
+\newblock Cytoscape 2.8: new features for data integration and network
+  visualization.
+\newblock \emph{Bioinformatics}, 27\penalty0 (3):\penalty0 431--432, 2011.
 
 \bibitem[Spudich and Fern{\'a}ndez-Su{\'a}rez(2010)]{SPU2010}
 Giulietta~M Spudich and Xos{\'e}~M Fern{\'a}ndez-Su{\'a}rez.

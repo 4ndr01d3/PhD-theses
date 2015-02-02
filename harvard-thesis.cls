@@ -44,6 +44,7 @@
 \RequirePackage[titles]{tocloft}
 \setcounter{tocdepth}{1}
 \renewcommand{\cftchapfont}{\normalsize \scshape}
+\setlength{\cftfignumwidth}{3em}
 
 \renewcommand\bibname{References}
 \renewcommand\listfigurename{Listing of figures}
@@ -86,24 +87,22 @@
 
 
 % use Arno Pro instead of standard LaTeX fonts
-\setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Arno Pro}
+\setmathsfont(Digits,Latin,Greek){Arno Pro}
 \setmathrm{Arno Pro}
 
 \RequirePackage{fontspec,xltxtra,xunicode}
-\defaultfontfeatures{Mapping=tex-text, Numbers=OldStyle}
+\defaultfontfeatures{Mapping=tex-text}
 \setromanfont[Mapping=tex-text, 
-			  Numbers=OldStyle, 
-			  Ligatures={Common}, 
 			  SizeFeatures={%
 		          {Size={-10}, Font=* Caption},
 		          {Size={10-13.0}, Font=*},
-		          {Size={13.01-19.9}, Font=* Subhead, Ligatures=Rare, Contextuals={Swash,Alternate}},
-		       {Size={19.91-},Font=* Display, Ligatures=Rare, Contextuals={Swash,Alternate}}}]
+		          {Size={13.01-19.9}, Font=* Subhead},
+		       {Size={19.91-},Font=* Display}}]
 			  {Arno Pro} %
 			
 %Set fonts for Mac Specific (Comment out on Windows XP)
-%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue} 
-%\setmonofont[Scale=MatchLowercase]{Consolas}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue} 
+\setmonofont[Scale=MatchLowercase]{Consolas}
 
 % some definitions
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
@@ -121,7 +120,7 @@
 	\singlespacing
 	\thispagestyle{empty}
 	\vspace*{\fill} \vspace{100pt} \begin{center}
-	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
+	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\  \vspace{100pt}
 	a dissertation presented \\ by\\
 	\theauthor\\ to\\ The \@department\\ Supervised By\\ \@advisor\\ 
 	\vspace{12pt}
@@ -138,7 +137,7 @@
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
-	\sc \noindent \copyright~\textit{\@degreeyear \hspace{3pt}~- \theauthor} \\
+	\textsl{ \noindent \copyright~\textit{\@degreeyear \hspace{3pt}~- \theauthor}} \\
 	\noindent All rights reserved.
 	\vspace*{\fill} \newpage \rm
 }
@@ -154,7 +153,7 @@
 	\vspace*{30pt}
 	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
 	\vspace*{15pt}
-	\sc Abstract \\ \rm
+	 \textsl{Abstract} \\ \rm
 	\end{center}
 	\doublespace %Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
@@ -167,7 +166,7 @@
 \newcommand{\dedicationpage}{
 	\pagestyle{fancy}
 	\newpage \thispagestyle{fancy} \vspace*{\fill}
-	\sc \noindent \input{frontmatter/dedication}
+	\textsl{ \noindent \input{frontmatter/dedication}}
 	\vspace*{\fill} \newpage \rm
 	}
 
@@ -194,7 +193,7 @@
 % An environment for paragraph-style section
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
-   \noindent\textsc{#1}}
+   \noindent\textsl{#1}}
 
 \usepackage{fullpage}
 

@@ -15,7 +15,7 @@ The challenges of integrating heterogeneous datasets range from technical (e.g. 
 
 Integration of data usually refers to connecting data at a low level, by means of storing aggregated information from several sources or by saving links to where the source is. However it is also possible to integrate it at a higher level, where information is not saved and the aggregates are built and visualized on demand.
 
-This project explores both the integration and visualization of information in bioinformatics; the rest of this introduction presents both the state of the art and fundamental technologies in both fields. Chapter \ref{section:integration} presents the efforts made during this doctorate that contribute to the methods on how data is integrated in bioinformatics projects. Chapter \ref{section:visualization} describes our inputs to the visualization of data in bioinformatics, focusing in particular on a web tool for the visualization of protein-protein interactions. The final chapter contains the conclusions of the project.
+This project explores both the integration and visualization of information in bioinformatics; the rest of this introduction presents both the state of the art and fundamental technologies in both fields. Chapter \ref{section:integration} presents the efforts made during this doctorate that contribute to the methods on how data are integrated in bioinformatics projects. Chapter \ref{section:visualization} describes our inputs to the visualization of data in bioinformatics, focusing in particular on a web tool for the visualization of protein-protein interactions. The final chapter contains the conclusions of the project.
 
 \section{Integration of information}
 \subsection{State of the art}
@@ -652,16 +652,71 @@ Each protein node includes a preview of the 3D structure (if available), when th
 One of the most recent developments in STRING is the creation of a bioconductor package that can access STRING information directly from the R programming language in order to allow automatisation in the data collection from this resource. This features is an addition to previously released REST services and the availability to download compressed files containing all the interactions in a specific version of STRING \cite{SZK2014}.
 
 \subsubsection{Cytoscape}
-\subsubsection{Web based PPI tools}
+Cytoscape is ``\emph{a free software package for visualizing, modeling and analyzing molecular and genetic interaction networks}'' \cite{CLI2007}. it is arguably the most used tool to create visualisations of biological networks; with a general purpose architecture that provides the environment to model biomolecular interaction networks . We consider that besides been a useful software that reaches the expectations of a network visualiser, there are two major factors for its success: Cytoscape has a well designed architecture with robust support for plugins (called apps since Cytoscape 3.0) and it follows an open source philosophy.
 
-%\subsection{Biological Pathways}
-%\subsection{Population Variation}
-%\subsubsection{General Research}
-%To talk about statistical graphs and things like heat maps, phylogenetic trees, etc.
+The success of the project can be appreciated by its growth: In the welcome letter (\url{http://cytoscape.org/cy3_welcome_letter_v12.pdf}) of the project to their users dated on November 7, 2014 they report to have an average of 12000 downloads of the application per month and counted that the it is been open 2000 times per day worldwide. On the other hand, Cytoscape now counts with more 200 plugins available in its App Store, a clear example of its collaborative environment, where scientist/developers can contribute to the network analysis toolset by adding new plugins.
+
+The core of Cytoscape is their network graph, using the already mentioned node-link metaphor, where the nodes can be any type of biological entity (e.g. genes, proteins, organisms) and the links are the pair-wise interactions \cite{SHA2003}; it is important to highlight that the decision of using a generic representation for nodes and links (instead of tied it to for example, protein or genes) is a factor that attracted users from the different domains of the biological sciences.
+
+The network graph can be manipulated by the user selecting where to locate a node, however this task needs to be automatised in order to save time and be able to deal with many nodes. Cytoscape provides many automatic layouts on its basic installation and there are more options available as plugins.
+
+The network can be enriched by two means, attributes and annotation. Attributes are name-value pairs that can be associated with either a node or a link. The concept of annotation in Cytoscape is quite similar to the one for attribute, because it is also an association to a network entity, but annotations require the use ontologies (e.g. gene ontology) in order to follow a hierarchical structure for filtering and manipulation.
+This information can be added by different means: (i) manually included by the user (i.e. by using the spreadsheet interface), (ii) calculated by the tool or one of its plugins (e.g. network attributes such as the degree of a node), (iii) extracted from an on-line resource (e.g. getting the GO terms from UniProt), (iv) imported from a local file (e.g. expression values per protein) \cite{SAI2012}.
+
+\begin{figure}  [t]
+\centering
+\includegraphics[width=\textwidth]{figures/cytoscape.png}
+\caption[Cytoscape Snapshot.]{The Cytoscape Desktop.
+\label{fig:cytoscape}}
+\end{figure}
+
+Figure \ref{fig:cytoscape} shows the graphic interface of Cityscape 3.2.0 running on a Mac OS X. Quick access to the most used tools have been grouped in the top bar; the left panel provides a hierarchical structure to navigate though the current networks and includes a zoomed out view of the graph; the main panel is the Cytoscape canvas where the network graph is on display, and at the bottom-right is the spreadsheet interface that allows to browse the attributes.
+
+The most basic uses for attributes and annotations are to filter the network by selecting only the nodes with an attribute of interest; or to visually map the information into the visualisation by altering colour, shape and size of the nodes and links, according to the value of an specific attribute, allowing the user to visualise several types of data within a single view. However the use of this metadata is highly exploded by the plugin's developers in many different and complex scenarios.
+
+Besides the growth by the means of new plugins, the core application is continually updated adding new features and fixing bugs, for example two major features were included when the version 2.8 of Cytoscape was released: the possibility of using an image to represent the node, and the support for equations on the spreadsheet view of the network. Although, both functionalities were available via Cytoscape's API, their inclusion on the main application facilitates their use by non-programmers \cite{SMO2011}.
+
+A protocol describing a common workflow in Cytoscape was published in \cite{CLI2007}, in it a classification of the most common tasks is included and use to structured the document; the five identified tasks were: 
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+	\item \emph{Obtain network data}: The user have several options to do this, including loading local files in one of the multiple supported formats, importing data from an on-line resource such as MINT or STRING or invoking text-mining plugins that analyse literature resources such as PubMED to infer reported interactions of genes or proteins of interest.
+	\item \emph{Explore network and generate layout}: As mentioned before, several automatic network layouts are included inn Cytoscape.
+	\item \emph{Annotate with attribute and expression data}: The results of an expression experiment can be mapped to an existing network by, for instance, colouring the nodes in a scale from green to red, in order to easily identify over and under expressed genes in the graphic.
+	\item \emph{Analyse network features}: The entities included in the network can have associated functional classes, and the discovery of clusters or hubs can be relevant on the biological understanding of the  system.
+	\item \emph{Detect enriched functions}: The same information can also be used to infer functions on other entities that were not well annotated.
+\end{itemize}
+
+Given the growing number of  apps,  the Cytoscape team developed the App Store, which was released together with the version 3.0 of Cytoscape in 2013. This service attempts to provide a display for developers to show their contributions to the Cytoscape community, and for users to be able to find the right complement for their research. App authors can include screenshots, descriptions, links and other metadata in order to highlight the features of the app and facilitate its use. App store users can navigate though the categories, search by their attributes, or select one from the list of featured apps. Besides the information the App Store allows installing and upgrading with a single click \cite{LOT2013}. 
+
+\subsubsection{Web based PPI tools}
+As stated in \cite{GEH2010} ``\emph{there is a trend toward web-based applications, often coupled tightly to underlying databases}''. STRING described  above is a clear example of this tendency, where an effort to integrate PPI information in a centralised resource gets complemented for a tool that allows the search, exploration and visualisation of such resource. Most interactive online visualization tools follow this path, only allowing the view of networks that are preloaded, meaning that the user cannot view a network he/she has generated.
+
+The online version of Graphle \cite{HUT2009} is limited to graphs generated by bioPIXIE in yeast, MEFIT in \emph{E. coli}, or HEFalMp for human data. STITCH \cite{KUH2008}, a project for chemical-protein interactions, integrate interaction information from various sources in addition to in-house predictions. Both, STRING and STITCH use the same library to display their data. However, the network visualized in both databases is barely customizable. The public implementation of VisANT \cite{HU2013}, a workbench for the integrative analysis of biological networks, is based on the Predictome database.  Although this tools are available in the web, they require third party software (e.g. Adobe Flash, Java Virtual Machine) and therefore its accessibility is more limited than resources that native web application (i.e. developed using recent web standards).  
+
+Another alternative is Cytoscape Web \cite{LOP2010}, its introduction tutorial (\url{http://cytoscapeweb.cytoscape.org/tutorial}) requires its users to code in JavaScript indicating that this tool is mainly intended for developers to display networks on the web, and not for the scientist who has a network to visualize. Cytoscape Web also uses Adobe Flash for the generation of the graphics. A more recent development is Cytoscape.js (\url{http://cytoscape.github.io/cytoscape.js/}), which uses . The principles behind this project is to offer a modern web toolset to display interactions. Cytoscape.js similarly to its predecessor is a library for programmers, and is intended to be a complement to the Cytoscape Desktop.
+
+A web native application that supports the visualisation of networks and is intended to non-programmer users is Pclust. Its objective, however is different than the visualisation of PPI networks. Pclust is a tool that assists in the inference of functions of new proteins from their homologs, using a technique known as all-against-all pairwise similarity. The network is built by looking for similar functionality between proteins, the set of proteins can  be either input by the user or detected by executing a BLAST against NR. The result network is then enriched with related literature through the Seq2Red server (\url{http://prodata.swmed.edu/seq2ref/}). The visualised network creates clusters of proteins with similar functionalities, referenced proteins are highlighted, which helps to solve ambiguities on the deduced functions \cite{Li2013}.
+
 
 \subsection{Discussion}
-Genome Browsers have evolve from simple displays of genes and transcripts to visual integration tools of biological data.
+The projects described above gave us a clear insight about the influence that visualisation techniques have over the molecular biology research. We have only mentioned a few cases on the field of genomics, proteomics and protein-protein interactions networks, but the visualization techniques have been applied in many other fields such as metabolic pathways (and system biology in general), population genetics, metagenomics, etc.
 
-The spectrum of visualization techniques in bioinformatics goes from simple 2 dimensional plots used to display elaborated statistics such PCA, to elaborated visualization tools to display data which only preprocessing is scaling. 
+It is important to notice that each scenario have required a different visualisation technique, from simple 2 dimensional plots used to display elaborated statistics (e.g PCA), to highly elaborated tools that combined more than one visualisation technique, for example, genome browsers.
+
+Genome Browsers have evolve from simple displays of genes and transcripts to become visual integration tools of biological data. Tracks can be preprocessed using many combinations of statistics and data analysis, and its visual representation can vary form simple boxes to histograms, heat maps, and many other charts. This is not unique to genome browsers and the exploration of biological data have required the whole range of visualisation strategies in an attempt to elucidate specific biological cases, but ultimately to contribute in the understanding of life.
+
+One of the most appropriate ways to evaluate the success of software applications is through the number of users, developers and collaborators around the project. A large community, can detect errors and improvements faster, and therefore act quicker, which ultimately makes the software to improve faster, and by being better, more users are attracted to build and even bigger community, and to restart this positive cycle.
+
+A common denominator around successful visualisation software is that the tools are adaptable to the needs of each research, For example, genome and protein browsers allow the inclusion of third party data in context with their original sources, Bioconductor promotes the development of new packages by offering a robust infrastructure and Cytoscape is highly extendable by the means of plugins and its App store. 
+
+The publication of scientific articles have become one of the motivators for researchers, because papers imply recognition of their efforts, and they are highly valued in the assignation of grants and job positions. We considered that this is another factor that can play along in the success of software in bioinformatics. Tools that offer a robust toolset that can be improved/extended, by for example using the plugin philosophy, and that such improvements can be guided by scientific needs, which are publishable on their own; are providing the ecosystem for another positive cycle. 
+
+Take for example Cytoscape, this software includes a reasonable large set of features for the analysis and visualisation of biological networks, moreover,  thanks to its plugin architecture it attracts scientist that are interest in doing something beyond the original scope of the tool; they can implement their ideas reusing the features offered by the software, avoiding to waste time reimplementing the wheel, moreover, their contribution can be novel and interesting enough that it can be published in a peer review journal; at the end of the day, Cytoscape gets a new feature to offer and more visibility thanks to the publication; but more importantly, this approach is giving the community constant improvements in their research tools, that are complying with the high standards of peer-reviewed publications. 
+
+From the projects mentioned in this chapter, Bioconductor, Galaxy and Taverna have implemented similar strategies with a number of articles published around their technologies, and growing communities supporting their software.
+
+Lastly, it is important to mentioned that the separation of integration and visualisation that this chapter has, it is completely artificial and it is hard to find projects that are exclusively at one side of this threshold: central repositories usually have visualisation methods to explore they data (e.g. STRING, PFAM, InterPro) and many visualisation tools are exactly about integrate data (e.g. genome browser). This PhD project has focused in this space, and our contributions are mainly focused on either integration or visualisation, and have been classified as such for the following two chapters. Nonetheless, the overlapping of the bioinformatics needs between these fields is clear and therefore the feature set of the tools described in the following chapters reflects such  mixture. 
+
+
 
 %\section{Thesis outline}
