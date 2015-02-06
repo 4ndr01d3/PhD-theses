@@ -36,6 +36,14 @@
 \RequirePackage[tight,nice]{units}
 \RequirePackage{verbatim}
 
+% Appendix
+\RequirePackage{pdfpages}
+\RequirePackage{xparse}
+
+%listings
+\RequirePackage{listings}
+
+
 % colors
 \RequirePackage{color}
 \definecolor{Crimson}{rgb}{0.6471, 0.1098, 0.1882}
@@ -209,3 +217,64 @@
 
 \newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ \dotfill}}
 \newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}}}{\end{list}}
+
+
+% for appendix
+\NewDocumentCommand\headerspdf{ O {pages=-} m }{% [options for include pdf]{filename.pdf}
+  \includepdf[%
+    #1,
+    pagecommand={\thispagestyle{fancy}},
+    scale=.7,
+    ]{#2}}
+    
+\NewDocumentCommand\secpdf{somO{1}m}{% [short title]{section title}[page specification]{filename.pdf} --- possibly starred
+  \clearpage
+  \thispagestyle{fancy}%
+  \includepdf[%
+    pages=#4,
+    pagecommand={%
+      \IfBooleanTF{#1}{%
+        \section*{#3}}{%
+        \IfNoValueTF{#2}{%
+          \section{#3}}{%
+          \section[#2]{#3}}}},
+    scale=.65,
+    ]%
+    {#5}}
+
+%listings setup
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{bggray}{rgb}{0.95,0.95,0.95}
+
+ \lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{gray},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type,start,stop,label,cvId,id}% list your attributes here
+}
+\lstset{
+         basicstyle=\footnotesize\ttfamily, 
+         numbers=left, 
+         numberstyle=\tiny,
+         stepnumber=1,
+         numbersep=5pt,
+         tabsize=2,
+         extendedchars=true,
+         breaklines=true, 
+         keywordstyle=\color{red}\bfseries\emph,
+         frame=btlr,
+         stringstyle=\color{blue}\ttfamily, 
+         showspaces=false,
+         showtabs=false,  
+         xleftmargin=10pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         backgroundcolor=\color{bggray},
+         showstringspaces=false,
+         language=XML
+ }

@@ -1,4 +1,4 @@
-\begin{thebibliography}{109}
+\begin{thebibliography}{123}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -48,6 +48,11 @@ Bruno Aranda, Hagen Blankenburg, Samuel Kerrien, Fiona~SL Brinkman, Arnaud
 \newblock Psicquic and psiscore: accessing and scoring molecular interactions.
 \newblock \emph{Nature methods}, 8\penalty0 (7):\penalty0 528--529, 2011.
 
+\bibitem[Bauer and King(2006)]{BAU2006}
+C~Bauer and G~King.
+\newblock Java persistence with hibernate.
+\newblock \emph{Manning Publications}, November 2006.
+
 \bibitem[Belleau et~al.(2008)Belleau, Nolin, Tourigny, Rigault, and
   Morissette]{BEL2008}
 Fran{\c{c}}ois Belleau, Marc-Alexandre Nolin, Nicole Tourigny, Philippe
@@ -90,6 +95,15 @@ Niklaas Colaert, Kenny Helsens, Francis Impens, Jo{\"e}l Vandekerckhove, and
 1000 Genomes~Project Consortium et~al.
 \newblock An integrated map of genetic variation from 1,092 human genomes.
 \newblock \emph{Nature}, 491\penalty0 (7422):\penalty0 56--65, 2012.
+
+\bibitem[Consortium(2011)]{UNI2011}
+The~UniProt Consortium.
+\newblock Ongoing and future developments at the universal protein resource.
+\newblock \emph{Nucleic Acids Research}, 39\penalty0 (suppl 1):\penalty0
+  D214--D219, 2011.
+\newblock \doi{10.1093/nar/gkq1020}.
+\newblock URL
+  \url{http://nar.oxfordjournals.org/content/39/suppl_1/D214.abstract}.
 
 \bibitem[Corpas et~al.(2014)Corpas, Jimenez, Carbon, Garc{\'\i}a, Garcia,
   Goldberg, Gomez, Kalderimis, Lewis, Mulvany, et~al.]{COR2014}
@@ -257,6 +271,16 @@ Nils Gehlenborg, Sean~I O'Donoghue, Nitin~S Baliga, Alexander Goesmann,
 \newblock Visualization of omics data for systems biology.
 \newblock \emph{Nature Methods}, pages S56--68, March 2010.
 
+\bibitem[Gel~Moreno et~al.(2011)Gel~Moreno, Jenkinson, Jimenez,
+  Messeguer~Peypoch, and Hermjakob]{GEL2011}
+Bernat Gel~Moreno, Andrew Jenkinson, Rafael Jimenez, Xavier Messeguer~Peypoch,
+  and Henning Hermjakob.
+\newblock easydas: Automatic creation of das servers.
+\newblock \emph{BMC Bioinformatics}, 12\penalty0 (1):\penalty0 23, 2011.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-12-23}.
+\newblock URL \url{http://www.biomedcentral.com/1471-2105/12/23}.
+
 \bibitem[Gentleman et~al.(2004)Gentleman, Carey, Bates, Bolstad, Dettling,
   Dudoit, Ellis, Gautier, Ge, Gentry, et~al.]{GEN2004}
 Robert~C Gentleman, Vincent~J Carey, Douglas~M Bates, Ben Bolstad, Marcel
@@ -306,6 +330,18 @@ John G{\'o}mez, Leyla~J Garc{\'\i}a, Gustavo~A Salazar, Jose Villaveces,
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/early/2013/02/23/bioinformatics.btt100.abstract}.
 
+\bibitem[Google(2009)]{GOO2009}
+Google.
+\newblock Google data api protocol.
+\newblock Technical report, Google, 2009.
+\newblock URL \url{http://code.google.com/apis/gdata/}.
+
+\bibitem[Gregorio and {de Hora}(2007)]{GRE2007}
+J.C. Gregorio and B.~{de Hora}.
+\newblock The atom publishing protocol.
+\newblock Technical report, NewBay Software, 2007.
+\newblock URL \url{http://bitworking.org/projects/atom/rfc5023.html}.
+
 \bibitem[Hermjakob(2006)]{HER2006}
 Henning Hermjakob.
 \newblock The hupo proteomics standards initiative--overcoming the
@@ -343,6 +379,36 @@ Duncan Hull, Katy Wolstencroft, Robert Stevens, Carole Goble, Mathew~R Pocock,
 \newblock Taverna: a tool for building and running workflows of services.
 \newblock \emph{Nucleic acids research}, 34\penalty0 (suppl 2):\penalty0
   W729--W732, 2006.
+
+\bibitem[Hunter et~al.(2009)Hunter, Apweiler, Attwood, Bairoch, Bateman, Binns,
+  Bork, Das, Daugherty, Duquenne, Finn, Gough, Haft, Hulo, Kahn, Kelly,
+  Laugraud, Letunic, Lonsdale, Lopez, Madera, Maslen, McAnulla, McDowall,
+  Mistry, Mitchell, Mulder, Natale, Orengo, Quinn, Selengut, Sigrist, Thimma,
+  Thomas, Valentin, Wilson, Wu, and Yeats]{HUN2009}
+Sarah Hunter, Rolf Apweiler, Teresa~K. Attwood, Amos Bairoch, Alex Bateman,
+  David Binns, Peer Bork, Ujjwal Das, Louise Daugherty, Lauranne Duquenne,
+  Robert~D. Finn, Julian Gough, Daniel Haft, Nicolas Hulo, Daniel Kahn,
+  Elizabeth Kelly, Aur√{\copyright}lie Laugraud, Ivica Letunic, David
+  Lonsdale, Rodrigo Lopez, Martin Madera, John Maslen, Craig McAnulla, Jennifer
+  McDowall, Jaina Mistry, Alex Mitchell, Nicola Mulder, Darren Natale,
+  Christine Orengo, Antony~F. Quinn, Jeremy~D. Selengut, Christian J.~A.
+  Sigrist, Manjula Thimma, Paul~D. Thomas, Franck Valentin, Derek Wilson,
+  Cathy~H. Wu, and Corin Yeats.
+\newblock Interpro: the integrative protein signature database.
+\newblock \emph{Nucleic Acids Research}, 37\penalty0 (suppl 1):\penalty0
+  D211--D215, 2009.
+\newblock \doi{10.1093/nar/gkn785}.
+\newblock URL
+  \url{http://nar.oxfordjournals.org/content/37/suppl_1/D211.abstract}.
+
+\bibitem[Huss et~al.(2008)Huss, Orozco, Goodale, Chunlei, Batalov, Vickers,
+  Valafar, and Su]{HUS2008}
+III Jon~W Huss, Camilo Orozco, James Goodale, Wu~Chunlei, Serge Batalov, Tim~J
+  Vickers, Faramarz Valafar, and Andrew~I Su.
+\newblock A gene wiki for community annotation of gene function.
+\newblock \emph{PLoS Biol}, 6\penalty0 (7):\penalty0 e175, 07 2008.
+\newblock \doi{10.1371/journal.pbio.0060175}.
+\newblock URL \url{http://dx.doi.org/10.1371/journal.pbio.0060175}.
 
 \bibitem[Huttenhower et~al.(2009)Huttenhower, Mehmood, and
   Troyanskaya]{HUT2009}
@@ -432,6 +498,26 @@ Samuel Kerrien, Bruno Aranda, Lionel Breuza, Alan Bridge, Fiona
 \newblock The intact molecular interaction database in 2012.
 \newblock \emph{Nucleic Acids Research}, 40\penalty0 (D1):\penalty0 D841--D846,
   2012.
+
+\bibitem[Kilov(1990)]{KIL1990}
+Haim Kilov.
+\newblock From semantic to object-oriented data modeling.
+\newblock In \emph{ISCI '90: Proceedings of the first international conference
+  on systems integration on Systems integration '90}, pages 385--393,
+  Piscataway, NJ, USA, 1990. IEEE Press.
+\newblock ISBN 0-8186-9027-5.
+
+\bibitem[Kinsella et~al.(2011)Kinsella, Kahari, Haider, Zamora, Proctor,
+  Spudich, Almeida-King, Staines, Derwent, Kerhornou, Kersey, and
+  Flicek]{KIN2011}
+Rhoda~J. Kinsella, Andreas Kahari, Syed Haider, Jorge Zamora, Glenn Proctor,
+  Giulietta Spudich, Jeff Almeida-King, Daniel Staines, Paul Derwent, Arnaud
+  Kerhornou, Paul Kersey, and Paul Flicek.
+\newblock Ensembl biomarts: a hub for data retrieval across taxonomic space.
+\newblock \emph{Database}, 2011, 2011.
+\newblock \doi{10.1093/database/bar030}.
+\newblock URL
+  \url{http://database.oxfordjournals.org/content/2011/bar030.abstract}.
 
 \bibitem[Kuhn et~al.(2008)Kuhn, von Mering, Campillos, Jensen, and
   Bork]{KUH2008}
@@ -551,6 +637,29 @@ Alex Mitchell, Hsin-Yu Chang, Louise Daugherty, Matthew Fraser, Sarah Hunter,
   after 15 years.
 \newblock \emph{Nucleic acids research}, page gku1243, 2014.
 
+\bibitem[Miyake(1986)]{MIY1986}
+Naomi Miyake.
+\newblock Constructive interaction and the iterative process of understanding.
+\newblock \emph{Cognitive Science}, 10\penalty0 (2):\penalty0 151--177, 1986.
+\newblock ISSN 0364-0213.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/B6W48-4F1SFHJ-2/2/bed223337d693c5494d33a1f88887ecf}.
+
+\bibitem[Mons et~al.(2008)Mons, Ashburner, Chichester, {van Mulligen}, Weeber,
+  {den Dunnen}, {van Ommen}, Musen, Cockerill, Hermjakob, Mons, Packer,
+  Pacheco, Lewis, Berkeley, Melton, Barris, Wales, Meijssen, Moeller, Roes,
+  Borner, and Bairoch]{MON2008}
+Barend Mons, Michael Ashburner, Christine Chichester, Erik {van Mulligen}, Marc
+  Weeber, Johan {den Dunnen}, Gert-Jan {van Ommen}, Mark Musen, Matthew
+  Cockerill, Henning Hermjakob, Albert Mons, Abel Packer, Roberto Pacheco,
+  Suzanna Lewis, Alfred Berkeley, William Melton, Nickolas Barris, Jimmy Wales,
+  Gerard Meijssen, Erik Moeller, Peter Roes, Katy Borner, and Amos Bairoch.
+\newblock Calling on a million minds for community annotation in wikiproteins.
+\newblock \emph{Genome Biology}, 9\penalty0 (5):\penalty0 R89, 2008.
+\newblock ISSN 1465-6906.
+\newblock \doi{10.1186/gb-2008-9-5-r89}.
+\newblock URL \url{http://genomebiology.com/2008/9/5/R89}.
+
 \bibitem[Morgan and Hutchinson(2014)]{BIO2014}
 Martin Morgan and Fred Hutchinson.
 \newblock Bioconductor annual report.
@@ -589,6 +698,15 @@ Alexandre Panchaud, Michael Affolter, Philippe Moreillon, and Martin Kussmann.
 \newblock Experimental and computational approaches to quantitative
   proteomics:< i> status quo</i> and outlook.
 \newblock \emph{Journal of proteomics}, 71\penalty0 (1):\penalty0 19--33, 2008.
+
+\bibitem[Pautasso et~al.(2008)Pautasso, Zimmermann, and Leymann]{PAU2008}
+Cesare Pautasso, Olaf Zimmermann, and Frank Leymann.
+\newblock Restful web services vs. "big"' web services: making the right
+  architectural decision.
+\newblock In \emph{WWW '08: Proceeding of the 17th international conference on
+  World Wide Web}, pages 805--814, New York, NY, USA, 2008. ACM.
+\newblock ISBN 978-1-60558-085-2.
+\newblock \doi{http://doi.acm.org/10.1145/1367497.1367606}.
 
 \bibitem[Pavlopoulos et~al.(2008)Pavlopoulos, Wegener, and Schneider]{PAV2008}
 Georgios Pavlopoulos, Anna-Lynn Wegener, and Reinhard Schneider.
@@ -826,6 +944,25 @@ Jose Villaveces, Rafael~C. Jimenez, Leyla Garcia, Gustavo~A. Salazar, Bernat
   Gel, Nicola Mulder, Maria Martin, Alexander Garcia, and Henning Hermjakob.
 \newblock Dasty3, a web framework for das.
 \newblock In press, 2011.
+
+\bibitem[Vinoski(2008)]{VIN2008}
+Steve Vinoski.
+\newblock Serendipitous reuse.
+\newblock \emph{IEEE Internet Computing}, 12\penalty0 (1):\penalty0 84--87,
+  2008.
+\newblock ISSN 1089-7801.
+\newblock \doi{http://dx.doi.org/10.1109/MIC.2008.20}.
+
+\bibitem[Vizcaino et~al.(2009)Vizcaino, Cote, Reisinger, M.~Foster, Mueller,
+  Rameseder, Hermjakob, and Martens]{VIZ2009}
+Juan~Antonio Vizcaino, Richard Cote, Florian Reisinger, Joseph M.~Foster,
+  Michael Mueller, Jonathan Rameseder, Henning Hermjakob, and Lennart Martens.
+\newblock A guide to the proteomics identifications database proteomics data
+  repository.
+\newblock \emph{PROTEOMICS}, 9\penalty0 (18):\penalty0 4276--4283, 2009.
+\newblock ISSN 1615-9861.
+\newblock \doi{10.1002/pmic.200900402}.
+\newblock URL \url{http://dx.doi.org/10.1002/pmic.200900402}.
 
 \bibitem[Wang et~al.(2012)Wang, Fabregat, R{\'\i}os, Ovelleiro, Foster,
   C{\^o}t{\'e}, Griss, Csordas, Perez-Riverol, Reisinger, et~al.]{WAN2012}
