@@ -1,4 +1,4 @@
-\begin{thebibliography}{123}
+\begin{thebibliography}{120}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -330,17 +330,10 @@ John G{\'o}mez, Leyla~J Garc{\'\i}a, Gustavo~A Salazar, Jose Villaveces,
 \newblock URL
   \url{http://bioinformatics.oxfordjournals.org/content/early/2013/02/23/bioinformatics.btt100.abstract}.
 
-\bibitem[Google(2009)]{GOO2009}
-Google.
-\newblock Google data api protocol.
-\newblock Technical report, Google, 2009.
-\newblock URL \url{http://code.google.com/apis/gdata/}.
-
-\bibitem[Gregorio and {de Hora}(2007)]{GRE2007}
-J.C. Gregorio and B.~{de Hora}.
-\newblock The atom publishing protocol.
-\newblock Technical report, NewBay Software, 2007.
-\newblock URL \url{http://bitworking.org/projects/atom/rfc5023.html}.
+\bibitem[Grzibovska and Prlic(2008)]{GRZ2008}
+Asia Grzibovska and Andreas Prlic.
+\newblock {DAS2 writeback server implementation}.
+\newblock Master's thesis, Chalmers University of Technology, 2008.
 
 \bibitem[Hermjakob(2006)]{HER2006}
 Henning Hermjakob.
@@ -400,15 +393,6 @@ Sarah Hunter, Rolf Apweiler, Teresa~K. Attwood, Amos Bairoch, Alex Bateman,
 \newblock \doi{10.1093/nar/gkn785}.
 \newblock URL
   \url{http://nar.oxfordjournals.org/content/37/suppl_1/D211.abstract}.
-
-\bibitem[Huss et~al.(2008)Huss, Orozco, Goodale, Chunlei, Batalov, Vickers,
-  Valafar, and Su]{HUS2008}
-III Jon~W Huss, Camilo Orozco, James Goodale, Wu~Chunlei, Serge Batalov, Tim~J
-  Vickers, Faramarz Valafar, and Andrew~I Su.
-\newblock A gene wiki for community annotation of gene function.
-\newblock \emph{PLoS Biol}, 6\penalty0 (7):\penalty0 e175, 07 2008.
-\newblock \doi{10.1371/journal.pbio.0060175}.
-\newblock URL \url{http://dx.doi.org/10.1371/journal.pbio.0060175}.
 
 \bibitem[Huttenhower et~al.(2009)Huttenhower, Mehmood, and
   Troyanskaya]{HUT2009}
@@ -644,21 +628,6 @@ Naomi Miyake.
 \newblock ISSN 0364-0213.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/B6W48-4F1SFHJ-2/2/bed223337d693c5494d33a1f88887ecf}.
-
-\bibitem[Mons et~al.(2008)Mons, Ashburner, Chichester, {van Mulligen}, Weeber,
-  {den Dunnen}, {van Ommen}, Musen, Cockerill, Hermjakob, Mons, Packer,
-  Pacheco, Lewis, Berkeley, Melton, Barris, Wales, Meijssen, Moeller, Roes,
-  Borner, and Bairoch]{MON2008}
-Barend Mons, Michael Ashburner, Christine Chichester, Erik {van Mulligen}, Marc
-  Weeber, Johan {den Dunnen}, Gert-Jan {van Ommen}, Mark Musen, Matthew
-  Cockerill, Henning Hermjakob, Albert Mons, Abel Packer, Roberto Pacheco,
-  Suzanna Lewis, Alfred Berkeley, William Melton, Nickolas Barris, Jimmy Wales,
-  Gerard Meijssen, Erik Moeller, Peter Roes, Katy Borner, and Amos Bairoch.
-\newblock Calling on a million minds for community annotation in wikiproteins.
-\newblock \emph{Genome Biology}, 9\penalty0 (5):\penalty0 R89, 2008.
-\newblock ISSN 1465-6906.
-\newblock \doi{10.1186/gb-2008-9-5-r89}.
-\newblock URL \url{http://genomebiology.com/2008/9/5/R89}.
 
 \bibitem[Morgan and Hutchinson(2014)]{BIO2014}
 Martin Morgan and Fred Hutchinson.

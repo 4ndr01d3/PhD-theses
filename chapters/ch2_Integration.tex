@@ -174,12 +174,21 @@ The figures in the table show that in all 3 scenarios MyDas performed better tha
 The complete results of the tests are available in Appendix \ref{ap:stress}.
 
 
+
+
+
+
+
+
+
+
+%\newpage
 \section{DAS Writeback}\label{section:writeback}
 
 Large part of the work included in this section was executed prior the timeframe of this PhD during the MSc referenced as No. \ref{paper:msctheses} at the beginning of this chapter. Nonetheless, the inclusion of this contribution in this document is relevant because the software was reengineered as part of this PhD, upgrading it to the latest DAS specification and using the most recent versions of its dependencies: MyDas and Dasty3. The results of both MSc and reengineering process were published in \ref{paper:writeback} as reported at the top of this chapter, which author is Gustavo A. Salazar and the co-authors provided input in line with their roles as collaborators and supervisors. 
 
 \subsection{Overview}
-DAS offers a uniform protocol to share data that can and has been used for diverse data providers. One of the advantages of this approach is that users now can collect information from multiple resources by using a single tool. However we consider that opening the communication in the opposite direction (i.e. users submitting annotations to the resources), is a desirable functionality that was not included in the firsts versions of the protocol.
+DAS offers a uniform protocol to share data that can, and has been used, for diverse data providers. One of the advantages of this approach is that users now can collect information from multiple resources by using a single tool. However we consider that opening the communication in the opposite direction (i.e. users submitting annotations to the resources), is a desirable functionality that was not included in the firsts versions of the protocol.
 
 For example, researchers using a DAS client to gather information of a protein of their interest, can notice errors on current features, or missing annotations. It is unrealistic to expect such user to deploy a DAS source to publish a handful of annotations. The traditional alternative is for them to report the new features to the providers. This however takes time, and falls into the inconveniences of having a centralised repository, where the user might have to wait for the release of a new version of the data before it can actually use it in the client.
 
@@ -187,10 +196,33 @@ As a solution to this problem, we have designed and implemented the Distributed 
 
 The DAS Writeback system provides the capabilities of reading, writing, editing and deleting features by users of a web application. For the design and development of such a system it was necessary to model an architecture that supports the new features, define an extension of the DAS specification to accommodate the client-server communication, and implement server and client components. All of these milestones were achieved while trying to follow the same style as the existing DAS technology, thus looking for an easy adoption of the system by the DAS community.
 
-\subsection{Architecture}
-When extending the DAS protocol to support servers that can store edited annotations, we set out to retain compatibility with the existing read-only system of HTTP GET requests. Development was based on the idea that a DAS Writeback server should have, at the very least, the methods for basic reading/writing operations. In Database Theory, this is known as CRUD (Create, Read, Update and Delete) \cite{KIL1990}.
+\subsection{DAS as RESTful services}
+The strategy used to define the architecture of a writeback system for DAS, was to conciliate two technical concepts: one the one hand, DAS uses the REST protocol for web services \cite{PRL2007}, and on the other hand, reading and writing functionalities have been widely explore in Relational DataBases Management Systems (RDBMS), where the basic operations are  known as CRUD (Create, Read, Update and Delete) \cite{KIL1990}.
 
-The components of the system were developed bearing the following goals in mind: 1. The original annotations of a DAS source should not be modified directly; 2. The system should be trusted by the user; and 3. The system should promote interaction between the server and users.
+One of the major strengths of the RESTful strategy is that it is based on such widely adopted standards as HTTP, XML, URI and MIME. This makes REST, and therefore DAS, technologies easy to implement and attractive to both developers and final users. Considering this we decide that when extending the DAS protocol to support servers that can store edited annotations, we set out to retain compatibility with the existing read-only system of HTTP GET requests. 
+
+One of the main features of the REST architecture is to have a uniform interface. This means that REST resources should be manipulated using a predefined set of operations. In the case of the Web, those operations are the 4 basic reading/writing operations CRUD, and the HTTP methods PUT, GET, POST and DELETE are suggested in the literature to specify those actions. These operations \textit{``are broadly applicable but they also help uphold specific Web architectural properties''} \cite{VIN2008}.
+
+The DAS specification in its version 1.53E it is well detailed in the implementation of the reading and querying capabilities of the system, this however only cover the use of the GET, and there is no mention of any of the other RESTful methods.
+
+Our proposal is to extend the DAS protocol in order to define the use of the other RESTful methods to complete the inclusion of the CRUD functionalities into the DAS system, and consequently, provide the DAS community with the appropriate tools for collaborative annotation.
+
+A previous effort in a similar direction was the object of a MSc thesis, where a DAS Writeback server was developed as a proof of concept \cite{GRZ2008}, however it used different technologies and it wasn't closely attached to the RESTful protocol, which are factors that we consider to be key in the adoption of any extension on DAS.
+
+\subsection{Architecture}
+The components of the system were developed bearing the following goals in mind:
+\begin{enumerate}
+\setlength\itemsep{-0.5em}
+\item The original annotations of a DAS source should not be modified directly.
+\item The system should be trusted by the user.
+\item The system should promote interaction between the server and users.
+\end{enumerate}
+
+The first goal has been established in order to ensure that the data shared by a provider is not in risk of been changed or deleted by any case of vandalism or by mistake when using the write back system. In order to do this, the architecture includes a third party writeback server that stores the changes to a set of annotation, independent of the original source providing those annotations. 
+
+New features, editions and deletions are saved in the writeback server as annotations themselves and therefore they can be in turn be edited or deleted, by other users. We hope that this feature, gives the users the sense of trust (goal 2) that other collaborative systems such wiki projects have, where the community ensures the quality of the information. 
+
+Finally on a way to promote the use of the writeback system we implemented the functionalities on the well known protein DAS client Dasty. With the objective of bringing the new functions on a system users were already familiar with.
 
 \begin{figure}[ht] 
 \centering
@@ -198,24 +230,24 @@ The components of the system were developed bearing the following goals in mind:
 \caption[Writeback in the DAS Architecture]{\emph{Writeback in the DAS Architecture}: Extension of the DAS architecture for the writeback. A third party writeback server is the last to be queried by the client, and its response is used to update the information provided by the annotation servers. Communication with the writeback server has the peculiarity that the amount of information sent by the client is considerably larger than for any other server. The clock in the background represents the chronological order of the actions in a DAS transaction.}  \label{fig: WritebackArchitecture}
 \end{figure}
 
-In order to accomplish the first goal, the architecture includes a third party writeback server that stores the changes to a set of annotation, independent of the original source providing those annotations. In addition, changes to annotations can be considered annotations themselves and so the writeback server must provide methods to annotate annotations. This requires three new types of annotation: Create, Update and Delete.
-
-Figure \ref{fig: WritebackArchitecture} represents the architecture of DAS including the writeback server. Firstly it is necessary to highlight that, when a feature is requested, the writeback server behaves as another annotation server, but is the last one in the queue. The way this information is rendered is the responsibility of the client. 
+Figure \ref{fig: WritebackArchitecture} represents the architecture of DAS including the writeback server. Firstly it is necessary to highlight that, when a feature is requested, the writeback server behaves as another annotation server, using the same DAS commands. The way this information is rendered is the responsibility of the client. 
 
 A standard DAS transaction starts by querying the DAS Registry (the DAS Registry provides a repository for the registration and discovery of DAS services). Next the reference sequence is obtained, followed by parallel requests to several annotation sources. The interaction between client and writeback occurs after the client has retrieved and displayed all of the information for the target protein, since it is only then that the user has a complete landscape view to take the decision to add, update or delete a feature.
 
-HTTP requests relating to write operations on the writeback server are much larger than standard DAS requests (shown in Figure 1 as the width of the red arrow). The reason for this is that the client is now required to send the information to add or update a specific feature, including its type, category, position and other characteristics predefined in DAS. The communication with the writeback server is thus extended beyond the display of a graphic that compiles the information from all the servers. This is when the user starts to interact with the information, transforming the client from a pure visualisation tool to an interactive interface between the user and the DAS data.
+HTTP requests relating to write operations on the writeback server are much larger than standard DAS requests (shown in Figure \ref{fig: WritebackArchitecture} as the width of the red arrow). The reason for this is that the client is now required to send the information to add or update a specific feature, including its type, category, position and other characteristics predefined in DAS. The communication with the writeback server is thus extended beyond the display of a graphic that compiles the information from all the servers. This is when the user starts to interact with the information, transforming the client from a pure visualisation tool to an interactive interface between the user and the DAS data.
 
-\subsection{Protocol Extension}	
-RESTful web services implement remote procedure calls across the Web as an alternative solution to SOAP (Simple Object Access Protocol) web services. One of the major strengths of the RESTful strategy is that it is based on such widely adopted standards as HTTP, XML, URI and MIME. This makes REST, and therefore DAS, technologies easy to implement and attractive to both developers and final users. A comparison between SOAP and REST web services can be found in \cite{PAU2008}.
 
-One of the main features of the REST architecture is to have a uniform interface. This means that REST resources should be manipulated using a predefined set of operations. In the case of the Web, those operations are the 4 basic reading/writing operations CRUD, and the HTTP methods PUT, GET, POST and DELETE are suggested in the literature to specify those actions. These operations \textit{``are broadly applicable but they also help uphold specific Web architectural properties''} \cite{VIN2008}.
 
-The idea of specifying operations for publishing and editing resources using HTTP is not novel; AtomPub is a proposed protocol for publishing and editing Web Resources using HTTP \cite{GRE2007}. Google has also defined a protocol based on Atom, AtomPub and RSS2.0 \cite{GOO2009}. The writeback specification used for this implementation is a combination of features of those protocols, plus the inherent requirements of the DAS technology. 
 
-The proposed specification can be found on the DAS1.6E web page (\url{http://www.biodas.org/wiki/DAS1.6E\#DAS\_writeback}). It proposes that both input and output documents for the writeback should follow the DAS GFF format (See code below); the HTTP method indicates what to do with the received document (create, update or delete a feature) and the HTTP status codes used for DAS remain valid and will indicate success or failure of the requested command.
 
-\newpage
+\subsection{Protocol Extension}
+As described in \ref{ssec:DASprotocol}, the version 1.53 of the DAS protocol had its continuation on the 1.53E, in which a set of proposed extensions were included. The same schema was followed when version 1.6 was released shortly followed by 1.6E, in which was decided by the DAS community that new extensions can be proposed using the wiki page of the project (\url{http://www.biodas.org}), and its adoption will determine its inclusion as a core component on future versions.
+
+We follow this directions in order to include the writeback into DAS, which eventually became the first official extension on DAS 1.6E. The proposed specification can be found on the DAS1.6E web page (\url{http://www.biodas.org/wiki/DAS1.6E\#DAS\_writeback}). It proposes that both input and output documents for the writeback should follow the DAS GFF format (See code below for an example); the HTTP method indicates what to do with the received document, the method GET is still been used for querying and reading while POST, PUT and DELETE should be use to create, update or delete a feature.
+
+The HTTP status codes used for DAS remain valid and will indicate success or failure of the requested command (e.g. HTTP code 200 for success)
+
+%\newpage
 \begin{lstlisting}
 <?xml version="1.0" standalone="no"?>
 <DASGFF>
@@ -237,37 +269,28 @@ The proposed specification can be found on the DAS1.6E web page (\url{http://www
 </DASGFF>
 \end{lstlisting}
 
-\subsection{Server}
 
-Our implementation of DAS Writeback is an extension of the MyDAS server\cite{SAL2012} and is based on DAS1.6. A writeback data source was implemented to store annotations. Annotations are the main entity in the data model, and any edits or deletions of an annotation are considered to be versions of the original annotation.
+\subsection{Implementation}
+We have developed a DAS writeback tool by extending existing DAS clients and servers. The writeback is included as a plug-in of Dasty3 and is integrated in the latest implementation of MyDAS, compliant with the current DAS 1.6 specification. 
+
+\subsubsection{Server}
+Our implementation of DAS Writeback is an extension of the MyDAS server, which has been widely described in section \ref{section:mydas}. A writeback data source was implemented to store annotations. Annotations are the main entity in the data model, and any edits or deletions of an annotation are considered to be versions of the original annotation.
 
 The datasource uses Hibernate \cite{BAU2006} as its layer to access the persistence data, which brings the advantage of being \emph{Database-Engine} independent. The data source has been successfully tested using PostgreSQL, MySQL and Derby but is expected to work properly in other engines.
 
-\subsection{Client}
-As a federated system, DAS delegates most of the integration responsibilities to its clients, giving it a \emph{``dumb server, clever client"} architecture \cite{JEN2008}. As a consequence, if the goal is to capture feedback from users (Writeback), the client should be able to execute several tasks related to both logic and user interaction. 
+\subsubsection{Client}
+One of the goals of this project was to create the perception for users that the writeback functions in a client are native and can be used naturally with existing clients. For this reason, the extension of an existing client was preferable to implementing a new one from scratch. In addition, the writeback server behaves as any other DAS server for reading purposes, so many software routines of an existing client could potentially be reused for the writeback visualisation.
 
-One of the goals of this project was to create the perception for users that the writeback functions in a client are native and can be used naturally with existing clients. For this reason, the extension of an existing client was preferable to implementing a new client from scratch. In addition, the writeback server behaves as any other DAS server for reading purposes, so many software routines of an existing client could potentially be reused for the writeback visualisation.
+We decided to use Dasty for our first DAS writeback client and a prototype was developed for Dasty2 and is details about it can be found in \cite{SAL2010}. We collaborated in the development of some of the components of Dasty2 \cite{JIM2008} and the knowledge of the software influenced the decision of using it for the writeback.
 
-Dasty2 \cite{JIM2008} is a web-based protein DAS client, which makes extensive use of AJAX in order to make the user's experience as close as possible to using a stand-alone client. Dasty2 offers a number of features that make it an ideal candidate for the proposed extensions. For example, Dasty2 has a modular structure based on panels, so it provides the opportunity to group the writeback features in a new panel, thus isolating the writeback content for those who prefer not to use this information. 
+Later, in 2010, Dasty2 went through a refactoring process, optimising its code to provide a plug-in framework. The new version is called Dasty3 and our collaboration in its development is described in section \ref{section:dasty}. The writeback client was rewritten as a plugin for Dasty3 and is included in its core feature set.
 
-Dasty2 went through a refactoring process, optimising its code to provide a plug-in framework. The new version is called Dasty3. The writeback client has been implemented as a Dasty3 plugin and is included in its core feature set.
+%The communication between writeback client and server is achieved using the DAS GFF XML format, which is defined in the DAS specification (See example code above). The client has a logical model to map the DAS GFF format when it is reading from the writeback server, and also starts from this model to build the XML when information is to be sent to the server.
 
-The communication between the client and the writeback server has some differences with respect to the communication with other DAS servers. Firstly, the different HTTP methods (PUT, GET, POST and DELETE) should be used according to their function. For this reason, the proxy component of Dasty3 was extended to support the appropriate method usage. 
+%The extensions performed in Dasty3 in order to support the writeback capabilities are divided below into reading and writing functions, i.e. if annotations are requested or if a change/creation is submitted, respectively:
 
-The second difference is in the amount of information transferred; before the writeback, all the requests in Dasty3 were using the \emph{GET} method. Therefore the information sent from the client to the proxy was limited to 256 characters, which is the URL size limit for some web browsers and servers. With the writeback functionalities, however, the client sends an XML document that is likely to exceed the URL size limit, making the use of other HTTP methods mandatory. This reinforces the applicability of the choice of adopting the RESTful standard. 
-
-The communication between writeback client and server is achieved using the DAS GFF XML format, which is defined in the DAS specification. The client has a logical model to map the DAS GFF format when it is reading from the writeback server, and also starts from this model to build the XML when information is to be sent to the server.
-
-\subsection{implementation}
-We have developed a DAS writeback tool by extending existing DAS clients and servers. The writeback is included as a plug-in of Dasty3 and is integrated in the latest implementation of MyDAS, compliant with the current DAS 1.6 specification. The extensions performed in Dasty3 in order to support the writeback capabilities are divided below into reading and writing functions, i.e. if annotations are requested or if a change/creation is submitted, respectively:
-  
-\subsubsection{Reading Functions}
-The writeback server behaves like any other DAS source when a set of features is requested. The client decides when and how to process this information. For the Dasty3 writeback plug-in, the user has three different modes to operate (Figure \ref{fig: dasty+wb} A): 
-\begin{description}
-	\item[Disable the writeback display] The first mode essentially ignores the writeback information and in this case Dasty3 just collects and displays the original information from the sources. This is useful for the users who do not want the collaborative information displayed.
-	\item[Writeback as an extra source] Dasty3 can display the information coming from the writeback server as an extra data source. In this case, all the writeback features will be displayed as new tracks, allowing the users to compare the original annotation with the last version of it in the writeback server. Figure \ref{fig: dasty+wb}  D shows an example of this display.
-	\item[Merging the writeback with the sources] In this mode, the writeback annotations overwrite the original ones in the graphic. This generates a similar graphic for features as normally rendered by Dasty3, but incorporating the modifications that the writeback server contains. The features tagged as deleted will be transparent in the graphic, and just its border will be visible.
-\end{description}
+\subsubsection{CRUD functions}
+Below we describe how the CRUD functions (i.e. Create, Read, Update, Delete) have been implemented in both client(Dasty3 plugin) and server(MyDas extension).
 
 \begin{figure}[ht]
 \centering
@@ -275,43 +298,40 @@ The writeback server behaves like any other DAS source when a set of features is
 \caption{Dasty3+Writeback}  \label{fig: dasty+wb}
 \end{figure}
 
-\subsubsection{Writing Functions}
-After authentication, the writeback extension for Dasty3 allows users to Create, Update and Delete features. The internal pop-up windows of Dasty3 are reused in order to display the tools to execute these functions in the same context as the selected feature's information. With this goal in mind, a set of tabs was added to these windows. Figure 3 shows the contents of the four different tabs that the user can choose after clicking on a particular feature. The first tab (Figure \ref{fig: dastywb3} A) is the detailed information that Dasty3 provides to the user for the chosen feature, the other three tabs give access to the writeback capabilities.
+\paragraph{Create}
+Previous versions of MyDas were using GET and POST methods indistinctively, therefore the first modification done to the server was to identify the different HTTP methods and redirect the flow of data to its corresponding action. In order to create a new annotation, MyDas now listen to any POST method, and if its content is a GFF file its parsed and added to the data source. 
 
-\begin{figure}[p]
-\centering
-\includegraphics[width=6in]{figures/tabsD3.png} 
-\caption [Tabs for writeback functions in Dasty3] {Tabs for writeback functions in Dasty3. (a) Detailed information of the feature. (b) Form to edit any detail of the feature. (c) Confirmation for deletion. (d) Writeback history of the feature }  \label{fig: dastywb3}
-\end{figure}
-	
-Below is a description of how the writeback capabilities are made available in Dasty3:
+On the client side, a new form was added under the annotation graphic (\ref{fig: dasty+wb} B) in which the user can describe the new feature specifying label, location, type and evidence; notes and links are optional fields for the new feature. 
 
-\begin{description}
-	\item[Update] Figure \ref{fig: dastywb3} B is a screenshot of the edit tab; in it the user has the same detailed information, but in a form that allows the user to change the values of any field. When the information is sent to the server, it is stored as the current version of the feature and it will be the one to which the server returns for future requests. Another way to edit a feature is through the history tab (Figure \ref{fig: dastywb3} D). In this case, the user can choose to roll-back to a previous version.
-	\item[Create] In the top-right corner of the writeback panel (Figure \ref{fig: dasty+wb} B) there is a form to add a new feature, which is similar to the one in Figure 3 B but without any content in the fields. The user enters the details of the feature in the form, Dasty3 sends them to the writeback server and a new feature is created.
-	\item[Delete] Figure \ref{fig: dastywb3} C shows a confirmation message for the deletion of the feature. Features are not really deleted from the server, rather they are tagged in such a way that this information can be used to hide the features in the \emph{merge} method. The list of current deleted features is displayed in the writeback panel.
-\end{description}
+Version 1.6 of the DAS specification recommends the use of ontologies in order to standardise both types and evidence codes, and make the task of integrating annotation from several servers easier. In order to promote the use of those ontologies, a list of suggested terms from the corresponding ontology is displayed in the edit form.
+  
+\paragraph{Read}
+The writeback server behaves like any other DAS source when a set of features is requested. The client decides when and how to process this information. For the Dasty3 writeback plug-in, the user has three different modes to operate (Figure \ref{fig: dasty+wb} A): (i) to ignore the writeback annotations, (ii) to use the writeback as any other annotation source, or (iii) to replace original annotations with the writeback information. The latter option generates a similar graphic for features as normally rendered by Dasty3, but incorporating the modifications that the writeback server contains. 
 
-\subsubsection{User Interface Aids}
-Version 1.6 (http://www.biodas.org/documents/spec-1.6.html) of the DAS specification recommends the use of ontologies in order to standardise both types and evidence codes, and make the task of integrating annotation from several servers easier. The recommendation says that for the values of the attribute cvId and the content of the element TYPE, the SO (Sequence Types and Features), MOD (Protein Modifications) and BS (BioSapiens Annotations) ontologies should be used. In the case of the method, the ontology to use is the Evidence Code Ontology. \cite{JEN2008}.
+\paragraph{Update}
+When a Dasty3 user clicks on a feature, a popup window with the complete information of the annotation is displayed. We have extended this functionality by including tabs on the popup window. The ``Edit'' tab contains a similar form as the one for a new feature, but it gets filled with the the information of the selected annotation (Figure {fig: dasty+wb} C). 
 
-In order to promote the use of those ontologies, a list of suggested terms from the corresponding ontology is displayed in the edit form (Figure \ref{fig: dastywb3} B) while the user is writing in the fields ``type'' and ``method''.
+The information of this form is sent to the server using the method PUT, MyDas identifies the method, parses the GFF document and stores its content as the current version of the feature. The latest version will be the one to which the server returns for future requests.
 
-The same form has a set of logic validations to ensure that the coordinates of the annotation are not out of the limit imposed for the size of the protein, and that the start amino acid is before the end amino acid. Finally, the orientation and phase components of a DAS feature are defined by default to \emph{Non Applicable} because these genomic-specific fields do not apply to annotations of proteins.
+\paragraph{Delete}
+Del is nnother tab available in Dasty3 when a feature is selected. its content is just a confirmation dialog where the user expresses the desire of removing that feature. The DELETE HTTP method is then invoked, including the identifier for the feature. When MyDas detects a DELETE requests, it creates another annotation to register this command.  Which means that features are not really deleted from the server. The features tagged as deleted will be transparent in the Dasty3 graphic, and just its border will be visible.
 
+
+\subsubsection{Other writeback functions}
 A basic module to allow for user authentication through a login and password was added in the writeback panel (Figure \ref{fig: dasty+wb} A). Any writing function is conditional on prior login and password validation. The reading functionality does not require authentication.
 
-\subsection{Usability Experiment}
-At the conclusion of two cycles of design, implementation and feedback from the DAS community, we subjected the system to a final formative evaluation by conducting a usability experiment. The technique used to design such an experiment was Constructive Interaction \cite{MIY1986}. Basically, Constructive Interaction consists of executing the tasks in dyads, one of the users is the actor (who has control of the computer) and the other is the co-actor. The instructions for the test subjects indicate that they consult each other before any action and avoid contact with the facilitator. In this way the ideas are expressed more naturally as a normal communication between the parts of the dyad.
+Another way to edit a feature is through the history tab , In this window, the content of any previous version of the selected feature is displayed. In this case, the user can choose to roll-back to a previous version, and what actually happens is that a new edit request through the PUT HTTP method is submitted, therefore a rollback task does not removes the existing history, but rather adds a new edition to it.
 
-The experiment was executed with the participation of eight postgraduate students organised in dyads. The annotation tasks were based on data extracted from a published paper, demonstrating that the system can be used for a real biological use case. All the sessions were recorded and analysed for further improving the writeback extension. Details of the usability experiment are described in \cite{SAL2010}.
-	
-The experiment allowed us to capture fifteen usability issues. Only one was classified as a Major Problem(In Dasty, the `positional features' table was not automatically updated after the first added annotation) and five as a Minor Problems. There were two positive findings, two bugs and five suggestions. A detailed list of the findings is included in the supplementary data (file 2). All the problems and bugs were solved for the final version of the application, three of the suggestions were implemented and the remaining two were postponed to a future maintenance cycle. The major outcome of the experiment is that the users were able to use the writeback functionalities without extensive training, giving us two important things to highlight: Firstly, both server and client function according to the user's expectations, and secondly, the functionalities are intuitive enough to allow untrained users to solve protein annotation tasks.
+
 
 
 	
 \section{DAS Visualizations} \label{section:dasvisual}
 \subsection{Dasty} \label{section:dasty}
+The communication between the client and the writeback server has some differences with respect to the communication with other DAS servers. Firstly, the different HTTP methods (PUT, GET, POST and DELETE) should be used according to their function. For this reason, the proxy component of Dasty3 was extended to support the appropriate method usage. 
+
+The second difference is in the amount of information transferred; before the writeback, all the requests in Dasty3 were using the \emph{GET} method. Therefore the information sent from the client to the proxy was limited to 256 characters, which is the URL size limit for some web browsers and servers. With the writeback functionalities, however, the client sends an XML document that is likely to exceed the URL size limit, making the use of other HTTP methods mandatory. This reinforces the applicability of the choice of adopting the RESTful standard. 
+
 \subsection{myKaryoView}\label{section:mykarioview}
 \subsection{probeSearcher}
 \section{Discussion}
