@@ -206,8 +206,8 @@
 \usepackage{fullpage}
 
 \titleformat{\subsubsection}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}
+{\normalfont\normalsize\slshape}{\theparagraph}{1em}{}
+\titlespacing*{\subsubsection}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \titleformat{\paragraph}

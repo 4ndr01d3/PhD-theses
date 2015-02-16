@@ -106,10 +106,14 @@ The~UniProt Consortium.
   \url{http://nar.oxfordjournals.org/content/39/suppl_1/D214.abstract}.
 
 \bibitem[Corpas et~al.(2014)Corpas, Jimenez, Carbon, Garc{\'\i}a, Garcia,
-  Goldberg, Gomez, Kalderimis, Lewis, Mulvany, et~al.]{COR2014}
+  Goldberg, Gomez, Kalderimis, Lewis, Mulvany, Pawlik, Rowland, Salazar,
+  Schreiber, Sillitoe, Spooner, Thanki, Villaveces, Yachdav, and
+  Hermjakob]{COR2014}
 Manuel Corpas, Rafael Jimenez, Seth~J Carbon, Alex Garc{\'\i}a, Leyla Garcia,
   Tatyana Goldberg, John Gomez, Alexis Kalderimis, Suzanna~E Lewis, Ian
-  Mulvany, et~al.
+  Mulvany, Aleksandra Pawlik, Francis Rowland, Gustavo~A. Salazar, Fabian
+  Schreiber, Ian Sillitoe, William~H. Spooner, Anil~S. Thanki, Jos{\'e}~M.
+  Villaveces, Guy Yachdav, and Henning Hermjakob.
 \newblock Biojs: an open source standard for biological visualisation--its
   status in 2014.
 \newblock \emph{F1000Research}, 3, 2014.
@@ -435,6 +439,15 @@ Rafael~C Jimenez, Gustavo~A Salazar, Bernat Gel, Joaquin Dopazo, Nicola Mulder,
 \newblock mykaryoview: a light-weight client for visualization of genomic data.
 \newblock \emph{PloS one}, 6\penalty0 (10):\penalty0 e26345, 2011.
 
+\bibitem[Jones et~al.(2005)Jones, Vinod, Down, Hackmann, Kahari, Kretschmann,
+  Quinn, Wieser, Hermjakob, and Apweiler]{JON2005}
+Philip Jones, Nisha Vinod, Thomas Down, Andre Hackmann, Andreas Kahari, Ernst
+  Kretschmann, Antony Quinn, Daniela Wieser, Henning Hermjakob, and Rolf
+  Apweiler.
+\newblock Dasty and uniprot das: a perfect pair for protein feature
+  visualization.
+\newblock \emph{Bioinformatics}, 21\penalty0 (14):\penalty0 3198--3199, 2005.
+
 \bibitem[Kallio et~al.(2011)Kallio, Tuimala, Hupponen, Klemel{\"a}, Gentile,
   Scheinin, Koski, K{\"a}ki, and Korpelainen]{KAL2011}
 M~Aleksi Kallio, Jarno~T Tuimala, Taavi Hupponen, Petri Klemel{\"a},
@@ -620,14 +633,6 @@ Alex Mitchell, Hsin-Yu Chang, Louise Daugherty, Matthew Fraser, Sarah Hunter,
 \newblock The interpro protein families database: the classification resource
   after 15 years.
 \newblock \emph{Nucleic acids research}, page gku1243, 2014.
-
-\bibitem[Miyake(1986)]{MIY1986}
-Naomi Miyake.
-\newblock Constructive interaction and the iterative process of understanding.
-\newblock \emph{Cognitive Science}, 10\penalty0 (2):\penalty0 151--177, 1986.
-\newblock ISSN 0364-0213.
-\newblock URL
-  \url{http://www.sciencedirect.com/science/article/B6W48-4F1SFHJ-2/2/bed223337d693c5494d33a1f88887ecf}.
 
 \bibitem[Morgan and Hutchinson(2014)]{BIO2014}
 Martin Morgan and Fred Hutchinson.
