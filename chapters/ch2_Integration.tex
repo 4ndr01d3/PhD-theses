@@ -32,30 +32,30 @@ La verdad no penetra en un entendimiento rebelde. Si todos los lugares de la tie
 \newpage
 
 
-\newthought{The data analysed in bioinformatics comes from diverse and heterogeneous sources}, for example, the data might be captured from wet-lab experiments or deduced with \emph{in-silico} procedures, it can refer to nucleic information and sequenced data, but also to expression levels and other protein information, it is possible to analyse isolated organisms or to gather information from multiple species. It all depends on the purpose of the research and the availability of data, however it is almost inevitable to have to integrate more than one of this sources in order to tackle todays research challenges.
+\newthought{The data analysed in bioinformatics comes from diverse and heterogeneous sources}, for example, the data might be captured from wet-lab experiments or deduced from \emph{in-silico} procedures. It can refer to nucleic information and sequenced data, but also to expression levels and other protein information, it is possible to analyse isolated organisms or to gather information from multiple species. It all depends on the purpose of the research and the availability of data, however it is almost inevitable to have to integrate more than one of this sources in order to tackle todays research challenges.
 
-This chapter is focused on the contributions done during this PhD in order to integrate data using the Distributed Annotation System. The first section describes  MyDas, a server tool that facilitate the publishing of DAS sources. A proposal to extend DAS in order to support collaborative annotation is described in section \ref{section:writeback}. We have grouped our participation in several client-side projects with DAS in the section \ref{section:dasvisual}. Lastly we will discussed the impact of this projects, together with the present and future of DAS.
-
+This chapter is focused on the contributions made during this PhD in order to integrate data using the Distributed Annotation System. The first section describes  MyDas, a server tool that facilitates the publishing of DAS sources. A proposal to extend DAS in order to support collaborative annotation is described in section \ref{section:writeback}. We have grouped our participation in several client-side projects with DAS in the section \ref{section:dasvisual}. Lastly we will discuss the impact of these projects, together with the present and future status of DAS. 
 
 \section{MyDas} \label{section:mydas}
 
-The research of this section has been published in the paper \cite{SAL2012}, referenced as \ref{paper:mydas}, in the beginning of this chapter. 
-Authors of this paper are Gustavo A. Salazar, Leyla J. García and Philip Jones (first authors); the co-authors provided input in line with their roles as supervisors.  Parts of this section are based on the work of collaborators and this is indicated clearly below. 
+The research in this section has been published in the paper \cite{SAL2012}, referenced as \ref{paper:mydas}, at the beginning of this chapter. Authors of this paper are Gustavo A. Salazar, Leyla J. García and Philip Jones (first authors). The co-authors provided input in line with their roles as supervisors.  Parts of this section are based on the work of collaborators and this is indicated clearly below. 
 
-The contributions on the software development process of MyDas are as follow: The first version of the project was developed by Philip Jones with the collaboration of Anthony Quinn for the XSLT component. A second development cycle together with the support of the DAS version 1.6 was executed by Gustavo A. Salazar. Current maintenance of the software is lead by Leyla J. García. As an open source project, it has received contributions from other developers, but the mentioned authors here have been the leaders the project during its different stages.
+The contributions to the software development process of MyDas are as follows: the first version of the project was developed by Philip Jones with the collaboration of Anthony Quinn for the XSLT component. A second development cycle together with the support of the DAS version 1.6 was executed by Gustavo A. Salazar. Current maintenance of the software is lead by Leyla J. García. As an open source project, it has received contributions from other developers, but the mentioned authors here have been the leaders of the project during its various stages.
 
 \subsection{Overview}
 
-There were over 1500 sources registered in the DAS registry by January 2015, and although not all of them implement the same capabilities, they all follow the DAS protocol,with almost half of them updated to the latest version DAS 1.6E. There are common tasks among DAS sources:  parsing, capture of arguments, exception handling, XML creation, dealing with the HTTP protocol, and more. And therefore a software specialised in these tasks is needed in order to allow a data providers to focus in their specific cases.
+As of January 2015, there were over 1500 sources registered in the DAS registry, and although not all of them implement the same capabilities, they all follow the DAS protocol with almost half of them updated to the latest version DAS 1.6E. There are common tasks among DAS sources:  parsing, capture of arguments, exception handling, XML creation, dealing with the HTTP protocol, and more. And therefore a software specialised in these tasks is needed in order to allow a data providers to focus in their specific cases.
 
-MyDas is a software product that assists in the process of publishing biological data through the DAS protocol. Data providers are asked to implement an adaptor that connects the logic of MyDas with the data itself, and from there MyDas executes all the HTTP interfaces, XML encodings and other required operations to support all the DAS capabilities.
+MyDas is a software tool that assists in the process of publishing biological data through the DAS protocol, described in \ref{ssec:DASprotocol}. Data providers are required to implement an adaptor that connects the logic of MyDas with the data itself, and from there MyDas executes all the HTTP interfaces, XML encodings and other required operations to support all the DAS capabilities.
 
 In the following sections we describe the architecture of MyDas, and present some examples of existing DAS services built upon MyDas.
 
 \subsection{ Design and Implementation}
-MyDas is a Java Servlet Application accepting HTTP requests, typically with one request for each command in the DAS specification. Responses are valid XML documents. MyDas is a Java 1.6 application, and it runs on a Java servlet container such as Tomcat (\url{http://tomcat.apache.org/}) or Jetty (\url{http://jetty.codehaus.org/jetty/}). 
+MyDas is a Java Servlet Application which accepts HTTP requests, typically with one request for each command in the DAS specification. Responses are valid XML documents. MyDas is a Java 1.6 application, and it runs on a Java servlet container such as Tomcat (\url{http://tomcat.apache.org/}) or Jetty (\url{http://jetty.codehaus.org/jetty/}). 
 
-The development process of MyDas is supported by several tools, for example, it uses Maven (\url{http://maven.apache.org/}) for automatising the built, control of dependencies, test and deployment, it also uses JUnit (\url{http://www.junit.org}) in order to create a set of unit tests to ensure the quality of the software. Software workers are implemented on the repository machine, to execute the tests when new commits are submitted; notifying the main developers in case of failure.
+Figure \ref{fig:mydas} illustrates the architecture of MyDas, which is clearly divided between core and external control. The MyDas core is in charge of all the common tasks and the external control is what needs to be input by the data provider, for instance its storage system (e.g. a relational database or flat file), or the strategy used to query the data (e.g. in-memory or using pre-indexing), etc.
+
+The development process of MyDas is supported by several tools, for example, it uses Maven (\url{http://maven.apache.org/}) for automatising the software built, control of dependencies, test and deployment. It also uses JUnit (\url{http://www.junit.org}) to create a set of unit tests to ensure the quality of the software. Software workers are implemented on the repository machine to execute the tests when new commits are submitted which notifies the main developers in case of failure.
 
 \begin{figure}[t]
 \centering
@@ -64,31 +64,29 @@ The development process of MyDas is supported by several tools, for example, it 
 \label{fig:mydas}}
 \end{figure}
 
-Figure \ref{fig:mydas} illustrates the architecture of MyDas, which is clearly divided between core and external control, in order to indicate what is offered by a blank installation of MyDas and what needs to be inputed by the data provider, for instance, its storage system (e.g. a relational database or flat file),  the strategy used to query the data (e.g. in-memory or using pre-indexing), etc.
+The information required to use the external control components should be described in the configuration file, including data such as the URI, title, the relative path to the data source adapter. Then, the configuration manager makes the user options available to both the MyDas core and the data source implementation. 
 
-Most of this information should be described in the configuration file, including data such as the URI, title, the relative path to the data source adapter. And then, the configuration manager makes the user options available to both the MyDas core and the data source implementation. 
+The elements of the DAS specification have been mapped into a Java object model, which must be used by the data source developer when creating an adapter. In this way , the core of Mydas can use the same subroutines to deploy heterogeneous data into DAS. 
 
-The elements of the DAS specification have been mapped into a Java object model. Which must be used by the data source developer when creating an adapter. That is the way how the core of Mydas can use the same subroutines to deploy heterogeneous data into DAS. 
-
-In order to facilitate the implementation of data sources, a template project is available, with examples of both reference and annotation servers: \url{https://code.google.com/p/mydas/downloads/detail?name=MyDasTemplate-1.6.7.zip}.
+In order to facilitate the implementation of data sources, a template project is available with examples of both reference and annotation servers: \url{https://code.google.com/p/mydas/downloads/detail?name=MyDasTemplate-1.6.7.zip}.
 
 \subsection{Instances}
 MyDas is being adopted by different data providers, including UniProt, InterPro and PRIDE.
 
 UniProt (Universal Protein Resource)\cite{UNI2011} is a comprehensive catalogue of protein sequences and functional information. It consists of different databases, each optimized for different uses. The UniProt Knowledgebase (UniProtKB) is an expertly curated database providing a central access point for integrated protein sequence information. The UniProt Archive (UniParc) is a non-redundant sequence repository of all publicly available protein sequences. UniProt DAS (\url{http://www.ebi.ac.uk/das-srv/uniprot/das/uniprot}, \url{http://www.ebi.ac.uk/das-srv/uniprot/das/uniparc}) acts as a reference and annotation server, providing access to up-to-date information and allowing queries by UniProtKB and UniParc accessions numbers. There are currently more than 50 Data Sources that use UniProt DAS as a reference.
 
-The InterPro database of predictive protein signatures is used for the classification and automatic annotation of proteins and genomes \cite{HUN2009}. InterPro provides several DAS data sources: DS\_327 (\url{http://www.ebi.ac.uk/das-srv/interpro/das/InterPro} ) serves matches that have been calculated to the predictive models supplied by the InterPro member databases for all UniProtKB protein sequences.  DS\_1028 (\url{http://www.ebi.ac.uk/das-srv/interpro/das/InterPro-matches-overview}) serves these matches resolved to the InterPro entries that integrate the member database signatures (providing a compact summary view of the domains, families and sites predicted for each UniProtKB sequence), and finally DS\_1029 (\url{http://www.ebi.ac.uk/das-srv/interpro/das/InterPro-UniParc-matches}) serves matches to member database signatures that have been calculated for UniParc protein sequences.
+The InterPro database of predictive protein signatures is used for the classification and automatic annotation of proteins and genomes \cite{HUN2009}. InterPro provides several DAS data sources: DS\_327 (\url{http://www.ebi.ac.uk/das-srv/interpro/das/InterPro} ) serves matches that have been calculated to the predictive models supplied by the InterPro member databases for all UniProtKB protein sequences.  DS\_1028 (\url{http://www.ebi.ac.uk/das-srv/interpro/das/InterPro-matches-overview}) serves these matches resolved to the InterPro entries that integrate the member database signatures (providing a compact summary view of the domains, families and sites predicted for each UniProtKB sequence). Finally DS\_1029 (\url{http://www.ebi.ac.uk/das-srv/interpro/das/InterPro-UniParc-matches}) serves matches to member database signatures that have been calculated for UniParc protein sequences.
 
 PRIDE DAS 1.6 (\url{http://www.ebi.ac.uk/pride-das/das/}) provides protein and peptide identifications together with supporting mass spectrometry evidence \cite{VIZ2009}. The information from PRIDE has already been shared using BioMart\cite{KIN2011}, therefore the strategy used to make it public to the DAS community was to develop an adaptor using MyDas to take the information from this source.
 
 \subsection{Tutorials}
-We have develop a three tutorials for the use of MyDas that are accessible via web (\url{http://code.google.com/p/mydas/wiki/Tutorials}). The tutorial are classified for its level of difficulty: Beginner, Intermediate and Advanced. 
+We have developed three tutorials on how to use MyDas that are accessible via web (\url{http://code.google.com/p/mydas/wiki/Tutorials}). The tutorials are classified by their level of difficulty: Beginner, Intermediate and Advanced. 
 
-The first tutorial helps the user in the setup of the example data source, in which no programming is required, and is limited to installation and configuration of MyDas. The tutorial for intermediate level guides through the common scenario of having a text file with some annotations to be displayed in DAS, in this case some the user requires to program the parsing of the file and mapping of it into the model. The third tutorial explores the case of getting data from a database system, which is a common way to store/access data in bioinformatics environments; this tutorial requires not only programming in Java, but also understanding queries written in SQL .
+The first tutorial helps the user in the setup of the example data source. No programming is required at this point, as it is limited to installation and configuration of MyDas. The intermediate level tutorial guides the user through the common scenario of having a text file with some annotations that need to be displayed in DAS. In this case, the user requires to program the parsing of the file and mapping of it into the model. The third tutorial explores the case of obtaining data from a database system, which is a common way to store/access data in bioinformatics environments. This tutorial requires not only the ability to program in Java, but also to understand queries written in SQL.
 
-The power of MyDas is revealed when used on large data sets with elaborate schemas as in the last tutorial. The example uses the freely available mysql database provided by Ensembl. There are over a hundred databases hosted on the Ensembl servers, and in this case we used the core set of tables for Homo sapiens (version 56\_37a), and restricted our search scope to some high level features (e.g. Chromosome, genes, transcript). 
+The power of MyDas is revealed when it is used on large data sets with elaborate schemas as in the last tutorial. The example uses the freely available mysql database provided by Ensembl. There are over a hundred databases hosted on the Ensembl servers, and in this case we used the core set of tables for Homo Sapiens (version 56\_37a), and restricted our search scope to some high level features (e.g. Chromosome, genes, transcript). 
 
-Many institutions may have a similar setup, however schema, policies and software vary from place to place. Although exporting files (and using them to publish data)  is an option, it implies that changes in the database won't be reflected in the generated files. In contrast, MyDas can be set up to take the information directly from the database management system and therefore will always be up to date.
+Many institutions may have a similar setup, however schema, policies and software vary from one location to another. Although exporting files (and using them to publish data) is an option, it implies that changes in the database won't be reflected in the generated files. In contrast, MyDas can be set up to take the information directly from the database management system and therefore will always be up to date.
 
 \begin{figure}[t]
 \centering
@@ -97,13 +95,13 @@ Many institutions may have a similar setup, however schema, policies and softwar
 \label{fig:mydas_example}}
 \end{figure}
 
-A data source like this can be used by several tools to visualize its data. Figure \ref{fig:mydas_example} is a snapshot of the Ensembl browser, including the track named `Ensembl Test', whose information is obtained from the tutorial data source, demonstrating how the data published with MyDas can be displayed in well known genome browsers.
+A data source served by MyDas can be used by several tools to visualize its data. Figure \ref{fig:mydas_example} is a snapshot of the Ensembl browser, including the track named `Ensembl Test', whose information is obtained from the tutorial data source. This demonstrates how the data published with MyDas can be displayed in well known genome browsers.
 
 \subsection{Other DAS Servers}
-The second tutorial mentioned above, describes the case where a user has a plain text file that follows a basic format (i.e. separated by a predefined character). This scenario is so common in bioinformatics that a software tool specialised in the publishing of this type of data have been built. easyDAS\cite{GEL2011}  is a preinstalled server, where a new data source can be configured by submitting a GFF file (or similar). This alternative is ideal for rapid publishing because it simplify tasks related with the hosting and storage of both data and server. The drawback is the lack of control over the data once it is deployed. 
+The second tutorial mentioned above, describes the case where a user has a plain text file that follows a basic format (i.e. separated by a predefined character). This scenario is so common in bioinformatics that a software tool specialising in the publishing of this type of data has been built. easyDAS\cite{GEL2011}  is a preinstalled server where a new data source can be configured by submitting a GFF file (or similar). This alternative is ideal for rapid publishing because it simplifies the tasks related to the hosting and storage of both data and server. The drawback is the lack of control over the data once it is deployed, because the owner of the data won't be able to change individual values of a dataset that has been submitted, instead, he would be required to delete and upload the whole data source.
 
 \begin{table}[t]
-	\begin{tabular}{|p{3cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|}
+        \begin{tabular}{|p{3cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|}
 \hline 
 \emph{Feature} & \emph{MyDas} & \emph{ProServer} & \emph{Dazzle} & \emph{easyDAS}\\
 \hline 
@@ -119,24 +117,25 @@ Entity Responsible & EBI & Sanger Institute & Sanger Institute & EBI\\
 \hline 
 Main task to create a data source & Develop a Java class. & Develop a Perl adaptor & Develop a Java class & Submit a tabulated file.\\
 \hline 
-	\end{tabular}
-	\caption{Features of the main DAS servers}
-	\label{tab:table1}
+        \end{tabular}
+        \caption{Features of the main DAS servers}
+        \label{tab:table1}
 \end{table}
-\footnotetext{There is a branch of this project where capabilities of DAS 1.6 are been implemented, however there was not a stable version of it at the time of publishing.}
+\footnotetext{There is a branch of this project where the capabilities of DAS 1.6  have been implemented, however there was not a stable version of it at the time of publishing.}
 
-Besides MyDas there are other implementations of DAS servers such as Dazzle (\url{www.biojava.org/wiki/Dazzle}) or ProServer \cite{FIN2007},  amongst others (see \url{http://www.biodas.org/wiki/DAS/1#Implementation}). Nonetheless, MyDas and ProServer are the only servers that fully support the current DAS specification (1.6E). They differ from each other mainly in the language in which they are implemented (ProServer is written in Perl), but not in feature set, making system compatibility the major factor in deciding between the two.
+Besides MyDas, there are other implementations of DAS servers such as Dazzle (\url{www.biojava.org/wiki/Dazzle}) or ProServer \cite{FIN2007},  amongst others (see \url{http://www.biodas.org/wiki/DAS/1#Implementation}). Nonetheless, MyDas and ProServer are the only servers that fully support the current DAS specification (1.6E). They differ from each other mainly in the language in which they are implemented (ProServer is written in Perl), but not in feature set, making system compatibility the major factor in deciding between the two.
 
-Table \ref{tab:table1} summarizes some of the high level characteristics of the most well known DAS servers. 
+Table \ref{tab:table1} summarizes some of the high level characteristics of the most well known DAS servers.
 
-We executed some benchmarking tests comparing MyDas, ProServer and Dazzle  in order to evaluate their loading performance. The test were ran through the Apache HTTP Server Benchmarking Tool (\url{http://httpd.apache.org/docs/2.0/programs/ab.html}).  was not taken into account for this test because it is installed on a different server, therefore there is no way to exclude network latency from the test.
 
-The three server were installed in the same machine, creating data sources with the same data set in each of them. We prepared 3 DAS queries with expected responses of approximately 1.5Kb, 200Kb and 7.5Mb. Each query was repeated 1000 times with 10 concurrent connections
+Some benchmarking tests were executed in order to compare  MyDas, ProServer and Dazzle and evaluate their loading performance. The test were run with the Apache HTTP Server Benchmarking Tool (\url{http://httpd.apache.org/docs/2.0/programs/ab.html}).  easyDAS was not taken into account for this test because it is installed on a different server, therefore there is no way to exclude network latency from the test.
+
+The three servers were installed in the same machine, and data sources with the same data set were created on each. We prepared three DAS queries with expected responses of approximately 1.5Kb, 200Kb and 7.5Mb. Each query was repeated 1000 times with 10 concurrent connections
 
 The 3 servers were able to complete all the requests and the table \ref{tab:table2} shows the main results of the executed test.
 
 \begin{table}[!ht]
-	\begin{tabular}{|p{6cm}|p{3cm}|p{3cm}|p{3cm}|}
+        \begin{tabular}{|p{6cm}|p{3cm}|p{3cm}|p{3cm}|}
 \hline 
 \emph{Figure} & \emph{MyDas} & \emph{ProServer} & \emph{Dazzle}\\
 \hline 
@@ -158,17 +157,16 @@ Time per request - Mean (large) & 5589.148 ms & 30942.590 ms & 9110.292 ms\\
 \hline 
 Transfer Rate (large) & 13088.38 Kbytes/sec & 2283.04 Kbytes/sec & 7770.29 Kbytes/sec\\
 \hline 
-	\end{tabular}
-	\caption{Benchmarking between the main DAS servers}
-	\label{tab:table2}
+        \end{tabular}
+        \caption{Benchmarking between the main DAS servers}
+        \label{tab:table2}
 \end{table}
 
-This comparison can not be conclusive in deciding the best or fastest DAS server, mainly because each data source has unique challenges and different cases can generate different results. Nonetheless, given that the three servers provide a data source implementation to publish data from a GFF file, they were configured to use the same GFF file to ensure equal conditions. 
+This comparison can not be considered conclusive in deciding which is the best or fastest DAS server, mainly because each data source has unique challenges and different cases can generate different results. Nonetheless, given that the three servers provide a data source implementation to publish data from a GFF file, they were configured to use the same GFF file to ensure equal conditions. 
 
-The figures in the table show that in all 3 scenarios MyDas performed better than the other servers. It is important to note that both MyDas and Dazzle were running on the same Tomcat server, therefore the conditions for both were the same. ProServer on the other hand, is a standalone server that implements socket communications in the application itself, which is an advantage in terms of making it easy to use.
+The figures in the table show that in all three scenarios MyDas performed better than the other servers. It is important to note that both MyDas and Dazzle were running on the same Tomcat server, therefore the conditions for both were the same. ProServer on the other hand, is a standalone server that implements socket communications in the application itself, which is an advantage in terms of making it easy to use.
 
 The complete results of the tests are available in Appendix \ref{ap:stress}.
-
 
 
 
