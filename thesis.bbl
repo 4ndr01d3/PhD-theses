@@ -1,4 +1,4 @@
-\begin{thebibliography}{120}
+\begin{thebibliography}{121}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -651,6 +651,13 @@ Yun Niu, David Otasek, and Igor Jurisica.
   interactions from pubmed; application to annotating known, high-throughput
   and predicted interactions in i2d.
 \newblock \emph{Bioinformatics}, 26\penalty0 (1):\penalty0 111--119, 2010.
+
+\bibitem[of~Medicine~(US)(2013)]{NLM2013}
+National~Library of~Medicine~(US).
+\newblock \emph{Genetics Home Reference - How do geneticists indicate the
+  location of a gene?}
+\newblock The Library; National Library of Medicine, 2013.
+\newblock URL \url{http://ghr.nlm.nih.gov/handbook/howgeneswork/genelocation}.
 
 \bibitem[Ogmen et~al.(2005)Ogmen, Keskin, Aytuna, Nussinov, and
   Gursoy]{OGM2005}

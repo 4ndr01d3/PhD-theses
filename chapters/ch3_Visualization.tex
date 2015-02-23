@@ -195,11 +195,51 @@ The BioJS registry includes the latest version of the code published in npm. Ver
 
 Every time a package is publish in npm it requires a new version number. In this way users of a package can specify which version to install in order to ensure the correct behaviour of their components.
 
-
 \subsection{Developed Components} \label{subsec:biojs_components}
-\subsubsection{Protein-Protein Interactions networks} \label{subsubsec:ppi_biojs}
+Besides the contributions in the development and maintenance of BioJS we have created a few BioJS components that are currently listed in the registry. The components described below were originally developed for BioJS 1.0, but have been updated to version 2.0. This process was manually implemented in the case of the Chromosome Viewer, in order to explore and test the new features of the registry. In contrast, the upgrading of the PPI components, mentioned at the end of this section, was achieved with a tool developed to upgrade all the components of the first version into BioJS 2.0
+
 \subsubsection{Chromosome Viewer}
-\subsubsection{Other Components}
+We design and develop a BioJS component to display a chromosome that includes the reported cytogenetic bands. The original version of this component is available in the BioJS 1.0 registry (\url{http://www.ebi.ac.uk/Tools/biojs/registry/Biojs.Chromosome.html}) and there is also an updated version for  BioJS 2.0 (\url{http://biojs.io/d/biojs-vis-chromosome}).
+
+Cytogenetic bands are the result of an experimental technique that dyes chromosomes in such a way that regions with higher percentage of the nucleotides adenine and thiamine are dark, while guanine and cytosine rich areas are light. This colour code is usually a good indication of areas with less (dark) or more (light) genes. The exposure of this bands help in the identification of chromosomes, and it is also useful to easily localise a genomic region in a chromosome.
+
+The naming convention for the bands in a chromosome divides the bands in two groups physically marked by the position of the centromere, which is the region where a chromosome links with its pair. This division creates a short and a long arm, which are marked as p and q respectively. The bands are then numbered starting from the centromere as p1, p2, etc. for the short arm, and q1, q2, etc, for the long one; and more numbers can be used to name sub regions that are detected in higher resolution \cite{NLM2013}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/chromosome.png}
+\caption[BioJS component to represent a Chromosome]{BioJS component to represent a Chromosome
+\label{fig:biojs_chromosome}}
+\end{figure}
+
+Figure \ref{fig:biojs_chromosome} is an snapshot of the BioJS component displaying chromosome 8 from \emph{Homo sapiens}. The information is obtained from the DAS server provided by Ensembl that contains the karyotype information (\url{http://www.ensembl.org/das/Homo_sapiens.NCBI36.karyotype/features?segment=8}). The DAS response is processed using JsDAS, extracting information about the chromosomic location, name and category of each band, which ultimately defines where, what label and which colour will be used to paint the region in the component.
+
+The chromosome is represented in a web page by a composition of HTML div elements, where all the divs are drawn on the same line without any separation between themselves. CSS classes are defined for each of the chromosome categories, for example the style below will be assign to the div that is rendered with a gpos25  category.
+
+\begin{lstlisting}
+.gpos25 {
+	background-color: rgb(25%, 25%, 25%);
+}
+\end{lstlisting}
+
+The border of the bands at both edges of the chromosome and the ones next to the centromere are rounded in order to visually identify these areas (as seen in figure \ref{fig:biojs_chromosome}).
+
+The component broadcast events when the user hovers or clicks over a band, in the examples this is used to display a label or to reposition an area selector over the corresponding bar. This area selector is an utility BioJS component (\url{http://www.ebi.ac.uk/Tools/biojs/registry/Biojs.AreaSelector.html}), that although is not biological related, it can be reused by any component that uses a similar approach to the graphic representation (i.e. HTML elements). Figure \ref{fig:biojs_chromosome} shows the selector over the band that is at the left of the chromosome. The selected region can be manipulated by dragging the edges of the blue area, and every time a new area is marked, events are broadcasted and other BioJS component can react accordingly.
+
+In BioJS 2.0 is recommended to only publish biological related component, therefore we decided to excluded the Area selector component from the BioJS registry. Nonetheless the component was published in npm (\url{https://www.npmjs.com/package/area_selector}) and can be reused by other npm packages including those part of BIoJS
+ 
+\subsubsection{Protein-Protein Interactions Force Layout} \label{subsubsec:ppi_biojs}
+The most popular way to represent networks is known as the node-link metaphor, in which some figures (e.g. circles. squares, images) represent the nodes and lines connecting them are the links. When the network consists of a short amount of nodes, it is possible to specify the position for all of them, however when the amount of nodes grows, the effort required to position all of them also increases and random location of nodes, most probably generates highly congested graphics with overlapping of elements and very cluttered areas.
+
+Different strategies have been defined to automatically organise network representations. We have used the implementation of a force-directed layout included in the D3 library (\url{https://github.com/mbostock/d3/wiki/Force-Layout}), in order to create a BioJS component that can visualise protein-protein interaction networks in a web native component.
+
+The force directed layout implemented in D3 is 
+
+We have discussed before (section \ref{sec:ppi}) the existence of several tools that visualise PPI networks; all of which support variations of a force-directed layout. However by the time we developed this component there were not web components to create such visualisations using HTML5 web standards. We are aware now of the existence of the Cytoscape.js project, which offers an alternative based in the HTML5 element canvas and include implementations of not only force-directed layouts but also circle, grid, and others. Nonetheless, we consider that is important to have technology alternatives  for this type of components. If for example, a developer is already using D3 in its web tool, the use of our component can be a better alternative to reduce the network latency created by many dependencies.
+
+\subsubsection{Protein-Protein Interactions Circle Layout} \label{subsubsec:ppi_biojs}
+
+%\subsubsection{Chromosome Viewer}
 
 \section{PINV, a web-based Protein Interaction Network Visualiser }  \label{section:pinv}
 Protein-protein interaction data has been used in multiple research scenarios: (i) to browse networks for genes of interest, (ii) to interpret the results of genome-wide genomic screen, (iii) to interpret functional genomics data and (iv) to elucidate disease genes \cite{FRA2013}. In all of them visualisation has play an important role, where is to for instance,  to meaningful navigate around a big network (i and iv), to find clusters of proteins with shared functionalities(iii and iv)  or highlight links that are not evident with other techniques (i and ii).
