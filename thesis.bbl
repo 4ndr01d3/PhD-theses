@@ -1,4 +1,4 @@
-\begin{thebibliography}{121}
+\begin{thebibliography}{124}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -48,6 +48,12 @@ Bruno Aranda, Hagen Blankenburg, Samuel Kerrien, Fiona~SL Brinkman, Arnaud
 \newblock Psicquic and psiscore: accessing and scoring molecular interactions.
 \newblock \emph{Nature methods}, 8\penalty0 (7):\penalty0 528--529, 2011.
 
+\bibitem[Barnes and Hut(1986)]{BAR1986}
+Josh Barnes and Piet Hut.
+\newblock A hierarchical o(n log n) force-calculation algorithm.
+\newblock \emph{Nature}, 324\penalty0 (6096):\penalty0 446--449, 12 1986.
+\newblock URL \url{http://dx.doi.org/10.1038/324446a0}.
+
 \bibitem[Bauer and King(2006)]{BAU2006}
 C~Bauer and G~King.
 \newblock Java persistence with hibernate.
@@ -60,6 +66,13 @@ Fran{\c{c}}ois Belleau, Marc-Alexandre Nolin, Nicole Tourigny, Philippe
 \newblock Bio2rdf: towards a mashup to build bioinformatics knowledge systems.
 \newblock \emph{Journal of biomedical informatics}, 41\penalty0 (5):\penalty0
   706--716, 2008.
+
+\bibitem[Bostock et~al.(2011)Bostock, Ogievetsky, and Heer]{BOS2011}
+M.~Bostock, V.~Ogievetsky, and J.~Heer.
+\newblock D3; data-driven documents.
+\newblock \emph{Visualization and Computer Graphics, IEEE Transactions on},
+  17\penalty0 (12):\penalty0 2301--2309, 2011.
+\newblock ISSN 1077-2626.
 
 \bibitem[Brinkrolf et~al.(2014)Brinkrolf, Janowski, Kormeier, Lewinski, Hippe,
   Borck, and Hofest{\"a}dt]{BRI2014}
@@ -358,6 +371,13 @@ Klaus Hippe, Benjamin Kormeier, Thoralf T{\"o}pel, Sebastian Janowski, and Ralf
 Robert Hoffmann.
 \newblock A wiki for the life sciences where authorship matters.
 \newblock \emph{Nature genetics}, 40\penalty0 (9):\penalty0 1047--1051, 2008.
+
+\bibitem[Holten(2006)]{HOL2006}
+Danny Holten.
+\newblock Hierarchical edge bundles: Visualization of adjacency relations in
+  hierarchical data.
+\newblock \emph{Visualization and Computer Graphics, IEEE Transactions on},
+  12\penalty0 (5):\penalty0 741--748, 2006.
 
 \bibitem[Hu et~al.(2013)Hu, Chang, Wang, Huang, Liu, Tian, Granger, and
   DeLisi]{HU2013}

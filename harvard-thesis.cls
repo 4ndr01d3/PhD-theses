@@ -194,9 +194,7 @@
 	\noindent
 	\input{frontmatter/thanks}
 	\vspace*{\fill} 
-	\newpage
-	\setcounter{page}{1}
-	\pagenumbering{arabic}}
+	\newpage}
 	
 % An environment for paragraph-style section
 \providecommand\newthought[1]{%
@@ -245,13 +243,14 @@
 %listings setup
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
 \definecolor{bggray}{rgb}{0.95,0.95,0.95}
+\definecolor{darkred}{rgb}{0.5,0.1,0.1}
 
  \lstdefinelanguage{XML}
 {
   morestring=[b]",
   morestring=[s]{>}{<},
   morecomment=[s]{<?}{?>},
-  stringstyle=\color{gray},
+  stringstyle=\color{darkred}\ttfamily,
   identifierstyle=\color{darkblue},
   keywordstyle=\color{cyan},
   morekeywords={xmlns,version,type,start,stop,label,cvId,id}% list your attributes here
