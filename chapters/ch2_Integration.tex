@@ -31,20 +31,19 @@ La verdad no penetra en un entendimiento rebelde. Si todos los lugares de la tie
 \end{description}
 \newpage
 
+\newthought{The data analysed in bioinformatics comes from diverse and heterogeneous sources}, for example, the data might be captured from wet-lab experiments or deduced from \emph{in-silico} procedures. It can refer to nucleic acid information and sequenced data, but also to expression levels and other protein related information. It is possible to analyse isolated organisms or to gather information from multiple species. It all depends on the purpose of the research and the availability of data, however it is almost inevitable to have to integrate more than one of these sources in order to tackle today's research challenges.
 
-\newthought{The data analysed in bioinformatics comes from diverse and heterogeneous sources}, for example, the data might be captured from wet-lab experiments or deduced from \emph{in-silico} procedures. It can refer to nucleic information and sequenced data, but also to expression levels and other protein information, it is possible to analyse isolated organisms or to gather information from multiple species. It all depends on the purpose of the research and the availability of data, however it is almost inevitable to have to integrate more than one of this sources in order to tackle todays research challenges.
-
-This chapter is focused on the contributions made during this PhD in order to integrate data using the Distributed Annotation System. The first section describes  MyDas, a server tool that facilitates the publishing of DAS sources. A proposal to extend DAS in order to support collaborative annotation is described in section \ref{section:writeback}. We have grouped our participation in several client-side projects with DAS in the section \ref{section:dasvisual}. Lastly we will discuss the impact of these projects, together with the present and future status of DAS. 
+This chapter is focused on the contributions made during this PhD to the integration of data using the Distributed Annotation System. The first section describes  MyDas, a server tool that facilitates the publishing of DAS sources. A proposal to extend DAS in order to support collaborative annotation is described in section \ref{section:writeback}. We have grouped our participation in several client-side projects with DAS into section \ref{section:dasvisual}. Lastly we discuss the impact of these projects, together with the present and future status of DAS. 
 
 \section{MyDas} \label{section:mydas}
 
 The research in this section has been published in the paper \cite{SAL2012}, referenced as \ref{paper:mydas}, at the beginning of this chapter. Authors of this paper are Gustavo A. Salazar, Leyla J. García and Philip Jones (first authors). The co-authors provided input in line with their roles as supervisors.  Parts of this section are based on the work of collaborators and this is indicated clearly below. 
 
-The contributions to the software development process of MyDas are as follows: the first version of the project was developed by Philip Jones with the collaboration of Anthony Quinn for the XSLT component. A second development cycle together with the support of the DAS version 1.6 was executed by Gustavo A. Salazar. Current maintenance of the software is lead by Leyla J. García. As an open source project, it has received contributions from other developers, but the mentioned authors here have been the leaders of the project during its various stages.
+The contributions to the software development process of MyDas are as follows: the first version of the project was developed by Philip Jones with the collaboration of Anthony Quinn for the XSLT component. A second development cycle together with the support of the DAS version 1.6 was executed by Gustavo A. Salazar. Current maintenance of the software is led by Leyla J. García. As an open source project, it has received contributions from other developers, but the authors mentioned here have been the leaders of the project during its various stages.
 
 \subsection{Overview}
 
-As of January 2015, there were over 1500 sources registered in the DAS registry, and although not all of them implement the same capabilities, they all follow the DAS protocol with almost half of them updated to the latest version DAS 1.6E. There are common tasks among DAS sources:  parsing, capture of arguments, exception handling, XML creation, dealing with the HTTP protocol, and more. And therefore a software specialised in these tasks is needed in order to allow a data providers to focus in their specific cases.
+As of January 2015, there were over 1500 sources registered in the DAS registry, and although not all of them implement the same capabilities, they all follow the DAS protocol with almost half of them updated to the latest version DAS 1.6E. There are common tasks among DAS sources:  parsing, capture of arguments, exception handling, XML creation, dealing with the HTTP protocol, and more. Therefore, software specialised in these tasks is needed in order to allow data providers to focus on their specific cases.
 
 MyDas is a software tool that assists in the process of publishing biological data through the DAS protocol, described in \ref{ssec:DASprotocol}. Data providers are required to implement an adaptor that connects the logic of MyDas with the data itself, and from there MyDas executes all the HTTP interfaces, XML encodings and other required operations to support all the DAS capabilities.
 
@@ -64,9 +63,9 @@ The development process of MyDas is supported by several tools, for example, it 
 \label{fig:mydas}}
 \end{figure}
 
-The information required to use the external control components should be described in the configuration file, including data such as the URI, title, the relative path to the data source adapter. Then, the configuration manager makes the user options available to both the MyDas core and the data source implementation. 
+The information required to use the external control components should be described in the configuration file, including data such as the URI, title and the relative path to the data source adapter. Then, the configuration manager makes the user options available to both the MyDas core and the data source implementation. 
 
-The elements of the DAS specification have been mapped into a Java object model, which must be used by the data source developer when creating an adapter. In this way , the core of Mydas can use the same subroutines to deploy heterogeneous data into DAS. 
+The elements of the DAS specification have been mapped into a Java object model, which must be used by the data source developer when creating an adapter. In this way , the core of MyDas can use the same subroutines to deploy heterogeneous data into DAS. 
 
 In order to facilitate the implementation of data sources, a template project is available with examples of both reference and annotation servers: \url{https://code.google.com/p/mydas/downloads/detail?name=MyDasTemplate-1.6.7.zip}.
 
@@ -80,9 +79,9 @@ The InterPro database of predictive protein signatures is used for the classific
 PRIDE DAS 1.6 (\url{http://www.ebi.ac.uk/pride-das/das/}) provides protein and peptide identifications together with supporting mass spectrometry evidence \cite{VIZ2009}. The information from PRIDE has already been shared using BioMart\cite{KIN2011}, therefore the strategy used to make it public to the DAS community was to develop an adaptor using MyDas to take the information from this source.
 
 \subsection{Tutorials}
-We have developed three tutorials on how to use MyDas that are accessible via web (\url{http://code.google.com/p/mydas/wiki/Tutorials}). The tutorials are classified by their level of difficulty: Beginner, Intermediate and Advanced. 
+We have developed three tutorials on how to use MyDas that are accessible via the web (\url{http://code.google.com/p/mydas/wiki/Tutorials}). The tutorials are classified by their level of difficulty: Beginner, Intermediate and Advanced. 
 
-The first tutorial helps the user in the setup of the example data source. No programming is required at this point, as it is limited to installation and configuration of MyDas. The intermediate level tutorial guides the user through the common scenario of having a text file with some annotations that need to be displayed in DAS. In this case, the user requires to program the parsing of the file and mapping of it into the model. The third tutorial explores the case of obtaining data from a database system, which is a common way to store/access data in bioinformatics environments. This tutorial requires not only the ability to program in Java, but also to understand queries written in SQL.
+The first tutorial helps the user in the setup of the example data source. No programming is required at this point, as it is limited to installation and configuration of MyDas. The intermediate level tutorial guides the user through the common scenario of having a text file with some annotations that need to be displayed in DAS. In this case, the user is required to program the parsing of the file and mapping of it into the model. The third tutorial explores the case of obtaining data from a database system, which is a common way to store/access data in bioinformatics environments. This tutorial requires not only the ability to program in Java, but also to understand queries written in SQL.
 
 The power of MyDas is revealed when it is used on large data sets with elaborate schemas as in the last tutorial. The example uses the freely available mysql database provided by Ensembl. There are over a hundred databases hosted on the Ensembl servers, and in this case we used the core set of tables for Homo Sapiens (version 56\_37a), and restricted our search scope to some high level features (e.g. Chromosome, genes, transcript). 
 
@@ -115,7 +114,7 @@ Physical Storage & Defined by User & Defined by User & Defined by User & Interna
 \hline 
 Entity Responsible & EBI & Sanger Institute & Sanger Institute & EBI\\
 \hline 
-Main task to create a data source & Develop a Java class. & Develop a Perl adaptor & Develop a Java class & Submit a tabulated file.\\
+Main task to create a data source & Develop a Java class & Develop a Perl adaptor & Develop a Java class & Submit a tabulated file\\
 \hline 
         \end{tabular}
         \caption{Features of the main DAS servers}
@@ -128,11 +127,11 @@ Besides MyDas, there are other implementations of DAS servers such as Dazzle (\u
 Table \ref{tab:table1} summarizes some of the high level characteristics of the most well known DAS servers.
 
 
-Some benchmarking tests were executed in order to compare  MyDas, ProServer and Dazzle and evaluate their loading performance. The test were run with the Apache HTTP Server Benchmarking Tool (\url{http://httpd.apache.org/docs/2.0/programs/ab.html}).  easyDAS was not taken into account for this test because it is installed on a different server, therefore there is no way to exclude network latency from the test.
+Some benchmarking tests were executed in order to compare  MyDas, ProServer and Dazzle and evaluate their loading performance. The tests were run with the Apache HTTP Server Benchmarking Tool (\url{http://httpd.apache.org/docs/2.0/programs/ab.html}).  easyDAS was not considered for this test because it is installed on a different server, therefore there is no way to exclude network latency from the test.
 
-The three servers were installed in the same machine, and data sources with the same data set were created on each. We prepared three DAS queries with expected responses of approximately 1.5Kb, 200Kb and 7.5Mb. Each query was repeated 1000 times with 10 concurrent connections
+The three servers were installed on the same machine, and data sources with the same data set were created on each. We prepared three DAS queries with expected responses of approximately 1.5Kb, 200Kb and 7.5Mb. Each query was repeated 1000 times with 10 concurrent connections
 
-The 3 servers were able to complete all the requests and the table \ref{tab:table2} shows the main results of the executed test.
+The 3 servers were able to complete all the requests and table \ref{tab:table2} shows the main results of the executed test.
 
 \begin{table}[!ht]
         \begin{tabular}{|p{6cm}|p{3cm}|p{3cm}|p{3cm}|}
@@ -158,7 +157,7 @@ Time per request - Mean (large) & 5589.148 ms & 30942.590 ms & 9110.292 ms\\
 Transfer Rate (large) & 13088.38 Kbytes/sec & 2283.04 Kbytes/sec & 7770.29 Kbytes/sec\\
 \hline 
         \end{tabular}
-        \caption{Benchmarking between the main DAS servers}
+        \caption{Benchmarking between the main DAS servers.}
         \label{tab:table2}
 \end{table}
 
@@ -175,36 +174,35 @@ The complete results of the tests are available in Appendix \ref{ap:stress}.
 
 
 
-
-%\newpage
 \section{DAS Writeback}\label{section:writeback}
 
-Large part of the work included in this section was executed prior the timeframe of this PhD during the MSc referenced as No. \ref{paper:msctheses} at the beginning of this chapter. Nonetheless, the inclusion of this contribution in this document is relevant because the software was reengineered as part of this PhD, upgrading it to the latest DAS specification and using the most recent versions of its dependencies: MyDas and DASty3. The results of both MSc and reengineering process were published in \ref{paper:writeback} as reported at the top of this chapter, which author is Gustavo A. Salazar and the co-authors provided input in line with their roles as collaborators and supervisors. 
+A large part of the work included in this section was carried out prior to the timeframe of this PhD during the MSc referenced as No. \ref{paper:msctheses} at the beginning of this chapter. Nonetheless, the inclusion of this contribution in this document is relevant because the software was reengineered as part of this PhD, upgrading it to the latest DAS specification and using the most recent versions of its dependencies: MyDas and DASty3. The results of both the MSc and reengineering process were published in the article \ref{paper:writeback} as reported at the beginning of this chapter. The first author of the paper is Gustavo A. Salazar and the co-authors provided input in line with their roles as collaborators and supervisors. 
 
 \subsection{Overview}
-DAS offers a uniform protocol to share data that can, and has been used, for diverse data providers. One of the advantages of this approach is that users now can collect information from multiple resources by using a single tool. However we consider that opening the communication in the opposite direction (i.e. users submitting annotations to the resources), is a desirable functionality that was not included in the firsts versions of the protocol.
+DAS offers a uniform protocol to share data that can, and has, been used by diverse data providers. One of the advantages of this approach is that users can now  collect information from multiple resources by using a single tool. However we consider that opening the communication in the opposite direction (i.e. users submitting annotations to the resources), is a desirable functionality that was not included in the first versions of the protocol.
 
-For example, researchers using a DAS client to gather information of a protein of their interest, can notice errors on current features, or missing annotations. It is unrealistic to expect such user to deploy a DAS source to publish a handful of annotations. The traditional alternative is for them to report the new features to the providers. This however takes time, and falls into the inconveniences of having a centralised repository, where the user might have to wait for the release of a new version of the data before it can actually use it in the client.
+For example, researchers using a DAS client to gather information about a protein of their interest can identify errors in existing features or missing annotations. It is unrealistic to expect such a user to deploy a new DAS source to publish a handful of annotations. The traditional alternative is for them to report the new features to the providers. This however takes time, and has the inconveniences associated with using a centralised repository (as mentioned in section \ref{subsec:dwh}), where the user might have to wait for the release of a new version of the data before it can actually be used in the client.
 
 As a solution to this problem, we have designed and implemented the Distributed Annotation System (DAS) Writeback, which enables community-based manual annotation of public data. Our approach makes the process of manual annotation a collaborative task, whereby any individual can participate by sharing their knowledge in the form of new or edited annotations.
 
-The DAS Writeback system provides the capabilities of reading, writing, editing and deleting features by users of a web application. For the design and development of such a system it was necessary to model an architecture that supports the new features, define an extension of the DAS specification to accommodate the client-server communication, and implement server and client components. All of these milestones were achieved while trying to follow the same style as the existing DAS technology, thus looking for an easy adoption of the system by the DAS community.
+The DAS Writeback system provides the capabilities of reading, writing, editing and deleting features by users of a web application. For the design and development of such a system it was necessary to model an architecture that supports the new features, define an extension of the DAS specification to accommodate the client-server communication, and implement server and client components. All of these milestones were achieved while trying to follow the same style as the existing DAS technology,with the object of achieving easy adoption of the system by the DAS community.
 
 \subsection{DAS as RESTful services}
-The strategy used to define the architecture of a writeback system for DAS, was to conciliate two technical concepts: one the one hand, DAS uses the REST protocol for web services \cite{PRL2007}, and on the other hand, reading and writing functionalities have been widely explore in Relational DataBases Management Systems (RDBMS), where the basic operations are  known as CRUD (Create, Read, Update and Delete) \cite{KIL1990}.
+The strategy used to define the architecture of a writeback system for DAS was to reconcile two technical concepts: on the one hand, DAS uses the REST protocol for web services \cite{PRL2007}, and on the other hand, reading and writing functionalities have been widely explored in Relational DataBase Management Systems (RDBMS), where the basic operations are  known as CRUD (Create, Read, Update and Delete) \cite{KIL1990}.
 
-One of the major strengths of the RESTful strategy is that it is based on such widely adopted standards as HTTP, XML, URI and MIME. This makes REST, and therefore DAS, technologies easy to implement and attractive to both developers and final users. Considering this we decide that when extending the DAS protocol to support servers that can store edited annotations, we set out to retain compatibility with the existing read-only system of HTTP GET requests. 
+One of the major strengths of the RESTful strategy is that it is based on such widely adopted standards as HTTP, XML, URI and MIME. This makes REST, and therefore DAS, technologies easy to implement and attractive to both developers and end users. Considering this we decided that when extending the DAS protocol to support servers that can store edited annotations, we set out to retain compatibility with the existing read-only system of HTTP GET requests. 
 
 One of the main features of the REST architecture is to have a uniform interface. This means that REST resources should be manipulated using a predefined set of operations. In the case of the Web, those operations are the 4 basic reading/writing operations CRUD, and the HTTP methods PUT, GET, POST and DELETE are suggested in the literature to specify those actions. These operations \textit{``are broadly applicable but they also help uphold specific Web architectural properties''} \cite{VIN2008}.
 
-The DAS specification in its version 1.53E it is well detailed in the implementation of the reading and querying capabilities of the system, this however only cover the use of the GET, and there is no mention of any of the other RESTful methods.
+Version 1.53E of the DAS specification includes a detailed explanation of the reading and querying capabilities of the system. This however only covers the use of GET, and there is no mention of any of the other RESTful methods.
 
-Our proposal is to extend the DAS protocol in order to define the use of the other RESTful methods to complete the inclusion of the CRUD functionalities into the DAS system, and consequently, provide the DAS community with the appropriate tools for collaborative annotation.
+Our proposal was to extend the DAS protocol in order to define the use of the other RESTful methods to complete the inclusion of the CRUD functionalities into the DAS system, and consequently, provide the DAS community with appropriate tools for collaborative annotation.
 
-A previous effort in a similar direction was the object of a MSc thesis, where a DAS Writeback server was developed as a proof of concept \cite{GRZ2008}, however it used different technologies and it wasn't closely attached to the RESTful protocol, which are factors that we consider to be key in the adoption of any extension on DAS.
+A previous effort in a similar direction was the object of a MSc thesis, where a DAS Writeback server was developed as a proof of concept \cite{GRZ2008}, however it used different technologies and wasn't closely attached to the RESTful protocol, which are factors that we consider to be key in the adoption of any extension on DAS.
 
 \subsection{Architecture}
 The components of the system were developed bearing the following goals in mind:
+
 \begin{enumerate}
 \setlength\itemsep{-0.5em}
 \item The original annotations of a DAS source should not be modified directly.
@@ -212,11 +210,11 @@ The components of the system were developed bearing the following goals in mind:
 \item The system should promote interaction between the server and users.
 \end{enumerate}
 
-The first goal has been established in order to ensure that the data shared by a provider is not in risk of been changed or deleted by any case of vandalism or by mistake when using the write back system. In order to do this, the architecture includes a third party writeback server that stores the changes to a set of annotation, independent of the original source providing those annotations. 
+The first goal has been established in order to ensure that the data shared by a provider is not at risk of being changed or deleted through any case of vandalism or by mistake when using the write back system. In order to do this, the architecture includes a third party writeback server that stores the changes to a set of annotations, independent of the original source providing those annotations. 
 
-New features, editions and deletions are saved in the writeback server as annotations themselves and therefore they can be in turn be edited or deleted, by other users. We hope that this feature, gives the users the sense of trust (goal 2) that other collaborative systems such wiki projects have, where the community ensures the quality of the information. 
+New features, edits and deletions are saved on the writeback server as annotations themselves and therefore they can in turn be edited or deleted by other users. We hope that this feature gives the users the sense of trust (goal 2) that other collaborative systems such wiki projects have, where the community ensures the quality of the information. 
 
-Finally on a way to promote the use of the writeback system we implemented the functionalities on the well known protein DAS client DASty. With the objective of bringing the new functions on a system users were already familiar with.
+Finally, as a means to promote the use of the writeback system, we implemented its functionalities in the well known protein DAS client: DASty. The purpose of this was to introduce the writeback functions to an existing interface that users were already familiar with.
 
 \begin{figure}[ht] 
 \centering
@@ -230,128 +228,120 @@ A standard DAS transaction starts by querying the DAS Registry (the DAS Registry
 
 HTTP requests relating to write operations on the writeback server are much larger than standard DAS requests (shown in Figure \ref{fig: WritebackArchitecture} as the width of the red arrow). The reason for this is that the client is now required to send the information to add or update a specific feature, including its type, category, position and other characteristics predefined in DAS. The communication with the writeback server is thus extended beyond the display of a graphic that compiles the information from all the servers. This is when the user starts to interact with the information, transforming the client from a pure visualisation tool to an interactive interface between the user and the DAS data.
 
-
-
-
-
 \subsection{Protocol Extension}
-As described in \ref{ssec:DASprotocol}, the version 1.53 of the DAS protocol had its continuation on the 1.53E, in which a set of proposed extensions were included. The same schema was followed when version 1.6 was released shortly followed by 1.6E, in which was decided by the DAS community that new extensions can be proposed using the wiki page of the project (\url{http://www.biodas.org}), and its adoption will determine its inclusion as a core component on future versions.
+As described in \ref{ssec:DASprotocol}, version 1.53 of the DAS protocol was expanded in version 1.53E, where a set of proposed extensions were included. The same schema was followed when version 1.6 was released, shortly followed by 1.6E, when it was decided by the DAS community that new extensions could be proposed using the wiki page of the project (\url{http://www.biodas.org}). Their adoption by the community would determine their inclusion as a core component in future versions.
 
-We follow this directions in order to include the writeback into DAS, which eventually became the first official extension on DAS 1.6E. The proposed specification can be found on the DAS1.6E web page (\url{http://www.biodas.org/wiki/DAS1.6E\#DAS\_writeback}). It proposes that both input and output documents for the writeback should follow the DAS GFF format (See code below for an example); the HTTP method indicates what to do with the received document, the method GET is still been used for querying and reading while POST, PUT and DELETE should be use to create, update or delete a feature.
+We followed these guidelines in order to include the writeback into DAS, which eventually became the first official extension of DAS 1.6E. The specification can be found on the DAS1.6E web page (\url{http://www.biodas.org/wiki/DAS1.6E\#DAS\_writeback}). It indicates that both input and output documents for the writeback should follow the DAS GFF format (See code below for an example). The HTTP method determines what to do with the received document; the GET method is still being used for querying and reading; while POST, PUT and DELETE should be used to create, update or delete features respectively.
 
-The HTTP status codes used for DAS remain valid and will indicate success or failure of the requested command (e.g. HTTP code 200 for success)
+The HTTP status codes used for DAS remain valid and indicate success or failure of the requested command (e.g. HTTP code 200 for success)
 
 %\newpage
 \begin{lstlisting}
 <?xml version="1.0" standalone="no"?>
 <DASGFF>
-	<GFF>
-		<SEGMENT id="P13569" start="1" stop="1480" version="f29b8c0a9056a0f7680f3290d259b6ac">
-			<FEATURE id="new" label="ISFCSQFSWIMPGTIK">
-				<TYPE id="Polypeptide" cvId="Polypeptide">Polypeptide</TYPE>
-				<METHOD id="ECO:0000160" cvId="ECO:0000160">
-					Inferred from protein separation followed by fragment identification
-				</METHOD>
-				<START>488</START>
-				<END>503</END>
-				<NOTE>note added in the writeback</NOTE>
-				<NOTE>USER=username</NOTE>
-				<NOTE>PASSWORD=password</NOTE>
-			</FEATURE>
-		</SEGMENT>
-	</GFF>
+ <GFF>
+    <SEGMENT id="P13569" start="1" stop="1480" version="f29b8c0a9056a0f7680f3290d259b6ac">
+       <FEATURE id="new" label="ISFCSQFSWIMPGTIK">
+           <TYPE id="Polypeptide" cvId="Polypeptide">Polypeptide</TYPE>
+           <METHOD id="ECO:0000160" cvId="ECO:0000160">
+                   Inferred from protein separation followed by fragment identification
+           </METHOD>
+           <START>488</START>
+           <END>503</END>
+           <NOTE>note added in the writeback</NOTE>
+           <NOTE>USER=username</NOTE>
+           <NOTE>PASSWORD=password</NOTE>
+       </FEATURE>
+    </SEGMENT>
+ </GFF>
 </DASGFF>
 \end{lstlisting}
 
 
 \subsection{Implementation}
-We have developed a DAS writeback tool by extending existing DAS clients and servers. The writeback is included as a plug-in of DASty3 and is integrated in the latest implementation of MyDAS, compliant with the current DAS 1.6 specification. 
+We have developed a DAS writeback tool by extending existing DAS clients and servers. The writeback is included as a plug-in of DASty3 and is integrated in the latest implementation of MyDAS. It is also compliant with the current DAS 1.6 specification. 
 
 \subsubsection{Server}
 Our implementation of DAS Writeback is an extension of the MyDAS server, which has been widely described in section \ref{section:mydas}. A writeback data source was implemented to store annotations. Annotations are the main entity in the data model, and any edits or deletions of an annotation are considered to be versions of the original annotation.
 
-The datasource uses Hibernate \cite{BAU2006} as its layer to access the persistence data, which brings the advantage of being \emph{Database-Engine} independent. The data source has been successfully tested using PostgreSQL, MySQL and Derby but is expected to work properly in other engines.
+The datasource uses Hibernate \cite{BAU2006} as its layer to access the persistence data, which brings the advantage of being \emph{Database-Engine} independent. The data source has been successfully tested using PostgreSQL, MySQL and Derby; but is expected to work in other engines.
 
 \subsubsection{Client}\label{section:dastywb}
 One of the goals of this project was to create the perception for users that the writeback functions in a client are native and can be used naturally with existing clients. For this reason, the extension of an existing client was preferable to implementing a new one from scratch. In addition, the writeback server behaves as any other DAS server for reading purposes, so many software routines of an existing client could potentially be reused for the writeback visualisation.
 
-We decided to use DASty for our first DAS writeback client and a prototype was developed for DASty2 and is details about it can be found in \cite{SAL2010}. We collaborated in the development of some of the components of DASty2 \cite{JIM2008} and the knowledge of the software influenced the decision of using it for the writeback.
+We decided to use DASty for our first DAS writeback client and a prototype was developed for DASty2, which is detailed in \cite{SAL2010}. We collaborated in the development of some of the components of DASty2 \cite{JIM2008} and our knowledge of the software influenced the decision to use it for the writeback.
 
-Later, in 2010, DASty2 went through a refactoring process, optimising its code to provide a plug-in framework. The new version is called DASty3 and our collaboration in its development is described in section \ref{section:dasty}. The writeback client was rewritten as a plugin for DASty3 and is included in its core feature set.
+Later, in 2010, DASty2 went through a refactoring process, optimising its code to provide a plug-in framework. The new version is called DASty3 and our contribution to its development is described in section \ref{section:dasty}. The writeback client was rewritten as a plugin for DASty3 and is included in its core feature set.
 
-%The communication between writeback client and server is achieved using the DAS GFF XML format, which is defined in the DAS specification (See example code above). The client has a logical model to map the DAS GFF format when it is reading from the writeback server, and also starts from this model to build the XML when information is to be sent to the server.
-
-%The extensions performed in DASty3 in order to support the writeback capabilities are divided below into reading and writing functions, i.e. if annotations are requested or if a change/creation is submitted, respectively:
 
 \subsubsection{CRUD functions}
-Below we describe how the CRUD functions (i.e. Create, Read, Update, Delete) have been implemented in both client(DASty3 plugin) and server(MyDas extension).
+Below we describe how the CRUD functions (i.e. Create, Read, Update, Delete) have been implemented in both client (DASty3 plugin) and server (MyDas extension).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=6.5in]{figures/dasty3wbT.png} 
-\caption{DASty3+Writeback}  \label{fig: dasty+wb}
+\caption{Writeback extensions on DASty3. (A) Modes to visualize the informations from a writeback server into the DASty3 features graphic. (B) Form to add a new feature. (C) popup window including writeback related tabs, for edit, deletion and duplication of features. (D) Annotations from the writeback server displayed in the features panel.}  \label{fig: dasty+wb}
 \end{figure}
 
 \paragraph{Create}
-Previous versions of MyDas were using GET and POST methods indistinctively, therefore the first modification done to the server was to identify the different HTTP methods and redirect the flow of data to its corresponding action. In order to create a new annotation, MyDas now listen to any POST method, and if its content is a GFF file its parsed and added to the data source. 
+Previous versions of MyDas used GET and POST methods interchangeably, therefore the first modification of the server was to identify the different HTTP methods and redirect the flow of data to its corresponding action. In order to create a new annotation, MyDas now listens to activity from any POST method, and if its content is a GFF file, it is parsed and added to the data source. 
 
-On the client side, a new form was added under the annotation graphic (\ref{fig: dasty+wb} B) in which the user can describe the new feature specifying label, location, type and evidence; notes and links are optional fields for the new feature. 
+On the client side, a new form was added under the annotation graphic (\ref{fig: dasty+wb} B) in which the user can describe the new feature specifying label, location, type and evidence. Notes and links are optional fields for the new feature. 
 
-Version 1.6 of the DAS specification recommends the use of ontologies in order to standardise both types and evidence codes, and make the task of integrating annotation from several servers easier. In order to promote the use of those ontologies, a list of suggested terms from the corresponding ontology is displayed in the edit form.
+Version 1.6 of the DAS specification recommends the use of ontologies in order to standardise both annotation type and evidence codes, and make the task of integrating annotation from several servers easier. In order to promote the use of those ontologies, a list of suggested terms from the corresponding ontology is displayed in the edit form.
   
 \paragraph{Read}
-The writeback server behaves like any other DAS source when a set of features is requested. The client decides when and how to process this information. For the DASty3 writeback plug-in, the user has three different modes to operate (Figure \ref{fig: dasty+wb} A): (i) to ignore the writeback annotations, (ii) to use the writeback as any other annotation source, or (iii) to replace original annotations with the writeback information. The latter option generates a similar graphic for features as normally rendered by DASty3, but incorporating the modifications that the writeback server contains. 
+The writeback server behaves like any other DAS source when a set of features is requested. The client decides when and how to process this information. For the DASty3 writeback plug-in, the user has three different modes to choose from (Figure \ref{fig: dasty+wb} A): (i) to ignore the writeback annotations, (ii) to use the writeback as any other annotation source, or (iii) to replace original annotations with the writeback information. The latter option generates a similar graphic for features as normally rendered by DASty3, but incorporating the modifications that the writeback server contains. 
 
 \paragraph{Update}
-When a DASty3 user clicks on a feature, a popup window with the complete information of the annotation is displayed. We have extended this functionality by including tabs on the popup window. The ``Edit'' tab contains a similar form as the one for a new feature, but it gets filled with the the information of the selected annotation (Figure {fig: dasty+wb} C). 
+When a DASty3 user clicks on a feature, a popup window with the complete information of the annotation is displayed. We have extended this functionality by including tabs on the popup window. The ``Edit'' tab contains a similar form to that of a new feature, but it is filled with the information of the selected annotation (Figure \ref{fig: dasty+wb} C). 
 
-The information of this form is sent to the server using the method PUT, MyDas identifies the method, parses the GFF document and stores its content as the current version of the feature. The latest version will be the one to which the server returns for future requests.
+The information of this form is sent to the server using the method PUT. MyDas identifies the method, parses the GFF document and stores its content as the current version of the feature. The latest version will be the one to which the server returns for future requests.
 
 \paragraph{Delete}
-Del is nnother tab available in DASty3 when a feature is selected. its content is just a confirmation dialog where the user expresses the desire of removing that feature. The DELETE HTTP method is then invoked, including the identifier for the feature. When MyDas detects a DELETE requests, it creates another annotation to register this command.  Which means that features are not really deleted from the server. The features tagged as deleted will be transparent in the DASty3 graphic, and just its border will be visible.
+Del is another tab available in DASty3 when a feature is selected. Its content is just a confirmation dialog where the user expresses the desire to remove that feature. The DELETE HTTP method is then invoked, including the feature's identifier. When MyDas detects a DELETE requests, it creates another annotation to register this command.  This means that features are not really deleted from the server. Rather, the features tagged as deleted will be transparent in the DASty3 graphic, and only its border will be visible.
 
 
 \subsubsection{Other writeback functions}
 A basic module to allow for user authentication through a login and password was added in the writeback panel (Figure \ref{fig: dasty+wb} A). Any writing function is conditional on prior login and password validation. The reading functionality does not require authentication.
 
-Another way to edit a feature is through the history tab , In this window, the content of any previous version of the selected feature is displayed. In this case, the user can choose to roll-back to a previous version, and what actually happens is that a new edit request through the PUT HTTP method is submitted, therefore a rollback task does not removes the existing history, but rather adds a new edition to it.
-
+Another way to edit a feature is through the history tab. In this window, the content of any previous version of the selected feature is displayed. The user can choose to roll-back to a previous version, which submits a new edit request through the PUT HTTP method. Therefore a roll-back task does not remove the existing history, but rather adds a new edit to it.
 
 
 
 	
 \section{DAS Clients} \label{section:dasvisual}
-The architecture of the Distributed Annotation System described in \ref{ssec:DAS} loads big part of the responsibility to integrate data into the client, whose job is simplified by the fact that all the sources comply with a protocol. Although DAS is mostly associated with the integration of information, DAS clients have been developing visualisation strategies in order to provide a single view of the collected information.
+The architecture of the Distributed Annotation System described in \ref{ssec:DAS} passes a large part of the responsibility of integrating data to the client, whose job is simplified by the fact that all the sources comply with a protocol. Although DAS is mostly associated with the integration of information, DAS clients have been developing visualisation strategies in order to provide a single view of the collected information.
 
-In the following subsections we will describe our contributions to two DAS clients: DASty and the probeSearcher. Through these 3 different project we have observed the power of integrating information using web based visualisation techniques. Users can visit the website of any of these tools wherever they are, and through the DAS client get information from multiple sources, condensed in a single view, which can be explore further in order to get more detailed information.
+In the following subsections we will describe our contributions to two DAS clients: DASty and probeSearcher. Through these projects, we have observed the power of integrating information using web based visualisation techniques. Users can visit the website of any of these tools wherever they are, and through the DAS client get information from multiple sources. This information can then be condensed into a single view, which can be explored further in order to get more detailed information.
 
 \subsection{DASty} \label{section:dasty}
-Our first contribution to the DAS technology was in 2008, when we help in the development of a component for DASty2 to include the visualization of a 3D structure of a protein in parallel with its annotations, allowing to highlight the coverage of a feature in its structure. Later, as part of this PhD we collaborate in the reengineering of this software. The results of this collaboration are described in \cite{VIL2011} also referenced at the beginning of this chapter as the co-author publication No. \ref{paper:dasty3}. Our contribution on the development of the software was focused in the software design and definition of the architecture. Implementation, documentation and maintenance were tasks executed by our collaborators. 
+Our first contribution to the DAS technology was in 2008, when we assisted in the development of a component for DASty2 which included the visualization of the 3D structure of a protein in parallel with its annotations, allowing the user to highlight the coverage of a feature in its structure. Later, as part of this PhD we collaborated on the reengineering of this software. The results of this collaboration are described in \cite{VIL2011} and are also referenced at the beginning of this chapter as the co-author publication No. \ref{paper:dasty3}. Our contribution to the development of the software was focused on the software design and definition of the architecture. Implementation, documentation and maintenance were tasks executed by our collaborators. 
 
-DASty was originally developed using Macromedia Flash for the client and Java for the server component ; it included the basic functionalities of an annotation viewer (e.g.  alignment of annotations agains the protein sequence, manipulation of the graphic) and was strongly attached to the UniProt DAS source \cite{JON2005}. 
+DASty was originally developed using Macromedia Flash for the client and Java for the server component. It included the basic functionalities of an annotation viewer (e.g.  alignment of annotations against the protein sequence, manipulation of the graphic) and was strongly attached to the UniProt DAS source \cite{JON2005}. 
 
-The project was re-written in 2007 to take advantage of the by-then novel features offered by technology know as Asynchronous Javascript And XML (AJAX). There are three main advantages of using AJAX for a DAS client:
+The project was re-written in 2007 to take advantage of the novel features offered at the time by a technology known as Asynchronous Javascript And XML (AJAX). There are three main advantages of using AJAX for a DAS client:
 \begin{enumerate}
-\item The possibility of having asynchronous calls to a server, allows the client to generate responses on-the-fly, and in this way the user can analyse partial results of fast servers, while slow ones take their time to reply.
-\item DAS specification uses XML to define the responses of a DAS server and AJAX was conceived to use XML for the same purposes, therefore routines in the AJAX API can be reused for the processing of well-formed XML documents, such as the ones defined using the DASGFF format.
-\item AJAX is part of Javascript and therefore supported for all the main browsers, besides that, the processed XML response results in manipulating the HTML rendered in the webpage; and then, the whole system uses the technologies that web browsers have natively implemented, therefore there is no need of any third party libraries (e.g. Flash, Java.).
+\item The possibility of having asynchronous calls to a server allows the client to generate responses on-the-fly, and in this way the user can analyse partial results of fast servers, while slow ones take their time to reply.
+\item The DAS specification uses XML to define the responses of a DAS server, and AJAX was designed to use XML for the same purposes. Therefore routines in the AJAX API can be reused for the processing of well-formed XML documents, such as the ones defined using the DASGFF format.
+\item AJAX is part of Javascript and is therefore supported by all the main browsers. Besides that, the processed XML response can be used to manipulate the HTML rendered in the webpage. The whole system uses the technologies that are natively implemented in web browsers, and therefore there is no need for any third party libraries (e.g. Flash, Java.).
 \end{enumerate}
 
-The interface of DASty2 was organised the different functionalities as interconnected panels. In the \emph{search panel} user can include the accession number of a protein of interest and select groups of DAS sources to search for it. Once the search starts, multiple information messages are included in the \emph{status panel}, and a progress bar indicates how many server have responded. The first response to be displayed comes from the reference server, including the sequence of the protein, which is then rendered in the \emph{sequence panel}. The \emph{positional features panel} contains the protein annotation browser, which gets updated for each response of an annotation source. This responses also include information that relates to the whole protein and not only to a part of it, which in DAS terminology are know as non-positional features. Those features get grouped and displayed in the {non-positional features panel}. All this results can be filtered by type, server name and evidence code, through hierarchical lists that are displayed in the \emph{filtering panel}. A last request is invoked to discover if the protein has 3D structures reported in the PDB database, if is the case, the user can select one of them and it gets displayed in the \emph{protein structure panel} \cite{JIM2011}.
+The interface of DASty2 organises its available functionalities as interconnected panels. In the \emph{search panel}, the user can include the accession number of a protein of interest and select groups of DAS sources to search. Once the search starts, multiple information messages are included in the \emph{status panel}, and a progress bar indicates how many servers have responded. The first response to be displayed comes from the reference server, including the sequence of the protein which is then rendered in the \emph{sequence panel}. The \emph{positional features panel} contains the protein annotation browser, which gets updated by each response of an annotation source. These responses also include information that relates to the whole protein and not only to a part of it, which in DAS terminology are known as non-positional features. These features are grouped and displayed in the \emph{non-positional features panel}. All these results can be filtered by type, server name and evidence code by using hierarchical lists that are displayed in the \emph{filtering panel}. A last request is invoked to check if the protein has 3D structures reported in the PDB database. If this is the case, the user can select one and it will be displayed in the \emph{protein structure panel} \cite{JIM2011}.
 
-In the DASty3 project we reengineered the software to not only offered the functionalities of DASty2 but to provide ``\emph{a framework upon with tools can be built and integrated in to a cohesive web environment}'' \cite{VIL2011}. We defined a modular architecture (Figure \ref{fig:dasty-architecture}), which supports the extension of DASty3's functionality by plugins and templates.
+In the DASty3 project we re-engineered the software to not only offer the same range of capabilities as DASty2 but to also provide ``\emph{a framework upon which tools can be built and integrated into a cohesive web environment}'' \cite{VIL2011}. We defined a modular architecture (Figure \ref{fig:dasty-architecture}), which supports the extension of DASty3's functionality by using plugins and templates.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=5in]{figures/dasty3_architecture.png} 
+\includegraphics[width=4.5in]{figures/dasty3_architecture.png} 
 \caption{DASty3 Architecture}  \label{fig:dasty-architecture}
 \end{figure}
 
-DASty3 templates allows the definition of styles through CSS, but more importantly, it support manipulation of the complete interface through Javascript. This feature provides a way to adapt DASty3 to different environments, for example, if an institution decides to embed DASty3 into a web application, they can personalise the DAS client, to not only follow the fonts and colours of the institution, but also to follow the same web layout of the application.
+DASty3 templates allow the definition of styles through CSS, but more importantly, it supports manipulation of the complete interface through Javascript. This feature provides a way to adapt DASty3 to different environments, for example, if an institution decides to embed DASty3 into a web application, they can personalise the DAS client to not only follow the fonts and colours of the institution, but also to follow the same web layout of the application.
 
-New features and visualisations can be included in DASty3 by the definition of plugins. We defined a rich API that developers can use to interact with the different components of DASty3. For instance the interaction in between plugins is done by implementing the broadcaster--listener metaphor using standardised events that can be used(to trigger or to listen) by any of the components in DASty3
+New features and visualisations can be included in DASty3 with the implementation of plugins. We defined a rich API that developers can use to interact with the different components of DASty3. For instance the interaction between plugins is done by implementing the broadcaster--listener metaphor using standardised events that can be used (to trigger or to listen) by any of the components in DASty3
 
-All the communications with the different DAS entities is handled with jsDAS(\url{https://code.google.com/p/jsdas/}), a Javascript library that supports the DAS commands and parse the sources' responses into a data structure. This model is reused inside the DASty3 core and its plugins.
+All the communication between DASty3 and the different DAS entities is handled with jsDAS(\url{https://code.google.com/p/jsdas/}), a Javascript library that supports the DAS commands and parses the sources' responses into a data structure. This model is reused inside the DASty3 core and its plugins.
 
 \begin{figure}
 \centering
@@ -360,93 +350,88 @@ All the communications with the different DAS entities is handled with jsDAS(\ur
 \end{figure}
 
 
-Figure \ref{fig:dasty3} is an snapshot of DASty3, in which is possible to identify the different panels that were mentioned above for DASty2. We decided to keep a similar "look and feel" for the application to facilitate the adoption of regular users of DASty2. 
+Figure \ref{fig:dasty3} is a snapshot of DASty3, in which it is possible to identify the different panels that were mentioned above for DASty2. We decided to keep a similar "look and feel" for the application to facilitate its adoption by regular users of DASty2. 
 
-Figure \ref{fig:dasty3} also illustrates the communication between plugins; when a user selects a track on the annotation browser(see the checkbox at the right side of the second track), an event notifying this is triggered, and several plugins react accordingly, for instance, the sequence plugin, highlights the among acids covered by the features on the track using the same colour as in the graphic, and simultaneously the 3D structure plugin highlights the corresponding parts in the current PDB file.
+Figure \ref{fig:dasty3} also illustrates the communication between plugins. When a user selects a track on the annotation browser (see the checkbox at the right side of the second track), an event notifying this action is fired, and several plugins react accordingly. For instance, the sequence plugin highlights the amino acids covered by the features on the track using the same colour as in the graphic, and simultaneously the 3D structure plugin highlights the corresponding parts in the current PDB file.
+
 \subsubsection{Writeback plugin}
-While developing the writeback plugin for DASty3 described in section \ref{section:dastywb} several software contributions were made to DASty3. Besides bug fixing and minor changes, there were a few significant improvements that are described below.
+While developing the writeback plugin for DASty3 described in section \ref{section:dastywb}, several software contributions were made to DASty3. Besides bug fixes and minor changes, there were a few significant improvements that are described below:
 
 The communication between the client and the writeback server has some differences with respect to the communication with other DAS servers. Firstly, the different HTTP methods (PUT, GET, POST and DELETE) should be used according to their function. For this reason, the proxy component of DASty3 was extended to support the appropriate method usage. 
 
-The second difference is in the amount of information transferred; before the writeback, all the requests in DASty3 were using the \emph{GET} method. Therefore the information sent from the client to the proxy was limited to 256 characters, which is the URL size limit for some web browsers and servers. With the writeback functionalities, however, the client sends an XML document that is likely to exceed the URL size limit, making the use of other HTTP methods mandatory. This reinforces the applicability of the choice of adopting the RESTful standard. 
+The second difference is in the amount of information transferred: before the writeback, all the requests in DASty3 used the \emph{GET} method. Therefore, the information sent from the client to the proxy was limited to 256 characters, which is the URL size limit for some web browsers and servers. With the writeback functionalities however, the client sends an XML document that is likely to exceed the URL size limit, making the use of other HTTP methods mandatory. This reinforces the applicability of the choice of adopting the RESTful standard. 
 
-An extension was added to the feature details plugin, which displays a popup window, in order to support tabs and include more than one page of information in the window.
+An extension was added to the feature details plugin (which displays a popup window) in order to support tabs and include more than one page of information in the window.
 
 %\subsection{myKaryoView}\label{section:mykarioview}
 %\vspace{2cm}
-\newpage
-
 \subsection{probeSearcher}
 
-Basically a microarray experiment is a way to quantify levels of gene expression in a sample. Its strategy is to prepare a grid of pre-identified sequences, called probes or oligos, where each probe is associated with a gene. The sequences present in the sample are exposed to the ones in the grid, expecting that sequences that are complement of each other get attached. The amount of sequences attached to a particular probe is an indication of how much the target gene is been expressed.
+A microarray experiment is a way to quantify levels of gene expression in a sample. The methodology in these types of experiments is to prepare a grid of pre-identified sequences, called probes or oligos, where each probe is associated with a gene. The RNA sequences present in the sample are exposed to those in the grid, with the expectation that sequences that are complementary  will bind to each other. The number of sequences attached to a particular probe is an indication of how often the target gene has been expressed in the sample.
 
-A microarray chip is a high density grid of probes that has been prepared for an experiment with certain conditions. Because of the costs involved in the preparation of such chip, vendors have fabricated chips that can be used in diverse scenarios, for example is common to find microarrays with all the known genes of a particular species.
+A microarray chip is a high density grid of probes that has been prepared for an experiment with certain conditions. Because of the costs involved in the preparation of such a chip, vendors have fabricated chips that can be used in diverse scenarios, for example it is common to find microarrays with all the known genes of a particular species.
 
-Microarray providers attach documentation with microarray chips indicating which probes have been included and which genes or genomics regions they hybridise with. For scientist interested in gene expression it is possible to find which protein or proteins can be detected using a microarray probe. However there is not a easy way to get a list of available microarray probes for a specific gene or protein. There is not a centralised place either offering microarray probe information for several platforms and microarray chips.
+Microarray providers include documentation with their chips indicating which probes have been included and which genes or genomics regions they hybridise with. For scientists interested in gene expression, it is possible to find which protein or proteins can be detected using a microarray probe. However there is no easy way to get a list of available microarray probes for a specific gene or protein. There is also no centralised location which offers microarray probe information for several platforms and microarray chips.
 
-We have developed a tool called probeSearcher (\url{http://biosual.cbio.uct.ac.za/probes-search/}) hoping to provide a solution to this issue. With probeSearcher a scientist working on a set of proteins or genes can find out which microarray chips include probes associated with them. This information helps the researcher to find the right chip for their project, and to avoid to expend unnecessary resources 
+We have developed a tool called probeSearcher (\url{http://biosual.cbio.uct.ac.za/probes-search/}) hoping to provide a solution to this issue. With probeSearcher, a scientist working on a set of proteins or genes can find out which microarray chips include probes associated with them. This information helps the researcher to find the right chip for their project, and to avoid expending unnecessary resources. 
 
 \begin{figure}  
 \centering
 \includegraphics[width=\textwidth]{figures/probesearch.png}
-\caption[Snapshot of probeSearch.]{Snapshot of probeSearch. The query includes three UniProt accession numbers: P05067, P99999, P69905. The result has been grouped by chip, and the first hit is shown at the button.
+\caption[Snapshot of probeSearch.]{Snapshot of probeSearch. The query includes three UniProt accession numbers: P05067, P99999, P69905. The result has been grouped by chip, and the first hit is shown at the bottom.
 \label{fig:probesearch}}
 \end{figure}
 
- 
-probeSearcher has a minimalistic interface (see figure \ref{fig:probesearch}), where the user is only required to input the accession numbers of interest. The default search assume the user has UniProt IDs and is looking for the probes and ultimately the chips that include them. The search can be modified to use Ensembl IDs or inversely to find out which genes or proteins are associated with a given probe ID. The tool also offer some advanced search options, which allow to filter the search through different vendors and/or the target organism. 
+ProbeSearcher has a minimalistic interface (see figure \ref{fig:probesearch}), where the user is only required to input the accession numbers of interest. The default search assumes the user has UniProt IDs and is looking for the probes and ultimately the chips that include them. The search can be modified to use Ensembl IDs or inversely to find out which genes or proteins are associated with a given probe ID. The tool also offers some advanced search options, which allows the user to filter the search through different vendors and/or the target organism. 
 
-The result of a search with probeSearch is a list of the probes linked with each of the protein queried, including a link to the Ensembl browser were the location of the probe is shown in respect with the chromosome that contain the target sequence.
+The result of a search with probeSearch is a list of the probes linked with each of the proteins queried, including a link to the Ensembl browser where the location of the probe is shown in the context of the chromosome that contains the target sequence.
 
-Results can also be grouped by chip, which is specially useful in the case that the query consists of several proteins, because in this way it is possible to see which proteins are contained in the same chip. For example, it is evident form the results shown at the bottom of the figure \ref{fig:probesearch}, 
-that the chip \emph{illumina\_humanwg\_6\_v1} contains probes associated with the 3 protein of interests.
+Results can also be grouped by chip, which is especially useful in the case where the query consists of several proteins, because in this way it is possible to see which proteins are represented on the same chip. For example, it is evident from the results shown at the bottom of the figure \ref{fig:probesearch}, that the chip \emph{illumina\_humanwg\_6\_v1} contains probes associated with the three protein of interest.
  
 \subsubsection{Implementation Details}
-We have used DAS in order to support the functionalities of probeSearcher, creating 2 datasources on MyDas to store and share the connections between: (i)   UniProt ids and probes (uniprot2probes); and (ii) Ensembl ids and probes (ensembl2probes). Using DAS for the development of this tool, not only give us the advantage to reuse robust software for the client-server communication, but also puts the data in a sharable format that can be used in other tools, and for example the uniprot2probes data source can be added as another source into Dasty3 in order to include the list of related probes from several platform as non-positional features.
+We have used DAS in order to support the functionalities of probeSearcher, creating two datasources in MyDas to store and share the connections between: (i)   UniProt IDs and probes (uniprot2probes); and (ii) Ensembl IDs and probes (ensembl2probes). Using DAS for the development of this tool not only gives us the advantage of reusing robust software for the client-server communication, but also converts the data into a sharable format that can be used in other tools. For example the uniprot2probes data source can be added as another source into Dasty3 in order to include the list of related probes from several platforms.
 
-The data stored in this sources is taken from the Ensembl Biomart \cite{KIN2011}. We have developed biomartProbes, a command line tool in java that queries the Biomart, creates temporary files with the info, and use those files to load the information into a Solr server. The DAS sources dynamically query the Solr server whenever a requests is received. The source code of biomartProbes together with a packaged version of it can be found in \url{https://github.com/4ndr01d3/biomartProbes}.
+The data stored in these sources are taken from the Ensembl BioMart \cite{KIN2011}. We have developed biomartProbes, a command line tool in java that queries BioMart, creates temporary files with the info, and uses those files to load the information into a Solr server. The DAS sources dynamically query the Solr server whenever a request is received. The source code of biomartProbes together with a packaged version can be found at \url{https://github.com/4ndr01d3/biomartProbes}.
 
-The client of this system is a web application available in \url{http://biosual.cbio.uct.ac.za/probes-search/}. It has been written in Javascript, HTML and CSS; taking advantage of the features provided by AJAX (described in \ref{section:dasty}). The code of this web-client can be obtained in \url{https://github.com/4ndr01d3/probeSearcher}.
+The client of this system is a web application available in \url{http://biosual.cbio.uct.ac.za/probes-search/}. It has been written in Javascript, HTML and CSS, and takes advantage of the features provided by AJAX (described in \ref{section:dasty}). The code of this web-client can be obtained at \url{https://github.com/4ndr01d3/probeSearcher}.
 
-\subsubsection{DAS extension fro advanced search}
-While developing the advanced search functionality of probeSearch, we identified limitations on the way that DAS filter the responses. DAS queries are done by using the \emph{features} command, which allows to get the annotations of a segment by its ID together with a range of coordinates. The response can be filtered by \emph{type ID} or \emph{category ID}. However this requires the knowledge of all these IDs, and therefore text-based searches are not supported.
+\subsubsection{DAS extension for advanced search}
+While developing the advanced search functionality of probeSearcher, we identified limitations in the way that DAS filters the responses of the queries triggered by the \emph{features} command. DAS queries are carried out by the \emph{features} command, which allows the querying  of annotations within  a segment. The user should input the segment ID  and optionally a range of coordinates and the server responds with the features that match the parameters. The response can be filtered by \emph{type ID} or \emph{category ID}, however this requires that the user knows all these IDs, and therefore text-based searches are not supported.
 
-For this reason we proposed a new extension to the DAS protocol (\url{http://www.biodas.org/wiki/DAS1.6E#DAS\_search}) that adds the optional argument query to the \emph{features} command. The content of the new command uses a syntax based on the Lucene query language, and allows the filtering of the results using the elements and arguments of DASGFF files.
+For this reason we proposed a new extension to the DAS protocol (\url{http://www.biodas.org/wiki/DAS1.6E#DAS\_search}) that adds the optional argument \emph{query} to the \emph{features} command. The content of the new command uses a syntax based on the Lucene query language, and allows the filtering of the results using the elements and arguments of DASGFF files.
 
-The strategy behind the DAS advanced search extension was inspired by the methods used in PSICQUIC (Section \ref{subsec:psicquic}), where a similar query language called MIQL was defined in order to support advance search options to servers containing molecular interaction data. 
+The strategy behind the DAS advanced search extension was inspired by the methods used in PSICQUIC (Section \ref{subsec:psicquic}), where a similar query language called MIQL was defined in order to support advanced search options to servers containing molecular interaction data. The Lucene query language (\url{http://lucene.apache.org/core/2_9_4/queryparsersyntax.html}) and sublanguages based on it, such as MIQL or the one used in probeSeacher, were created in order to facilitate the exploration of data in indexed files, where all the information is stored in data structures that can be seen as a single table with many columns (Fields) and rows (Documents). 
 
-The Lucene query language (\url{http://lucene.apache.org/core/2_9_4/queryparsersyntax.html}) and sublanguages based on it, such as MIQL or the one used in probeSeacher were conceived in order to facilitate the exploration of data in indexed files, where all the information is stored in data structures that can be seen as a single table with many columns (Fields) and rows (Documents). 
-
-Below are listed some of the most useful features of the syntax of the Lucene query language. 
+Listed below are some of the most useful features of the syntax of the Lucene query language. 
 \begin{itemize}
 \setlength\itemsep{-0.3em}
- \item Text values are represented in between quotes and called phrases, and a phrase is composed for several terms, which are single words.
- \item A query can be defined by indicating which value is desirable in which field. Using the notation of the name of the field followed by colon `:' and then the value. e.g. \emph{uniprotID:"P05067"}.
- \item Multiple queries can be combine with boolean operators: AND, OR and NOT
+ \item Text values are represented in between quotes and called phrases, and a phrase is composed of several terms, all of which are single words.
+ \item A query can be defined by indicating which value is required in which field, using the notation of the name of the field followed by colon `:' and then the value. e.g. \emph{uniprotID:"P05067"}.
+ \item Multiple queries can be combined with boolean operators: AND, OR and NOT
  \item Wildcards can be used within single terms. `?' represents any single character in that position, and `*' for multiple characters. e.g. \emph{uniprotID:"P*9"} looks for documents where the value of the field uniprotID can be of any length but should start with P and finish in 9.
 \end{itemize}
 
-The specification in \url{http://www.biodas.org/wiki/DAS1.6E#DAS\_search} contains details on the fields defined for the DAS advance search, and the way it should be used in the \emph{features} command.
+The specification in \url{http://www.biodas.org/wiki/DAS1.6E#DAS\_search} contains details on the fields defined for the DAS advanced search, and the way it should be used in the \emph{features} command.
 
-We have implemented the new extension in MyDas, including the Lucene engine as a dependency. The support to an extra command called \emph{indexer} was added to MyDas, which should be used to start the processing of any datasource, creating Lucene indexes in order to be able to give quick responses when the \emph{query} argument is used. The code of this extension is included in the MyDas repository \url{https://code.google.com/p/mydas/}.
+We have implemented the new extension in MyDas, including the Lucene engine as a dependency. The support for an extra command called \emph{indexer} was added to MyDas, which should be used to start the processing of any datasource, creating Lucene indexes in order to be able to give quick responses when the \emph{query} argument is used. The code of this extension is included in the MyDas repository \url{https://code.google.com/p/mydas/}.
 
 \section{Discussion}
-DAS has been proven to be a successful method to publish, share and integrate data. With more than 1500 data sources registered by the end of 2014, including important providers such as the Ensembl project and the UniProt Consortium. Several tools use the protocol in order to include third party data, in context of their own. We consider than our contributions to the different projects included in this chapter were significant in the growth of DAS, but most importantly they can assist in the daily routine of scientists.
+DAS has proven to be a successful method to publish, share and integrate data, for example, its registry reported more than 1500 data sources by the end of 2014, including important providers such as the Ensembl project and the UniProt Consortium. Several providers implemented the protocol within their own tools, in order to include third party data in the context of their own. We consider that our contributions to the different projects described in this chapter were significant to the growth of DAS, but most importantly they can improve the daily routine of scientists.
 
 MyDas currently forms the basis for high volume DAS servers like UniProt and InterPro. It combines performance and stability with ease of installation, operation, and extension. While the easyDAS server provides a platform for DAS-based sharing of small sets of nucleic acid or protein annotations, and ProServer addresses Perl-based environments, MyDas offers a developer-friendly solution for laboratories and institutions that wish to share medium to large scale datasets in a Java-based environment. It completes the landscape of modern, open source DAS servers available to organisations sharing biomolecular data via the distributed DAS protocol. 
 
-The writeback specification is now an official extension in DAS and is considered to be a part of the core protocol. The developed software has been well received by the community.The server implementation is now part of the official development of one of MyDas; and, on the other hand, the client is included in the set of plugins of DASty3, which is a widely used DAS client. However, the success or failure of any collaborative system is recognised through the interaction of real users with the system, and additional time is required to be determine this. We hope this system will contribute to creation of a more publicly accessible, easily updatable, and reliable protein knowledge base.
+The writeback specification is now an official extension in DAS and is considered to be a part of the core protocol. The developed software has been well received by the community and the server implementation is now part of the official development of MyDas. In addition, the client is included in the set of plugins of DASty3, which is a widely used DAS client. Despite this, the success or failure of any collaborative system is recognised through the interaction of real users with the system, and additional time is required to determine this. We hope this system will contribute to the creation of a more publicly accessible, easily updatable, and reliable protein knowledge base.
 
-DASty has evolve during its 10 years of existence, from a Flash widget, highly attached to UniProt DAS client with a limited set of options; to a very modular and extensible framework. DASty3 is developed with modern web technologies, and has a plugin-based architecture that can be operated as an application on its own or embedded in existing websites.
+DASty has evolved during its 10 years of existence, from a Flash widget that was highly attached to the UniProt DAS server and had a limited set of options, to a very modular and extensible framework. DASty3 is developed with modern web technologies, and has a plugin-based architecture that can be operated as an application on its own or embedded in existing websites.
 
-Lastly, the probeSearcher tool presents a visually appealing solution to the problem of finding the available microarray chips that contain probes associated with a gene or protein of interest. This project exemplify the potential of the DAS protocol to integrate data from different domains.
+Lastly, the probeSearcher tool presents a visually appealing solution to the problem of finding the available microarray chips that contain probes associated with a gene or protein of interest. This project exemplifies the potential of the DAS protocol to integrate data from different domains.
 
-Unfortunately the DAS technology has lost momentum and the community meeting that used to happen yearly, hasn't occurred since February 2012, and since then, the pace of adoption of the technology has been significantly reduced. 
+Unfortunately the DAS technology has lost momentum in recent years and the community meeting that used to take place annually hasn't occurred since February 2012. Since then, the pace of adoption of the technology has been significantly reduced. 
 
-In August 2014 the EBI release an announcement about the retirement of the DAS services supported by the institution: \url{http://www.ebi.ac.uk/about/news/service-news/das-services-to-retire}. The justification behind this decision was the low level of usage of the services and the cost required for support and maintenance. It is also mentioned in the article that many of the EBI resources are currently supporting alternative data integration technologies. The support of some of the DAS services will be held by the institution until the end of 2015.
+In August 2014, the EBI released an announcement about the retirement of the DAS services supported by the institution: \url{http://www.ebi.ac.uk/about/news/service-news/das-services-to-retire}. The justification behind this decision was the low level of usage of the services and the cost required for support and maintenance. It is also mentioned in the article that many of the EBI resources are currently supporting alternative data integration technologies. The support of some of the DAS services will be maintained by the institution until the end of 2015.
 
-A shorter announcement was also included in the web site of the DAS registry: \url{http://www.dasregistry.org/}, indicating that the registry website will discontinued on the 1st May 2015. There are not statements, that we can find, about the support of DAS services from the sanger Institute or from the Ensembl project.
+A shorter announcement was also included on the web site of the DAS registry: \url{http://www.dasregistry.org/}, indicating that the registry website will be discontinued on the 1st May 2015. We could not find any statements regarding the support of DAS services  on either the Sanger Institute's webpage or that of the Ensembl project.
 
-Is our opinion that the DAS protocol goes further than isolated REST services, particularly on the standardisation of queries and responses. This is by not means a criticism about the release of new REST services, for example, it is undeniable the potential of the recently released UniProt programatic access (\url{http://www.uniprot.org/help/programmatic_access}), which functionality goes further than what a regular DAS source can offer. However, the lack of a  query language and response format that is common to other services, forces to develop extra components to support this resources in existing tools. 
+It is our opinion that the DAS protocol goes further than isolated REST services, particularly on the standardisation of queries and responses. This is by no means a criticism about the release of new REST services. For example, the potential of the recently released UniProt programatic access (\url{http://www.uniprot.org/help/programmatic_access}) is undeniable, and its functionality goes further than what a regular DAS source can offer. However, the lack of a query language and response format that is common to other services forces the user to develop extra components to support each particular implementation of REST services.
 
-We consider that retiring the support to the DAS technology is an step backwards for the integration of bioinformatics data, specially when is not clear if there is a common strategy of publishing and sharing data for the services that have decide to move away of DAS. Also, we believe that the development of programatic access in some of the providers should not be seen as a replacement of the services offered by DAS, because no matter how powerful a single of those services is, it won't be able to include the combine data that can be aggregated by including all the data sources.
+We consider that withdrawing the support to DAS technology by these institutions is a step backwards for the integration of bioinformatics data, especially when it is not clear if there is a common strategy for publishing and sharing data for the services that have decided to move away from DAS. Also, we believe that the development of programmatic access in some of the providers should not be seen as a replacement of the services offered by DAS, because no matter how powerful a single one of those services is, it won't be able to include the combined data that can be aggregated by including all the data sources.

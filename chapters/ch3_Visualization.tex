@@ -196,12 +196,12 @@ The BioJS registry includes the latest version of the code published in npm. Ver
 Every time a package is publish in npm it requires a new version number. In this way users of a package can specify which version to install in order to ensure the correct behaviour of their components.
 
 \subsection{Developed Components} \label{subsec:biojs_components}
-Besides the contributions in the development and maintenance of BioJS we have created a few BioJS components that are currently listed in the registry. The components described below were originally developed for BioJS 1.0, but have been updated to version 2.0. This process was manually implemented in the case of the Chromosome Viewer, in order to explore and test the new features of the registry. In contrast, the upgrading of the PPI components, mentioned at the end of this section, was achieved with a tool developed to upgrade all the components of the first version into BioJS 2.0.
+Besides the contributions in the development and maintenance of BioJS we have created a few BioJS components that are currently listed in the registry. The components described below were originally developed for BioJS 1.0, but have been updated to version 2.0. This process was manually implemented in the case of the Chromosome Viewer, in order to explore and test the new features of the registry. In contrast, the upgrading of the PPI components, mentioned at the end of this section, was achieved with a tool developed to upgrade all the components from the first version into BioJS 2.0.
 
-An article that is part of the BioJS series in the F1000 research journal describes the components object of the sections \ref{subsubsec:ppi_biojs} and \ref{subsubsec:ppi2_biojs}. The first author of the publication is Gustavo A. Salazar and the co-authors provided input in their role of collaborators and supervisors.
+An article that is part of the BioJS series in the F1000 research journal describes the components for the display of PPI networks using a force directed layaout and a circle layout. The first author of the publication is Gustavo A. Salazar and the co-authors provided input in their role of collaborators and supervisors.
 
 \subsubsection{Chromosome Viewer}
-We design and develop a BioJS component to display a chromosome that includes the reported cytogenetic bands. The original version of this component is available in the BioJS 1.0 registry (\url{http://www.ebi.ac.uk/Tools/biojs/registry/Biojs.Chromosome.html}) and there is also an updated version for  BioJS 2.0 (\url{http://biojs.io/d/biojs-vis-chromosome}).
+We designed and developed a BioJS component to display a chromosome that includes the reported cytogenetic bands. The original version of this component is available in the BioJS 1.0 registry (\url{http://www.ebi.ac.uk/Tools/biojs/registry/Biojs.Chromosome.html}) and there is also an updated version for  BioJS 2.0 (\url{http://biojs.io/d/biojs-vis-chromosome}).
 
 Cytogenetic bands are the result of an experimental technique that dyes chromosomes in such a way that regions with higher percentage of the nucleotides adenine and thiamine are dark, while guanine and cytosine rich areas are light. This colour code is usually a good indication of areas with less (dark) or more (light) genes. The exposure of this bands help in the identification of chromosomes, and it is also useful to easily localise a genomic region in a chromosome.
 
@@ -228,32 +228,33 @@ The border of the bands at both edges of the chromosome and the ones next to the
 
 The component broadcast events when the user hovers or clicks over a band, in the examples this is used to display a label or to reposition an area selector over the corresponding bar. This area selector is an utility BioJS component (\url{http://www.ebi.ac.uk/Tools/biojs/registry/Biojs.AreaSelector.html}), that although is not biological related, it can be reused by any component that uses a similar approach to the graphic representation (i.e. HTML elements). Figure \ref{fig:biojs_chromosome} shows the selector over the band that is at the left of the chromosome. The selected region can be manipulated by dragging the edges of the blue area, and every time a new area is marked, events are broadcasted and other BioJS component can react accordingly.
 
-In BioJS 2.0 is recommended to only publish biological related component, therefore we decided to excluded the Area selector component from the BioJS registry. Nonetheless the component was published in npm (\url{https://www.npmjs.com/package/area_selector}) and can be reused by other npm packages including those part of BIoJS
+In BioJS 2.0 is recommended to only publish biological related components, therefore we decided to exclude the Area selector component from the BioJS registry. Nonetheless the component was published in npm (\url{https://www.npmjs.com/package/area_selector}) and can be reused by other npm packages including those part of BIoJS
  
 \subsubsection{Protein-Protein Interactions Force Layout} \label{subsubsec:ppi_biojs}
 The most popular way to visualise networks is known as the node-link metaphor, in which some figures (e.g. circles. squares, images) represent the nodes; and lines connecting them are the links. When the network consists of a short amount of nodes, it is possible to specify the position for all of them, however when the amount of nodes grows, the effort required to position all of them also increases and random location of nodes would probably generates highly congested graphics with overlapping of elements and very cluttered areas.
 
 Different strategies have been defined to automatically organise network representations. We have used the implementation of a force-directed layout included in the D3 library (\url{https://github.com/mbostock/d3/wiki/Force-Layout}) \cite{BOS2011} for the BioJS component that can visualise protein-protein interaction networks in a web native component:  \url{http://www.ebi.ac.uk/Tools/biojs/registry/Biojs.InteractionsD3.html}, \url{http://biojs.io/d/biojs-vis-interactions-d3}.
 
-The force directed layout implemented in D3 follows the simile of attaching springs to all the connected nodes, in this way  two nodes connected pull towards each other, and if a node has several links it is subjected to all the spring forces of its connections at the same time. The algorithm also includes a rejection force between all the nodes, which is looking to disperse unconnected nodes and avoid cluttered areas. An optional gravity point can be setup where all the nodes are attracted, this helps to keep the nodes in the visible area. 
+The force directed layout implemented in D3 follows the simile of attaching springs to all the connected nodes, in this way  two nodes connected pull towards each other, and if a node has several links it is subjected to all the spring forces of its connections at the same time. The algorithm also includes a rejection force between all the nodes, which aims to disperse unconnected nodes and avoid cluttered areas. An optional gravity point can be setup where all the nodes are attracted, this helps to keep the nodes in the visible area. 
 
 The simulation of the movement of the nodes caused by the defined forces is executed by steps. For each step, all the forces affecting a node are used to calculate a new position for it, and this is done for all the nodes. An internal temperature parameter is used to control the speed of change during each step: when the simulation starts the temperature is high and the particles move fast, and with each iteration the network gets closer to an stable position dropping the temperature, and the nodes move slower as a consequence. The use of the temperature parameter also helps to stop completely the simulation when is lower than a predefined value, this with the purpose of avoiding unnecessary CPU use.The simulation might be required to restart when for example new nodes or links are added to the network, in which case the temperature parameter is changed to a high value.
 
 In order to optimise the number of operations required on each step, the D3 implementation includes a data structure called quadtree that creates a hierarchical organisation of the nodes based in their location. This is used when calculating the rejection forces of each node, so instead of considering all the rejection forces, an aggregated value for the nodes in a region can be used.
 
-A quadtree divides the area in quadrants, the root of the tree contains all the nodes and it has four branches. The first branch contains the nodes that are located in the first quadrant of the graphic (i.e. between the top-left corner and the centre of the graphic), the second branch the nodes inside the second quadrant, etc. The same division can be recursively calculated for each quadrant.
+A quadtree divides the area in quadrants, the root of the tree contains all the nodes and it has four branches. The first branch contains the nodes that are located in the first quadrant of the graphic (i.e. between the top-left corner and the centre of the graphic), the second branch includes the nodes inside the second quadrant, etc. The same division can be recursively calculated for each quadrant.
 
-The decision on how deep in the structure the algorithm should go to calculate the rejection forces is based on the criterium known as Barnes-Hut \cite{BAR1986}. If the quotient between the width of the quadrant \emph{s} and the distance from the node to the centre of the quadrant \emph{d} is less than a threshold value $\theta$, the aggregated force of the quadrant is sufficient and the recursion on the tree can be stopped. The equation is manipulated to avoid the use of square roots and is written into the D3 library as the conditional:
+The decision on how deep in the structure the algorithm should go to calculate the rejection forces is based on the criterium known as Barnes-Hut \cite{BAR1986}. If the quotient between the width of the quadrant \emph{s} and the distance from the node to the centre of the quadrant \emph{d} is less than a threshold value $\theta$, the aggregated force of the quadrant is sufficient and the recursion on the tree can be stopped. 
+%The equation is manipulated to avoid the use of square roots and is written into the D3 library as the conditional:
 
-\begin{lstlisting}[language=java]
-if (dw * dw / theta2 < dn) 
-\end{lstlisting}
+%\begin{lstlisting}[language=java]
+%if (dw * dw / theta2 < dn) 
+%\end{lstlisting}
 
 An step in the simulation is concluded when all the forces of all the nodes have been use to calculate the new positions of all the nodes. And every time an step concludes, an event called \emph{tick} is broadcasted. Listeners of the event, can then alter the behaviour of the simulation by adding other forces, for instance to contain the nodes in a frame, or to define several gravity points. The event is also useful to trigger changes in the graphic representing the network, and in this way to animate the simulation.
 
 For the BioJS PPI force layout component we used the \emph{tick} event not only to display the simulation but also to  define multiples \emph{foci} of gravity, one for each organism reported as a protein, in this way the proteins that belong the same organism get attracted to the same area.
 
-We are using SVG for representation of the network, utilising different symbols to represent proteins of different organisms. We took advantage of this technology by allowing the user to freely zoom and pan around the graphic with popular mouse gestures i.e. scrolling for zooming and dragging for panning. However, if the dragging is over one of the figures representing a protein, only that node gets dragged and force to stay in the position were the user drops it, this action restarts the simulation in  order to find positions fro the rest of the proteins in the graphic.
+The representation of the network in the browser has been implemented using SVG. Path elements forming symbols are used to represent proteins of different organisms. We took advantage of the SVG technology by allowing the user to freely zoom and pan around the graphic with popular mouse gestures i.e. scrolling for zooming and dragging for panning, owever, if the user is dragging the mouse over one of the figures representing a protein, only that node gets moved and once the mouse id released, the protein is forced to stay in the position were the user drops it, this action restarts the simulation in  order to find positions for the rest of the proteins in the graphic.
 
 A running example of this component has been published in \url{http://jsfiddle.net/Bvh6k/8/} using JSFiddle (\url{http://jsfiddle.net/}), an online resource that supports the edition and live execution of snippets of Javascript code. Details on the biological entities used in the example can be found in \cite{SAL2014}. Figure \ref{fig:biojs_force} is an snapshot of the visualisation generated by this example. 
 
@@ -264,7 +265,9 @@ A running example of this component has been published in \url{http://jsfiddle.n
 \label{fig:biojs_force}}
 \end{figure}
 
-Besides allowing developers to experiment with the code, the example serve us to explain the use of the component. A developer should start by creating an instance of the component:
+Besides allowing developers to experiment with the code, the example serve us to explain the use of the component. 
+
+A developer should start by creating an instance of the component:
 
 \begin{lstlisting}[language=java]
 var instance = new Biojs.InteractionsD3({
@@ -281,7 +284,7 @@ instance.addProtein({
       typeLegend:"gene_name"});
 \end{lstlisting}
 					
-In the same way, the interactions should be added to the graphic, ensuring that the interactions are between proteins that have already been added. For instance:
+In the same way, the interactions should be added to the graphic, making sure that the interactions are between proteins that have already been added. For instance:
 
 \begin{lstlisting}[language=java]
 instance.addInteraction(
@@ -305,7 +308,7 @@ The interactions in this visualisation are spline curves which path is defined t
 
 When an interaction between two nodes is drawn, the curve's path will be created using the hierarchy nodes as guidelines. This method highlights the links between two highly connected groups in the hierarchy, because all of those connections will follow a similar inner path, creating the impression of a bundled connection, hence the name of the algorithm.
 
-The hierarchy used for the BioJS component to display PPI network is a two level tree, that simply separates the proteins by organism, which is useful when looking to multi-organism networks such as a host-pathogen scenario. Another case of multi-organisms is discussed in section \ref{sec:orthologs}, where pseudo-interaction were defined to identify a relationship between two orthologs.
+The hierarchy used for the BioJS component to display PPI network is a two level tree, that simply separates the proteins by organism, which is useful when looking to multi-organism networks such as a host-pathogen scenario. Another case of multi-organisms is discussed in section \ref{sec:orthologs}, where pseudo-interactions were defined to identify a relationship between two orthologs.
 
 \begin{figure}[ht]
 \centering
@@ -328,9 +331,29 @@ var instance = new Biojs.InteractionsBundleD3({
 
 
 \subsubsection{Protein-Protein Interactions Heat Map} \label{subsubsec:ppi3_biojs}
+After the publication of \cite{SAL2014} where we described the two components explained in the previous sections, we decided to explore an alternative to visualise PPI interactions. A new BioJS component was developed to visualise the interactions as a matrix of proteins by proteins, similar to the way that some heat maps are used in the processing of microarrays or phylogenetics analysis, but in this case not all the squares of the matrix are filled, only those marking an interaction between two proteins are painted. The component is now in the BioJS 2.0 registry (\url{http://biojs.io/d/biojs-vis-interactions-heatmap-d3}) and the source code is freely available in GitHub (\url{https://github.com/4ndr01d3/biojs-vis-interactions-heatmap-d3}).
 
-\subsection{discussion}
-We have discussed before (section \ref{sec:ppi}) the existence of several tools that visualise PPI networks; all of which support variations of a force-directed layout. However by the time we developed this component there were not web components to create such visualisations using HTML5 web standards. We are aware now of the existence of the Cytoscape.js project, which offers an alternative based in the HTML5 element canvas and include implementations of not only force-directed layouts but also circle, grid, and others. Nonetheless, we consider that is important to have technology alternatives  for this type of components. If for example, a developer is already using D3 in its web tool, the use of our component can be a better alternative to reduce the network latency created by many dependencies.
+This method to visualise PPI networks put the emphasis of the graphic in the interactions rather than in the proteins. And by sorting the matrix and using a correct colouring of the protein labels, for instance based in the functional class, it is possible to find features that other wise aren't evident in a node-link representation because the overlapping of the interaction lines.
+
+Figure \ref{fig:biojs_heatmap} is a snapshot of this component  in which random interactions of 15 fake proteins are displayed. We have included extra functionality in the example to demonstrate the use of some of the methods and events provided in the API of the component. The mouse pointer in the figure is located over the cell that remarks the interaction between \emph{prot\_2} and \emph{prot\_15}, hence the lines crossing over it. We have also clicked on that interaction cell, which triggers an event that displays two panels with the feature information of the interacting proteins. The size of panels and graphic have been optimised for better use the available space on the SVG container.
+
+The interactions in the example have been coloured using a scale between red and green based in the other this proteins are included into the model. This feature can be used to represent any quantifiable value associated with the interaction, for example evidence scores.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/heatmap.png}
+\caption[BioJS component to represent a network using a heat map]{BioJS component to represent a network using a heat map
+\label{fig:biojs_heatmap}}
+\end{figure}
+
+An interactive example of this component can be accessed directly form the BioJS registry (\url{http://workmen.biojs.net/jsbin/biojs-vis-interactions-heatmap-d3/simple_example}). In this case we are using a different tool called JSBin, which behaves similarly to JsFiddle, the tool used in the examples of the previous components. JSBin has a better support for the inclusion of npm packages and therefore it is easier to use with BioJS 2.0 components.
+
+The component also shares the same API as the previous two PPI visualisation widgets, which makes it easy to alternate the view between the 3 PPI components and in this way offer to the user several options to display their data.
+
+
+\subsection{Discussion}
+We have discussed in the introduction (section \ref{sec:ppi}) the existence of several tools that visualise PPI networks; all of which support variations of a force-directed layout. However by the time we developed the components described in this section, there were not web components to create such visualisations using HTML5 web standards. We are aware now of the existence of the Cytoscape.js project, which offers an alternative based in the HTML5 element canvas and include implementations of not only force-directed layouts but also circle, grid, and others. Nonetheless, we consider that is important to have technology alternatives  for this type of components. If for example, a developer is already using D3 in its web tool, the use of our components can be a better alternative to reduce the network latency created by many dependencies.
+
 
 \section{PINV, a web-based Protein Interaction Network Visualiser }  \label{section:pinv}
 Protein-protein interaction data has been used in multiple research scenarios: (i) to browse networks for genes of interest, (ii) to interpret the results of genome-wide genomic screen, (iii) to interpret functional genomics data and (iv) to elucidate disease genes \cite{FRA2013}. In all of them visualisation has play an important role, where is to for instance,  to meaningful navigate around a big network (i and iv), to find clusters of proteins with shared functionalities(iii and iv)  or highlight links that are not evident with other techniques (i and ii).
@@ -338,6 +361,9 @@ Protein-protein interaction data has been used in multiple research scenarios: (
 The web is a platform for cooperative efforts, where the roles for authors and readers, providers and consumers; are harder to distinguish.
 
 \subsection{Architecture}
+json config file
+widgets
+
 \subsection{Implementation}
 \subsection{Description of the application}
 %\subsection{Use Cases}
