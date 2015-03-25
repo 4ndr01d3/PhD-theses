@@ -330,7 +330,7 @@ var instance = new Biojs.InteractionsBundleD3({
 
 
 
-\subsubsection{Protein-Protein Interactions Heat Map} \label{subsubsec:ppi3_biojs}
+\subsubsection{Protein-Protein Interactions: Heat Map} \label{subsubsec:ppi3_biojs}
 After the publication of \cite{SAL2014} where we described the two components explained in the previous sections, we decided to explore an alternative to visualise PPI interactions. A new BioJS component was developed to visualise the interactions as a matrix of proteins by proteins, similar to the way that some heat maps are used in the processing of microarrays or phylogenetics analysis, but in this case not all the squares of the matrix are filled, only those marking an interaction between two proteins are painted. The component is now in the BioJS 2.0 registry (\url{http://biojs.io/d/biojs-vis-interactions-heatmap-d3}) and the source code is freely available in GitHub (\url{https://github.com/4ndr01d3/biojs-vis-interactions-heatmap-d3}).
 
 This method to visualise PPI networks put the emphasis of the graphic in the interactions rather than in the proteins. And by sorting the matrix and using a correct colouring of the protein labels, for instance based in the functional class, it is possible to find features that other wise aren't evident in a node-link representation because the overlapping of the interaction lines.
@@ -354,15 +354,90 @@ The component also shares the same API as the previous two PPI visualisation wid
 \subsection{Discussion}
 We have discussed in the introduction (section \ref{sec:ppi}) the existence of several tools that visualise PPI networks; all of which support variations of a force-directed layout. However by the time we developed the components described in this section, there were not web components to create such visualisations using HTML5 web standards. We are aware now of the existence of the Cytoscape.js project, which offers an alternative based in the HTML5 element canvas and include implementations of not only force-directed layouts but also circle, grid, and others. Nonetheless, we consider that is important to have technology alternatives  for this type of components. If for example, a developer is already using D3 in its web tool, the use of our components can be a better alternative to reduce the network latency created by many dependencies.
 
-
+\newpage
 \section{PINV, a web-based Protein Interaction Network Visualiser }  \label{section:pinv}
-Protein-protein interaction data has been used in multiple research scenarios: (i) to browse networks for genes of interest, (ii) to interpret the results of genome-wide genomic screen, (iii) to interpret functional genomics data and (iv) to elucidate disease genes \cite{FRA2013}. In all of them visualisation has play an important role, where is to for instance,  to meaningful navigate around a big network (i and iv), to find clusters of proteins with shared functionalities(iii and iv)  or highlight links that are not evident with other techniques (i and ii).
+Protein-protein interaction data has been used in multiple research scenarios: (i) to browse networks for genes of interest, (ii) to interpret the results of genome-wide genomic screen, (iii) to interpret functional genomics data and (iv) to elucidate disease genes \cite{FRA2013}. In all of them visualisation has play an important role, for instance,  to meaningful navigate around a big network (i and iv), to find clusters of proteins with shared functionalities(iii and iv)  or highlight links that are not evident with other techniques (i and ii).
 
-The web is a platform for cooperative efforts, where the roles for authors and readers, providers and consumers; are harder to distinguish.
+Multiple projects to visualise PPI networks have been discussed in section \ref{sec:ppi}, however none of them uses the web as their platform and in consequence their collaborative capabilities are limited. 
+
+The potential of community oriented projects built on the web has been exposed in other fields, for example GitHub has become the most popular system to collaborate in open source projects, with more than eight million users and over twenty million repositories by the beginning of 2015 (\url{https://github.com/about/press}), and although the core of it is the git version control software, it is arguably that the web front end is the one who attracts the community to take part of many open source projects.
+
+We have developed PINV, with the goal of bringing this potential into the research of PPI networks. An article describing the project was published in 2014 and is listed as No. \ref{paper:PINV} at the beginning of this chapter. The first author of this publication is Gustavo A. Salazar and the co-authors provided input in line with their roles as collaborators and supervisors. Below we describe PINV in more detail, including its architecture and implementation.
 
 \subsection{Architecture}
+PINV has been designed to follow a classic client-server architecture, in which the client is in charge of the interaction with the user and the generation of the visualisations, based on asynchronous calls to recover data on demand. The server has been optimised to provide rapid responses through a REST interface.
+
 json config file
 widgets
+\subsubsection{Server}
+
+\subsubsection{Client}
+When the user selects a dataset from PINV's home page, the main application gets loaded into the client, which initially means that two resources get retrieved from the server: a bundled javascript that contains PINV's scripts and all the widget files, and a similarly bundled CSS style file. These files are built on demand in the server by a PHP script that checks the configurations included in JSON file that is store in the server. 
+
+This schema allows modularity in PINV so when new widgets are developed, the core of the application remains the same and only the configuration files needs to be modified. It is also possible to have several configuration files to create instances of PINV with different widgets, for example the home page of the project executes the same routines, but includes different widgets to display the list of available datasets, the forms to upload data and the documentation of the system.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/include_php.png}
+\caption[Files to be included by the PHP script of PINV]{Files to be included by the PHP script of PINV
+\label{fig:pinv_include}}
+\end{figure}
+
+Figure \ref{fig:pinv_include} shows all the components that provide the whole client logic of PINV. As mentioned above, these components are compiled in a singled javascript file by a PHP script. Having a single file reduces the time of loading because it requires only one HTTP transaction. 
+\begin{description}
+\item[Main Dependencies] 
+There are three main dependencies included in PINV: jQuery, AjaxSolr and BioJS. 
+
+PINV uses jQuery (\url{https://jquery.com/}) in several ways, for instance to manipulate data object model DOM, which is the data structure that contains the HTML elements in web browser; this can be done without jQuery, but its syntax facilitates the process; jQuery is also extensible via plugins and PINV uses several of this extensions (e.g. draggable components, auto complete features, etc.).
+
+The second general dependency is AjaxSolr (\url{https://github.com/evolvingweb/ajax-solr}) a library that serves as the interface with the Solr server that contains the PPI network data. AjaxSolr architecture follows a Model-View-Controller MVC pattern that has been adapted to the interaction with a Solr server: the model is based in the structure of the documents retrieved from the server; widgets are registered to the AjaxSolr core, which acts as the controller, notifying the widgets about the actions and results of interacting with the server. Widgets are in charge of generating the views, because they can include methods to react according to each notification, for example to display the results of a query once the core triggers an \emph{afterRequest} event. 
+
+PINV reuses this strategy, and each of the components that form this application have been developed as AjaxSolr widgets, so they can get notified of each interaction with the server, some of the widgets use the core to execute new requests, while other wait for responses to generate views.
+
+The main class of BioJS 1.0 is the last general dependency included in the compiled file. The visualisation widgets included in PINV have been implemented following the BioJS standards. Each of the components described in section \ref{subsec:biojs_components} are used in PINV: the logic related with PINV was written as an AjaxSolr widget, but all the visualisation features were kept as a separated BioJS component. All of these components inherit from the BioJS class added in this step.
+
+\item[HTML Template]
+After the dependencies have been included, the script proceeds to extract the information about the HTML template from the configuration file. The template is a HTML piece of code that works as layout for the components, specifying divs or other container elements where the widgets can be included in a later stage. In this step the PHP script creates a variable in the javascript code containing the selected template, and then a piece of executable is added to inject the template into the DOM of web page.
+
+\item[Widgets]
+As mentioned before a widget in PINV follows the schema defined in AjaxSolr, however we extended this concept in order to include other resources related with each widget. In the server each widget has its own folder, which should contain a configuration file called widget.json. The PHP reads  this file in order to extract the paths of each of these resources: JavaScript dependencies, CSS dependencies, HTML, CSS and the JavaScript widget. Only the JavaScript file is required, all the other resources are optional. 
+
+The code below is the configuration file used to describe the widget that displays the network using the force-directed layout using the BioJS component described in section \ref{subsec:biojs_components}. The \emph{GraphWidget.js} file defines the widget as a class that inherits from \emph{AjaxSolr.AbstractWidget} and implements the methods to initialise the widget and process all the interactions with the server; The widgets uses the BioJS component \emph{Biojs.InteractionsD3.js} to visualise the interactions, which in times uses the implementation of the force-directed layout included in the D3 library (\emph{d3.min.js}). The HTML in \emph{GraphWidget.html} is limited to the definition of a div element where the component will be included.
+
+\begin{lstlisting}[language=java]
+{
+    "name": "Interaction network",
+    "description": "A network graph using D3",
+    "dependencies":["d3.min.js","Biojs.InteractionsD3.js"],
+    "js": "GraphWidget.js",
+    "html": "GraphWidget.html",
+    "css": "GraphWidget.css"
+} 
+\end{lstlisting}
+The current version of PINV includes widgets that facilitate the search in the server by ID(\emph{AutocompleteTextAreaWidget}), to filter the query using the protein features (\emph{QueryFilterWidget}), to visualise the interactions using a force-directed layout (\emph{GraphWidget}), a circle layout (\emph{CircleGraphWidget}) and a heat map graphic(\emph{HeatmapWidget}). This visualisations can be manipulated by other widgets, for instance by creating rules to define colour or size  depending on the protein features (\emph{RulerWidget}), or by using expression data to paint the proteins on a corresponding colour scale (\emph{ExpressionWidget}). There are other widgets that were created to provide some GUI features, such as the tabs to select the visualisation method (\emph{InvertedTabsWidget}) or a floating window that can display the features of a selected protein or interaction (\emph{DetailsFrameWidget}).
+
+All the widgets were developed to be able to be executed independently. This means that the whole architecture can be used for a different application, and if the widget applies then it can be used there, for instance the autocomplete text area widget is not attached to protein protein interactions data, and therefore it can be used to generate queries by ID in any other configuration of the system.
+
+\item[Widget Connectors]
+In order to keep the widgets reusable, we have separated the logic of their interactions in separate files. The widgets implement the triggering using the common event handler included in BioJS 1.0, however the listeners of the event are not declared in the widget itself, but in the connector files. In this way two  configurations of the system can operate differently based on the same event, but still using the same widget. 
+
+Consider for instance, two configurations of PINV: in the current version there is a tab widget that allows to select which visualisation method is going to be used; alternatively, we can have a configuration were all the visualisation methods are displayed simultaneously. In the first scenario there is not need of communication between the visualisation widgets, while in the second, it is desirable that a click in the symbol that represents a protein in one widget, triggers a reaction in the correspondent elements of the other widgets. 
+
+PINV architecture support this two behaviours without requiring changes in the files that define a widget, but instead including this type logic in the \emph{Widget Connectors} files. The three files that the current version includes are supporting the events generated by: the rule definer widget (\emph{ruleExecuter.js}), the context menu that get displayed when a right click is done over a protein (\emph{contextMenuFunctions.js}) and the widget that processes the expression files  (\emph{expressionExecuter.js}).
+
+These files are only necessary when the interconnection between widgets requires some logic, for example to filter the visible components based on the defined rule, or to interpolate an RGB value based on the limits and colours selected by the user. For other events where the interaction between triggered and listener is more direct, can be simply reported in the configuration file, for example when a click in protein X in a widget, triggers the method \emph(highlightProtein()) in another widget.
+
+\item[Starting logic]
+All the files included until this moment are either class definitions or injections of HTML to build the layout of the page, it is only at this stage of the file where the routines to execute all this components are added. 
+
+As explained before, the logic of operation follows the same strategy than AjaxSolr, and therefore the main part of this logic is to instantiate this class and to register all the widgets that are being used.
+
+The configuration file supports the inclusion of a preloaded file, in case there is some logic out of the widgets that needs to be executed previous to the initialisation of widgets. Currently this is used to retrieve the schema of the dataset that a user has selected because each dataset can have different protein features, and this information is used for some widgets, for example the ruler needs to know this feature names in order to build the forms where the user build the rules.
+
+Similarly there is the possibility of including a post loader script, however the current configuration of PINV doesn't make use of this option.
+\end{description}
+
+
 
 \subsection{Implementation}
 \subsection{Description of the application}
