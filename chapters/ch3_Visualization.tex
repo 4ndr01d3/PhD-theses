@@ -355,6 +355,11 @@ The component also shares the same API as the previous two PPI visualisation wid
 We have discussed in the introduction (section \ref{sec:ppi}) the existence of several tools that visualise PPI networks; all of which support variations of a force-directed layout. However by the time we developed the components described in this section, there were not web components to create such visualisations using HTML5 web standards. We are aware now of the existence of the Cytoscape.js project, which offers an alternative based in the HTML5 element canvas and include implementations of not only force-directed layouts but also circle, grid, and others. Nonetheless, we consider that is important to have technology alternatives  for this type of components. If for example, a developer is already using D3 in its web tool, the use of our components can be a better alternative to reduce the network latency created by many dependencies.
 
 \newpage
+
+
+
+
+
 \section{PINV, a web-based Protein Interaction Network Visualiser }  \label{section:pinv}
 Protein-protein interaction data has been used in multiple research scenarios: (i) to browse networks for genes of interest, (ii) to interpret the results of genome-wide genomic screen, (iii) to interpret functional genomics data and (iv) to elucidate disease genes \cite{FRA2013}. In all of them visualisation has play an important role, for instance,  to meaningful navigate around a big network (i and iv), to find clusters of proteins with shared functionalities(iii and iv)  or highlight links that are not evident with other techniques (i and ii).
 
@@ -364,12 +369,102 @@ The potential of community oriented projects built on the web has been exposed i
 
 We have developed PINV, with the goal of bringing this potential into the research of PPI networks. An article describing the project was published in 2014 and is listed as No. \ref{paper:PINV} at the beginning of this chapter. The first author of this publication is Gustavo A. Salazar and the co-authors provided input in line with their roles as collaborators and supervisors. Below we describe PINV in more detail, including its architecture and implementation.
 
-\subsection{Architecture}
-PINV has been designed to follow a classic client-server architecture, in which the client is in charge of the interaction with the user and the generation of the visualisations, based on asynchronous calls to recover data on demand. The server has been optimised to provide rapid responses through a REST interface.
+\subsection{Description of the application}
 
-json config file
-widgets
+PINV can be accessed in the web via this URL: (\url{http://biosual.cbio.uct.ac.za/pinv.html}). The visitor is presented a menu with four options: Data sets, Load data, Documentation and about. 
+
+The \emph{Data sets} page is the default, here the user can find a list of all the public datasets that have been upload into PINV. We have loaded some public datasets for organisms of our particular interest: \emph{Homo sapiens} (HS), \emph{Mycobacterium leprae} strain TN (MLP), \emph{Mycobacterium smegmatis} strain MC$^2$155, \emph{Mycobacterium tuberculosis} strain CDC1551  (MTB) and a combined dataset of \emph{HS}, \emph{MTB} and the interactions between them. The rest of the datasets on the list have been uploaded by PINV's users. We have included a search functionality in the page where users can include part of the name of the dataset and the list is automatically updated to only include those that match the given text.
+
+The second option in the home page is \emph{Load data}, here a web form is displayed. The required information consist in a unique name for the dataset, a valid email where the user will receive the links to access the dataset, the preference between a public or a protected dataset (difference explained in the next section), and two tab separated files: one for interactions and one for features.
+
+In the interaction file, the first two columns contain the accession numbers of the proteins, and the third column is an aggregate score of the evidence for the reported interaction. Subsequent columns are optional and considered as evidence scores that contributed to the unified value in column 3.
+The second file is used to add annotations to the proteins (e.g., gene name). The only required annotation is that of the organism to which the protein belongs; therefore the file should have the protein id in the first column, the organism in the second and any other features in additional columns. The information provided in this file can then be used to manipulate the graphic, for instance to color by functional class or to show a particular label.
+
+The last two options of PINV are \emph{Documentation} and \emph{About} where resources to provide help to the user are included. For example, tutorials, presentations and links to the source code and the original publication.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/pinv_wizard.png}
+\caption[Wizard menu to select the exploration method in PINV]{Wizard menu to select the exploration method in PINV
+\label{fig:pinv_wizard}}
+\end{figure}
+
+Once users select a data set from the list or access one from the link sent to their emails, the PINV client is load into the browser (See the client part in section \ref{pinv_architecture}) and then, a popup window(Figure \ref{fig:pinv_wizard}) presenting three options to explore the data is displayed:
+
+\begin{description}
+\item[Empty Canvas] 
+Using this method the interface displays all the widgets, but no queries had been executed, and therefore the visualisations are empty. The proteins of interest can be selected by inserting comma separated accession numbers. The form has auto-complete capabilities to assist in this process (Figure \ref{fig:pinv}-A). 
+
+The search function has three modes: Normal, Explicit and Recursive. The \emph{Normal} mode returns the queried proteins and all interactions reported in the dataset, while the \emph{Explicit} mode will only display proteins that have been explicitly included in the query list and the interactions between them; the explicit mode will also include all the interactions with the previous results.
+The \emph{Recursive} mode combines the previous two, it first gets the target proteins on \emph{Normal} mode, and then for each recovered protein it triggers a query in \emph{Explicit} mode, the outcome of this is that all the interactions between displayed proteins will be shown.
+
+\item[Filter the Network] 
+In order to meaningfully visualize protein interactions, it is beneficial to reduce the network to only those proteins of interest through the application of prefilters to the data. This has the simultaneous benefits of increasing the speed of PINV's response time and reducing bandwidth requirements. By using the prefilter tool on PINV, the user can explore the whole content of the network without loading the individual components into the graphic. Figure \ref{fig:pinv_filters} (Left) shows the interface where the user can define certain conditions that the interactions have to fulfil in order to be displayed. The graphic on the left side of Figure \ref{fig:pinv_filters} is dynamically updated, reflecting the size of the subset generated by applying the filters over the whole dataset. For instance, in the graphic the dark blue represents the whole network (796353 interactions), while the light blue is the portion of those that have an evidence score from STRING \cite{FRA2013}. Two more filters were applied to this example (\emph{organism contains tuberculosis} and \emph{description contains Sensor}), the combined use of the filters results in a 103 interaction subnetwork, which is small enough to allow PINV to run smoothly and generates a graphic like that in Figure \ref{fig:pinv_filters} (Right).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/PinvFilters.png}
+\caption[PINV Filters Dialog.]{PINV Filters Dialog. Snapshot of the dialog where the user can explore a dataset by defining filters.
+\label{fig:pinv_filters}}
+\end{figure}
+
+\item[Clustering] In this mode the whole network is represented by clusters of proteins and interactions between them, the user can then expand the clusters, to explore the network in a top-bottom fashion. A more detailed description of this method is included in section \ref{section:clustering}.
+\end{description}
+
+\begin{figure}  
+\includegraphics[height=5.7in,angle=90]{figures/pinv.png}
+\caption[PINV Snapshot.]{PINV Snapshot. (A) Search Form. (B) Network layout. (C) Circle layout (D) Manipulation by Rules.
+\label{fig:pinv}}
+\end{figure}
+
+PINV provides four types of visualisation of the data: Network, Circle, Heatmap and Table. The first three types were implemented as BioJS widgets and have been described in section \ref{subsec:biojs_components}. 
+
+Figure \ref{fig:pinv}-B displays a snapshot of the interactions for proteins O53166 and O05839 from the MTB dataset in the Network layout. The network layout allows the re-organization of the proteins through drag and drop mouse gestures, and clicking on a node will display the loaded features that are hyperlinked to relevant public resources in a pop-up window (right side of Figure \ref{fig:pinv}-B).
+
+The second layout organises the proteins in a circle positioning all the nodes around the center without favouring any of them, this can help to discover connection patterns around the network (Figure \ref{fig:pinv}-C). In this view the interactions of a single protein are highlighted when the user hovers over the node. As in the network layout, the proteins are separated to clearly indicate the organism to which they belong; the user can choose to sort the proteins around the circle by any of the protein features.
+
+Figure \ref{fig:pinv_heatmap} displays the same query of figure \ref{fig:pinv} using the heat map component. In this representation the focus is in the interactions, and the proteins are only labels of them. This visualisation offers the possibility to compare the features of the two proteins involved in a interaction.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/pinv_heatmap.png}
+\caption[PINV Heatmap Visualization.]{PINV Heatmap Visualization of the proteins O53166 and O05839 from the MTB dataset.
+\label{fig:pinv_heatmap}}
+\end{figure}
+
+
+Lastly there is the table view where the raw data is displayed and can be reorganised. This is particularly useful for queries that return too many results and require post-filtering to select the proteins of interest.
+
+The visualisation of the layout can be exported at any time into SVG or PNG format, and the data in the table are exportable to a CSV file.
+
+Manipulation of any of the three display options is achieved with a single component (Figure \ref{fig:pinv}-D) that allows the creation of rules. The rationale behind this component is that by specifying a target (protein or interactions), a condition to filter by (e.g., protein with functional class X, interactions with protein Y), and an action (e.g., paint green, show label) it is possible to manipulate a wider set of network elements with less input from the user. For example, Figures \ref{fig:pinv}-B and C show all the proteins painted in different colours depending on their functional class. The legend on the right lists the functional classes used and the corresponding colours in the graphic. A second rule was created in the example to display the gene name at the side of proteins with more than 2 interactions.
+Right clicking on a protein in the graphic will open a contextual menu that allows the quick creation of rules that only apply to the selected protein. Users can also colour nodes with quantitative data such as expression values loaded from a third file.
+
+All the actions executed by the user have been saved in order to display the provenance of the visualisation in the form of a list where the user and collaborators can review the steps (and their parameters) taken to reach a particular status of the visualisation. This list can be displayed by clicking on the “Show History” button at the bottom of the page. 
+
+PINV provides an easy way to share the current view: when the user clicks on `share', a unique link is generated. PINV is able to regenerate the status of all the components to re-compose the view whenever the link is used. 
+This functionality was developed with the goal of promoting collaboration between users. If for instance, a user finds something of interest in the visualisation, he/she can create the link and send it to a collaborator via mail, instant messaging, etc. The second researcher can not only view but manipulate the visualisation and re-create another link for future discussions. For example, recreations of Figures \ref{fig:pinv_filters} and \ref{fig:pink} can be explored in PINV by following the URLs \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=paperF} and \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=paper00} respectively.
+
+The sharing option also provides an HTML snippet that can be used embed the view in a web page, making it easier for the researcher to include their visualisations on web documents in the same way that maps, videos and other kinds of multimedia are included in blog posts. It is hoped that researchers will use this to embed PINV graphics in pages that discuss the results of their own network research.
+
+
+
+\subsection{Architecture} \label{pinv_architecture}
+PINV has been designed to follow a classic client-server architecture, in which the client is in charge of the interaction with the user and the generation of the visualisations, based on asynchronous calls to recover data on demand. The server has been optimised to provide rapid responses through a REST interface, whilst the client follows a modular architecture that makes it easy to extend and adapt. 
+
+
 \subsubsection{Server}
+The server side of PINV has been developed using the web framework for Python called CherryPy (\url{http://www.cherrypy.org/}) and the PPI data is indexed and stored in a Solr search engine server \cite{KUC2013} in order to perform rapid queries, resulting in quicker response times than through querying of a relational database
+
+PINV's client never interacts directly with the Solr instance, instead all communications are tunnelled by the CherryPy component, this with the purpose of prevent the access to resources and functionalities to unauthorised users. For example, the REST services of Solr includes a method to delete a core, which is the term used in Solr to describe the dataset and its controllers. We filtered out such calls and any other administrative functionalities that can harm the data of other users.
+
+The main functionality of the server is to allow the upload of the PPI data from simple tab separated files into a Solr core. When uploading data, the user can choose between two modes of privacy: public and protected. A dataset in public mode will be listed on PINV’s website and accessible to anyone. This brings visibility to the data and promotes collaboration between researchers. On the other hand, protected mode ensures that only users with a valid link can retrieve information from the data set; the link includes a unique key that is sent to the uploader so he can distribute the link as he wishes. In this way the collaborative features of PINV are still functional between the holders of the link.
+
+The authorisation to a protected core is another function managed by the CherryPy server. The access to any information of a protected core is restricted to the inclusion of the key into the request. When data is upload to PINV in protected mode, an email including links with the key in it will be sent to the user. A similar email is also sent to owners of public datasets, which include links to restricted administrative functions such as deleting the core.
+
+Another feature carried out by PINV's implementation of the CherryPy server is to allow the storage and posterior retrieval of the files that contain the status the different widgets, which is the key element in the generation of links to share or embed a visualisation created in the tool. When the user clicks on the share button, the client compile the state of all its widgets in a single configuration file, including the current dataset, queries executed, graphic manipulation rules, etc.This file is sent to the server, where is stored and a unique identifier is assigned to it, the ID is then returned to the client which uses it to generate the URL and the HTML code to embed PINV in another page. When the link is used, the PINV client loads normally (See following section), but in addition the status email is recovered from the server and used to reload all the configurations and regenerate the visualisation.
+
+Following the principle of making PINV an open source project, we have published the repository in GitHub (\url{https://github.com/4ndr01d3/pinv-server}) that includes the CherryPy logic, a Solr installation that has been configured to be used in PINV, an example configuration to use apache to redirect any Solr query into CherryPY, and documentation or all these components.
 
 \subsubsection{Client}
 When the user selects a dataset from PINV's home page, the main application gets loaded into the client, which initially means that two resources get retrieved from the server: a bundled javascript that contains PINV's scripts and all the widget files, and a similarly bundled CSS style file. These files are built on demand in the server by a PHP script that checks the configurations included in JSON file that is store in the server. 
@@ -439,11 +534,10 @@ Similarly there is the possibility of including a post loader script, however th
 
 
 
-\subsection{Implementation}
-\subsection{Description of the application}
+%\subsection{Implementation}
 %\subsection{Use Cases}
 
-\subsection{Spacial clustering for big networks on a force-directed layout}
+\subsection{Spacial clustering for big networks on a force-directed layout} \label{section:clustering}
 
 \section{Discussion}
 

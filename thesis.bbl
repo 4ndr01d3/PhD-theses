@@ -1,4 +1,4 @@
-\begin{thebibliography}{124}
+\begin{thebibliography}{125}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -535,6 +535,11 @@ Rhoda~J. Kinsella, Andreas Kahari, Syed Haider, Jorge Zamora, Glenn Proctor,
 \newblock \doi{10.1093/database/bar030}.
 \newblock URL
   \url{http://database.oxfordjournals.org/content/2011/bar030.abstract}.
+
+\bibitem[Ku{\'c}(2013)]{KUC2013}
+Rafa{\l} Ku{\'c}.
+\newblock \emph{Apache Solr 4 Cookbook}.
+\newblock PACKT Publishing, 2013.
 
 \bibitem[Kuhn et~al.(2008)Kuhn, von Mering, Campillos, Jensen, and
   Bork]{KUH2008}
