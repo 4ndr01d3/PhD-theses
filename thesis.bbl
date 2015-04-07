@@ -1,4 +1,4 @@
-\begin{thebibliography}{125}
+\begin{thebibliography}{126}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -761,6 +761,12 @@ Andreas Prlic, Thomas Down, Eugene Kulesha, Robert Finn, Andreas Kahari, and
 \newblock ISSN 1471-2105.
 \newblock \doi{10.1186/1471-2105-8-333}.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/8/333}.
+
+\bibitem[Rapanoel et~al.(2013)Rapanoel, Mazandu, and Mulder]{RAP2013}
+Holifidy~A Rapanoel, Gaston~K Mazandu, and Nicola~J Mulder.
+\newblock Predicting and analyzing interactions between mycobacterium
+  tuberculosis and its human host.
+\newblock \emph{PloS one}, 8\penalty0 (7):\penalty0 e67472, 2013.
 
 \bibitem[Robinson et~al.(2011)Robinson, Thorvaldsd{\'o}ttir, Winckler, Guttman,
   Lander, Getz, and Mesirov]{ROB2011}

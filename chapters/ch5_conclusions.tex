@@ -1,8 +1,77 @@
 \begin{savequote}[75mm] 
-Ouch
-\qauthor{Homero} 
+As palavras são apenas pedras postas a atravessar a corrente de um rio, se estão ali é para que possamos chegar à outra margem, a outra margem é que importa.
+\qauthor{José Saramago, A Caverna} 
 \end{savequote}
 
 \chapter{Conclusions}
 
-\newthought{here is something}, cool to say
+\newthought{Bioinformatics offer alternatives to elucidate biological knowledge in cases where experimental analysis is limited}. In some cases the restrictions are imposed by the elevated prices of using an specific technology, in others the technology simply does not exists, or when it does, the outcome should be extensively process before been able to get to any conclusions. 
+
+In order to extract information out of the collected data, mathematical models are executed in computational machines, from which aggregated values, statistical outliers, and clusters of information bring the clues of a puzzle that requires deep biological knowledge to be solved.
+
+Bioinformatics has been used to predict the features of biological entities, to identify patterns in multiple samples, to simulate biological behaviour. All of which required data collected from multiple experiments both \emph{in-vivo} and \emph{in-vitro}, and even \emph{in-silico} data where the values have been predicted in previous bioinformatics experiments.
+
+We consider that, in the integration of relevant sources, lays the key to understand biological systems. For example,  the analysis of a particular protein can identify an enzymatic behaviour, its subtracts and products, however the impact of such a process, can only understood, by considering the where is the reaction happening, which other proteins are present, what is the concentration values of the different molecules in the environment, are there any reactions to be triggered when the product concentration increases, etc.
+
+The previous example is taken from a field known as system biology, which by nature has a holistic approach to study biological processes. However similar examples can be found in other sub fields, where their focus is in a particular biological product: genes only get expressed under certain conditions and there are molecules that can inhibit the process.
+
+Researchers focused in these processes require the correct infrastructure to support multiple sources and integrate the raw data from them, in order to find explanations to important biological questions. The chapters in this document present some contributions to the methods and tools used to explore and interpret biological data from several sources, which have been classified between integration and visualisation of information. This classification however has been used here with the only purpose of organising the text. We consider that both integration and visualisation are fully interconnected fields and the line dividing them is fuzzy or non existing.
+
+\vspace{5mm}
+
+In Chapter \ref{ch:introduction} we presented the current landscape of tools and methods that offer solutions to integrate and visualise biological data, we explored there different fields, such as genomics and proteomics, using different technologies, for example data warehousing or web services. The common denominator in the presented projects is its inclusive nature: communities supporting the selected standards, building tools that facilitate their adoption. 
+
+Human resources are the most important factor in the success of these projects: a strong community backing up a project influences the growth of it. Such a growth can be sometimes expressed as the number of data submissions, or the creation of new components or protocol extensions, or contributions in the 
+development of open source projects.
+
+We noticed that some of the most successful projects use an strategy where by the means of scientific publications, both the individuals and the projects  benefit: when a project can be extended, and each extension can be considered a research outcome, the individuals are more likely to contribute to the project because their efforts can be recognised on a research article, which is nowadays the best way of building a scientific reputation; the project simultaneously gets more exposure because of the article, and more importantly, it has been improved by the individual's contribution.
+
+\vspace{5mm}
+
+The Distributed Annotation System (DAS) is a community project who grew for several years using that model, and its methods to share, integrate and visualise biological data have been used and extended by many researchers. In chapter \ref{section:integration} we introduced our contributions to the project, from protocol extensions to software tools that both integrates and visualises the resources provided by the federated data sources.
+
+We collaborated in the design and development of MyDAS(\url{https://code.google.com/p/mydas/}), a DAS server that facilitates the publication of biological data under the DAS protocol. MyDAS has been used in small projects in order to publish their data in a format that facilitates their visualisation in context with well known resources. Bigger data providers have also benefit from MyDAS, UniProt, for example, share their data in different formats, one of them is DAS, and the tool they used to achieve that functionality is MyDAS.
+
+We collaborated in the development of MyDAS in several ways: an upgrade of the whole system was implemented in order to support the most recent version of the DAS protocol (1.6E). That version of DAS includes the support to extensions to the protocol, we have implemented several of those extension in the core of MyDAS to facilitate their adoption. Some of those extensions were designed, proposed, accepted and implemented as part of this PhD. 
+
+The DAS writeback (\url{https://code.google.com/p/writeback/}) provides a method for users of the DAS protocol to include new annotations or edit existing ones, in such a way, that their contribution can be immediately accessed by other users, but without compromising the original data shared by the providers. An implementation of this extension that supports the community annotations of proteins was installed at the EBI servers, and the DAS client DASty was extended in order to support the creation and display of writeback annotations in context of existing DAS annotations. This extension was available in the DASty installation at the EBI for over a year during 2011 and 2012. Unfortunately its adoption was very limited and therefore the extension was disabled from DASty.
+
+We also collaborated in the design of the newest version of DASty. In DASty3 developer will find a more modular architecture, that supports the inclusion of plugins and allows the communication between them via an events model. DASty3 is the current version of the well known DAS client and can be accessed in \url{www.ebi.ac.uk/dasty}.
+
+Another extension we proposed for DAS and implemented on MyDAS was called advanced search, in which inspired by other projects, extends the DAS  protocol to support more generic queries based in the Lucene query language. This extension was then used when we implemented a tool that helps to find a microarray chip that includes probes for proteins of interest (\url{http://biosual.cbio.uct.ac.za/probes-search/}).
+
+During the time this PhD project has been in execution we have witnessed different stages of DAS as a community project: from been a promising technology that several well known institutions decided to include as a way of publishing their data, to be attracting many developers, including us, who created new tools and extensions to the protocol. Unfortunately the interest on this technology has diminish, and its use decreased to the point that the big bioinformatics groups that were supporting it before are now deprecating the DAS related services.
+
+Although we know of exciting new technologies that are appearing and bringing similar functionalities as the ones in DAS, such as the set REST services that UniProt provides, and libraries for web components, which can facilitate the creation of web resources with equivalent feature set to the ones offered for DAS clients; we consider that the main benefit of DAS which is the standardisation of a publishing method, is not yet provided by any of the alternatives, and therefore we regret the decisions of the institutes that are taking away the support to the DAS community.
+
+\vspace{5mm}
+
+One of the new efforts to provide an standard view of biological data is BioJS, project to which we have collaborated in their design and planning, and also in the development of components, the outcome of such collaborations are described in the first part of the chapter \ref{section:visualization}. BioJS provides a library of components that represent different types of biological data in the web. 
+
+BioJS strategy to attract the community is to make easier the different development stages of a web component: develop, discover, test, use, combine, customise, extend and maintain. For each of these stages there are protocols and/or technologies recommended, that serve the developer as guidelines, making the BioJS ecosystem a productive space for component creators, users and data providers.
+
+We have developed BioJS components to represent several biological entities such as chromosomes, proteins and their interaction networks. The representation of PPI networks have called our attention because there were used in several research projects from our department (Chapter \ref{section:use_cases}) We decided to start a cooperative effort with our peers, in which we can get first hand information about requirements, data formats and usability needs, and they can later use a tool that has been tailored to their needs.
+
+The result tool is PINV, which was described in detail in the section \ref{section:pinv}. PINV is a tool for the exploration and visualisation of protein-protein interactions. It currently supports 4 modes to present the selected data: node-link representation with force-directed layout, circle layout, heat map viewer, and a table to explore the raw data. 
+
+PINV takes advantage of been a web tool in order to offer collaborative functionalities: the current visualisation can be saved it and the user would  get a link to it. The holder of the link can later reconstruct the visualisation in any modern web browser, and keep with the analysts and exploration on another instance of PINV. It is also possible to generate the code to embed the saved view into another web page, and for instance used to dynamically explain concepts in blogs or web sites. We hope that these functionalities empower international collaborations in PPI networks.
+
+There are different uses to the existing visualisation methods, the work in this document have mainly focused in using visualisation to integrate and to explore data. For instance our efforts in DASty3 were about using the infrastructure offered by DAS in order to provide a tool where researcher can have an integrative view of all the annotations. In contrast the main purpose of PINV is the exploration of a data set that is too large to be represented all at once, and therefore aggregated representations and filtered views have been included in the toolset.
+
+The development of software tools is a never ending process, there are always new features to include, existing ones to improve, old ones to replace and obsolete ones to remove. The road map of PINV contain many items to work on, we will describe below the work that we consider necessary for the improvement of the tool.
+
+The fist topic to improve in PINV is the uploading of new datasets. PINV should be able to import data from the standard formats used in the PPI network research such as the ones in PSICQUIC, but also it should support the file formats of popular applications that visualise of PPI networks, for example Cytoscape. It is also desirable that a user could import the networks defined in public resources (e.g. STRING, I2D, etc.). Similarly, PINV should provide sources of annotations for proteins, for instance querying UniProt to get the annotations. features related with the topology of the network can also be calculated by the PINV server when a new network is loaded. In other words PINV should bring more support to the whole uploading process.
+
+The modular architecture of PINV hasn't been used as much as it could, currently only the PINV creators know of its existence, mainly because there is not complete documentation for other developers who want to create their own PINV widgets. We are lacking a protocol for the inclusion of new widgets in the application, the process needs to be simple enough to attract the interest of other developers, and we should provide the make available the full API of PINV. The obvious benefit of facilitating the development by third party developers is the grown of the feature set of PINV, this however doesn't mean we are stopping the development of PINV widgets, or the improvement of existing ones, for example we plan to extend the circle layout to include multi radial representations, in such a way that we can represent hierarchies in the dataset in a better way. This feature will also facilitate the use of the spatial clustering information in this layout.
+
+PINV reuses BioJS components for the visualisation widgets, however it is still using BioJS 1.0 and it should be updated to BioJS 2.0, this will facilitate the inclusion of the new components that have been included int ht new registry, some of which are working with PPI network data.
+
+The proposed method to explore whole datasets using an spatial clustering algorithm is not a complete representation of the real network, and we are aware of several implications of the implementation decisions, for example, that the partition by quadtrees can split clusters well defined that other methods can detect easily. However we consider that the use of quadtrees, gives a partial solution that is efficient and allows an easy way to explore a whole dataset form top to bottom.
+
+We are eager to use the learnings of this doctorate in other domains, for example, PINV's architecture is reusable, we consider that the modularity of PINV makes it an ideal framework to build applications that retrieve the information from a centralised indexed system; the inclusion of widgets and its execution order has been defined in configuration files, which allow their use in different setups. Using it in a different domain won't only save time and resources on development, but will also facilitate the interaction between apps that share the same framework.
+
+\vspace{5mm}
+
+Science is not a solo campaign, every researcher uses the current knowledge as the base of future projects, and in the present the best tool to get access to this information is the web. Journals have made the articles available online, international consortiums provide their data in the same way, books and other learning resources are now a click away, and the communication between international peers can now be done with multiple methods including emails, video calls, instant messaging, etc.
+
+A common factor in all the project we have contributed during this PhD is the use of web technologies: MyDas facilitates sharing data using web protocols; DASty takes protein data from distributed sources and displays a single view in a web client; probeSearcher, does something similar with microarray information; PINV extensively uses the most modern web technologies in order to explore PPI data. In conclusion, the web is not the future, is the present, and is our goal as developers of science tools, to take advantage of the web's benefits to help researchers in their everyday tasks.
