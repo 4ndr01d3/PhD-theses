@@ -361,45 +361,47 @@ We have discussed in the introduction (section \ref{sec:ppi}) the existence of s
 
 
 \section{PINV, a web-based Protein Interaction Network Visualiser }  \label{section:pinv}
-Protein-protein interaction data has been used in multiple research scenarios: (i) to browse networks for genes of interest, (ii) to interpret the results of genome-wide genomic screen, (iii) to interpret functional genomics data and (iv) to elucidate disease genes \cite{FRA2013}. In all of them visualisation has play an important role, for instance,  to meaningful navigate around a big network (i and iv), to find clusters of proteins with shared functionalities(iii and iv)  or highlight links that are not evident with other techniques (i and ii).
+Protein-protein interaction data has been used in multiple research scenarios: (i) to browse networks for genes of interest, (ii) to interpret the results of genome-wide genomic screening, (iii) to interpret functional genomics data and (iv) to elucidate disease genes \cite{FRA2013}. In each of theses, visualisation plays an important role, for instance,  to meaningfully navigate around a big network (i and iv), to find clusters of proteins with shared functionalities(iii and iv)  or highlight links that are not evident with other techniques (i and ii).
 
-Multiple projects to visualise PPI networks have been discussed in section \ref{sec:ppi}, however none of them uses the web as their platform and in consequence their collaborative capabilities are limited. 
+Multiple projects that visualise PPI networks have been discussed in section \ref{sec:ppi}, however none of them uses the web as their native platform and in consequence their collaborative capabilities are limited.
 
-The potential of community oriented projects built on the web has been exposed in other fields, for example GitHub has become the most popular system to collaborate in open source projects, with more than eight million users and over twenty million repositories by the beginning of 2015 (\url{https://github.com/about/press}), and although the core of it is the git version control software, it is arguably that the web front end is the one who attracts the community to take part of many open source projects.
+The potential of community oriented projects built on the web has been demonstrated in other fields. For example GitHub has become the most popular system to collaborate in open source projects, with more than eight million users and over twenty million repositories by the beginning of 2015 (\url{https://github.com/about/press}). Although its core is the git version control software, it can be argued that that the web front end is the  feature that attracts  community members to take part in the many open source projects.
 
-We have developed PINV, with the goal of bringing this potential into the research of PPI networks. An article describing the project was published in 2014 and is listed as No. \ref{paper:PINV} at the beginning of this chapter. The first author of this publication is Gustavo A. Salazar and the co-authors provided input in line with their roles as collaborators and supervisors. Below we describe PINV in more detail, including its architecture and implementation.
+We have developed PINV with the goal of introducing this potential to research associated with PPI networks. An article describing the project was published in 2014 and is listed as No. \ref{paper:PINV} at the beginning of this chapter. The first author of this publication is Gustavo A. Salazar and the co-authors provided input in line with their roles as collaborators and supervisors. Below we describe PINV in more detail, including its architecture and implementation.
+
+PINV is an open source, native web application that uses the latest generation of web technologies to offer an interactive view of protein-protein interactions which is easily accessible from any modern browser. PINV enables researchers to explore their data using different methods and the visualization can be manipulated to highlight the proteins or interactions of interest. The resulting graphic can be exported to common graphic formats, shared via URL or embedded in third-party pages, all of which are features that make it suitable for publication, sharing and collaboration activities.
 
 \subsection{Description of the application} \label{section:pinv_gui}
 
-PINV can be accessed in the web via this URL: (\url{http://biosual.cbio.uct.ac.za/pinv.html}). The visitor is presented a menu with four options: Data sets, Load data, Documentation and about. 
+PINV can be accessed on the web via this URL: (\url{http://biosual.cbio.uct.ac.za/pinv.html}). On accessing this page, the visitor is presented with a menu of four options: Data sets, Load data, Documentation and about. 
 
-The \emph{Data sets} page is the default, here the user can find a list of all the public datasets that have been upload into PINV. We have loaded some public datasets for organisms of our particular interest: \emph{Homo sapiens} (HS), \emph{Mycobacterium leprae} strain TN (MLP), \emph{Mycobacterium smegmatis} strain MC$^2$155, \emph{Mycobacterium tuberculosis} strain CDC1551  (MTB) and a combined dataset of \emph{HS}, \emph{MTB} and the interactions between them. The rest of the datasets on the list have been uploaded by PINV's users. We have included a search functionality in the page where users can include part of the name of the dataset and the list is automatically updated to only include those that match the given text.
+The \emph{Data sets} page is the default, where the user can find a list of all the public datasets that have been upload into PINV. We have loaded some public datasets for organisms of our particular interest: \emph{Homo sapiens} (HS), \emph{Mycobacterium leprae} strain TN (MLP), \emph{Mycobacterium smegmatis} strain MC$^2$155, \emph{Mycobacterium tuberculosis} strain CDC1551  (MTB) and a combined dataset of \emph{HS}, \emph{MTB} and the interactions between them. The rest of the datasets on the list have been uploaded by PINV's users. We have included a search functionality in the page where users can include part of the name of the dataset and the list is automatically updated to only include those that match the given text.
 
-The second option in the home page is \emph{Load data}, here a web form is displayed. The required information consist in a unique name for the dataset, a valid email where the user will receive the links to access the dataset, the preference between a public or a protected dataset (difference explained in the next section), and two tab separated files: one for interactions and one for features.
+The second option on the home page is \emph{Load data}, where a web form is displayed. The required information consists of a unique name for the dataset, a valid email where the user will receive the links to access the dataset, the preference between a public or a protected dataset (difference explained in the next section), and two tab separated files: one for interactions and one for features.
 
-In the interaction file, the first two columns contain the accession numbers of the proteins, and the third column is an aggregate score of the evidence for the reported interaction. Subsequent columns are optional and considered as evidence scores that contributed to the unified value in column 3.
-The second file is used to add annotations to the proteins (e.g., gene name). The only required annotation is that of the organism to which the protein belongs; therefore the file should have the protein id in the first column, the organism in the second and any other features in additional columns. The information provided in this file can then be used to manipulate the graphic, for instance to color by functional class or to show a particular label.
+In the interaction file, the first two columns contain the accession numbers of the proteins, and the third column is an aggregate score of the evidence for the reported interaction. Subsequent columns are optional and are considered as evidence scores that contribute to the unified value in column 3.
+The second file is used to add annotations to the proteins (e.g. gene name). The only required annotation is that of the organism to which the protein belongs. Therefore the file should have the protein id in the first column, the organism in the second and any other features in additional columns. The information provided in this file can then be used to manipulate the graphic, for instance to colour by functional class or to show a particular label.
 
 The last two options of PINV are \emph{Documentation} and \emph{About} where resources to provide help to the user are included. For example, tutorials, presentations and links to the source code and the original publication.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/pinv_wizard.png}
-\caption[Wizard menu to select the exploration method in PINV]{Wizard menu to select the exploration method in PINV
+\caption[Menu wizard to select the exploration method in PINV]{Menu wizard to select the exploration method in PINV
 \label{fig:pinv_wizard}}
 \end{figure}
 
-Once users select a data set from the list or access one from the link sent to their emails, the PINV client is load into the browser (See the client part in section \ref{pinv_architecture}) and then, a popup window(Figure \ref{fig:pinv_wizard}) presenting three options to explore the data is displayed:
+Once users have selected a data set from the list or accessed one from the link sent to their emails, the PINV client is loaded into the browser (See the client component in section \ref{pinv_architecture}) and then, a popup window(Figure \ref{fig:pinv_wizard}) presenting three options to explore the data is displayed:
 
 \begin{description}
 \item[Empty Canvas] 
-Using this method the interface displays all the widgets, but no queries had been executed, and therefore the visualisations are empty. The proteins of interest can be selected by inserting comma separated accession numbers. The form has auto-complete capabilities to assist in this process (Figure \ref{fig:pinv}-A). 
+Using this method, the interface displays all the widgets available but no queries are executed, and therefore the visualisations are empty. The proteins of interest can be selected by inserting comma separated accession numbers into the text area located at the top-left corner of the interface. The form has auto-complete capabilities to assist in this process (Figure \ref{fig:pinv}-A). 
 
 The search function has three modes: Normal, Explicit and Recursive. The \emph{Normal} mode returns the queried proteins and all interactions reported in the dataset, while the \emph{Explicit} mode will only display proteins that have been explicitly included in the query list and the interactions between them; the explicit mode will also include all the interactions with the previous results.
-The \emph{Recursive} mode combines the previous two, it first gets the target proteins on \emph{Normal} mode, and then for each recovered protein it triggers a query in \emph{Explicit} mode, the outcome of this is that all the interactions between displayed proteins will be shown.
+The \emph{Recursive} mode combines the previous two. It first gets the target proteins using \emph{Normal} mode, and then for each recovered protein it triggers a query in \emph{Explicit} mode, the outcome of which is that all the interactions between displayed proteins will be shown.
 
 \item[Filter the Network] 
-In order to meaningfully visualize protein interactions, it is beneficial to reduce the network to only those proteins of interest through the application of prefilters to the data. This has the simultaneous benefits of increasing the speed of PINV's response time and reducing bandwidth requirements. By using the prefilter tool on PINV, the user can explore the whole content of the network without loading the individual components into the graphic. Figure \ref{fig:pinv_filters} (Left) shows the interface where the user can define certain conditions that the interactions have to fulfil in order to be displayed. The graphic on the left side of Figure \ref{fig:pinv_filters} is dynamically updated, reflecting the size of the subset generated by applying the filters over the whole dataset. For instance, in the graphic the dark blue represents the whole network (796353 interactions), while the light blue is the portion of those that have an evidence score from STRING \cite{FRA2013}. Two more filters were applied to this example (\emph{organism contains tuberculosis} and \emph{description contains Sensor}), the combined use of the filters results in a 103 interaction subnetwork, which is small enough to allow PINV to run smoothly and generates a graphic like that in Figure \ref{fig:pinv_filters} (Right).
+In order to meaningfully visualize protein interactions, it is beneficial to reduce the network to only those proteins of interest through the application of prefilters to the data. This has the simultaneous benefits of increasing the speed of PINV's response time and reducing bandwidth requirements. By using the prefilter tool on PINV, the user can explore the whole content of the network without loading the individual components into the graphic. Figure \ref{fig:pinv_filters} (Left) shows the interface where the user can define certain conditions that the interactions have to fulfil in order to be displayed. The graphic on the left side of Figure \ref{fig:pinv_filters} is dynamically updated, reflecting the size of the subset generated by applying the filters over the whole dataset. For instance, in the graphic the dark blue semi-circle represents the whole network (796353 interactions), while the light blue area is the portion that has an evidence score from STRING \cite{FRA2013}. Two more filters were applied to this example (\emph{organism contains tuberculosis} and \emph{description contains Sensor}), the combined use of the filters results in a 103 interaction subnetwork, which is small enough to allow PINV to run smoothly and generates a graphic like that in Figure \ref{fig:pinv_filters} (Right).
 
 \begin{figure}[ht]
 \centering
@@ -408,8 +410,7 @@ In order to meaningfully visualize protein interactions, it is beneficial to red
 \label{fig:pinv_filters}}
 \end{figure}
 
-\item[Clustering] In this mode the whole network is represented by clusters of proteins and interactions between them, the user can then expand the clusters, to explore the network in a top-bottom fashion. A more detailed description of this method is included in section \ref{section:clustering}.
-\end{description}
+\item[Clustering] In this mode, the whole network is represented by clusters of proteins and the interactions between them. The user can expand the clusters to explore the network in a top-bottom fashion. A more detailed description of this method is included in section \ref{section:clustering}.    \end{description}
 
 \begin{figure}  
 \includegraphics[height=5.7in,angle=90]{figures/pinv.png}
@@ -421,9 +422,9 @@ PINV provides four types of visualisation of the data: Network, Circle, Heatmap 
 
 Figure \ref{fig:pinv}-B displays a snapshot of the interactions for proteins O53166 and O05839 from the MTB dataset in the Network layout. The network layout allows the re-organization of the proteins through drag and drop mouse gestures, and clicking on a node will display the loaded features that are hyperlinked to relevant public resources in a pop-up window (right side of Figure \ref{fig:pinv}-B).
 
-The second layout organises the proteins in a circle positioning all the nodes around the center without favouring any of them, this can help to discover connection patterns around the network (Figure \ref{fig:pinv}-C). In this view the interactions of a single protein are highlighted when the user hovers over the node. As in the network layout, the proteins are separated to clearly indicate the organism to which they belong; the user can choose to sort the proteins around the circle by any of the protein features.
+The second layout organises the proteins in a circle positioning all the nodes around the edge without favouring any of them. This can help to visually emphasise connection patterns around the network as shown in (Figure \ref{fig:pinv}-C). In this view, the interactions of a single protein are highlighted when the user hovers over the node. As in the network layout, the proteins are separated to clearly indicate the organism to which they belong. The user can choose to sort the proteins around the circle by any of the protein features.
 
-Figure \ref{fig:pinv_heatmap} displays the same query of figure \ref{fig:pinv} using the heat map component. In this representation the focus is in the interactions, and the proteins are only labels of them. This visualisation offers the possibility to compare the features of the two proteins involved in a interaction.
+Figure \ref{fig:pinv_heatmap} displays the same query as in figure \ref{fig:pinv} using the heat map component. In this representation, the focus is on the interactions between proteins -the proteins involved are shown on the axes of the heat map. This visualisation offers the possibility to compare the features of the two proteins involved in an interaction.
 
 \begin{figure}[ht]
 \centering
@@ -433,44 +434,41 @@ Figure \ref{fig:pinv_heatmap} displays the same query of figure \ref{fig:pinv} u
 \end{figure}
 
 
-Lastly there is the table view where the raw data is displayed and can be reorganised. This is particularly useful for queries that return too many results and require post-filtering to select the proteins of interest.
+Lastly, there is the table view where the raw data is displayed and can be reorganised. This is particularly useful for queries that return too many results and require post-filtering to select the proteins of interest.
 
-The visualisation of the layout can be exported at any time into SVG or PNG format, and the data in the table are exportable to a CSV file.
+The visualisation of the layout can be exported at any time into SVG or PNG format, and the data in the table is exportable to a CSV file.
 
-Manipulation of any of the three display options is achieved with a single component (Figure \ref{fig:pinv}-D) that allows the creation of rules. The rationale behind this component is that by specifying a target (protein or interactions), a condition to filter by (e.g., protein with functional class X, interactions with protein Y), and an action (e.g., paint green, show label) it is possible to manipulate a wider set of network elements with less input from the user. For example, Figures \ref{fig:pinv}-B and C show all the proteins painted in different colours depending on their functional class. The legend on the right lists the functional classes used and the corresponding colours in the graphic. A second rule was created in the example to display the gene name at the side of proteins with more than 2 interactions.
-Right clicking on a protein in the graphic will open a contextual menu that allows the quick creation of rules that only apply to the selected protein. Users can also colour nodes with quantitative data such as expression values loaded from a third file.
+Manipulation of any of the three display options is achieved with a single component (Figure \ref{fig:pinv}-D) that allows the creation of rules. The rationale behind this component is that by specifying a target (protein or interactions), a condition to filter by (e.g., protein with functional class X, interactions with protein Y), and an action (e.g., paint green, show label) it is possible to manipulate a wider set of network elements with less input from the user. For example, Figures \ref{fig:pinv}-B and C show all the proteins painted in different colours depending on their functional class. The legend on the right lists the functional classes and the corresponding colours used in the graphic. A second rule was created in the example to display the gene name at the side of proteins with more than 2 interactions.
+Right clicking on a protein in the graphic will open a context menu that allows the quick creation of rules that only apply to the selected protein. Users can also colour nodes with quantitative data such as expression values loaded from a third file.
 
 All the actions executed by the user have been saved in order to display the provenance of the visualisation in the form of a list where the user and collaborators can review the steps (and their parameters) taken to reach a particular status of the visualisation. This list can be displayed by clicking on the “Show History” button at the bottom of the page. 
 
 PINV provides an easy way to share the current view: when the user clicks on `share', a unique link is generated. PINV is able to regenerate the status of all the components to re-compose the view whenever the link is used. 
-This functionality was developed with the goal of promoting collaboration between users. If for instance, a user finds something of interest in the visualisation, he/she can create the link and send it to a collaborator via mail, instant messaging, etc. The second researcher can not only view but manipulate the visualisation and re-create another link for future discussions. For example, recreations of Figures \ref{fig:pinv_filters} and \ref{fig:pinv} can be explored in PINV by following the URLs \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=paperF} and \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=paper00} respectively.
+This functionality was developed with the goal of promoting collaboration between users. If for instance, a user finds something of interest in the visualisation, he/she can create the link and send it to a collaborator via mail, instant messaging, etc. The second researcher can not only view, but also manipulate the visualisation and re-create another link for future discussions. For example, recreations of Figures \ref{fig:pinv_filters} and \ref{fig:pinv} can be explored in PINV by following the URLs \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=paperF} and \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=paper00} respectively.
 
-The sharing option also provides an HTML snippet that can be used embed the view in a web page, making it easier for the researcher to include their visualisations on web documents in the same way that maps, videos and other kinds of multimedia are included in blog posts. It is hoped that researchers will use this to embed PINV graphics in pages that discuss the results of their own network research.
-
-
-
+The sharing option also provides a HTML snippet that can be used to embed the view in a web page, making it easier for the researcher to include their visualisations on web documents in the same way that maps, videos and other kinds of multimedia are included in blog posts. It is hoped that researchers will use this to embed PINV graphics in pages that discuss the results of their own network research.
 
 \subsection{Architecture} \label{pinv_architecture}
-PINV has been designed to follow a classic client-server architecture, in which the client is in charge of the interaction with the user and the generation of the visualisations, based on asynchronous calls to recover data on demand. The server has been optimised to provide rapid responses through a REST interface, whilst the client follows a modular architecture that makes it easy to extend and adapt. 
+PINV has been designed to follow a classic client-server architecture, in which the client is in charge of both the interaction with the user and the generation of the visualisations, based on asynchronous calls to recover data on demand. The server has been optimised to provide rapid responses through a REST interface, whilst the client follows a modular architecture that makes it easy to extend and adapt. 
 
 
 \subsubsection{Server}
 The server side of PINV has been developed using the web framework for Python called CherryPy (\url{http://www.cherrypy.org/}) and the PPI data is indexed and stored in a Solr search engine server \cite{KUC2013} in order to perform rapid queries, resulting in quicker response times than through querying of a relational database
 
-PINV's client never interacts directly with the Solr instance, instead all communications are tunnelled by the CherryPy component, this with the purpose of prevent the access to resources and functionalities to unauthorised users. For example, the REST services of Solr includes a method to delete a core, which is the term used in Solr to describe the dataset and its controllers. We filtered out such calls and any other administrative functionalities that can harm the data of other users.
+PINV's client never interacts directly with the Solr instance, instead all communications are tunnelled by the CherryPy component.  This prevents unauthorised users from accessing restricted resources and functionalities. For example, the REST services of Solr includes a method to delete a core, which is the term used in Solr to describe the dataset and its controllers. We filtered out such calls and any other administrative functionalities that can harm the data of other users.
 
-The main functionality of the server is to allow the upload of the PPI data from simple tab separated files into a Solr core. When uploading data, the user can choose between two modes of privacy: public and protected. A dataset in public mode will be listed on PINV’s website and accessible to anyone. This brings visibility to the data and promotes collaboration between researchers. On the other hand, protected mode ensures that only users with a valid link can retrieve information from the data set; the link includes a unique key that is sent to the uploader so he can distribute the link as he wishes. In this way the collaborative features of PINV are still functional between the holders of the link.
+The main functionality of the server is to allow the uploading of PPI data from simple tab separated files into a Solr core. When uploading data, the user can choose between two modes of privacy: public and protected. A dataset in public mode will be listed on PINV’s website and be accessible to anyone. This brings visibility to the data and promotes collaboration between researchers. On the other hand, protected mode ensures that only users with a valid link can retrieve information from the data set. The link includes a unique key that is sent to the uploader so he can distribute the link as he wishes. In this way the collaborative features of PINV are still functional between the holders of the link.
 
-The authorisation to a protected core is another function managed by the CherryPy server. The access to any information of a protected core is restricted to the inclusion of the key into the request. When data is upload to PINV in protected mode, an email including links with the key in it will be sent to the user. A similar email is also sent to owners of public datasets, which include links to restricted administrative functions such as deleting the core.
+The authorisation to access a protected core is another function managed by the CherryPy server. The access to any information of a protected core is restricted to the inclusion of the key into the request. When data is uploaded to PINV in protected mode, an email which includes links that contain the key will be sent to the user. A similar email is also sent to owners of public datasets, which include links to restricted administrative functions such as deleting the core.
 
-Another feature carried out by PINV's implementation of the CherryPy server is to allow the storage and posterior retrieval of the files that contain the status the different widgets, which is the key element in the generation of links to share or embed a visualisation created in the tool. When the user clicks on the share button, the client compile the state of all its widgets in a single configuration file, including the current dataset, queries executed, graphic manipulation rules, etc.This file is sent to the server, where is stored and a unique identifier is assigned to it, the ID is then returned to the client which uses it to generate the URL and the HTML code to embed PINV in another page. When the link is used, the PINV client loads normally (See following section), but in addition the status email is recovered from the server and used to reload all the configurations and regenerate the visualisation.
+Another feature carried out by PINV's implementation of the CherryPy server is to allow the storage and later retrieval of the files that contain the status the different widgets, which is the key element in the generation of links to share or embed a visualisation created in the tool. When the user clicks on the share button, the client compiles the state of all its widgets in a single configuration file, including the current dataset, queries executed, graphic manipulation rules, etc.This file is sent to the server, where it is stored and a unique identifier is assigned to it. The ID is then returned to the client which uses it to generate the URL and the HTML code to embed PINV in another page. When the link is used, the PINV client loads normally (See following section), but in addition, the status email is recovered from the server and used to reload all the configurations and regenerate the visualisation.
 
-Following the principle of making PINV an open source project, we have published the repository in GitHub (\url{https://github.com/4ndr01d3/pinv-server}) that includes the CherryPy logic, a Solr installation that has been configured to be used in PINV, an example configuration to use apache to redirect any Solr query into CherryPY, and documentation or all these components.
+In accordance with the decision to make PINV an open source project, we have published the repository in GitHub (\url{https://github.com/4ndr01d3/pinv-server}) that includes the CherryPy logic, a Solr installation that has been configured to be used in PINV, an example configuration to use apache to redirect any Solr query into CherryPY, along with documentation for all these components.
 
 \subsubsection{Client}
-When the user selects a dataset from PINV's home page, the main application gets loaded into the client, which initially means that two resources get retrieved from the server: a bundled javascript that contains PINV's scripts and all the widget files, and a similarly bundled CSS style file. These files are built on demand in the server by a PHP script that checks the configurations included in JSON file that is store in the server. 
+When the user selects a dataset from PINV's home page, the main application is loaded into the client, which initially means that two resources are retrieved from the server: a bundled javascript that contains PINV's scripts and all the widget files, and a similarly bundled CSS style file. These files are built on demand in the server by a PHP script that checks the configurations included in JSON file that is stored on the server. 
 
-This schema allows modularity in PINV so when new widgets are developed, the core of the application remains the same and only the configuration files needs to be modified. It is also possible to have several configuration files to create instances of PINV with different widgets, for example the home page of the project executes the same routines, but includes different widgets to display the list of available datasets, the forms to upload data and the documentation of the system.
+This schema allows PINV to be modular, so when new widgets are developed, the core of the application remains the same and only the configuration files need to be modified. It is also possible to have several configuration files to create instances of PINV with different widgets. For example the home page of the project executes the same routines, but includes different widgets to display the list of available datasets, the forms to upload data and the documentation of the system.
 
 \begin{figure}
 \centering
@@ -479,26 +477,27 @@ This schema allows modularity in PINV so when new widgets are developed, the cor
 \label{fig:pinv_include}}
 \end{figure}
 
-Figure \ref{fig:pinv_include} shows all the components that provide the whole client logic of PINV. As mentioned above, these components are compiled in a singled javascript file by a PHP script. Having a single file reduces the time of loading because it requires only one HTTP transaction. 
+Figure \ref{fig:pinv_include} shows all the components that provide the client logic of PINV. As mentioned above, these components are compiled in a singled javascript file by a PHP script. The use of a single file reduces the loading time because it requires only one HTTP transaction. 
+
 \begin{description}
 \item[Main Dependencies] 
-There are three main dependencies included in PINV: jQuery, AjaxSolr and BioJS. 
+PINV has three major dependencies: jQuery, AjaxSolr and BioJS. 
 
-PINV uses jQuery (\url{https://jquery.com/}) in several ways, for instance to manipulate data object model DOM, which is the data structure that contains the HTML elements in web browser; this can be done without jQuery, but its syntax facilitates the process; jQuery is also extensible via plugins and PINV uses several of this extensions (e.g. draggable components, auto complete features, etc.).
+The JavaScript library jQuery  facilitates the development of client-side components (\url{https://jquery.com/}). PINV uses jQuery to manipulate the data object model (DOM), which is the data structure that contains the HTML elements in web browser. This can be done without jQuery, but its syntax facilitates the process. jQuery is also extensible via plugins and PINV uses several of these extensions (e.g. draggable components, auto complete features, etc.).
 
-The second general dependency is AjaxSolr (\url{https://github.com/evolvingweb/ajax-solr}) a library that serves as the interface with the Solr server that contains the PPI network data. AjaxSolr architecture follows a Model-View-Controller MVC pattern that has been adapted to the interaction with a Solr server: the model is based in the structure of the documents retrieved from the server; widgets are registered to the AjaxSolr core, which acts as the controller, notifying the widgets about the actions and results of interacting with the server. Widgets are in charge of generating the views, because they can include methods to react according to each notification, for example to display the results of a query once the core triggers an \emph{afterRequest} event. 
+The second general dependency is AjaxSolr (\url{https://github.com/evolvingweb/ajax-solr}) a library that serves as the interface with the Solr server that contains the PPI network data. AjaxSolr architecture follows a Model-View-Controller (MVC) pattern that has been adapted for the interaction with a Solr server: the model is based on the structure of the documents retrieved from the server; widgets are registered to the AjaxSolr core, which acts as the controller, notifying the widgets about the actions and results of interacting with the server. Widgets are in charge of generating the views, because they can include methods to react according to each notification, for example to display the results of a query once the core triggers an \emph{afterRequest} event. 
 
-PINV reuses this strategy, and each of the components that form this application have been developed as AjaxSolr widgets, so they can get notified of each interaction with the server, some of the widgets use the core to execute new requests, while other wait for responses to generate views.
+PINV reuses this strategy, and each of the components that form a part of this application have been developed as AjaxSolr widgets so they can be notified of each interaction with the server. Some of the widgets use the core to execute new requests, while others wait for responses to generate views.
 
-The main class of BioJS 1.0 is the last general dependency included in the compiled file. The visualisation widgets included in PINV have been implemented following the BioJS standards. Each of the components described in section \ref{subsec:biojs_components} are used in PINV: the logic related with PINV was written as an AjaxSolr widget, but all the visualisation features were kept as a separated BioJS component. All of these components inherit from the BioJS class added in this step.
+The main class of BioJS 1.0 is the last general dependency included in the compiled file. The visualisation widgets included in PINV have been implemented following the BioJS standards. This implies that all the visualisation features were developed as separate BioJS components. PINV includes the files of the components described in section \ref{subsec:biojs_components}, and for each of them we have developed a widget to interface between the component and the rest of PINV.
 
 \item[HTML Template]
-After the dependencies have been included, the script proceeds to extract the information about the HTML template from the configuration file. The template is a HTML piece of code that works as layout for the components, specifying divs or other container elements where the widgets can be included in a later stage. In this step the PHP script creates a variable in the javascript code containing the selected template, and then a piece of executable is added to inject the template into the DOM of web page.
+After the dependencies have been included, the script proceeds to extract the information about the HTML template from the configuration file. The template is a piece of HTML code that works as a layout for the components, specifying divs or other container elements where the widgets can be included in a later stage. In this step the PHP script creates a variable in the javascript code containing the selected template, and then an executable is added to inject the template into the DOM of the web page.
 
 \item[Widgets]
-As mentioned before a widget in PINV follows the schema defined in AjaxSolr, however we extended this concept in order to include other resources related with each widget. In the server each widget has its own folder, which should contain a configuration file called widget.json. The PHP reads  this file in order to extract the paths of each of these resources: JavaScript dependencies, CSS dependencies, HTML, CSS and the JavaScript widget. Only the JavaScript file is required, all the other resources are optional. 
+As previously mentioned, a widget in PINV follows the schema defined in AjaxSolr, however we extended this concept in order to include other resources related with each widget. In the server each widget has its own folder, which contains a configuration file called widget.json. The PHP script reads this file in order to extract the paths of each of the following resources: JavaScript dependencies, CSS dependencies, HTML, CSS and the JavaScript widget. Only the JavaScript file is required - all the other resources are optional. 
 
-The code below is the configuration file used to describe the widget that displays the network using the force-directed layout using the BioJS component described in section \ref{subsec:biojs_components}. The \emph{GraphWidget.js} file defines the widget as a class that inherits from \emph{AjaxSolr.AbstractWidget} and implements the methods to initialise the widget and process all the interactions with the server; The widgets uses the BioJS component \emph{Biojs.InteractionsD3.js} to visualise the interactions, which in times uses the implementation of the force-directed layout included in the D3 library (\emph{d3.min.js}). The HTML in \emph{GraphWidget.html} is limited to the definition of a div element where the component will be included.
+The code below is the configuration file used to describe the widget that displays the network using the force-directed layout using the BioJS component described in section \ref{subsec:biojs_components}. The \emph{GraphWidget.js} file defines the widget as a class that inherits from \emph{AjaxSolr.AbstractWidget} and implements the methods to initialise the widget and process all the interactions with the server. The widgets use the BioJS component \emph{Biojs.InteractionsD3.js} to visualise the interactions, which uses the implementation of the force-directed layout included in the D3 library (\emph{d3.min.js}). The HTML in \emph{GraphWidget.html} is limited to the definition of a div element where the component will be included.
 
 \begin{lstlisting}[language=java]
 {
@@ -510,25 +509,26 @@ The code below is the configuration file used to describe the widget that displa
     "css": "GraphWidget.css"
 } 
 \end{lstlisting}
-The current version of PINV includes widgets that facilitate the search in the server by ID(\emph{AutocompleteTextAreaWidget}), to filter the query using the protein features (\emph{QueryFilterWidget}), to visualise the interactions using a force-directed layout (\emph{GraphWidget}), a circle layout (\emph{CircleGraphWidget}) and a heat map graphic(\emph{HeatmapWidget}). This visualisations can be manipulated by other widgets, for instance by creating rules to define colour or size  depending on the protein features (\emph{RulerWidget}), or by using expression data to paint the proteins on a corresponding colour scale (\emph{ExpressionWidget}). There are other widgets that were created to provide some GUI features, such as the tabs to select the visualisation method (\emph{InvertedTabsWidget}) or a floating window that can display the features of a selected protein or interaction (\emph{DetailsFrameWidget}).
 
-All the widgets were developed to be able to be executed independently. This means that the whole architecture can be used for a different application, and if the widget applies then it can be used there, for instance the autocomplete text area widget is not attached to protein protein interactions data, and therefore it can be used to generate queries by ID in any other configuration of the system.
+The current version of PINV includes widgets that facilitate the following: searching the server by ID(\emph{AutocompleteTextAreaWidget}), filtering the query using protein features (\emph{QueryFilterWidget}), visualising the interactions using a force-directed layout (\emph{GraphWidget}), a circle layout (\emph{CircleGraphWidget}) and a heat map graphic(\emph{HeatmapWidget}). These visualisations can be manipulated by other widgets, for instance by creating rules to define colour or size  depending on the protein features (\emph{RulerWidget}), or by using expression data to paint the proteins in a corresponding colour scale (\emph{ExpressionWidget}). There are other widgets that were created to provide some GUI features, such as the tabs to select the visualisation method (\emph{InvertedTabsWidget}) or a floating window that can display the features of a selected protein or interaction (\emph{DetailsFrameWidget}).
+
+All the widgets have been designed to allow for independent execution. This means that the whole architecture can be re-used for different applications. For instance the autocomplete text area widget is not attached to protein protein interactions data, and therefore it can be used to generate queries by ID in any other configuration of the system.
 
 \item[Widget Connectors]
-In order to keep the widgets reusable, we have separated the logic of their interactions in separate files. The widgets implement the triggering using the common event handler included in BioJS 1.0, however the listeners of the event are not declared in the widget itself, but in the connector files. In this way two  configurations of the system can operate differently based on the same event, but still using the same widget. 
+In order to keep the widgets reusable, we have separated the logic of their interactions in separate files. The widgets implement the triggering using the common event handler included in BioJS 1.0, however the listeners of the event are not declared in the widget itself, but in the connector files. In this way two configurations of the system can operate differently based on the same event, but still using the same widget. 
 
-Consider for instance, two configurations of PINV: in the current version there is a tab widget that allows to select which visualisation method is going to be used; alternatively, we can have a configuration were all the visualisation methods are displayed simultaneously. In the first scenario there is not need of communication between the visualisation widgets, while in the second, it is desirable that a click in the symbol that represents a protein in one widget, triggers a reaction in the correspondent elements of the other widgets. 
+Consider for instance, two configurations of PINV: in the current version there is a tab widget that allows the user to select which visualisation method is going to be used; alternatively, we can have a configuration were all the visualisation methods are displayed simultaneously. In the first scenario there is no need for communication between the visualisation widgets, while in the second, it is desirable that a click on the symbol that represents a protein in one widget triggers a reaction in the corresponding elements of the other widgets. 
 
-PINV architecture support this two behaviours without requiring changes in the files that define a widget, but instead including this type logic in the \emph{Widget Connectors} files. The three files that the current version includes are supporting the events generated by: the rule definer widget (\emph{ruleExecuter.js}), the context menu that get displayed when a right click is done over a protein (\emph{contextMenuFunctions.js}) and the widget that processes the expression files  (\emph{expressionExecuter.js}).
+PINV architecture supports these two behaviours without requiring changes in the files that define a widget, but by instead including this type of logic in the \emph{Widget Connector} files. The three files included in the current version support the events generated by: the rule definer widget (\emph{ruleExecuter.js}), the context menu that get displayed when right clicking on a protein (\emph{contextMenuFunctions.js}) and the widget that processes the expression files  (\emph{expressionExecuter.js}).
 
-These files are only necessary when the interconnection between widgets requires some logic, for example to filter the visible components based on the defined rule, or to interpolate an RGB value based on the limits and colours selected by the user. For other events where the interaction between triggered and listener is more direct, can be simply reported in the configuration file, for example when a click in protein X in a widget, triggers the method \emph(highlightProtein()) in another widget.
+These files are only necessary when the interconnection between widgets requires some logic, for example to filter the visible components based on the defined rule, or to interpolate a RGB value based on the limits and colours selected by the user. For other events where the interaction between triggered and listener is more direct, they can be simply reported in the configuration file, for example when a click in protein X in a widget, triggers the method \emph(highlightProtein()) in another widget.
 
 \item[Starting logic]
-All the files included until this moment are either class definitions or injections of HTML to build the layout of the page, it is only at this stage of the file where the routines to execute all this components are added. 
+All the files included until this moment are either class definitions or injections of HTML to build the layout of the page. It is only at this stage of the file where the routines to execute all these components are added. 
 
-As explained before, the logic of operation follows the same strategy than AjaxSolr, and therefore the main part of this logic is to instantiate this class and to register all the widgets that are being used.
+As explained before, the logic of operation follows the same strategy as AjaxSolr, and therefore the main part of this logic is to instantiate this class and to register all the widgets that are being used.
 
-The configuration file supports the inclusion of a preloaded file, in case there is some logic out of the widgets that needs to be executed previous to the initialisation of widgets. Currently this is used to retrieve the schema of the dataset that a user has selected because each dataset can have different protein features, and this information is used for some widgets, for example the ruler needs to know this feature names in order to build the forms where the user build the rules.
+The configuration file supports the inclusion of a preloaded file, in case there is some logic outside of the widgets that needs to be executed prior to their initialisation. Currently this is used to retrieve the schema of the dataset that a user has selected because each dataset can have different protein features. For example, the rule building tool needs to know these feature names in order to build the forms where the user creates the rules.
 
 Similarly there is the possibility of including a post loader script, however the current configuration of PINV doesn't make use of this option.
 \end{description}
@@ -537,68 +537,65 @@ Similarly there is the possibility of including a post loader script, however th
 \subsection{Comparison with Similar Tools}
 Most interactive online visualization tools only allow the viewing of networks that are preloaded, meaning that the user cannot view a network he/she has generated.
 
-The online version of Graphle \cite{HUT2009} is limited to graphs generated by bioPIXIE in yeast, MEFIT in \emph{E. coli}, or HEFalMp for human data. STRING \cite{FRA2013}, a database for known and predicted protein-protein interactions, and STITCH \cite{KUH2008}, its sister project for chemical-protein interactions, integrate interaction information from various sources in addition to in-house predictions. Both projects use the same library to display their data. However, the network visualized in both databases is barely customizable. The public implementation of VisANT \cite{HU2013}, a web-based  (via Java Applets) workbench for the integrative analysis of biological networks, is based on the Predictome database.  
-PINV on the other hand, allows the user to view preloaded data but also to load their own data.
+The online version of Graphle \cite{HUT2009} is limited to graphs generated by bioPIXIE in yeast, MEFIT in \emph{E. coli}, or HEFalMp for human data. STRING \cite{FRA2013}, a database for known and predicted protein-protein interactions, and STITCH \cite{KUH2008}, its sister project for chemical-protein interactions, integrate interaction information from various sources in addition to in-house predictions. Both projects use the same library to display their data, however the network visualized in both databases is barely customizable. The public implementation of VisANT \cite{HU2013}, a web-based  (via Java Applets) workbench for the integrative analysis of biological networks, is based on the Predictome database.  
+PINV on the other hand, allows the user to view preloaded data but also to load their own.
 
 Another alternative is Cytoscape Web \cite{LOP2010}. However, the fact that its introduction tutorial (\url{http://cytoscapeweb.cytoscape.org/tutorial}) requires its users to code in JavaScript indicates that this tool is mainly intended for developers to display networks on the web, not for the scientist who has a network to visualize. In this regard, Cytoscape Web was considered as an alternative to D3 for our background technology to generate the graphics as it is closer to the biological concepts tied to this tool. Unfortunately Cytoscape Web uses Adobe Flash for the generation of the graphics, which goes against our objective of providing a native web application (i.e. developed using recent web standards). 
 
 We also compared PINV with the stand-alone version of Cytoscape by using the network in the biological example mentioned in the following section. The original network contains all interactions from the three organisms and the orthologs with a total of 165,000 interactions. 
 The performance of Cytoscape notably exceeded PINV when dealing with a network of this size. Moreover, there are considerably more manipulation options in Cytoscape than the ones currently provided by PINV. However, Cytoscape and its many plugins need to be installed by the user and any collaborator sharing the results.
 
-We are aware that PINV will also struggle to display the 165,000 interactions of the network. However, the strategy of only visualizing by request and the use of prefilters  allows the user to navigate the network by limiting the graphic to the interactions of interest. In contrast Cytoscape web does not provide tools to explore a large dataset and requires the use of the stand-alone application (or other software) in order to filter and create a subnetwork.
+We are aware that PINV will struggle to display the 165,000 interactions of the network. However, the strategy of only visualizing by request and the use of prefilters  allows the user to navigate the network by limiting the graphic to the interactions of interest. In contrast, Cytoscape web does not provide tools to explore a large dataset and requires the use of the stand-alone application (or other software) in order to filter and create a subnetwork.
 
-
-
-%\subsection{Implementation}
-%\subsection{Use Cases}
 
 \subsection{Spatial Clustering} \label{section:clustering}
-A poster presenting the first version of PINV was exposed at the South African conference in bioinformatics in September 2012, which we consider as the release date of the tool. Many tools have been included since those early days: the pre-filters, the different modes to query, the heat map view, the sharing capabilities and many small improvements and bug fixings, which we hope have contributed in creating a better software product.
+A poster presenting the first version of PINV was introduced at the South African conference in bioinformatics in September 2012, which we consider as the release date of the tool. Many tools have been included since those early days: the pre-filters, the different modes to query, the heat map view, the sharing capabilities and many small improvements and bug fixess, which we hope have contributed to creating a better software product.
 
-A constant challenge during this time has been the scalability of the visualisations, which is not a particular problem of PINV but is common among any tools for network visualisations. This, however is stressed more in PINV because it is a web tool, and the resources available for this visualisation are limited to the ones available in the browser where is been displayed. Moreover, the dynamic representation and the direct manipulation options offered in the tool required dedicated resources for each element in the graphic.
+A constant challenge during this time has been the scalability of the visualisations, which is not a problem that is particular to PINV but is common among all tools for network visualisations. This, however is emphasized more in PINV because it is a web tool, and the resources available for this visualisation are limited to the ones available in the browser where it is being displayed. Moreover, the dynamic representation and direct manipulation options offered in the tool require dedicated resources for each element in the graphic.
 
 Given the limitations imposed by the underlying technology, the larger the network to be displayed, the slower the performance of PINV. During an in-house test, PINV performed well with subnetworks of up to a thousand interactions, and thereafter performance decreases proportionally to the number of added proteins/interactions. Note that this is highly dependent on the specifications of the users computer. 
 
-In order to overcome this difficulties we have developed an algorithm for clustering that uses the positions that a force-directed layout provides. This with the purpose of offering if not a complete view of a network, at least an approximation of it.
+In order to overcome these difficulties, we have developed an algorithm for clustering that uses the positions that a force-directed layout provides. This offers, if not a complete view of a network, at least a good approximation of it.
 
 \subsubsection{High level algorithm}
-The idea behind the algorithm is simple: highly connected nodes get attracted to each other when imposing a force-directed layout, simultaneously, the rejection forces between nodes, makes that not so connected groups get spread over the graphic area. This creates visual clusters in the graphic. The idea is that instead of creating all the graphic elements representing the nodes and connection of the network, we only display cluster elements that symbolise the group.
+The idea behind the algorithm is simple: highly connected nodes get attracted to each other when imposing a force-directed layout. Simultaneously, the rejection forces between nodes, causes the less connected groups to be spread over the graphic area. This creates visual clusters in the graphic. The idea is that instead of creating all the graphic elements representing the nodes and connection of the network, we only display cluster elements that symbolise the group.
 
-The following pseudocode shows the logic of the algorithm. Given a network represented by a two arrays: nodes and links, we apply the force directed layout algorithm to obtain coordinate positions for each element, then we generate cluster elements based on those coordinates (a discussion to the creation of such clusters can be found later in this section). Inner connections are ignored (line 9) because they won't be displayed and interactions with elements out of the cluster are group;  and outer connection will be group.
+The following pseudocode shows the logic of the algorithm. Given a network represented by two arrays, nodes and links, we apply the force directed layout algorithm to obtain coordinate positions for each element, then we generate cluster elements based on those coordinates (a discussion to the creation of such clusters can be found later in this section). Inner connections are ignored (line 9) because they won't be displayed and interactions with elements outside of the cluster are grouped,  and outer connection will be grouped.
 
-When painting the network, we can make the size of each cluster to be proportional to the number of nodes that is representing and the thickness of the line between two clusters to represent the number of connections in between them.
-\newpage
+When painting the network, we make the size of each cluster proportional to the number of nodes that it represents and the thickness of the line between two clusters symbolises the number of connections in between them.
+
+%\newpage
 \begin{lstlisting}[language=java]%,float,floatplacement=H]
-nodes =[...]	//Array of the nodes in the network
-links = [...]	//Array of the links in between nodes
+nodes =[...]        //Array of the nodes in the network
+links = [...]        //Array of the links in between nodes
 force_directed_layout(nodes,links) 
 clusters = create_clusters(nodes)
 cluster_links=[]
 foreach link in links {
-	cluster_source	= get_cluster(link.source,clusters)
-	cluster_target	= get_cluster(link.target,clusters)
-	if (cluster_source != cluster_target){
-		//try to get an existing link between the clusters
-		cluster_link = getLink(cluster_links,cluster_source,cluster_target) 
-		if (cluster_link == null) {
-			// if there is not link, create one
-			cluster_links.append( {
-				source:cluster_source, 
-				target:cluster_target, 
-				number_of_links:1
-			})
-		} else {
-			// if there is an existing link, increment the number of links between the clusters
-			cluster_link.number_of_links = cluster_link.number_of_links +1
-		}
-	}
+        cluster_source        = get_cluster(link.source,clusters)
+        cluster_target        = get_cluster(link.target,clusters)
+        if (cluster_source != cluster_target){
+                //try to get an existing link between the clusters
+                cluster_link = getLink(cluster_links,cluster_source,cluster_target) 
+                if (cluster_link == null) {
+                        // if there is no link, create one
+                        cluster_links.append( {
+                                source:cluster_source, 
+                                target:cluster_target, 
+                                number_of_links:1
+                        })
+                } else {
+                        // if there is an existing link, increment the number of links between the clusters
+                        cluster_link.number_of_links = cluster_link.number_of_links +1
+                }
+        }
 }
 paint_network(clusters,cluster_links)
 \end{lstlisting}
 
-Figure \ref{fig:spatial_clustring} shows an example of executing the algorithm. The left side (a) is a node link representation organised through a force-directed layout, the network uses a dataset that reports the co-ocurrence of characters in the novel \emph{Les Miserables}; we have chosen this dataset because it has been used in several examples for network representation in different software tools such as Cytoscape and the D3 library. Figure \ref{fig:spatial_clustring} (b) shows nodes in beige colour representing the created clusters. A interactive execution of this example can be seen in this URL: \url{http://bl.ocks.org/4ndr01d3/2686646672a92aa89a0e}. 
+Figure \ref{fig:spatial_clustring} shows an example of executing the algorithm. The left side (a) is a node link representation organised through a force-directed layout. The network uses a dataset that reports the co-ocurrence of characters in the novel \emph{Les Miserables}. We have chosen this dataset because it has been used in several examples for network representation in different software tools such as Cytoscape and the D3 library. Figure \ref{fig:spatial_clustring} (b) shows nodes in beige colour representing the created clusters. A interactive execution of this example can be seen in this URL: \url{http://bl.ocks.org/4ndr01d3/2686646672a92aa89a0e}. 
 
-Although the clusters are not perfectly identifying the predefined groups in the dataset, the overall shape of the network is conserved and it is easy to identify  dense areas and highly connected clusters. Future work can be done in representing the cluster in a way where they represent its content, for example creating pie charts to show the contributions of different groups.
+Although the clusters do not perfectly identify the predefined groups in the dataset at present, the overall shape of the network is conserved and it is easy to identify dense areas and highly connected clusters. Future work can be done on designing the cluster symbol in a such way that it represents what it contains, for example creating pie charts to show the contributions of different groups.
 
 \begin{figure}[ht]
 \centering
@@ -608,11 +605,11 @@ Although the clusters are not perfectly identifying the predefined groups in the
 \end{figure}
 
 \subsubsection{Clustering with quadtrees}
-The creation of the clusters can be achieved by executing any geometric clustering algorithm, such as k-means. The only restriction is it should use the geometric distance using the coordinates obtained with the force-directed layout, because in this case we are interested in clustering by the position in the graphic and not based in the similarities of the node's features.
+The creation of the clusters can be achieved by executing any geometric clustering algorithm, such as k-means. The only restriction is that it should use the geometric distance using the coordinates obtained with the force-directed layout, because in this case we are interested in clustering by the position in the graphic and not based on the similarities of the node's features.
 
-However, we decided to create the clusters in an alternative way, inspired in the optimisation of the force-directed layout implemented in the D3 library. Which as discussed in section \ref{subsubsec:ppi_biojs}, uses an structure called quadtree to represent and group the nodes based in its location in the graphic.
+However, we decided to create the clusters in an alternative way, inspired by the optimisation of the force-directed layout implemented in the D3 library, which as discussed in section \ref{subsubsec:ppi_biojs}, uses a structure called a quadtree to represent and group the nodes based in its location in the graphic.
  
-Figure \ref{fig:quadtree} serve us to explain the construction of a quadtree. In the left side there is an area where points have been randomly located, the algorithm divides the area in four equally sized quadrants, such as the area in light blue representing the bottom-right quadrant. A data structure is created to include the points covered in each of the quadrants. If a quadrant has more than one point, the logic is repeated recursively, saving the results in the same data structure, which creates a tree where all the leaves contain a single point. 
+Figure \ref{fig:quadtree} serve us to explain the construction of a quadtree. On the left side, there is an area where points have been randomly located. The algorithm divides the area into four equally sized quadrants, such as the area in light blue representing the bottom-right quadrant. A data structure is created to include the points covered in each of the quadrants. The algorithm starts in the top left quadrant of the graphic, followed by the top right, bottom left and bottom right. If a quadrant has more than one point, the logic is repeated recursively, saving the results in the same data structure, which creates a tree where all the leaves contain a single point. 
 
 \begin{figure}[ht]
 \centering
@@ -621,40 +618,41 @@ Figure \ref{fig:quadtree} serve us to explain the construction of a quadtree. In
 \label{fig:quadtree}}
 \end{figure}
 
-The tree in the right side of figure \ref{fig:quadtree} is the quadtree of the points in the left side. For instance the two points with red border are part of the bottom right quadtree(light blue area) which correspond to the four branch from the root of the tree in the left. Posterior partition shows the nodes in the sub-division top-left and top-right of the graphic, represented in branches 1 and 2 of the subtree.
 
-This data structure has been used to optimise multiple area related algorithms, for example, to detect the collision between bodies: if a body is exclusively located in one quadrant, there is no need to verify for collisions with bodies in other quadrants, this is applied recursively through sub-quadrants, reducing the number of comparisons.
+The tree on the right side of figure \ref{fig:quadtree} is the quadtree generated from the points shown on the left side. For instance, the two points with red borders at the bottom right of the graphic (light blue area) correspond to those on the fourth branch from the root of the tree on the right hand side. White nodes with blue borders indicate quadrants that contain more than one node that need to be expanded further. Subsequent partitions  of the light blue quadrant yielded no nodes and are shown as empty branches.
+
+This data structure has been used to optimise multiple area related algorithms, for example, to detect the collision between bodies: if a body is exclusively located in one quadrant, there is no need to verify for collisions with bodies in other quadrants. This is applied recursively through sub-quadrants, reducing the number of comparisons.
 
 An animation that constructs the tree dynamically can be seen in this URL: \url{http://bl.ocks.org/4ndr01d3/727175afbdc58c3626b8}.
 
-We have used the quadtree structure to define groups of nodes, and provide a way to explore a complex network on a top-bottom approach. The highest level of such representation contains four clusters, one for each quadrant, and the position of a representative element will be calculated as the average of the node positions in that quadrant. The user of such visualisation can choose the level of detail of the graphic representation, which gets interpreted as how deep in the quadtree should the algorithm go.
+We have used the quadtree structure to define groups of nodes, and provide a way to explore a complex network in a top-bottom approach. The highest level of such representation contains four clusters, one for each quadrant, and the position of a representative element will be calculated as the average of the node positions in that quadrant. The user of such a visualisation can choose the level of detail of the graphic representation, which gets interpreted as how deep into the quadtree the algorithm should go.
 
 \subsubsection{Spatial Clustering in PINV}
 We have implemented this algorithm in PINV in two different ways: one to be executed with the currently displayed graphic and one to represent a whole dataset.
 
 \begin{description}
 \item[On the current graphic]
-Executing this algorithm with the current graphic is a task that can be completely achieved in the client side. We used the coordinates of the nodes in the graphic, which have been already calculated with the GraphNetwork widget in PINV that uses the D3 implementation of the force-directed layout. 
+Executing this algorithm with the current graphic is a task that can be completely achieved on the client side. We used the coordinates of the nodes in the graphic, which have been already calculated with the GraphNetwork widget in PINV that uses the D3 implementation of the force-directed layout. 
 
-We have added a button with the label ``Cluster'' above the graphic that once activated runs the algorithm as shown in figure \ref{fig:local_cluster}, clusters are drawn with grey triangles with red border and its size is proportional to the number of elements that they are representing. When the clustering mode is active an slider is visible at the side of the ``Cluster'' button, allowing the user to select the strength of the clustering, which in other words selects the exploring depth  in the quadtree.
+We have added a button with the label ``Cluster'' above the graphic that once activated, runs the algorithm as shown in figure \ref{fig:local_cluster}. Clusters are drawn as grey triangles with red borders and their size is proportional to the number of elements that they are representing. When the clustering mode is active, a slider is visible at the side of the ``Cluster'' button, allowing the user to select the strength of the clustering, which selects the exploring depth in the quadtree.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/local_cluster.png}
-\caption[Clustering the current graphic.]{Clustering the current graphic. Triangles are elements representing a group of nodes, where its size is proportional to the number of elements.
+\caption[Clustering the current graphic.]{Clustering the current graphic. Triangles are elements representing a group of nodes, where their size is proportional to the number of elements.
 \label{fig:local_cluster}}
 \end{figure}
 
 If a leaf is reached in the tree before reaching the desired depth, it will be represented as a protein and not a cluster. Which is why the figure \ref{fig:local_cluster} has some circles interacting with a cluster.
 
 \item[On the whole dataset]
-To be able to calculate a quadtree we required the positions of all the nodes to include. Therefore, either the PINV client requests the whole dataset from the server or the quadtree is calculated in the server. With the first option we could reused the implementation above, but the time required to do all the HTTP transactions to download all the interactions is a problem, however the bigger issue is the performance limitations of the browser.
+To be able to calculate a quadtree we required the positions of all the nodes to be included. Therefore, either the PINV client would have to request the whole dataset from the server or the quadtree would have to be calculated on the server. In the first case we could reuse the implementation above, but the time required to carry out the HTTP transactions to download all the interactions would be problem. However the bigger issue is the performance limitation of the browser.
 
-Therefore we decided to generate the quarter in the server, which implied to implementf both force-directed layout and quadtrees into Python, the language used in our server. The implementation was simply a migration of the JavaScript code in the D3 library, with minor changes to adapted in to Python.
+Therefore we decided to generate the quadtree in the server, which implied implementing both force-directed layout and quadtrees in Python, the language used in our server. The implementation was simply a migration of the JavaScript code in the D3 library, with minor changes to adapted it into Python.
 
-Now every time a new dataset get uploaded in to the PINV server, we execute the force-directed simulation, to obtain coordinates of an imaginary area that can contain all the proteins, using those coordinates we generate a quadtree, and save the interactions between clusters of the first seven levels.
+Since the release of these features, each time a new dataset is uploaded onto the PINV server, we execute the force-directed simulation to obtain coordinates of an imaginary area that can contain all the proteins. Using these coordinates we generate a quadtree, and save the interactions between clusters of the first seven levels.
 
-When a user selects a dataset to explore in PINV a menu (Figure \ref{fig:pinv_wizard}) to select the exploration mode is displayed as discussed in section \ref{section:pinv_gui}. If the user chooses the third option \emph{Clustering} PINV queries the server to recover the clusters of level 3, and therefore the graphic will contain up to 64 clusters, which is a number of elements that can be easily handled by the client, but more importantly it is a number graphic that it is more understandable by the user.
+When a user selects a dataset to be explored in PINV, a menu (Figure \ref{fig:pinv_wizard}) to select the exploration mode is displayed as discussed in section \ref{section:pinv_gui}. If the user chooses the third option \emph{Clustering}, PINV queries the server to recover the clusters of level 3, and therefore the graphic will contain up to 64 clusters, which is a number of elements that can be easily handled by the client, but more importantly it is a number graphic that is more understandable to the user.
 
 \begin{figure}[ht]
 \centering
@@ -672,5 +670,8 @@ PINV is an open source, native web application that uses the latest generation o
 
 We consider PINV to be a unique tool for visualization and exploration of PPI networks, not only in terms of the technology used (HTML5) but also because today's research requires collaborative efforts to process data. PINV offers an intuitive way to visualize, share and publish PPI data without the need to install any extra software (besides a web browser) and/or third party components such as Flash or Java.
 
-The proposed method to explore whole datasets using an spatial clustering algorithm is not a complete representation of the real network, and we are aware of several implications of the implementation decisions, for example, that the partition by quadtrees can split clusters well defined that other methods can detect easily. However we consider that the use of quadtrees, gives a partial solution that is efficient and allows an easy way to explore a whole dataset form top to bottom.
+The proposed method to explore whole datasets using a spatial clustering algorithm does not provide a complete representation of the real network, and we are aware that group selection by quadtrees can split well defined clusters that other methods would detect easily. However we consider that the use of quadtrees gives a partial solution that is efficient and presents an easy way to explore a whole dataset from top to bottom. Future development will explore other clustering algorithms,  and will look for a better way to  identify the individual components of each cluster and at the same time conserve the ability to explore the network starting from a high level representation and expanding the content of the regions of interest.
 
+Other future plans include the aggregation of data through other visualisation elements in order to represent each cluster, and in this way offer a more complete view of the network.
+
+ 
