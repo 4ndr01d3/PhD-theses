@@ -3,7 +3,7 @@ If I have seen further it is by standing on the shoulders of giants
 \qauthor{Isaac Newton} 
 \end{savequote}
 
-\chapter{Introduction}
+\chapter{Introduction} \label{ch:introduction}
 
 \newthought{Bioinformatics by it's very nature is multi--disciplinary}: biotechnology methods are used to capture data, mathematical and statistical models are necessary to make sense of it, and software/hardware is necessary to process all the information,  all of which should be seen from the viewpoint of existing biological knowledge.
 
@@ -290,7 +290,7 @@ Relevant information for proteins included in the element \emph{FEATURE} is regi
  \item \emph{label:} A human readable label for the feature
  \item \emph{START} and \emph{STOP}: Indicating the specific position to be annotated. If both are equal to zero, it means that the annotation applies to the whole segment (i.e. \emph{Non-positional feature})
  \item \emph{LINK}: To indicate a URL where more information about this annotation can be found.
- \item \emph{NOTE}: Space where the annotator can put any extra comment about the annotation.
+ \item \emph{NOTE}: Space where the annotator can add any extra comment about the annotation.
 \end{itemize}
 
 Other elements and attributes are more oriented to other kinds of biological data, for instance the \emph{ORIENTATION} element is useful for genes, to indicate if the annotation follows the direction 3' or 5', however proteins do not have an orientation.
@@ -303,7 +303,7 @@ Each DAS source can support several capabilities, which means it is able to resp
 
 The two most representative implementations of a DAS server are Pro-server \cite{FIN2007} and MyDas \cite{SAL2012}. Both have been updated to support the latest version of the specification (i.e. 1.6E) and their feature sets are similar. Probably the biggest factor in choosing between these two implementations is the preference for a particular programming language: Perl for Pro-server and Java for MyDas. An extended description of MyDas can be found in the section \ref{section:mydas}, including the contributions to MyDas as part of this PhD project.
 
-On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts on a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensembl viewer \cite{FLI2011}) and genomes (e.g. Dalliance \cite{DOW2011}), where others such SPICE provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a gene region, select the expressed protein of the gene and visualize its 3D structure, all in the same Java Web-start window \cite{PRL2005}.
+On the other side of the spectrum, the DAS clients have the task of providing a unified view of multiple sources. Most of the DAS clients centered their efforts on a particular DAS type, such as proteins (e.g. DASher \cite{MES2009}), chromosome (e.g. Ensembl viewer \cite{FLI2011}) and genomes (e.g. Dalliance \cite{DOW2011}), where others such as SPICE provide a way to navigate between multiple DAS domains. For instance, it is possible in SPICE to start on a chromosome view, zoom-in into a gene region, select the expressed protein of the gene and visualize its 3D structure, all in the same Java Web-start window \cite{PRL2005}.
 
 Dasty2 is a Web client that also supports the interaction between protein data and its 3D structure, but its current version doesn't support direct manipulation of genomic data \cite{JIM2008}. A refactoring of Dasty was executed during 2010 and is explained in detail in section \ref{section:dasty}, including our contribution to the effort of developing Dasty3 \cite{VIL2011}. 
 
