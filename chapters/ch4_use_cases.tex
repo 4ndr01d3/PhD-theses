@@ -52,7 +52,43 @@ One more requirement gathered in this stage was to support direct manipulation o
 
 \section{Orthologs in 3 Mycobactherium Organisms}\label{sec:orthologs}
 \subsection{Research description}
-MTP, MLP and MSM
+This project presented a comparison between the functional networks of three related microorganisms: \emph{Mycobacterium tuberculosis} MTB, \emph{Mycobacterium leprae} MLP and \emph{Mycobacterium smegmatis}. Although sharing common ancestry, there are clear differences between them, some of which have been summarised in table \ref{tab:orthologs}.
+
+
+\begin{table}[!ht]
+        \begin{tabular}{|p{6cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline 
+\emph{feature} & \emph{MTB} & \emph{MLP} & \emph{MSM}\\
+\hline 
+Disease & Tuberculosis & Leprosy & \emph{non-pathogenic}\\
+\hline 
+Genome size & 4,411,532 & 3,268,203 & 6,988,209\\
+\hline 
+Number of proteins & 4136 & 1412 & 4853\\
+\hline 
+Doubling period (hours) & 24  & 500-670 & 3-4 \\
+\hline 
+        \end{tabular}
+        \caption{Benchmarking between the main DAS servers.}
+        \label{tab:orthologs}
+\end{table}
+
+The study identified the functional networks of the 3 organisms. The networks were created using STRING interactions as the base, but the network was enriched by including other 10 sources of functional interactions. One of them was a method designed as part of the project in order to be able to use co-expression analysis for MLP proteins, because the number of available experiments in this organism was limited to 4.
+
+The final networks include only interaction which combined score range between medium or high confidence values, or ones with low values that are present in two or more sources. These networks were then analysed on a topological exclusive point of view, the found values and consideration about them can be seen in detail in \cite{AKI2013}.
+
+The second part of the analysis compares the networks by pairs, in order to discover the biological consequences of the differences in the network. The strategy there was to select the most important proteins using network metrics (e.g. betweenness, degree and closeness) and proceed to compare them with their orthologs in the other networks. The comparison was done using among other features the functional class of the proteins. 
+
+Sub-networks were then created with only the proteins that have orthologs in the other two organism, and similar comparisons are the ones explained above were done. Figure \ref{fig:pinv_ortholgs} show an example of the type of analysis that can be done with the created networks. To start with, the authors have chosen one of the important proteins from MTB together with its orthologs in the other organisms, and by checking the neighbours of each protein and checking again for reported orthologs, it is easy to identified which interaction have been lost from one species to another.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/pinv_orthologs.png}
+\caption[Three orthologs proteins in MTB, MLP and MSM]{Three orthologs proteins in MTB, MLP and MSM: Q7D903, Q9CD64, A0R3F9. and their neighbours.
+\label{fig:pinv_orthologs}}
+\end{figure}
+
+
 
 \subsection{Impact on PINV}
 multiorganism and filters -TODO: create links with DASty
