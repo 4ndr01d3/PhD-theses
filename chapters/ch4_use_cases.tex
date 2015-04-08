@@ -79,7 +79,7 @@ The final networks include only interaction which combined score range between m
 
 The second part of the analysis compares the networks by pairs, in order to discover the biological consequences of the differences in the network. The strategy there was to select the most important proteins using network metrics (e.g. betweenness, degree and closeness) and proceed to compare them with their orthologs in the other networks. The comparison was done using among other features the functional class of the proteins. 
 
-Sub-networks were then created with only the proteins that have orthologs in the other two organism, and similar comparisons are the ones explained above were done. Figure \ref{fig:pinv_ortholgs} show an example of the type of analysis that can be done with the created networks. To start with, the authors have chosen one of the important proteins from MTB together with its orthologs in the other organisms, and by checking the neighbours of each protein and checking again for reported orthologs, it is easy to identified which interaction have been lost from one species to another.
+Sub-networks were then created with only the proteins that have orthologs in the other two organism, and similar comparisons are the ones explained above were done. Figure \ref{fig:pinv_orthologs} show an example of the type of analysis that can be done with the created networks. To start with, the authors have chosen one of the important proteins from MTB together with its orthologs in the other organisms, and by checking the neighbours of each protein and checking again for reported orthologs, it is easy to identified which interaction have been lost from one species to another.
 
 \begin{figure}
 \centering
@@ -88,15 +88,34 @@ Sub-networks were then created with only the proteins that have orthologs in the
 \label{fig:pinv_orthologs}}
 \end{figure}
 
-
+The interactive version of figure \ref{fig:pinv_orthologs} can be seen in \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=a512969c93f31b50926415e7fec14096.json}. This visualisation includes the different images used in the published article of this research \cite{AKI2013}, all of which were created using PINV.
 
 \subsection{Impact on PINV}
-multiorganism and filters -TODO: create links with DASty
+This project was also held in the same research group where PINV was developed and the projects were executed simultaneously, which allow us to have again a first hand contact with the potential users of PINV while still in design stages. As a consequence some of the visualisation needs of this project influenced PINV development.
+
+Firstly, this project required the display of 3 different species at the time, and makes evident that PINV should support the visualisation of interactions form multiple organisms. The implemented solution for PINV is to visualise the proteins in the network using different SVG symbols for each organism,  meaning that PINV will automatically choose one symbol from the available ones when protein of an organism not yet displayed is added. Currently there are 6 available symbols, but the list can be extended in future. Figure \ref{fig:pinv_orthologs} uses circles for MTB, squares for MLP and diamonds for MSM.
+
+As a complement, we have extended the force-directed layout, including selective gravity forces, attracting each organism's proteins to different points in the graphic, this helps to automatically separate the proteins, and avoids cluttered areas of multiple species.
+
+One particular characteristic in this project was the use of information of orthologs in between species, we decided to included it in the dataset to be uploaded to PINV as another type of interaction, creating an extra evidence score column in the data. This allows the user to reuse all the functionalities defined for interactions, for example, the spring forces in the network view work the same with this pseudo-interaction, and as a result the orthologs gets pull out of the main group interactions of each organism, in figure \ref{fig:pinv_orthologs} for instance, the proteins that share orthologs in the other organisms have been pulled to the centre of the graphic, so they are easily identifiable.
+
+\begin{figure}
+\centering
+\includegraphics[width=5in]{figures/pinv2dasty.png}
+\caption[Opening DASty3 from a protein of interest in PINV.]{Opening DASty3 from a protein of interest in PINV.
+\label{fig:pinv2dasty}}
+\end{figure}
+
+Another requirement gathered during this collaboration was the need to open the exploration to other resources outside the PINV dataset, and been able to get access to more information from a protein of interest. Figure \ref{fig:pinv2dasty} shows in the left hand side the popup window that is displayed when a protein is selected in PINV, it includes the features that were upload in the dataset by the user. Moreover, PINV also shows links to several external resources at the bottom of the popup window, and for instance if the user clicks over the DASty3 logo another window will open this application searching for related information on the selected protein.
+
+
 
 \section{Shotgun Analysis of Platelets From Dengue Patients}
 \label{sec:dengue}
 \subsection{Research description}
 Real research example
+
+
 
 \subsection{Impact on PINV}
 Filters and sharing
