@@ -1,4 +1,4 @@
-\begin{thebibliography}{127}
+\begin{thebibliography}{132}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -359,6 +359,22 @@ Asia Grzibovska and Andreas Prlic.
 \newblock {DAS2 writeback server implementation}.
 \newblock Master's thesis, Chalmers University of Technology, 2008.
 
+\bibitem[Hause et~al.(2014)Hause, Stark, Antao, Gorsic, Chung, Brown, Wong,
+  Gill, Myers, To, et~al.]{HAU2014}
+Ronald~J Hause, Amy~L Stark, Nirav~N Antao, Lidija~K Gorsic, Sophie~H Chung,
+  Christopher~D Brown, Shan~S Wong, Daniel~F Gill, Jamie~L Myers, Lida~Anita
+  To, et~al.
+\newblock Identification and validation of genetic variants that influence
+  transcription factor and cell signaling protein levels.
+\newblock \emph{The American Journal of Human Genetics}, 95\penalty0
+  (2):\penalty0 194--208, 2014.
+
+\bibitem[Heekes(2014)]{HEE2014}
+Alexa Heekes.
+\newblock Analysis of the potential impact of single nucleotide polymorphisms
+  on the human protein interaction network and gene expression.
+\newblock Honours theses, University of Cape Town, 2014.
+
 \bibitem[Hermjakob(2006)]{HER2006}
 Henning Hermjakob.
 \newblock The hupo proteomics standards initiative--overcoming the
@@ -557,6 +573,16 @@ Michael Kuhn, Christian von Mering, Monica Campillos, Lars~Juhl Jensen, and
   D684--D688, 2008.
 \newblock URL
   \url{http://nar.oxfordjournals.org/content/36/suppl_1/D684.abstract}.
+
+\bibitem[Lappalainen et~al.(2013)Lappalainen, Sammeth, Friedl{\"a}nder,
+  AC`t~Hoen, Monlong, Rivas, Gonz{\`a}lez-Porta, Kurbatova, Griebel, Ferreira,
+  et~al.]{LAP2013}
+Tuuli Lappalainen, Michael Sammeth, Marc~R Friedl{\"a}nder, Peter AC`t~Hoen,
+  Jean Monlong, Manuel~A Rivas, Mar Gonz{\`a}lez-Porta, Natalja Kurbatova,
+  Thasso Griebel, Pedro~G Ferreira, et~al.
+\newblock Transcriptome and genome sequencing uncovers functional variation in
+  humans.
+\newblock \emph{Nature}, 501\penalty0 (7468):\penalty0 506--511, 2013.
 
 \bibitem[Lee et~al.(2013)Lee, Helt, Reese, Munoz-Torres, Childers, Buels,
   Stein, Holmes, Elsik, and Lewis]{LEE2013}
@@ -930,6 +956,15 @@ Chris Stark, Bobby-Joe Breitkreutz, Teresa Reguly, Lorrie Boucher, Ashton
 \newblock \emph{Nucleic acids research}, 34\penalty0 (suppl 1):\penalty0
   D535--D539, 2006.
 
+\bibitem[Stranger et~al.(2007)Stranger, Forrest, Dunning, Ingle, Beazley,
+  Thorne, Redon, Bird, De~Grassi, Lee, et~al.]{STR2007}
+Barbara~E Stranger, Matthew~S Forrest, Mark Dunning, Catherine~E Ingle, Claude
+  Beazley, Natalie Thorne, Richard Redon, Christine~P Bird, Anna De~Grassi,
+  Charles Lee, et~al.
+\newblock Relative impact of nucleotide and copy number variation on gene
+  expression phenotypes.
+\newblock \emph{Science}, 315\penalty0 (5813):\penalty0 848--853, 2007.
+
 \bibitem[Suderman and Hallett(2007)]{SUD2007}
 Matthew Suderman and Michael Hallett.
 \newblock Tools for visually exploring biological networks.
@@ -1034,6 +1069,13 @@ Katherine Wolstencroft, Robert Haines, Donal Fellows, Alan Williams, David
 \newblock The taverna workflow suite: designing and executing workflows of web
   services on the desktop, web or in the cloud.
 \newblock \emph{Nucleic acids research}, page gkt328, 2013.
+
+\bibitem[Wu et~al.(2013)Wu, Candille, Choi, Xie, Jiang, Li-Pook-Than, Tang, and
+  Snyder]{WU2013}
+Linfeng Wu, Sophie~I Candille, Yoonha Choi, Dan Xie, Lihua Jiang, Jennifer
+  Li-Pook-Than, Hua Tang, and Michael Snyder.
+\newblock Variation and genetic control of protein abundance in humans.
+\newblock \emph{Nature}, 499\penalty0 (7456):\penalty0 79--82, 2013.
 
 \bibitem[Zdobnov et~al.(2002)Zdobnov, Lopez, Apweiler, and Etzold]{ZDO2002}
 Evgeni~M. Zdobnov, Rodrigo Lopez, Rolf Apweiler, and Thure Etzold.
