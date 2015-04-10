@@ -115,16 +115,82 @@ Another requirement gathered during this collaboration was the need to open the 
 \subsection{Research description}
 Real research example
 
+"To generate a protein-protein interaction map and categorize the differential express proteins according biological processes classification on the Gene Ontology (GO) databank, we use the String 9.1 software and better vizualised by PINV. In a first interaction analysis, we input all the differentially express proteins and the proteins detected in only one condition, if in at least three replicates. Therefore, 344 proteins entries were listed; in with 253 were use, inasmuch as we exclude the protein isoforms indicated by a dash in the NextProt databank identifier. ???? proteins interactions were detected (Figure 2A). After generating the network, we performed a GO analysis with the interacting proteins, searching for relevant biological processes. Interesting, the eight most statically significant biological processes arising were related to “antigen processing and presentation” pathways and drew our attention in context of the dengue pathological state. This enriched pathways, whose the general GO identifier is GO:0019882 (p-value =  2.73E-10), were identified due to the presence of 19 differentially express proteins (ACTR1A, B*15, B-3501, ENSG00000229215, HLA-A, HLA-A*2410, HLA-ABC, HLA-B, HLA-B41, NPEPPS, PSMA6, PSMD13, PSMD4, RAB32, RAB35, RPS27A, UBA52, UBB and UBC). Some of these proteins are also related to proteasome/ubiquitinylation pathways (PSMA6, PSMD13, PSMD4, RPS27A, UBA52, UBB and UBC). Indeed, other important biological processes were highlight in this analysis: “protein polyubiquitination” (GO:0000209 with p-value = 5.88E-9 and 14 related proteins); “proteasomal protein catabolic process” (GO:0010498 with p-value = 4.69E-5 and 10 related proteins); and the already expected “platelet activation” (GO:0030168 with p-value = 8.36E-9 and 15 related proteins). To confirm whether these proteins directly interact with proteins related to the “platelet activation” pathway, a new interaction map was made focusing on these specific 41 non-redundant proteins involved in three ontologies (Figure 2B)." 
 
+Figure \ref{fig:pinv_platelets_1}
+Figure \ref{fig:pinv_platelets_2}
 
 \subsection{Impact on PINV}
 Filters and sharing
 
-\section{Human Population Genetics}
+http://biosual.cbio.uct.ac.za/pinViewer.html?status=67049496bf99027c6d6f3ba33a9cb77b.json
+
+\begin{figure}
+\centering
+\includegraphics[width=5in]{figures/pinv_platelets_1.png}
+\caption[Platelets1 ]{Platelets 1
+\label{fig:pinv_platelets_1}}
+\end{figure}
+
+http://biosual.cbio.uct.ac.za/pinViewer.html?status=c1f68787907a83e27fab70be329582ce.json
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/pinv_platelets_2.png}
+\caption[Platelets 2]{Platelets 2
+\label{fig:pinv_platelets_2}}
+\end{figure}
+
+\section{Analysis of potential impact of SNPs on the human PPI network and gene expression}
 \label{sec:pop_genetics}
 \subsection{Research description}
-Alexia thesis
+This study investigates the impact of single nucleotide polymorphisms (SNP) on human particularly in the context of its protein-protein interaction network and taking into consideration gene expression in eight HapMap populations.
+
+Previous studies have analysed consequences of SNPs in diseases, and some of them have included analysis to establish the relevance of the protein in which the mutation gets reflected in the human PPI network. Their finding suggests there are diseases that are caused by disrupted interactions. In \cite{HEE2014} the authors extend these studies in order to consider SNPs that are located in non-coding regions and the differences in allele frequencies between populations.
+
+The project's methodology starts by integrating data from multiple resources of public domain: (i) human SNPs from NCBI (\url{ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606_b141_GRCh37p13/VCF}), (ii) clinical related variations from NCBI (\url{http://www.ncbi.nlm.nih.gov/variation/docs/human_variation_vcf/#clinvar}) and Humsavar (\url{http://www.uniprot.org/docs/humsavar}), (ii) population data for allele frequencies (AF) and linkage disequilibrium (LD) for eight populations from HapMap (\url{ftp://ftp.ncbi.nlm.nih.gov/hapmap}), (iv) population gene expression data for the selected populations form Array Express (\url{http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-264/}), (v) SNPs associated with gene expression levels reported in the publications \cite{STR2007}, \cite{LAP2013}, \cite{HAU2014} and \cite{WU2013}, and (vi) the Human PPI network compiled in the research described in the article \cite{RAP2013}.
+
+Three centrality measurements were used to define the importance of each protein in the network: degree, betweenness and closeness. When analysing these values for proteins with non-synonymous SNP (nsSNP) in the human PPI network, the data showed that proteins containing nsSNPs have significantly lower centrality measures than proteins without nsSNPs. This is an indication that proteins with less interactions are less important for information flow, and therefore they can tolerate the amino acid change without having a major impact in the network.
+
+A similar centrality analysis was executed with the subset of proteins that contain SNPs that have been identified as linked to diseases, and in this case it was shown that these proteins tended to have significant higher centrality measures than proteins without. Which can be explain by the implications on the structure change caused by the mutation, if it is considerable, it might inhibit some of the stablished interactions. This might not be critical in proteins with an small number of interactions, but in central proteins the effect can collapse the network, and hence the disease.
+
+The integrated dataset can be used to explore particular diseases and potentially improve understanding of inter-population variation. An example of it was included in the research, in which proteins with SNPs related to hypertension were selected: ADD1, NOS3, AGT and KCNMB1. Figure \ref{fig:pinv_human_snps} shows the subnetwork of these proteins only displaying high confidence interactions (score ≥ 0.7) in which both of the proteins contained a nsSNP and at least one of the proteins contained a clinSNP associated with hypertension. The figure is colour coded to highlight the significant differences in AF and gene expression between African populations. 
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/pinv_human_snps.png}
+\caption[Interactions between proteins with a hypertension clinSNP]{Interactions between proteins with a hypertension clinSNP and proteins with nsSNPs in the context of AF and gene expression differences between African populations.
+\label{fig:pinv_human_snps}}
+\end{figure}
+
+Similar comparison graphics are included in \cite{HEE2014} among other populations and the implications of the identified proteins is discussed there in more detail. All the graphics were created using PINV. An interactive version of Figure \ref{fig:pinv_human_snps} is available in \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=dc029e8ef629cd4fed0c4a1509a70ef7.json}
+
 \subsection{Impact on PINV}
-to show the clustering in action!! 
+The case explained above where hypertension related proteins were analysed on the context of PPI networks was completely carried on using PINV. The dataset of this research was uploaded to the PINV server and is available under this URL: \url{http://biosual.cbio.uct.ac.za/pinViewer.html?core=HumanHapMapSNPs}. 
+
+The authors were able to explore their data by defining different combinations of filters, for example, figure \ref{fig:pinv_prefilters_snp} is a snapshot of the selected filters used for the generation of figure \ref{fig:pinv_human_snps}, which we will describe from top to bottom: 
+\begin{enumerate}
+\setlength\itemsep{-0.5em}
+\item This filters the whole human PPI network (1298519 interactions) in order to only include the ones with high confidence interactions (score ≥ 0.7) a total of 306453 interactions.
+\item The second filter helps the researchers to focus only in the interactions between proteins with nsSNP. There are 182755 interactions in the whole network complying with this restriction, and in combination with the first filter, the subset gets reduced to 50211 interactions.
+\item There is a total of 209540 interactions where at least one of the proteins has a SNP which has been linked to a disease, and from that 9662 interactions also pass the previous filters.
+\item It select all the interactions where at least one of the proteins contains the term ``\emph{hypertension}'' on a field were all the diseases related with SNPs present in a protein are listed. 1711 interactions were found this way, and the intersection with the other filters produces 212 interactions.
+\end{enumerate}
+\begin{figure}
+\centering
+\includegraphics[width=5in]{figures/pinv_prefilters_snp.png}
+\caption[Selection of filters for image \ref{fig:pinv_human_snps}]{Selection of filters for image \ref{fig:pinv_human_snps}
+\label{fig:pinv_prefilters_snp}}
+\end{figure}
+
+From the result graphic only 4 proteins have been directly identified to be related with hypertension, and although it wasn't  imposed by the filters, the result subnetwork connects 3 of the proteins with one degree of separation in between them. Which is an indication of agreement with the original assumption of the research: some diseases can be better understood by studying their related proteins in context of the human PPI network.
+
+Once the network is identified, other factors can be analysed, for instance the colour coding in figure \ref{fig:pinv_human_snps} identifies differently expressed proteins in different african populations. This can help to understand why a disease affects populations in different ways. It is now part of our future plan to define a strategy to compare networks that share the same structure, and for example been able to see in the same graphic a comparison between the analysis for african populations \emph{v.s.} european or american populations. 
+
+The example presented in this research demonstrates how PINV can be used for the exploration of PPI data, and how the use of filters supplies an alternative to navigate the data when the accession numbers of the proteins of interest are still to be found. A similar protocol to the described above can be use to explore other clinical conditions, for instance one of the appendices of \cite{HEE2014} is a similar visualisation but for cancer related proteins. This is an example of a dataset that by being public in PINV can benefit more than one research.
+
+While the project was being executed, the authors gave us constant feedback and many suggestions to improve PINV. For instance, several issues were corrected in the uploading process because of the large number of interactions that needed to be upload.
+
+%to show the clustering in action!! 
 
 
