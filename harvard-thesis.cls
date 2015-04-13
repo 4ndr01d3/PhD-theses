@@ -163,9 +163,9 @@
 	\vspace*{15pt}
 	 \textsl{Abstract} \\ \rm
 	\end{center}
-	\doublespace %Harvard registrar requests that abstract is double spaced
+	\onehalfspacing %Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
-	\doublespace %Harvard registrar requests that abstract is double spaced	
+	\onehalfspacing %Harvard registrar requests that abstract is double spaced	
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
 	\onehalfspacing
