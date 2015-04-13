@@ -113,33 +113,46 @@ Another requirement gathered during this collaboration was the need to open the 
 \section{Shotgun Analysis of Platelets From Dengue Patients}
 \label{sec:dengue}
 \subsection{Research description}
-Real research example
+In an attempt to understand better the phatogenesis of the dengue virus infection, a group of researchers from the Brazilian foundation Fiocruz have carried on a study to consider the impact of platelets during a dengue infection. Their strategy was to do a healthy v.s. infected quantification experiment using label free mass spectrometry.
 
-"To generate a protein-protein interaction map and categorize the differential express proteins according biological processes classification on the Gene Ontology (GO) databank, we use the String 9.1 software and better vizualised by PINV. In a first interaction analysis, we input all the differentially express proteins and the proteins detected in only one condition, if in at least three replicates. Therefore, 344 proteins entries were listed; in with 253 were use, inasmuch as we exclude the protein isoforms indicated by a dash in the NextProt databank identifier. ???? proteins interactions were detected (Figure 2A). After generating the network, we performed a GO analysis with the interacting proteins, searching for relevant biological processes. Interesting, the eight most statically significant biological processes arising were related to “antigen processing and presentation” pathways and drew our attention in context of the dengue pathological state. This enriched pathways, whose the general GO identifier is GO:0019882 (p-value =  2.73E-10), were identified due to the presence of 19 differentially express proteins (ACTR1A, B*15, B-3501, ENSG00000229215, HLA-A, HLA-A*2410, HLA-ABC, HLA-B, HLA-B41, NPEPPS, PSMA6, PSMD13, PSMD4, RAB32, RAB35, RPS27A, UBA52, UBB and UBC). Some of these proteins are also related to proteasome/ubiquitinylation pathways (PSMA6, PSMD13, PSMD4, RPS27A, UBA52, UBB and UBC). Indeed, other important biological processes were highlight in this analysis: “protein polyubiquitination” (GO:0000209 with p-value = 5.88E-9 and 14 related proteins); “proteasomal protein catabolic process” (GO:0010498 with p-value = 4.69E-5 and 10 related proteins); and the already expected “platelet activation” (GO:0030168 with p-value = 8.36E-9 and 15 related proteins). To confirm whether these proteins directly interact with proteins related to the “platelet activation” pathway, a new interaction map was made focusing on these specific 41 non-redundant proteins involved in three ontologies (Figure 2B)." 
+The article with the details of this research is in the publication pipeline, in the mean time we are allowed to describe some of the preliminary results and the techniques used during the project: More than three thousand proteins were identified in two conditions: control and dengue. From those, the project identified 619 proteins that are either in only one of the two condition or that are differentially expressed, and there are 167 proteins that are present in both set of samples with differentially expressed profiles.
 
-Figure \ref{fig:pinv_platelets_1}
-Figure \ref{fig:pinv_platelets_2}
+The identified proteins were then analysed in the context of their metabolic pathways by including information from the KEGG database. Similarly, the gene ontology (GO) was also considered in order to enrich the dataset with the biological functions of the identified proteins, and by using the interactions reported in STRING a PPI network dataset was built.
 
-\subsection{Impact on PINV}
-Filters and sharing
-
-http://biosual.cbio.uct.ac.za/pinViewer.html?status=67049496bf99027c6d6f3ba33a9cb77b.json
+In a first interaction analysis, all the differentially express proteins and the proteins detected in only one condition were included. Figure \ref{fig:pinv_platelets_1} is representation of the network, which has been colour coded to easily identify the class of differential expression: light blue proteins were only detected in dengue patients and yellow represents the ones only identified in the control patients, the rest of the proteins were present in patients of both conditions, but red shows the proteins with under expression on dengue samples, while green proteins were over expressed.
 
 \begin{figure}
 \centering
-\includegraphics[width=5in]{figures/pinv_platelets_1.png}
-\caption[Platelets1 ]{Platelets 1
+\includegraphics[width=\textwidth]{figures/pinv_platelets_1.png}
+\caption[PPI network of differentially expressed platelets proteins in a dengue study.]{PPI network of differentially expressed platelets proteins in a dengue study
 \label{fig:pinv_platelets_1}}
 \end{figure}
 
-http://biosual.cbio.uct.ac.za/pinViewer.html?status=c1f68787907a83e27fab70be329582ce.json
+When the functional classes from GO were considered it was found that the eight most statically significant biological processes arising were related to “antigen processing and presentation” pathways, which drew the attention of the authors in context of the dengue pathological state. Some of these proteins are also related to proteasome/ubiquitinylation pathways.
+
+To confirm whether these proteins directly interact with proteins related to the ``platelet activation'' pathway, a new interaction map was made focusing on the specific non-redundant proteins involved in the ontology terms of interest. Figure \ref{fig:pinv_platelets_2} shows the subnetwork of interactions were at least one of the proteins were annotated with GO terms that contain the text: proteasome, antigen, platelet or mithocond; colour coded in the figure by yellow, red, blue and pink.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/pinv_platelets_2.png}
-\caption[Platelets 2]{Platelets 2
+\caption[Subnetwork of the differential expressed proteins identifying the most predominant GO terms.]{Subnetwork of the differential expressed proteins in the Dengue platelets dataset, identifying the most predominant GO terms by colour.
 \label{fig:pinv_platelets_2}}
 \end{figure}
+
+\subsection{Impact on PINV}
+We collaborated with the group responsible for this research in the creation of the network files and also to select an appropriate visualisation of their finding using PINV. The network was created using the reported interaction in STRING, which we filtered to include only the interactions in between the proteins of interest, i.e. those which have been identified in the mass spectrometry experiment, this required several preprocessing including mapping of accession numbers between resources and the enrichment of the existing annotations with gene ontology data.
+
+We have documented the whole process hoping it will help future researchers with similar requirements. The git repository in \url{https://github.com/4ndr01d3/pinv-server/tree/master/data-preparation} contain the script used to create the files and explanations of the format of the required files and the logic behind the script.
+
+The figures above were created by using PINV and the web versions of them are available at \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=67049496bf99027c6d6f3ba33a9cb77b.json} for figure \ref{fig:pinv_platelets_1} and \url{http://biosual.cbio.uct.ac.za/pinViewer.html?status=c1f68787907a83e27fab70be329582ce.json} for figure \ref{fig:pinv_platelets_2}.
+
+The selection of these visualisations was a common effort between researchers of both groups, in which our peers from the Brazilian laboratory lead the process as they were familiar with the data and all the knowledge behind the dengue research, and we contributed with our experience in visualisation and the knowhow on PINV.
+
+The collaborative features of PINV demonstrated to be of great value in the communication between international groups. PINV as a native web tool does not require installation of any software besides a modern browser, which is an almost ubiquitous application included in today's computers. Moreover, PINV capability to reconstruct s view from a generated URL, supported the communication between the parts, allowing to point out the features that one group considered either important or irrelevant on a visualisation.
+
+An example of the benefits of the visualisation of these networks with PINV was exposed during this project: on a previous version of the figure \ref{fig:pinv_platelets_2}, we were not considering the GO terms related with mithocondrial processes, however when exploring the visualisation was pointed out for another collaborator of the presence of several proteins with different GO terms related with mitochondrial processes (e.g.  mitochondrion, mitochondrial inner membrane, positive regulation of mitochondrial depolarization, mitochondrial matrix), which gave another insight to the research and its biological relevance is still under consideration.
+
+
 
 \section{Analysis of potential impact of SNPs on the human PPI network and gene expression}
 \label{sec:pop_genetics}
