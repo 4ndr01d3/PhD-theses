@@ -1,4 +1,4 @@
-\begin{thebibliography}{133}
+\begin{thebibliography}{135}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -65,6 +65,13 @@ Josh Barnes and Piet Hut.
 C~Bauer and G~King.
 \newblock Java persistence with hibernate.
 \newblock \emph{Manning Publications}, November 2006.
+
+\bibitem[Bauer-Mehren et~al.(2009)Bauer-Mehren, Furlong, Rautschka, and
+  Sanz]{BAU2009}
+Anna Bauer-Mehren, Laura~I Furlong, Michael Rautschka, and Ferran Sanz.
+\newblock From snps to pathways: integration of functional effect of sequence
+  variations on models of cell signalling pathways.
+\newblock \emph{BMC bioinformatics}, 10\penalty0 (Suppl 8):\penalty0 S6, 2009.
 
 \bibitem[Belleau et~al.(2008)Belleau, Nolin, Tourigny, Rigault, and
   Morissette]{BEL2008}
@@ -883,6 +890,13 @@ Lukasz Salwinski, Christopher~S Miller, Adam~J Smith, Frank~K Pettit, James~U
 \newblock The database of interacting proteins: 2004 update.
 \newblock \emph{Nucleic acids research}, 32\penalty0 (suppl 1):\penalty0
   D449--D451, 2004.
+
+\bibitem[Sauna and Kimchi-Sarfaty(2011)]{SAU2011}
+Zuben~E Sauna and Chava Kimchi-Sarfaty.
+\newblock Understanding the contribution of synonymous mutations to human
+  disease.
+\newblock \emph{Nature Reviews Genetics}, 12\penalty0 (10):\penalty0 683--691,
+  2011.
 
 \bibitem[Schaefer et~al.(2012)Schaefer, Fontaine, Vinayagam, Porras, Wanker,
   and Andrade-Navarro]{SCH2012}
