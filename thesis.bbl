@@ -1,4 +1,4 @@
-\begin{thebibliography}{132}
+\begin{thebibliography}{133}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -446,6 +446,12 @@ Sarah Hunter, Rolf Apweiler, Teresa~K. Attwood, Amos Bairoch, Alex Bateman,
 Curtis Huttenhower, Sajid Mehmood, and Olga Troyanskaya.
 \newblock Graphle: Interactive exploration of large, dense graphs.
 \newblock \emph{BMC Bioinformatics}, 10\penalty0 (1):\penalty0 417, 2009.
+
+\bibitem[Ihaka and Gentleman(1996)]{IHA1996}
+Ross Ihaka and Robert Gentleman.
+\newblock R: a language for data analysis and graphics.
+\newblock \emph{Journal of computational and graphical statistics}, 5\penalty0
+  (3):\penalty0 299--314, 1996.
 
 \bibitem[Jacob(2010)]{JAC2010}
 Richard~J Jacob.
