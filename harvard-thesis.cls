@@ -155,13 +155,13 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{Thesis Supervisor: \@advisor} \rhead{\@author}
+	\lhead{\small Thesis Supervisor: \@advisor} \rhead{\small \@author}
 	\renewcommand{\headrulewidth}{0.0pt} 
 	\begin{center}
-	\vspace*{30pt}
+	\vspace*{14pt}
 	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
-	\vspace*{15pt}
-	 \textsl{Abstract} \\ \rm
+	%\vspace*{5pt}
+	 \large \textsl{Abstract} \\ \rm
 	\end{center}
 	\onehalfspacing %Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
