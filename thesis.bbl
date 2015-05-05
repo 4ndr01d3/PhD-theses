@@ -23,7 +23,7 @@ Giuseppe Agapito, Pietro Guzzi, and Mario Cannataro.
 \newblock URL \url{http://www.biomedcentral.com/1471-2105/14/S1/S1}.
 
 \bibitem[Akinola et~al.(2013)Akinola, Mazandu, and Mulder]{AKI2013}
-RO~Akinola, GK~Mazandu, and NJ~Mulder.
+Richard~O Akinola, Gaston~K Mazandu, and Nicola~J Mulder.
 \newblock A systems level comparison of mycobacterium tuberculosis,
   mycobacterium leprae and mycobacterium smegmatis based on functional
   interaction network analysis.
@@ -61,8 +61,8 @@ Josh Barnes and Piet Hut.
 \newblock \emph{Nature}, 324\penalty0 (6096):\penalty0 446--449, 12 1986.
 \newblock URL \url{http://dx.doi.org/10.1038/324446a0}.
 
-\bibitem[Bauer and King(2006)]{BAU2006}
-C~Bauer and G~King.
+\bibitem[Bauer et~al.(2006)Bauer, King, and Gregory]{BAU2006}
+Christian Bauer, Gavin King, and Gary Gregory.
 \newblock Java persistence with hibernate.
 \newblock \emph{Manning Publications}, November 2006.
 
@@ -82,7 +82,7 @@ Fran{\c{c}}ois Belleau, Marc-Alexandre Nolin, Nicole Tourigny, Philippe
   706--716, 2008.
 
 \bibitem[Bostock et~al.(2011)Bostock, Ogievetsky, and Heer]{BOS2011}
-M.~Bostock, V.~Ogievetsky, and J.~Heer.
+Michael Bostock, Vadim Ogievetsky, and Jeffrey Heer.
 \newblock D3; data-driven documents.
 \newblock \emph{Visualization and Computer Graphics, IEEE Transactions on},
   17\penalty0 (12):\penalty0 2301--2309, 2011.
@@ -531,7 +531,8 @@ Thomas Kelder, Martijn~P van Iersel, Kristina Hanspers, Martina Kutmon, Bruce~R
 
 \bibitem[Kent et~al.(2010)Kent, Zweig, Barber, Hinrichs, and
   Karolchik]{KEN2010}
-W.~J. Kent, A.~S. Zweig, G.~Barber, A.~S. Hinrichs, and D.~Karolchik.
+William~J. Kent, Ann~S. Zweig, Galt~P. Barber, Angie~S. Hinrichs, and Donna
+  Karolchik.
 \newblock Bigwig and bigbed: enabling browsing of large distributed datasets.
 \newblock \emph{Bioinformatics}, 26\penalty0 (17):\penalty0 2204--2207, 2010.
 \newblock \doi{10.1093/bioinformatics/btq351}.
@@ -845,14 +846,14 @@ Rintaro Saito, Michael~E Smoot, Keiichiro Ono, Johannes Ruscheinski, Peng-Liang
 \newblock \emph{Nature methods}, 9\penalty0 (11):\penalty0 1069--1076, 2012.
 
 \bibitem[Salazar et~al.(2010)Salazar, Mulder, and Blake]{SAL2010}
-Gustavo Salazar, Nicola Mulder, and Edwin Blake.
+Gustavo~A. Salazar, Nicola~J Mulder, and Edwin Blake.
 \newblock {DAS Writeback: A Collaborative Annotation System}.
 \newblock Master's thesis, University of Cape Town, 2010.
 \newblock URL \url{http://pubs.cs.uct.ac.za/archive/00000609/}.
 
 \bibitem[Salazar et~al.(2011)Salazar, Jimenez, Garcia, Hermjakob, Mulder, and
   Blake]{SAL2011}
-Gustavo Salazar, Rafael Jimenez, Alexander Garcia, Henning Hermjakob, Nicola
+Gustavo~A. Salazar, Rafael Jimenez, Alexander Garcia, Henning Hermjakob, Nicola
   Mulder, and Edwin Blake.
 \newblock Das writeback: A collaborative annotation system.
 \newblock \emph{BMC Bioinformatics}, 12\penalty0 (1):\penalty0 143, 2011.
@@ -863,14 +864,14 @@ Gustavo Salazar, Rafael Jimenez, Alexander Garcia, Henning Hermjakob, Nicola
 \bibitem[Salazar et~al.(2012)Salazar, Garc{\'\i}a, Jones, Jimenez, Quinn,
   Jenkinson, Mulder, Martin, Hunter, and Hermjakob]{SAL2012}
 Gustavo~A. Salazar, Leyla~J. Garc{\'\i}a, Philip Jones, Rafael~C. Jimenez,
-  Antony~F. Quinn, Andrew~M. Jenkinson, Nicola Mulder, Maria Martin, Sarah
+  Antony~F. Quinn, Andrew~M. Jenkinson, Nicola~J Mulder, Maria Martin, Sarah
   Hunter, and Henning Hermjakob.
 \newblock Mydas, an extensible java das server.
 \newblock \emph{PLoS ONE}, 2012.
 
 \bibitem[Salazar et~al.(2014{\natexlab{a}})Salazar, Meintjes, Mazandu,
   Rapano{\"e}l, Akinola, and Mulder]{SAL2014pinv}
-Gustavo~A Salazar, Ayton Meintjes, Gaston Mazandu, Holifidy~A Rapano{\"e}l,
+Gustavo~A. Salazar, Ayton Meintjes, Gaston Mazandu, Holifidy~A Rapano{\"e}l,
   Richard~O Akinola, and Nicola~J Mulder.
 \newblock A web-based protein interaction network visualizer.
 \newblock \emph{BMC bioinformatics}, 15\penalty0 (1):\penalty0 129,
@@ -878,7 +879,7 @@ Gustavo~A Salazar, Ayton Meintjes, Gaston Mazandu, Holifidy~A Rapano{\"e}l,
 
 \bibitem[Salazar et~al.(2014{\natexlab{b}})Salazar, Meintjes, and
   Mulder]{SAL2014}
-Gustavo~A. Salazar, Ayton Meintjes, and Nicola Mulder.
+Gustavo~A. Salazar, Ayton Meintjes, and Nicola~J Mulder.
 \newblock Ppi layouts: Biojs components for the display of protein-protein
   interactions [v1; ref status: awaiting peer review, http://f1000r.es/2u5].
 \newblock \emph{F1000Research}, 3-50, 2014{\natexlab{b}}.
