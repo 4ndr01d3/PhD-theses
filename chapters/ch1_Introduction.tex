@@ -419,7 +419,7 @@ There is another strategy for genome browsing, which takes advantage of the feat
 
 However, in \cite{SKI2009} the authors of JBrowse present a benchmarking experiment, where the two approaches are tested. The results of the experiment show better response times in the case where they used HTML elements. Besides the performance, the 'tiles' approach requires a lot more storage space in order to have all the tiles pre-calculated, moreover, the approach complicates the desirable features of including third-party sources because it might need to pre-process the entire source to create the tiles.
 
-A similar project to JBrowse is Dalliance, a Web-based Genome Viewer developed using the HTML5 capabilities to manipulate SVG elements. It also requires a modern web browser (Firefox 3.6+, Chrome 5+, Safari+). Dalliance takes advantage of the DAS architecture in order to allow the users to put custom data in the context of reference genomes. As with other genome browsers mentioned above, it supports the interaction with BAM files and other NGS related formats \cite{DOW2011}. 
+A similar project to JBrowse is Dalliance, a Web-based Genome Viewer developed using the HTML5 capabilities to manipulate Scalable Vector Graphic (SVG) elements. It also requires a modern web browser (Firefox 3.6+, Chrome 5+, Safari+). Dalliance takes advantage of the DAS architecture in order to allow the users to put custom data in the context of reference genomes. As with other genome browsers mentioned above, it supports the interaction with BAM files and other NGS related formats \cite{DOW2011}. 
 
 Similarly MyKaryoView uses DAS in order to include other sources, this tool places special emphasis on the display of personal genome data in context with well known data sources \cite{JIM2011}.
 
@@ -485,6 +485,8 @@ In most of the protocols, each of the gels can have other variables associated w
 
 The problem is that common visualisation techniques (e.g. box plots, scatter plots) are usually not sufficient, because the number of variables (spots) to include is too high (in the order of hundreds), and therefore multivariable techniques that combine statistical methods and visualisation tools are required at this stage.
 
+There are several multivariate analysis techniques that consider the composite contributions of multiple parameters to better describe data and infer values that are not included in the original dataset.
+
 Principal Components Analysis (PCA) has become the preferred technique in 2D PAGE, because it offers a good and unbiased view of a dataset along the subspace where most variation occurs. PCA looks for a 2D or 3D representation of the data where the axes are the principal components PC (hence its name) that most effectively contribute to determine the variance of the data. A PC is not a single variable but rather a projection of the combination of several, and the result of a PCA gives the contribution of each of the variables to each PC.
 
 Figure \ref{fig:PCA}, which was originally published in \cite{SIL2014}, serves as an example of the visualisation of the results of a PCA on a data set in which two treatments (``A'' and ``B'') were compared with biological samples being taken at three time-points: 0h, 6h and 48h; colour-coded as light grey, dark grey and black respectively. There is a clear division of two groups. In a 2D PAGE experiment, it is common to select the spots to analyse further by studying the variable contribution on each PC.
@@ -509,7 +511,7 @@ The workflow to analyse MS/MS results is described in figure \ref{fig:ms_workflo
 
 The mass spectra data of each peptide is used to try to identify the protein which usually involves searching for similar mass spectra of known (or hypothetical) peptides; followed by a validation step, and then the inference of the target protein is calculated.
 
-The subsequent stages in the workflow are dependant on the nature of the experiment (e.g. requires quantification because it is a comparison of control v.s. sample) or the setup of the laboratory (e.g. it uses a Laboratory Information Management System LIMS, or not). \cite{DEU2008} includes a more complete description of this workflow and the most well-known software tools associated with each step.
+The subsequent stages in the workflow are dependant on the nature of the experiment (e.g. requires quantification because it is a comparison of control v.s. sample) or the setup of the laboratory (e.g. it uses a Laboratory Information Management System LIMS, or not). \emph{Deutsch et al.}, includes a more complete description of this workflow and the most well-known software tools associated with each step \cite{DEU2008}.
 
 \begin{figure}  
 \centering
@@ -549,7 +551,7 @@ Quantitive proteomics datasets are composed of two parts in Rover: peptide ident
 \label{fig:rover}}
 \end{figure}
 
-Once the data has been successfully loaded into Rover, a high level view of it is presented to the user so they can choose and validate the set of proteins proteins automatically selected based in their peptide ratio. 
+Once the data has been successfully loaded into Rover, a high level view of it is presented to the user so they can choose and validate the set of proteins automatically selected based in their peptide ratio. 
 
 Figure \ref{fig:rover} shows a snapshot of the main interface of Rover. It displays protein and peptide information as follows: on the left side there is a panel displaying all the proteins that are part of the experiments; glyphs are used to indicate if the protein is selected (thumbs up) or not (thumbs down), and it is colour coded, the protein is green if validated or red if not validated. The top of the screen is the protein bar, where the peptides are drawn proportionally over a rectangle that represents the whole protein. The centre of the window is then divided again: the left side offers general information on the selected proteins and the right side displays the ratio distribution graph, where the selected protein and its ratios are shown in comparison to the reference set, using either the intrinsic distribution of the data or transforming the data to use the Huber distribution, which can provide a new perspective on the analysed data \cite{COL2010}.
 
@@ -583,7 +585,7 @@ In terms of visualisation, the Bioconductor repository had 218 packages listed w
 
 
 \paragraph{Chipster}
-Chipster is a software suite that includes many of the most frequently used software tools for the analysis and visualisation of microarray data and other high throughput experiments. It has a client-server architecture where the client is a graphical oriented interface that allows not only the display of, but also interaction with visualisations. The server on the other hand is oriented to the execution and administration of the tools that a particular Chipster installation offers.
+Chipster is a software suite that includes many of the most frequently used software tools for the analysis and visualisation of microarray data and other high throughput experiments \cite{KAL2011}. It has a client-server architecture where the client is a graphical oriented interface that allows not only the display of, but also interaction with visualisations. The server on the other hand is oriented to the execution and administration of the tools that a particular Chipster installation offers.
 
 Chipster extensively supports the Bioconductor package, allowing the editing of scripts to include functionalities from the R package. Other tools can also be imported to Chipster, however only those written in Bioconductor can be edited through Chipster.
 
@@ -644,7 +646,7 @@ The list below was identified in \cite{AGA2013} as the main requirements for the
         \item Integration of heterogeneous data sources, e.g. functional information about proteins extracted from biological ontologies.
 \end{itemize}
 
-There are several tools that allow the exploration of PPI data, providing different methods to visualize protein network interactions. \cite{AGA2013} evaluates some of them by considering the requirements above. Other surveys can be found in the literature where comparisons and descriptions of several PPI tools are included \cite{SUD2007, PAV2008, GEH2010}. Below, we describe some of these and in section \ref{section:pinv} we explore in detail PINV, the web based PPI visualisation tool we developed. 
+There are several tools that allow the exploration of PPI data, providing different methods to visualize protein network interactions. \emph{Agapito et al.}, evaluates some of them by considering the requirements above \cite{AGA2013}. Other surveys can be found in the literature where comparisons and descriptions of several PPI tools are included \cite{SUD2007, PAV2008, GEH2010}. Below, we describe some of these and in section \ref{section:pinv} we explore in detail PINV, the web based PPI visualisation tool we developed. 
 
 \subsubsection{STRING}
 STRING is a repository for PPI data that includes both primary and computationally predicted interactions. It differentiates itself from other resources such as those mentioned above in three ways: coverage (more than 2000 organisms), the inclusion of text mining data, and the metadata linked to the interactions (e.g. protein domains and structures) \cite{FRA2013}.
@@ -706,7 +708,7 @@ The online version of Graphle \cite{HUT2009} is limited to graphs generated by b
 
 Another alternative is Cytoscape Web \cite{LOP2010}. Its introductory tutorial (\url{http://cytoscapeweb.cytoscape.org/tutorial}) requires users to code in JavaScript indicating that this tool is mainly intended for developers to display networks on the web, and not for the scientist who has a network to visualize. Cytoscape Web also uses Adobe Flash for the generation of the graphics. A more recent development is Cytoscape.js (\url{http://cytoscape.github.io/cytoscape.js/}), which uses the HTML5 component called canvas, and therefore its only dependency is a modern web browser. The principles behind this project is to offer a modern web toolset to display interactions. Similarly to its predecessor, Cytoscape.js is a library for programmers, and is intended to be a complement to the Cytoscape Desktop.
 
-A native web application that supports the visualisation of networks and is intended for non-programmer users is Pclust. Its objective however is not the visualisation of PPI networks. Pclust is a tool that assists in the inference of functions of new proteins from their homologs, using a technique known as all-against-all pairwise similarity. The network is built by looking for similar functionality between proteins. The set of proteins can be either entered by the user or detected by executing a BLAST (Basic Local Alignment Search Tool) against the non-redundant (NR) database. The resulting network is then enriched with related literature through the Seq2Red server (\url{http://prodata.swmed.edu/seq2ref/}). The visualised network creates clusters of proteins with similar functionalities. Proteins with references are highlighted, which helps to solve ambiguities in the deduced functions \cite{Li2013}.
+A native web application that supports the visualisation of networks and is intended for non-programmer users is Pclust. Its objective however is not the visualisation of PPI networks. Pclust is a tool that assists in the inference of functions of new proteins from their homologs, using a technique known as all-against-all pairwise similarity. The network is built by looking for similar functionality between proteins. The set of proteins can be either entered by the user or detected by executing a BLAST (Basic Local Alignment Search Tool) against the non-redundant (NR) database. The resulting network is then enriched with related literature through the Seq2Ref server (\url{http://prodata.swmed.edu/seq2ref/}). The visualised network creates clusters of proteins with similar functionalities. Proteins with references are highlighted, which helps to solve ambiguities in the deduced functions \cite{Li2013}.
 
 
 \subsection{Discussion} \label{sec:intro-discusion}

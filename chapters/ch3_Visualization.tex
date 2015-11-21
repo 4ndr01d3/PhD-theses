@@ -411,7 +411,7 @@ Figure \ref{fig:pinv}-B displays a snapshot of the interactions for proteins O53
 
 The second layout organises the proteins in a circle positioning all the nodes around the edge without favouring any of them. This can help to visually emphasise connection patterns around the network as shown in (Figure \ref{fig:pinv}-C). In this view, the interactions of a single protein are highlighted when the user hovers over the node. As in the network layout, the proteins are separated to clearly indicate the organism to which they belong. The user can choose to sort the proteins around the circle by any of the protein features.
 
-Figure \ref{fig:pinv_heatmap} displays the same query as in figure \ref{fig:pinv} using the heat map component. In this representation, the focus is on the interactions between proteins -the proteins involved are shown on the axes of the heat map. This visualisation offers the possibility to compare the features of the two proteins involved in an interaction.
+Figure \ref{fig:pinv_heatmap} displays the same query as in figure \ref{fig:pinv} using the heat map component. In this representation, the focus is on the interactions between proteins. The proteins involved are shown on the axes of the heat map. This visualisation offers the possibility to compare the features of the two proteins involved in an interaction.
 
 \begin{figure}[ht]
 \centering
@@ -423,7 +423,7 @@ Figure \ref{fig:pinv_heatmap} displays the same query as in figure \ref{fig:pinv
 
 Lastly, there is the table view where the raw data is displayed and can be reorganised. This is particularly useful for queries that return too many results and require post-filtering to select the proteins of interest.
 
-The visualisation of the layout can be exported at any time into SVG or PNG format, and the data in the table is exportable to a CSV file.
+The visualisation of the layout can be exported at any time into SVG or PNG format, and the data in the table is exportable to a Comma Separated Values (CSV) file.
 
 Manipulation of any of the three display options is achieved with a single component (Figure \ref{fig:pinv}-D) that allows the creation of rules. The rationale behind this component is that by specifying a target (protein or interactions), a condition to filter by (e.g., protein with functional class X, interactions with protein Y), and an action (e.g., paint green, show label) it is possible to manipulate a wider set of network elements with less input from the user. For example, Figures \ref{fig:pinv}-B and C show all the proteins painted in different colours depending on their functional class. The legend on the right lists the functional classes and the corresponding colours used in the graphic. A second rule was created in the example to display the gene name at the side of proteins with more than 2 interactions. Right clicking on a protein in the graphic will open a context menu that allows the quick creation of rules that only apply to the selected protein. 
 
