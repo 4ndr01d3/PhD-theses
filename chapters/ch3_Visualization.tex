@@ -535,6 +535,33 @@ The performance of Cytoscape notably exceeded PINV when dealing with a network o
 
 We are aware that PINV will struggle to display the 165,000 interactions of the network. However, the strategy of only visualizing by request and the use of prefilters  allows the user to navigate the network by limiting the graphic to the interactions of interest. In contrast, Cytoscape web does not provide tools to explore a large dataset and requires the use of the stand-alone application (or other software) in order to filter and create a subnetwork.
 
+\begin{table}[!ht]
+\centering
+        \begin{tabular}{| l | l | l | l | l | l | l |}
+\hline \rowcolor{table_header}
+\emph{feature} & \emph{PINV} & \emph{Graphle} & \emph{STRING} & \emph{VisANT} & \emph{Cytoscape Web} & \emph{Cytoscape JS}\\
+\hline \rowcolor{row_odd}
+Type & Application & Application & Component & Application & Library & Library\\
+\hline \rowcolor{row_even}
+Technology & HTML5 & Java & Flash & Java & Flash & HTML5\\
+\hline \rowcolor{row_odd}
+In-house data & Yes & Yes & Yes & Yes & No & No\\
+\hline \rowcolor{row_even}
+User's data & Yes & No & Yes & Yes & Yes & Yes\\
+\hline \rowcolor{row_odd}
+Multiple Layouts & Yes & Yes & No & Yes & Yes & Yes\\
+\hline \rowcolor{row_even}
+Share Network & By URL & No & No & By File & By File & By File\\
+\hline \rowcolor{row_odd}
+Open Source & Yes & Yes & No & Yes* & Yes & Yes\\
+\hline \rowcolor{row_even}
+Latest Release & 2015 & 2008 & 2015 & 2015 & 2011 & 2015\\
+\hline 
+        \end{tabular}
+        \caption{General features of web protein interaction viewers. *Requires login}
+        \label{tab:int_viewers}
+\end{table}
+
 
 \subsection{Spatial Clustering} \label{section:clustering}
 A poster presenting the first version of PINV was introduced at the South African conference in bioinformatics in September 2012, which we consider as the release date of the tool. Many features have been included since those early days: the pre-filters, the different modes to query, the heat map view, the sharing capabilities and many small improvements and bug fixes, which we hope have contributed to creating a better software product.

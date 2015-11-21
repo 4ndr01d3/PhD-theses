@@ -85,6 +85,7 @@
 \definecolor{chaptergrey}{rgb}{0.6,0,0}
 \RequirePackage{titling}
 \RequirePackage{setspace} 
+\RequirePackage{colortbl}
 \RequirePackage{booktabs} % for much better looking tables
 \RequirePackage[labelfont={sf,bf,small},textfont={sf,small},justification=RaggedRight,margin=0pt, figurewithin=section, tablewithin=section]{caption}
 \onehalfspacing
@@ -244,6 +245,11 @@
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
 \definecolor{bggray}{rgb}{0.95,0.95,0.95}
 \definecolor{darkred}{rgb}{0.5,0.1,0.1}
+
+%colors for tables
+\definecolor{table_header}{rgb}{0.69,0.76,0.86}
+\definecolor{row_even}{rgb}{.95,.96,1}
+\definecolor{row_odd}{rgb}{.97,.98,1}
 
  \lstdefinelanguage{XML}
 {
