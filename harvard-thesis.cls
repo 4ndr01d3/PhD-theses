@@ -249,7 +249,7 @@
 %colors for tables
 \definecolor{table_header}{rgb}{0.69,0.76,0.86}
 \definecolor{row_even}{rgb}{.95,.96,1}
-\definecolor{row_odd}{rgb}{.97,.98,1}
+\definecolor{row_odd}{rgb}{.98,.99,1}
 
  \lstdefinelanguage{XML}
 {
